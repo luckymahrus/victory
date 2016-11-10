@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Victory !</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap.min.css">
@@ -112,13 +112,13 @@
           <ul class="nav navbar-nav" role="menu">
             
             <li style="width: 12%;">
-              <a href="<?php echo base_url('main') ?>" id="home" class="menu-a text-center"><i class="fa fa-home fa-3x" aria-hidden="true"></i><p class="segoe">Home</p>
+              <a href="<?php echo base_url('main') ?>" id="home" class="menu-a text-center"><i class="fa fa-home fa-2x" aria-hidden="true"></i><p class="segoe">Home</p>
               </a>
             </li>
             
             <!--Transactions-->
             <li class="dropdown yamm-fw">
-              <a href="#" class="dropdown-toggle menu-a text-center" data-toggle="dropdown" id="trans"><i class="fa fa-money fa-3x" aria-hidden="true"></i><p class="segoe">Transactions</p></a>
+              <a href="#" class="dropdown-toggle menu-a text-center" data-toggle="dropdown" id="trans"><i class="fa fa-money fa-2x" aria-hidden="true"></i><p class="segoe">Transactions</p></a>
               
               <div class="dropdown-menu yamm-content">
                 <div class="row" style="padding-top: 35px; padding-bottom: 35px;">
@@ -185,17 +185,17 @@
 
             <!--Inventories-->
             <li class="dropdown yamm-fw">
-              <a href="#" class="dropdown-toggle menu-a text-center" data-toggle="dropdown" id="invent"><i class="fa fa-dropbox fa-3x" aria-hidden="true"></i><p class="segoe">Inventory</p></a>
+              <a href="#" class="dropdown-toggle menu-a text-center" data-toggle="dropdown" id="invent"><i class="fa fa-dropbox fa-2x" aria-hidden="true"></i><p class="segoe">Inventory</p></a>
               <div class="dropdown-menu yamm-content">
                 <div class="row">
                   <div class="col-md-4">
-                    <a href="<?php echo base_url('products') ?>" ><i id="template-button" class="fa fa-archive fa-3x" aria-hidden="true"></i><span><p class="segoe">Produk</p></span></a>
+                    <a href="<?php echo base_url('products') ?>" ><i id="template-button" class="fa fa-archive fa-2x" aria-hidden="true"></i><span><p class="segoe">Produk</p></span></a>
                   </div>
                   <div class="col-md-4">
                     <a href="<?php echo base_url('products/all_category') ?>" ><span class="glyphicon glyphicon-tags" aria-hidden="true"></span><span>Kategori</span></a>
                   </div>
                   <div class="col-md-4">
-                    <a href="<?php echo base_url('mutasi') ?>" ><span class="fa fa-institution fa-3x" aria-hidden="true"></span><span>Mutasi</span></a>
+                    <a href="<?php echo base_url('mutasi') ?>" ><span class="fa fa-institution fa-2x" aria-hidden="true"></span><span>Mutasi</span></a>
                   </div>
                 </div>
               </div>
@@ -204,11 +204,11 @@
 
             <!--Outlet/Sales-->
             <li class="dropdown yamm-fw">
-              <a href="#" class="dropdown-toggle menu-a text-center" data-toggle="dropdown" id="outlet"><i class="fa fa-male fa-3x" aria-hidden="true"></i><p class="segoe">Outlet/Sales</p></a>
+              <a href="#" class="dropdown-toggle menu-a text-center" data-toggle="dropdown" id="outlet"><i class="fa fa-male fa-2x" aria-hidden="true"></i><p class="segoe">Outlet/Sales</p></a>
               <div class="dropdown-menu yamm-content">
                 <div class="row">
                     <div class="col-md-3">
-                      <a href="<?php echo base_url('customers') ?>" ><span class="fa fa-users fa-3x" aria-hidden="true"></span><span>Customer</span></a>
+                      <a href="<?php echo base_url('customers') ?>" ><span class="fa fa-users fa-2x" aria-hidden="true"></span><span>Customer</span></a>
                     </div>
                     <div class="col-md-3">
                       <a href="<?php echo base_url('outlets') ?>" ><span class="glyphicon glyphicon-tags" aria-hidden="true"></span><span>Outlets</span></a>
@@ -217,7 +217,7 @@
                       <a href="<?php echo base_url('drivers') ?>" ><span class="fa fa-car fa-3x" aria-hidden="true"></span><span>Driver</span></a>
                     </div>
                     <div class="col-md-3">
-                      <a href="<?php echo base_url('supplier') ?>" ><span class="fa fa-users fa-3x" aria-hidden="true"></span><span>Supplier</span></a>
+                      <a href="<?php echo base_url('supplier') ?>" ><span class="fa fa-users fa-2x" aria-hidden="true"></span><span>Supplier</span></a>
                     </div>
                 </div>
               </div>
@@ -226,7 +226,7 @@
 
             <!--Contacts-->
             <li class="dropdown yamm-fw">
-              <a href="#" class="dropdown-toggle menu-a text-center" data-toggle="dropdown" id="contact"><i class="fa fa-phone fa-3x" aria-hidden="true"></i><p class="segoe">Contacts</p></a>
+              <a href="#" class="dropdown-toggle menu-a text-center" data-toggle="dropdown" id="contact"><i class="fa fa-phone fa-2x" aria-hidden="true"></i><p class="segoe">Contacts</p></a>
               <div class="dropdown-menu yamm-content">
                 <div class="row">
                     <div class="col-md-3">
@@ -248,7 +248,7 @@
 
             <!--Configuration-->
             <li class="dropdown yamm-fw">
-              <a href="#" class="dropdown-toggle menu-a text-center" data-toggle="dropdown" id="configuration"><i class="fa fa-gear fa-3x" aria-hidden="true"></i><p class="segoe">Contacts</p></a>
+              <a href="#" class="dropdown-toggle menu-a text-center" data-toggle="dropdown" id="configuration"><i class="fa fa-gear fa-2x" aria-hidden="true"></i><p class="segoe">Contacts</p></a>
               <div class="dropdown-menu yamm-content">
                 <div class="row">
                     <div class="col-md-3">
