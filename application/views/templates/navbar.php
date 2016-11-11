@@ -54,8 +54,8 @@
         background-color:#fff;
         overflow-x: hidden;
         overflow-y: scroll;
-        -webkit-box-shadow: 0 7px 10px 0 #9E9E9E;
-        box-shadow: 0 7px 10px 0 #9E9E9E;
+        -webkit-box-shadow: 0 5px 10px 0 #9E9E9E;
+        box-shadow: 0 5px 10px 0 #9E9E9E;
         transition: 0.2s;
       }
       .overlay-content{
@@ -69,11 +69,12 @@
         border-right: 1px solid #CAFCD8;
       }
       .navbar-nav>li:hover{
+
         background-color: #91e9e0;
         -webkit-transition: all 0.3s ease-in;
         -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
-      }
+
       .navbar-nav>li>a{
         color: white !important;
       }
@@ -86,15 +87,17 @@
         text-transform: uppercase;
       }
       .buka{
+
         background-color: #FFFFFF !important;
         -webkit-transition: all 0.3s ease-in;
         -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
       }
       .buka a:visited{
-        color: #04BFBF !important;
+          color: #04BFBF !important;
+        background-color: #FFFFFF;
         -webkit-transition: all 0.3s ease-in;
-        -moz-transition: all 0.3s ease-in;        
+        -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
       }
     </style>
@@ -122,7 +125,7 @@
               <li><a href="<?php echo base_url('formula/home') ?>" ><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> Transaksi</a>
 
-                  <div class="container-fluid overlay">
+                  <div class="container overlay">
                     <div class="overlay-content">
                       <div style="margin:0 5%">
                       <div class="tile-group triple" >
@@ -190,6 +193,7 @@
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-dropbox" aria-hidden="true"></i> Inventory</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
+                      <div style="margin-left: 8%">
                       <div class="tile-group">
                         <span class="tile-group-title">Inventory</span>
                         <div class="tile-container">
@@ -209,6 +213,7 @@
                             <div class="tile-content iconic"><span class="icon mif-shopping-basket mif-ani-bounce mif-ani-fast"></span><span class="tile-label">Daftar Baki</span></div>
                           </div>
                         </div>
+                      </div>
                       </div>
                     </div>
                   </div>
