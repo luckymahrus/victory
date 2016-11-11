@@ -101,12 +101,67 @@
                   
               </li>
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> Transaksi</a>
+
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <div class="tile-small bg-cyan fg-white">
-                        <div class="tile-content iconic">
-                          <span class="icon fa fa-dropbox"></span>
-                        </div>
+                      
+                      <div class="tile-group triple">
+                        <span class="tile-group-title">Penjualan</span>
+                          <div class="tile-container">
+                              <div class="tile-large fg-white" data-role="tile" style="background-color: #734ACC">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-coins mif-ani-slow mif-ani-bounce"></span>
+                                  <span class="tile-label">Daftar Penjualan</span>
+                                </div>
+                              </div>
+                              <div class="tile fg-white" data-role="tile" style="background-color: #905CFF">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-plus"></span>
+                                  <span class="tile-label">Penjualan Baru</span>
+                                </div>
+                              </div>    
+                              <div class="tile fg-white" data-role="tile" style="background-color:  #4383E8">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-checkmark"></span>
+                                  <span class="tile-label">Booking Baru</span>
+                                </div>
+                              </div>    
+                              <div class="tile-wide tile-big-x fg-white" data-role="tile" style="background-color: #3466B5">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-clipboard mif-ani-slow mif-ani-heartbeat"></span>
+                                  <span class="tile-label">Daftar Booking</span>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="tile-group triple">
+                          <span class="tile-group-title">Pembelian</span>
+                          <div class="tile-container">
+                              <div class="tile-wide tile-big-y fg-white" data-role="tile" style="background-color: #3AB2A5">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-file-text mif-ani-slow mif-ani-vertical"></span>
+                                  <span class="tile-label">Daftar Pembelian</span>
+                                </div>
+                              </div>
+                              <div class="tile fg-white" data-role="tile" style="background-color: #3DBD8B">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-plus"></span>
+                                  <span class="tile-label">Beli Emas</span>
+                                </div>
+                              </div>    
+                              <div class="tile fg-white" data-role="tile" style="background-color: #4DF0B0">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-plus"></span>
+                                  <span class="tile-label">Beli Diamond</span>
+                                </div>
+                              </div>    
+                              <div class="tile fg-white" data-role="tile" style="background-color: #4AE5D4">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-plus"></span>
+                                  <span class="tile-label">Beli Perhiasan</span>
+                                </div>
+                              </div>
+                          </div>
                       </div>
                     </div>
                   </div>
@@ -114,10 +169,10 @@
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-dropbox" aria-hidden="true"></i> Inventory</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <div class="tile-group triple">
+                      <div class="tile-group">
                         <span class="tile-group-title">Inventory</span>
                         <div class="tile-container">
-                          <div class="tile tile-wide-y bg-amber fg-white" data-role="title">
+                          <div class="tile-large tile-big-y bg-amber fg-white" data-role="title">
                             <div class="tile-content iconic"><span class="icon mif-list"></span><span class="tile-label">Daftar Barang</span></div>
                           </div>
                           <div class="tile-wide bg-red fg-white" data-role="title">
@@ -129,7 +184,7 @@
                           <div class="tile bg-crimson fg-white" data-role="title">
                             <div class="tile-content iconic"><span class="icon fa fa-check-square-o"></span><span class="tile-label">Terima</span></div>
                           </div>
-                          <div class="tile tile-big-x bg-lightRed fg-white" data-role="title">
+                          <div class="tile tile-super-x bg-lightRed fg-white" data-role="title">
                             <div class="tile-content iconic"><span class="icon mif-shopping-basket mif-ani-bounce mif-ani-fast"></span><span class="tile-label">Daftar Baki</span></div>
                           </div>
                         </div>
@@ -137,11 +192,11 @@
                     </div>
                   </div>
               </li>
-              <li><a href="#" onclick="openNav(this)"><i class="fa fa-square" aria-hidden="true"></i> Outlets</a>
+              <li><a href="#" onclick="openNav(this)"><span class="icon mif-shop"></span> Outlets</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
                       <div class="tile-group triple">
-                        <div class="tile-group-title">Outlets</div>
+                        <div class="tile-group-title">Outlet</div>
                         <div class="tile-container">
                           <div class="tile-large bg-lime fg-white" data-role="title">
                             <div class="tile-content iconic"><span class="icon mif-shop mif-ani-shake"></span><span class="tile-label">Daftar Outlet</span></div>
