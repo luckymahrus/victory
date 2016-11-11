@@ -101,11 +101,11 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
                   
               </li>
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> Transaksi</a>
-                  <div class="overlay">
+                  <div class="container-fluid overlay">
                     <div class="overlay-content">
                       <div class="tile-small bg-cyan fg-white">
                         <div class="tile-content iconic">
-                          <span class="icon mif-cogs"></span>
+                          <span class="icon mif-envelop mif-ani-spanner"></span>
                           
                           
                         </div>
