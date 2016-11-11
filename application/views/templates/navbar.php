@@ -74,7 +74,7 @@
         -webkit-transition: all 0.3s ease-in;
         -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
-
+      }
       .navbar-nav>li>a{
         color: white !important;
       }
