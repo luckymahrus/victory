@@ -51,11 +51,11 @@
         z-index: 1;
         left: 0;
         top: 50px;
-        background-color:#FFF;
+        background-color:#ccc;
         overflow-x: hidden;
         overflow-y: hidden;
         -webkit-box-shadow: 0 5px 10px 0 #9E9E9E;
-box-shadow: 0 5px 10px 0 #9E9E9E;
+        box-shadow: 0 5px 10px 0 #9E9E9E;
         transition: 0.2s;
       }
       .overlay-content{
@@ -106,8 +106,6 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
                       <div class="tile-small bg-cyan fg-white">
                         <div class="tile-content iconic">
                           <span class="icon fa fa-dropbox"></span>
-                          
-                          
                         </div>
                       </div>
                     </div>
@@ -116,14 +114,49 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-dropbox" aria-hidden="true"></i> Inventory</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <p>Inventory</p>
+                      <div class="tile-group triple">
+                        <span class="tile-group-title">Inventory</span>
+                        <div class="tile-container">
+                          <div class="tile tile-wide-y bg-amber fg-white" data-role="title">
+                            <div class="tile-content iconic"><span class="icon mif-list"></span><span class="tile-label">Daftar Barang</span></div>
+                          </div>
+                          <div class="tile-wide bg-red fg-white" data-role="title">
+                            <div class="tile-content iconic"><span class="icon mif-search"></span><span class="tile-label">Stok Opnam</span></div>
+                          </div>
+                          <div class="tile bg-orange fg-white" data-role="title">
+                            <div class="tile-content iconic"><span class="icon mif-truck mif-ani-pass"></span><span class="tile-label">Kirim</span></div>
+                          </div>
+                          <div class="tile bg-crimson fg-white" data-role="title">
+                            <div class="tile-content iconic"><span class="icon fa fa-check-square-o"></span><span class="tile-label">Terima</span></div>
+                          </div>
+                          <div class="tile tile-big-x bg-lightRed fg-white" data-role="title">
+                            <div class="tile-content iconic"><span class="icon mif-shopping-basket mif-ani-bounce mif-ani-fast"></span><span class="tile-label">Daftar Baki</span></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
               </li>
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-square" aria-hidden="true"></i> Outlets</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <p>Outlet</p>
+                      <div class="tile-group triple">
+                        <div class="tile-group-title">Outlets</div>
+                        <div class="tile-container">
+                          <div class="tile-large bg-lime fg-white" data-role="title">
+                            <div class="tile-content iconic"><span class="icon mif-shop mif-ani-shake"></span><span class="tile-label">Daftar Outlet</span></div>
+                          </div>
+                          <div class="tile bg-green fg-white" data-role="title">
+                            <div class="tile-content iconic"><span class="icon mif-user-plus"></span><span class="tile-label">Sales Baru</span></div>
+                          </div>
+                          <div class="tile bg-emerald fg-white" data-role="title">
+                            <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Toko Baru</span></div>
+                          </div>
+                          <div class="tile tile-big-x bg-darkEmerald fg-white" data-role="title">
+                            <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Daftar Sales</span></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
               </li>
@@ -137,7 +170,31 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-cog" aria-hidden="true"></i> Konfigurasi</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <p>Konfigurasi</p>
+                      <div class="tile-group double">
+                        <div class="tile-group-title">Konfigurasi</div>
+                        <div class="tile-container">
+                          <div class="tile bg-darkEmerald fg-white" data-role="title">
+                            <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Gold</span></div>
+                          </div>
+                          <div class="tile bg-darkEmerald fg-white" data-role="title">
+                            <div class="tile-content iconic"><span class="icon fa fa-diamond"></span><span class="tile-label">Diamond</span></div>
+                          </div>
+                          <div class="tile-wide bg-darkEmerald fg-white" data-role="title">
+                            <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Toko</span></div>
+                          </div>
+                          <div class="tile bg-darkEmerald fg-white" data-role="title">
+                            <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Sales</span></div>
+                          </div>
+                          <div class="tile bg-darkEmerald fg-white" data-role="title">
+                            <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Member</span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tile-group double">
+                        <div class="tile tile-large bg-darkEmerald fg-white" data-role="title">
+                          <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Promo</span></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
               </li>
@@ -162,7 +219,7 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
           $('.navbar-collapse').find('li').removeClass('buka');
           $('.navbar-collapse').find('.overlay').css('height', 0);
           $(el).parent('li').addClass('buka');
-          $(el).parent('li').find('.overlay').css('height','75%');
+          $(el).parent('li').find('.overlay').css('height','90%');
         } 
         
       }
