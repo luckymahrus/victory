@@ -68,6 +68,12 @@
       .navbar-nav>li{
         border-right: 1px solid #CAFCD8;
       }
+      .navbar-nav>li:hover{
+        background-color: #91e9e0;
+        -webkit-transition: all 0.3s ease-in;
+        -moz-transition: all 0.3s ease-in;
+        transition: all 0.3s ease-in;
+      }
       .navbar-nav>li>a{
         color: white !important;
       }
@@ -80,7 +86,7 @@
         text-transform: uppercase;
       }
       .buka{
-        background-color: #FFFFFF;
+        background-color: #FFFFFF !important;
         -webkit-transition: all 0.3s ease-in;
         -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
@@ -187,19 +193,19 @@
                       <div class="tile-group">
                         <span class="tile-group-title">Inventory</span>
                         <div class="tile-container">
-                          <div class="tile-large tile-big-y bg-amber fg-white" data-role="title">
+                          <div class="tile-large tile-big-y bg-amber fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-list"></span><span class="tile-label">Daftar Barang</span></div>
                           </div>
-                          <div class="tile-large bg-red fg-white" data-role="title">
+                          <div class="tile-large bg-red fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-search"></span><span class="tile-label">Stok Opnam</span></div>
                           </div>
-                          <div class="tile tile-wide-y bg-orange fg-white" data-role="title">
+                          <div class="tile tile-wide-y bg-orange fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-truck mif-ani-pass"></span><span class="tile-label">Kirim</span></div>
                           </div>
-                          <div class="tile tile-wide-y bg-crimson fg-white" data-role="title">
+                          <div class="tile tile-wide-y bg-crimson fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon fa fa-check-square-o"></span><span class="tile-label">Terima</span></div>
                           </div>
-                          <div class="tile tile-super-x bg-lightRed fg-white" data-role="title">
+                          <div class="tile tile-super-x bg-lightRed fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-shopping-basket mif-ani-bounce mif-ani-fast"></span><span class="tile-label">Daftar Baki</span></div>
                           </div>
                         </div>
@@ -213,16 +219,16 @@
                       <div class="tile-group triple">
                         <div class="tile-group-title">Outlet</div>
                         <div class="tile-container">
-                          <div class="tile-large bg-lime fg-white" data-role="title">
+                          <div class="tile-large bg-lime fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-shop mif-ani-shake"></span><span class="tile-label">Daftar Outlet</span></div>
                           </div>
-                          <div class="tile bg-green fg-white" data-role="title">
+                          <div class="tile bg-green fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-user-plus"></span><span class="tile-label">Sales Baru</span></div>
                           </div>
-                          <div class="tile bg-emerald fg-white" data-role="title">
+                          <div class="tile bg-emerald fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Toko Baru</span></div>
                           </div>
-                          <div class="tile tile-big-x bg-darkEmerald fg-white" data-role="title">
+                          <div class="tile tile-big-x bg-darkEmerald fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Daftar Sales</span></div>
                           </div>
                         </div>
@@ -239,7 +245,7 @@
 
                             <span class="tile-group-title">DAFTAR KONTAK</span>
                             <div class="tile-container">
-                              <a class="tile tile-wide-y bg-darkCobalt fg-white" data-role="tile">
+                              <a href="#" class="tile tile-wide-y bg-darkCobalt fg-white" data-role="tile">
                                 <div class="tile-content iconic">
                                   <span class="icon mif-users mif-ani-bounce"></span>
                                   <span class="tile-label">Daftar Customer</span>
@@ -279,25 +285,25 @@
                       <div class="tile-group double">
                         <div class="tile-group-title">Konfigurasi</div>
                         <div class="tile-container">
-                          <div class="tile bg-darkEmerald fg-white" data-role="title">
+                          <div class="tile bg-darkEmerald fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Gold</span></div>
                           </div>
-                          <div class="tile bg-darkEmerald fg-white" data-role="title">
+                          <div class="tile bg-darkEmerald fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon fa fa-diamond"></span><span class="tile-label">Diamond</span></div>
                           </div>
-                          <div class="tile-wide bg-darkEmerald fg-white" data-role="title">
+                          <div class="tile-wide bg-darkEmerald fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Toko</span></div>
                           </div>
-                          <div class="tile bg-darkEmerald fg-white" data-role="title">
+                          <div class="tile bg-darkEmerald fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Sales</span></div>
                           </div>
-                          <div class="tile bg-darkEmerald fg-white" data-role="title">
+                          <div class="tile bg-darkEmerald fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Member</span></div>
                           </div>
                         </div>
                       </div>
                       <div class="tile-group double">
-                        <div class="tile tile-large bg-darkEmerald fg-white" data-role="title">
+                        <div class="tile tile-large bg-darkEmerald fg-white" data-role="tile">
                           <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Promo</span></div>
                         </div>
                       </div>
