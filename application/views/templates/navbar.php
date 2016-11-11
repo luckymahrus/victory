@@ -51,9 +51,9 @@
         z-index: 1;
         left: 0;
         top: 50px;
-        background-color:#ccc;
+        background-color:#fff;
         overflow-x: hidden;
-        overflow-y: hidden;
+        overflow-y: scroll;
         -webkit-box-shadow: 0 5px 10px 0 #9E9E9E;
         box-shadow: 0 5px 10px 0 #9E9E9E;
         transition: 0.2s;
@@ -74,6 +74,10 @@
       .navbar-brand{
         border-right: 1px solid #CAFCD8; 
         color: white !important;
+      }
+      .tile-group-title{
+        color: black !important;
+        text-transform: uppercase;
       }
     </style>
 
@@ -102,10 +106,10 @@
               </li>
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> Transaksi</a>
 
-                  <div class="container-fluid overlay">
+                  <div class="container overlay">
                     <div class="overlay-content">
-                      
-                      <div class="tile-group triple">
+                      <div style="margin:0 5%">
+                      <div class="tile-group triple" >
                         <span class="tile-group-title">Penjualan</span>
                           <div class="tile-container">
                               <div class="tile-large fg-white" data-role="tile" style="background-color: #734ACC">
@@ -134,7 +138,7 @@
                               </div>
                           </div>
                       </div>
-                      <div class="tile-group triple">
+                      <div class="tile-group triple" >
                           <span class="tile-group-title">Pembelian</span>
                           <div class="tile-container">
                               <div class="tile-wide tile-big-y fg-white" data-role="tile" style="background-color: #3AB2A5">
@@ -163,6 +167,7 @@
                               </div>
                           </div>
                       </div>
+                      </div>
                     </div>
                   </div>
               </li>
@@ -175,13 +180,13 @@
                           <div class="tile-large tile-big-y bg-amber fg-white" data-role="title">
                             <div class="tile-content iconic"><span class="icon mif-list"></span><span class="tile-label">Daftar Barang</span></div>
                           </div>
-                          <div class="tile-wide bg-red fg-white" data-role="title">
+                          <div class="tile-large bg-red fg-white" data-role="title">
                             <div class="tile-content iconic"><span class="icon mif-search"></span><span class="tile-label">Stok Opnam</span></div>
                           </div>
-                          <div class="tile bg-orange fg-white" data-role="title">
+                          <div class="tile tile-wide-y bg-orange fg-white" data-role="title">
                             <div class="tile-content iconic"><span class="icon mif-truck mif-ani-pass"></span><span class="tile-label">Kirim</span></div>
                           </div>
-                          <div class="tile bg-crimson fg-white" data-role="title">
+                          <div class="tile tile-wide-y bg-crimson fg-white" data-role="title">
                             <div class="tile-content iconic"><span class="icon fa fa-check-square-o"></span><span class="tile-label">Terima</span></div>
                           </div>
                           <div class="tile tile-super-x bg-lightRed fg-white" data-role="title">
@@ -218,7 +223,43 @@
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-phone" aria-hidden="true"></i> Kontak</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <p>Kontak</p>
+                      <div class="container overlay">
+                        <div class="overlay-content">
+                          <div class="tile-group triple">
+
+                            <span class="tile-group-title">DAFTAR KONTAK</span>
+                            <div class="tile-container">
+                              <a class="tile tile-wide-y bg-darkCobalt fg-white" data-role="tile">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-users mif-ani-bounce"></span>
+                                  <span class="tile-label">Daftar Customer</span>
+                                </div>
+                              </a>
+
+                              <a class="tile-wide bg-cobalt fg-white" data-role="tile">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-file-text"></span>
+                                  <span class="tile-label">Daftar Supplier</span>
+                                </div>
+                              </a>
+                              <a class="tile-square bg-darkBlue fg-white" data-role="tile">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-user-plus"></span>
+                                  <span class="tile-label">Tambah Customer</span>
+                                </div>
+                              </a>
+                              <a class="tile-square bg-lightBlue fg-white" data-role="tile">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-user-plus mif-ani-heartbeat"></span>
+                                  <span class="tile-label">Tambah Supplier</span>
+                                </div>
+                              </a>
+      
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
               </li>
