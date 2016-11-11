@@ -54,8 +54,8 @@
         background-color:#fff;
         overflow-x: hidden;
         overflow-y: scroll;
-        -webkit-box-shadow: 0 5px 10px 0 #9E9E9E;
-        box-shadow: 0 5px 10px 0 #9E9E9E;
+        -webkit-box-shadow: 0 7px 10px 0 #9E9E9E;
+        box-shadow: 0 7px 10px 0 #9E9E9E;
         transition: 0.2s;
       }
       .overlay-content{
@@ -78,6 +78,12 @@
       .tile-group-title{
         color: black !important;
         text-transform: uppercase;
+      }
+      .buka{
+        background-color: #FFFFFF;
+      }
+      .buka a:visited{
+        color: #04BFBF !important;
       }
     </style>
 
@@ -106,7 +112,7 @@
               </li>
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> Transaksi</a>
 
-                  <div class="container overlay">
+                  <div class="container-fluid overlay">
                     <div class="overlay-content">
                       <div style="margin:0 5%">
                       <div class="tile-group triple" >
