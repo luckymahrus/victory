@@ -84,6 +84,7 @@
       }
       .buka a:visited{
         color: #04BFBF !important;
+
       }
     </style>
 
@@ -107,9 +108,7 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a href="<?php echo base_url('formula/home') ?>" ><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-                  
-              </li>
+              <li><a href="<?php echo base_url('formula/home') ?>" ><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> Transaksi</a>
 
                   <div class="container-fluid overlay">
@@ -321,7 +320,7 @@
           $('.navbar-collapse').find('li').removeClass('buka');
           $('.navbar-collapse').find('.overlay').css('height', 0);
           $(el).parent('li').addClass('buka');
-          $(el).parent('li').find('.overlay').css('height','90%');
+          $(el).parent('li').find('.overlay').css('height','100%');
         } 
         
       }
