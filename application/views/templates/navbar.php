@@ -15,6 +15,7 @@
     <link href="<?php echo base_url() ?>css/metro-icons.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-responsive.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-schemes.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/metro-colors.css" rel="stylesheet">
 
     <link href="<?php echo base_url() ?>css/docs.css" rel="stylesheet">
 
@@ -55,7 +56,7 @@
         overflow-x: hidden;
         overflow-y: hidden;
         -webkit-box-shadow: 0 5px 10px 0 #9E9E9E;
-box-shadow: 0 5px 10px 0 #9E9E9E;
+        box-shadow: 0 5px 10px 0 #9E9E9E;
         transition: 0.2s;
       }
       .overlay-content{
@@ -103,11 +104,37 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> Transaksi</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <div class="tile-small bg-cyan fg-white">
-                        <div class="tile-content iconic">
-                          <span class="icon fa fa-dropbox"></span>
-                          
-                          
+                      <div class="tile-group triple">
+                        <span class="tile-group-title">Penjualan</span>
+                        <div class="tile-square bg-cyan fg-white">
+                          <div class="tile-content iconic">
+                            <span class="icon mif-envelop mif-ani-spanner"></span>
+                          </div>
+                        </div>
+                        <div class="tile-square bg-cyan fg-white">
+                          <div class="tile-content iconic">
+                            <span class="icon mif-envelop mif-ani-spanner"></span>
+                          </div>
+                        </div>
+                        <div class="tile-small bg-cyan fg-white">
+                          <div class="tile-content iconic">
+                            <span class="icon mif-envelop mif-ani-spanner"></span>
+                          </div>
+                        </div>
+                        <div class="tile-small bg-cyan fg-white">
+                          <div class="tile-content iconic">
+                            <span class="icon mif-envelop mif-ani-spanner"></span>
+                          </div>
+                        </div>
+                        <div class="tile-small bg-cyan fg-white">
+                          <div class="tile-content iconic">
+                            <span class="icon mif-envelop mif-ani-spanner"></span>
+                          </div>
+                        </div>
+                        <div class="tile-small bg-cyan fg-white">
+                          <div class="tile-content iconic">
+                            <span class="icon mif-envelop mif-ani-spanner"></span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -128,9 +155,41 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
                   </div>
               </li>
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-phone" aria-hidden="true"></i> Kontak</a>
-                  <div class="container-fluid overlay">
+                  <div class="container overlay">
                     <div class="overlay-content">
-                      <p>Kontak</p>
+                      <div class="tile-group triple">
+
+                        <span class="tile-group-title">DAFTAR KONTAK</span>
+                        <div class="tile-container">
+                          <a class="tile tile-wide-y bg-darkCobalt fg-white" data-role="tile">
+                            <div class="tile-content iconic">
+                              <span class="icon mif-users mif-ani-bounce"></span>
+                              <span class="tile-label">Daftar Customer</span>
+                            </div>
+                          </a>
+
+                          <a class="tile-wide bg-cobalt fg-white" data-role="tile">
+                            <div class="tile-content iconic">
+                              <span class="icon mif-file-text"></span>
+                              <span class="tile-label">Daftar Supplier</span>
+                            </div>
+                          </a>
+                          <a class="tile-square bg-darkBlue fg-white" data-role="tile">
+                            <div class="tile-content iconic">
+                              <span class="icon mif-user-plus"></span>
+                              <span class="tile-label">Tambah Customer</span>
+                            </div>
+                          </a>
+                          <a class="tile-square bg-lightBlue fg-white" data-role="tile">
+                            <div class="tile-content iconic">
+                              <span class="icon mif-user-plus mif-ani-heartbeat"></span>
+                              <span class="tile-label">Tambah Supplier</span>
+                            </div>
+                          </a>
+  
+                        </div>
+
+                      </div>
                     </div>
                   </div>
               </li>
@@ -162,7 +221,7 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
           $('.navbar-collapse').find('li').removeClass('buka');
           $('.navbar-collapse').find('.overlay').css('height', 0);
           $(el).parent('li').addClass('buka');
-          $(el).parent('li').find('.overlay').css('height','75%');
+          $(el).parent('li').find('.overlay').css('height','90%');
         } 
         
       }
