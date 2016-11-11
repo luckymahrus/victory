@@ -88,6 +88,10 @@
       }
       .buka a:visited{
           color: #04BFBF !important;
+        background-color: #FFFFFF;
+        -webkit-transition: all 0.3s ease-in;
+        -moz-transition: all 0.3s ease-in;
+        transition: all 0.3s ease-in;
       }
     </style>
 
