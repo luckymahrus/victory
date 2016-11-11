@@ -120,7 +120,7 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
                     </div>
                   </div>
               </li>
-              <li><a href="#" onclick="openNav(this)"><i class="fa fa-square" aria-hidden="true"></i> Outlets</a>
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-bank" aria-hidden="true"></i> Outlets</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
                       <p>Outlet</p>
