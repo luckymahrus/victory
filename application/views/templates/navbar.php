@@ -9,7 +9,6 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo base_url();?>css/yamm.css">
     <link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-icons.css" rel="stylesheet">
@@ -53,9 +52,9 @@
         top: 50px;
         background-color:#fff;
         overflow-x: hidden;
-        overflow-y: scroll;
-        -webkit-box-shadow: 0 5px 10px 0 #9E9E9E;
-        box-shadow: 0 5px 10px 0 #9E9E9E;
+        overflow-y: hidden;
+        -webkit-box-shadow: 0 7px 10px 0 #9E9E9E;
+        box-shadow: 0 7px 10px 0 #9E9E9E;
         transition: 0.2s;
       }
       .overlay-content{
@@ -93,8 +92,8 @@
         -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
       }
-      .buka a:visited{
-          color: #04BFBF !important;
+      .buka>a:visited{
+        color: #04BFBF !important;
         background-color: #FFFFFF;
         -webkit-transition: all 0.3s ease-in;
         -moz-transition: all 0.3s ease-in;
@@ -127,8 +126,8 @@
 
                   <div class="container overlay">
                     <div class="overlay-content">
-                      <div style="margin:0 5%">
-                      <div class="tile-group triple" >
+                      <div style="position: relative;overflow: hidden; margin: 0 5%">
+                      <div class="tile-group triple" style="display:block; float: left; margin:auto; width: 480px" >
                         <span class="tile-group-title">Penjualan</span>
                           <div class="tile-container">
                               <div class="tile-large fg-white" data-role="tile" style="background-color: #734ACC">
@@ -157,7 +156,7 @@
                               </div>
                           </div>
                       </div>
-                      <div class="tile-group triple" >
+                      <div class="tile-group triple" style="display:block; float:right;margin: auto;width: 480px"  >
                           <span class="tile-group-title">Pembelian</span>
                           <div class="tile-container">
                               <div class="tile-wide tile-big-y fg-white" data-role="tile" style="background-color: #3AB2A5">
@@ -221,19 +220,19 @@
               <li><a href="#" onclick="openNav(this)"><span class="icon mif-shop"></span> Outlets</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <div class="tile-group triple">
+                      <div class="tile-group">
                         <div class="tile-group-title">Outlet</div>
                         <div class="tile-container">
-                          <div class="tile-large bg-lime fg-white" data-role="tile">
+                          <div class="tile-large tile-big-y bg-lime fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-shop mif-ani-shake"></span><span class="tile-label">Daftar Outlet</span></div>
                           </div>
-                          <div class="tile bg-green fg-white" data-role="tile">
+                          <div class="tile tile-wide-x bg-green fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-user-plus"></span><span class="tile-label">Sales Baru</span></div>
                           </div>
-                          <div class="tile bg-emerald fg-white" data-role="tile">
+                          <div class="tile tile-wide-x bg-emerald fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Toko Baru</span></div>
                           </div>
-                          <div class="tile tile-big-x bg-darkEmerald fg-white" data-role="tile">
+                          <div class="tile tile-super-x tile-wide-y bg-darkEmerald fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Daftar Sales</span></div>
                           </div>
                         </div>
