@@ -11,9 +11,19 @@
     <link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>css/yamm.css">
     <link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/metro.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/metro-icons.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/metro-responsive.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/metro-schemes.css" rel="stylesheet">
+
+    <link href="<?php echo base_url() ?>css/docs.css" rel="stylesheet">
+
+    
+    
 
     <script src="<?php echo base_url() ?>js/jquery-1.12.4.min.js"></script>
     <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url() ?>js/metro.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,6 +65,16 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
         text-align: center;
         margin-top: 20px;
       }
+      .navbar-nav>li{
+        border-right: 1px solid #CAFCD8;
+      }
+      .navbar-nav>li>a{
+        color: white !important;
+      }
+      .navbar-brand{
+        border-right: 1px solid #CAFCD8; 
+        color: white !important;
+      }
     </style>
 
   </head>
@@ -71,27 +91,56 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="#">Toko Kemenangan</a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a href="#" onclick="openNav(this)">menu 1</a>
+              <li><a href="<?php echo base_url('formula/home') ?>" ><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                  
+              </li>
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> Transaksi</a>
                   <div class="overlay">
                     <div class="overlay-content">
-                      <p>test 1</p>
+                      <div class="tile-small bg-cyan fg-white">
+                        <div class="tile-content iconic">
+                          <span class="icon mif-cogs"></span>
+                          
+                          
+                        </div>
+                      </div>
                     </div>
                   </div>
               </li>
-              <li><a href="#" onclick="openNav(this)">menu 2</a>
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-dropbox" aria-hidden="true"></i> Inventory</a>
                   <div class="overlay">
                     <div class="overlay-content">
-                      <p>test 2</p>
+                      <p>Inventory</p>
                     </div>
                   </div>
               </li>
-              
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-square" aria-hidden="true"></i> Outlets</a>
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <p>Outlet</p>
+                    </div>
+                  </div>
+              </li>
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-phone" aria-hidden="true"></i> Kontak</a>
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <p>Kontak</p>
+                    </div>
+                  </div>
+              </li>
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-cog" aria-hidden="true"></i> Konfigurasi</a>
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <p>Konfigurasi</p>
+                    </div>
+                  </div>
+              </li>
             
             </ul>
            

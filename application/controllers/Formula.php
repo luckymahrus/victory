@@ -11,7 +11,7 @@
 		}
 
 		public function home(){
-			$this->template->load('default','home');
+			$this->template->load('navbar','home');
 		}
 
 	}
