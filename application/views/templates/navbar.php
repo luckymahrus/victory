@@ -105,7 +105,7 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
                     <div class="overlay-content">
                       <div class="tile-small bg-cyan fg-white">
                         <div class="tile-content iconic">
-                          <span class="icon mif-envelop mif-ani-spanner"></span>
+                          <span class="icon fa fa-dropbox"></span>
                           
                           
                         </div>
@@ -114,28 +114,28 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
                   </div>
               </li>
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-dropbox" aria-hidden="true"></i> Inventory</a>
-                  <div class="overlay">
+                  <div class="container-fluid overlay">
                     <div class="overlay-content">
                       <p>Inventory</p>
                     </div>
                   </div>
               </li>
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-square" aria-hidden="true"></i> Outlets</a>
-                  <div class="overlay">
+                  <div class="container-fluid overlay">
                     <div class="overlay-content">
                       <p>Outlet</p>
                     </div>
                   </div>
               </li>
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-phone" aria-hidden="true"></i> Kontak</a>
-                  <div class="overlay">
+                  <div class="container-fluid overlay">
                     <div class="overlay-content">
                       <p>Kontak</p>
                     </div>
                   </div>
               </li>
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-cog" aria-hidden="true"></i> Konfigurasi</a>
-                  <div class="overlay">
+                  <div class="container-fluid overlay">
                     <div class="overlay-content">
                       <p>Konfigurasi</p>
                     </div>
