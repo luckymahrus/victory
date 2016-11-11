@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Victory !</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>css/yamm.css">
+    <link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="<?php echo base_url() ?>js/jquery-1.12.4.min.js"></script>
+    <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+      .segoe{
+        font-family: 'Segoe UI';
+        font-size: 12px;
+        line-height: 30px;
+      }
+     
+      .navbar{
+        background-color: #04BFBF;
+        height: 50px;
+        border:none;
+        border-radius: 0px;
+      }
+      .overlay{
+        position: fixed;
+        width: 100%;
+        height: 0;
+        z-index: 1;
+        left: 0;
+        top: 50px;
+        background-color:#CCC;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        transition: 0.2s;
+      }
+      .overlay-content{
+        position: relative;
+        top: 0%;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
+
+  </head>
+  <body>
+	
+  <header>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Brand</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><a href="#" onclick="openNav(this)">menu 1</a>
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <p>test 1</p>
+                    </div>
+                  </div>
+              </li>
+              <li><a href="#" onclick="openNav(this)">menu 2</a>
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <p>test 2</p>
+                    </div>
+                  </div>
+              </li>
+              
+            
+            </ul>
+           
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+  </header>
+	<div class="container">
+		<?php echo $body ?>
+	</div>
+	
+  <footer></footer>
+    <script>
+      function openNav(el){
+        if($(el).parent('li').hasClass('buka')){
+          $(el).parent('li').find('.overlay').css('height', 0);
+          $(el).parent('li').removeClass('buka');
+        }else{
+          $('.navbar-collapse').find('li').removeClass('buka');
+          $('.navbar-collapse').find('.overlay').css('height', 0);
+          $(el).parent('li').addClass('buka');
+          $(el).parent('li').find('.overlay').css('height','100%');
+        } 
+        
+      }
+    </script>
+  </body>
+</html>
