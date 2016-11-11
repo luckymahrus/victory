@@ -75,6 +75,9 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
         border-right: 1px solid #CAFCD8; 
         color: white !important;
       }
+      .tile-group-title{
+        color: #000 !important;
+      }
     </style>
 
   </head>
@@ -103,13 +106,65 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> Transaksi</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <div class="tile-small bg-cyan fg-white">
-                        <div class="tile-content iconic">
-                          <span class="icon fa fa-dropbox"></span>
-                          
-                          
-                        </div>
+                      <div class="tile-group triple">
+                        <span class="tile-group-title">Penjualan</span>
+                          <div class="tile-container">
+                              <div class="tile-large fg-white" data-role="tile" style="background-color: #734ACC">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-coins mif-ani-slow mif-ani-bounce"></span>
+                                  <span class="tile-label">Daftar Penjualan</span>
+                                </div>
+                              </div>
+                              <div class="tile fg-white" data-role="tile" style="background-color: #905CFF">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-plus"></span>
+                                  <span class="tile-label">Penjualan Baru</span>
+                                </div>
+                              </div>    
+                              <div class="tile fg-white" data-role="tile" style="background-color:  #4383E8">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-checkmark"></span>
+                                  <span class="tile-label">Booking Baru</span>
+                                </div>
+                              </div>    
+                              <div class="tile-wide tile-big-x fg-white" data-role="tile" style="background-color: #3466B5">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-clipboard mif-ani-slow mif-ani-heartbeat"></span>
+                                  <span class="tile-label">Daftar Booking</span>
+                                </div>
+                              </div>
+                          </div>
                       </div>
+                      <div class="tile-group triple">
+                          <span class="tile-group-title">Pembelian</span>
+                          <div class="tile-container">
+                              <div class="tile-wide tile-big-y fg-white" data-role="tile" style="background-color: #3AB2A5">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-file-text mif-ani-slow mif-ani-vertical"></span>
+                                  <span class="tile-label">Daftar Pembelian</span>
+                                </div>
+                              </div>
+                              <div class="tile fg-white" data-role="tile" style="background-color: #3DBD8B">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-plus"></span>
+                                  <span class="tile-label">Beli Emas</span>
+                                </div>
+                              </div>    
+                              <div class="tile fg-white" data-role="tile" style="background-color: #4DF0B0">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-plus"></span>
+                                  <span class="tile-label">Beli Diamond</span>
+                                </div>
+                              </div>    
+                              <div class="tile fg-white" data-role="tile" style="background-color: #4AE5D4">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-plus"></span>
+                                  <span class="tile-label">Beli Perhiasan</span>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+
                     </div>
                   </div>
               </li>
@@ -162,7 +217,7 @@ box-shadow: 0 5px 10px 0 #9E9E9E;
           $('.navbar-collapse').find('li').removeClass('buka');
           $('.navbar-collapse').find('.overlay').css('height', 0);
           $(el).parent('li').addClass('buka');
-          $(el).parent('li').find('.overlay').css('height','75%');
+          $(el).parent('li').find('.overlay').css('height','100%');
         } 
         
       }
