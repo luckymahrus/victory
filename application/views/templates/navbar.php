@@ -41,9 +41,11 @@
         z-index: 1;
         left: 0;
         top: 50px;
-        background-color:#CCC;
+        background-color:#FFF;
         overflow-x: hidden;
         overflow-y: hidden;
+        -webkit-box-shadow: 0 5px 10px 0 #9E9E9E;
+box-shadow: 0 5px 10px 0 #9E9E9E;
         transition: 0.2s;
       }
       .overlay-content{
@@ -57,7 +59,7 @@
 
   </head>
   <body>
-	
+  
   <header>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -97,10 +99,10 @@
         </div><!-- /.container-fluid -->
       </nav>
   </header>
-	<div class="container">
-		<?php echo $body ?>
-	</div>
-	
+  <div class="container">
+    <?php echo $body ?>
+  </div>
+  
   <footer></footer>
     <script>
       function openNav(el){
@@ -111,7 +113,7 @@
           $('.navbar-collapse').find('li').removeClass('buka');
           $('.navbar-collapse').find('.overlay').css('height', 0);
           $(el).parent('li').addClass('buka');
-          $(el).parent('li').find('.overlay').css('height','100%');
+          $(el).parent('li').find('.overlay').css('height','75%');
         } 
         
       }
