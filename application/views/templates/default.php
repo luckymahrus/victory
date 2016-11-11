@@ -34,8 +34,8 @@
         padding-bottom: 0px;
       }
       .navbar{
-        background-color: #3498db;
-        height: 72px;
+        background-color: #04BFBF;
+        height: 61px;
         border:none;
         border-radius: 0px;
       }
@@ -59,23 +59,31 @@
         margin-top: -12px !important;
       }
       #home{
-        background-color: rgba(192, 57, 43,1.0);
+        background-color: #04BFBF;
+        border-right: 1px solid #CAFCD8;
+        border-left: 1px solid #CAFCD8;
       }
       #trans{
-        background-color: #d35400;
+        background-color: #04BFBF;
+        border-right: 1px solid #CAFCD8;
       }
       #invent{
-        background-color: #f39c12;
+        background-color: #04BFBF;
+        border-right: 1px solid #CAFCD8;
       }
       #outlet{
-        background-color: #e74c3c;
-      }
-      #configuration{
-        background-color: #8e44ad;
+        background-color: #04BFBF;
+        border-right: 1px solid #CAFCD8;
       }
       #contact{
-        background-color: #27ae60;
+        background-color: #04BFBF;
+        border-right: 1px solid #CAFCD8;
       }
+      #configuration{
+        background-color: #04BFBF;
+        border-right: 1px solid #CAFCD8;
+      }
+      
       .navbar-nav > .active > a {
           color: red;
       }
