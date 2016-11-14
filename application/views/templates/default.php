@@ -8,7 +8,7 @@
     <title>Victory !</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap.css">
     <link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-icons.css" rel="stylesheet">
@@ -51,12 +51,20 @@
         left: 0;
         top: 50px;
         background-color:#fff;
-        overflow-x: scroll;
+        overflow-x: hidden;
         overflow-y: scroll;
         -webkit-box-shadow: 0 7px 10px 0 #9E9E9E;
         box-shadow: 0 7px 10px 0 #9E9E9E;
         transition: 0.2s;
         
+      }
+      @media (max-width: 1127px){
+      .tile-group {
+        margin:0 !important;
+        float: left !important;
+      }}
+      .tile-group{
+        margin: 0 12%;
       }
       .overlay-content{
         position: relative;
@@ -100,11 +108,7 @@
         -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
       }
-      @media only screen and (max-device-width: 1000px){
-        .bros{
-          margin:0;
-        }
-      }
+      
     </style>
 
   </head>
@@ -229,7 +233,7 @@
               <li><a href="#" onclick="openNav(this)"><span class="icon mif-shop"></span> Outlets</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <div style="margin-left: 8%">
+                      
                         <div class="tile-group">
                           <div class="tile-group-title">Outlet</div>
                             <div class="tile-container"><!--Container begin-->
@@ -247,7 +251,7 @@
                               </div>
                             </div><!--Container ends-->
                         </div>
-                      </div>
+                      
                     </div>
                   </div>
               </li>
@@ -256,7 +260,7 @@
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-phone" aria-hidden="true"></i> Kontak</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <div style="margin-left: 8%">
+                    
                           <div class="tile-group">
                             <span class="tile-group-title">DAFTAR KONTAK</span>
                             <div class="tile-container"> <!--Tile container begins-->
@@ -286,7 +290,7 @@
                               </a>
                             </div><!--Container Ends-->
                           </div>
-                      </div>
+                      
                     </div>
                   </div>
               </li>
@@ -295,7 +299,7 @@
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-cog" aria-hidden="true"></i> Konfigurasi</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <div style="margin: 0 8%">
+                      
                         <div class="tile-group">
                           <div class="tile-group-title">Konfigurasi</div>
                           <div class="tile-container"><!--Tile container start-->
@@ -319,7 +323,7 @@
                               </div>  
                           </div><!--Tile Container ends-->
                       </div>
-                    </div>
+                    
                   </div>
               </li>
               <!--Konfigurasi ends-->
@@ -339,10 +343,13 @@
       function openNav(el){
         if($(el).parent('li').hasClass('buka')){
           $(el).parent('li').find('.overlay').css('height', 0);
+          $(el).parent('li').find('.overlay').css('padding-bottom', '0px');
           $(el).parent('li').removeClass('buka');
         }else{
+          $('.navbar-collapse').find('.overlay').css('padding-bottom', '0px');
           $('.navbar-collapse').find('li').removeClass('buka');
           $('.navbar-collapse').find('.overlay').css('height', 0);
+          $(el).parent('li').find('.overlay').css('padding-bottom', '50px');
           $(el).parent('li').addClass('buka');
           $(el).parent('li').find('.overlay').css('height','100%');
         } 
