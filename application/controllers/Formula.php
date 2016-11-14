@@ -7,7 +7,7 @@
 
 		function __construct(){
 			parent::__construct();
-			$this->load->library('user_agent');
+			
 			if ($this->agent->is_mobile())
 			{
 		 	  	$this->temp = 'default_mobile';

@@ -31,6 +31,9 @@
     <![endif]-->
 
     <style>
+    .dropdown-toggle:before {
+      display: none;
+    }
       .segoe{
         font-family: 'Segoe UI';
         font-size: 12px;
@@ -212,6 +215,8 @@
                 
               </ul>
             </li>
+
+            <li><a href=""><i class="fa fa-power-off"></i> Logout</a></li>
           </ul>
           
          

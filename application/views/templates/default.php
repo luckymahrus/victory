@@ -45,14 +45,15 @@
       }
       .overlay{
         position: fixed;
-        width: 1366px;
+        width: 100%;
+        min-width: 1000px;
         height: 0;
         z-index: 1;
         left: 0;
         top: 50px;
         background-color:#fff;
         overflow-x: scroll;
-        overflow-y: hidden;
+        overflow-y: scroll;
         -webkit-box-shadow: 0 7px 10px 0 #9E9E9E;
         box-shadow: 0 7px 10px 0 #9E9E9E;
         transition: 0.2s;
@@ -60,7 +61,8 @@
       .overlay-content{
         position: relative;
         top: 0%;
-        width: 1366px;
+        width: 100%;
+        min-width: 1000px;
         text-align: center;
         margin-top: 20px;
       }
