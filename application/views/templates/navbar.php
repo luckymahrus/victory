@@ -171,13 +171,13 @@
                                   <span class="tile-label">Beli Emas</span>
                                 </div>
                               </div>    
-                              <div class="tile fg-white" data-role="tile" style="background-color: #4DF0B0">
+                              <div class="tile fg-white" data-role="tile" style="background-color: #36ADC5">
                                 <div class="tile-content iconic">
                                   <span class="icon mif-plus"></span>
                                   <span class="tile-label">Beli Diamond</span>
                                 </div>
                               </div>    
-                              <div class="tile fg-white" data-role="tile" style="background-color: #4AE5D4">
+                              <div class="tile fg-white" data-role="tile" style="background-color: #31DCCA">
                                 <div class="tile-content iconic">
                                   <span class="icon mif-plus"></span>
                                   <span class="tile-label">Beli Perhiasan</span>
@@ -197,7 +197,7 @@
                         <span class="tile-group-title">Inventory</span>
                         <div class="tile-container">
                           <div class="tile-large tile-big-y bg-amber fg-white" data-role="tile">
-                            <div class="tile-content iconic"><span class="icon mif-list"></span><span class="tile-label">Daftar Barang</span></div>
+                            <div class="tile-content iconic"><span class="icon mif-list  mif-ani-float"></span><span class="tile-label">Daftar Barang</span></div>
                           </div>
                           <div class="tile-large bg-red fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-search"></span><span class="tile-label">Stok Opnam</span></div>
@@ -228,13 +228,13 @@
                                 <div class="tile-content iconic"><span class="icon mif-shop mif-ani-shake"></span><span class="tile-label">Daftar Outlet</span></div>
                               </div>
                               <div class="tile tile-wide-x bg-green fg-white" data-role="tile">
-                                <div class="tile-content iconic"><span class="icon mif-user-plus"></span><span class="tile-label">Sales Baru</span></div>
+                                <div class="tile-content iconic"><span class="icon mif-user-plus"></span><span class="tile-label">Tambah Sales Baru</span></div>
                               </div>
                               <div class="tile tile-wide-x bg-emerald fg-white" data-role="tile">
-                                <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Toko Baru</span></div>
+                                <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Tambah Toko Baru</span></div>
                               </div>
                               <div class="tile tile-super-x tile-wide-y bg-darkEmerald fg-white" data-role="tile">
-                                <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Daftar Sales</span></div>
+                                <div class="tile-content iconic"><span class="icon mif-users  mif-ani-float"></span><span class="tile-label">Daftar Sales</span></div>
                               </div>
                             </div><!--Container ends-->
                         </div>
@@ -257,8 +257,8 @@
                               </a>
                               <a class="tile tile-super-x tile-wide-y bg-cobalt fg-white" data-role="tile">
                                 <div class="tile-content iconic">
-                                  <span class="icon mif-file-text"></span>
-                                  <span class="tile-label">Daftar Supplier</span>
+                                  <span class="icon mif-file-text  mif-ani-heartbeat"></span>
+                                  <span class="tile-label ">Daftar Supplier</span>
                                 </div>
                               </a>
                               <a class="tile tile-wide-x bg-darkBlue fg-white" data-role="tile">
@@ -269,7 +269,7 @@
                               </a>
                               <a class="tile tile-wide-x bg-lightBlue fg-white" data-role="tile">
                                 <div class="tile-content iconic">
-                                  <span class="icon mif-user-plus mif-ani-heartbeat"></span>
+                                  <span class="icon mif-user-plus"></span>
                                   <span class="tile-label">Tambah Supplier</span>
                                 </div>
                               </a>
@@ -286,22 +286,22 @@
                         <div class="tile-group">
                           <div class="tile-group-title">Konfigurasi</div>
                           <div class="tile-container"><!--Tile container start-->
-                            <div class="tile tile-large tile-big-x bg-darkEmerald fg-white" data-role="tile">
-                                <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Toko</span></div>
+                            <div class="tile tile-large bg-darkBrown fg-white" data-role="tile">
+                                <div class="tile-content iconic"><span class="icon mif-shop  mif-ani-float"></span><span class="tile-label">Toko</span></div>
                             </div>
-                            <div class="tile bg-darkEmerald fg-white" data-role="tile">
-                              <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Gold</span></div>
+                            <div class="tile-wide bg-brown fg-white" data-role="tile">
+                              <div class="tile-content iconic"><span class="icon mif-coins"></span><span class="tile-label">Gold</span></div>
                             </div>
-                            <div class="tile-wide bg-darkEmerald fg-white" data-role="tile">
+                            <div class="tile-wide bg-darkOrange fg-white" data-role="tile">
                               <div class="tile-content iconic"><span class="icon fa fa-diamond"></span><span class="tile-label">Diamond</span></div>
                             </div>
-                            <div class="tile-wide tile-big-x bg-darkEmerald fg-white" data-role="tile">
-                              <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Promo</span></div>
+                            <div class="tile-wide tile-super-x bg-taupe fg-white" data-role="tile">
+                              <div class="tile-content iconic"><span class="icon mif-discout  mif-ani-shuttle"></span><span class="tile-label">Promo</span></div>
                             </div>
-                            <div class="tile bg-darkEmerald fg-white" data-role="tile">
+                            <div class="tile tile-big-x bg-mauve fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Sales</span></div>
                             </div>
-                            <div class="tile bg-darkEmerald fg-white" data-role="tile">
+                            <div class="tile tile-big-x bg-olive fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Member</span></div>
                               </div>
                             
