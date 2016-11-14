@@ -45,13 +45,13 @@
       }
       .overlay{
         position: fixed;
-        width: 100%;
+        width: 1366px;
         height: 0;
         z-index: 1;
         left: 0;
         top: 50px;
         background-color:#fff;
-        overflow-x: hidden;
+        overflow-x: scroll;
         overflow-y: hidden;
         -webkit-box-shadow: 0 7px 10px 0 #9E9E9E;
         box-shadow: 0 7px 10px 0 #9E9E9E;
@@ -60,7 +60,7 @@
       .overlay-content{
         position: relative;
         top: 0%;
-        width: 100%;
+        width: 1366px;
         text-align: center;
         margin-top: 20px;
       }
@@ -282,7 +282,7 @@
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-cog" aria-hidden="true"></i> Konfigurasi</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <div style="margin-left: 6%">
+                      <div style="margin: 0 8%">
                         <div class="tile-group">
                           <div class="tile-group-title">Konfigurasi</div>
                           <div class="tile-container"><!--Tile container start-->
