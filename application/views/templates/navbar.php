@@ -122,14 +122,14 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li><a href="<?php echo base_url('formula/home') ?>" ><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+              <!--Menu+dropdown Transaksi-->
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> Transaksi</a>
-
                   <div class="container overlay">
                     <div class="overlay-content">
                       <div style="position: relative;overflow: hidden; margin: 0 5%">
                       <div class="tile-group triple" style="display:block; float: left; margin:auto; width: 480px" >
                         <span class="tile-group-title">Penjualan</span>
-                          <div class="tile-container">
+                          <div class="tile-container"><!--Container Penjualan begins-->
                               <div class="tile-large fg-white" data-role="tile" style="background-color: #734ACC">
                                 <div class="tile-content iconic">
                                   <span class="icon mif-coins mif-ani-slow mif-ani-bounce"></span>
@@ -154,11 +154,11 @@
                                   <span class="tile-label">Daftar Booking</span>
                                 </div>
                               </div>
-                          </div>
+                          </div><!--Container ends-->
                       </div>
                       <div class="tile-group triple" style="display:block; float:right;margin: auto;width: 480px"  >
                           <span class="tile-group-title">Pembelian</span>
-                          <div class="tile-container">
+                          <div class="tile-container"><!--Container Pembelian begins-->
                               <div class="tile-wide tile-big-y fg-white" data-role="tile" style="background-color: #3AB2A5">
                                 <div class="tile-content iconic">
                                   <span class="icon mif-file-text mif-ani-slow mif-ani-vertical"></span>
@@ -183,19 +183,20 @@
                                   <span class="tile-label">Beli Perhiasan</span>
                                 </div>
                               </div>
-                          </div>
+                          </div><!--Container ends-->
                       </div>
                       </div>
                     </div>
                   </div>
-              </li>
+              </li><!--Transaksi ends-->
+              <!--Menu + Dropdown Inventory-->
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-dropbox" aria-hidden="true"></i> Inventory</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
                       <div style="margin-left: 8%">
                       <div class="tile-group">
                         <span class="tile-group-title">Inventory</span>
-                        <div class="tile-container">
+                        <div class="tile-container"><!--Container begins-->
                           <div class="tile-large tile-big-y bg-amber fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-list  mif-ani-float"></span><span class="tile-label">Daftar Barang</span></div>
                           </div>
@@ -211,12 +212,14 @@
                           <div class="tile tile-super-x bg-lightRed fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-shopping-basket mif-ani-bounce mif-ani-fast"></span><span class="tile-label">Daftar Baki</span></div>
                           </div>
-                        </div>
+                        </div><!--Container ends-->
                       </div>
                       </div>
                     </div>
                   </div>
               </li>
+              <!--Inventory ends-->
+              <!--Menu + Dropdown Outlets-->
               <li><a href="#" onclick="openNav(this)"><span class="icon mif-shop"></span> Outlets</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
@@ -242,6 +245,8 @@
                     </div>
                   </div>
               </li>
+              <!--Outlet ends-->
+              <!--Menu + Dropdown Kontak-->
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-phone" aria-hidden="true"></i> Kontak</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
@@ -279,6 +284,8 @@
                     </div>
                   </div>
               </li>
+              <!--Kontak ends-->
+              <!--Menu + Dropdown Konfigurasi-->
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-cog" aria-hidden="true"></i> Konfigurasi</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
@@ -303,16 +310,15 @@
                             </div>
                             <div class="tile tile-big-x bg-olive fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Member</span></div>
-                              </div>
-                            
-                            
+                              </div>  
                           </div><!--Tile Container ends-->
                       </div>
                     </div>
                   </div>
               </li>
-            
+              <!--Konfigurasi ends-->
             </ul>
+           <!--Main menu ul ends-->
            
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
