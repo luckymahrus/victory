@@ -56,6 +56,7 @@
         -webkit-box-shadow: 0 7px 10px 0 #9E9E9E;
         box-shadow: 0 7px 10px 0 #9E9E9E;
         transition: 0.2s;
+        padding-bottom: 30px;
       }
       .overlay-content{
         position: relative;
@@ -98,6 +99,9 @@
         -webkit-transition: all 0.3s ease-in;
         -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
+      }
+      @media only screen and (max-device-width: 767px){
+
       }
     </style>
 
@@ -319,7 +323,7 @@
               <!--Konfigurasi ends-->
             </ul>
            <!--Main menu ul ends-->
-           
+             
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
@@ -337,6 +341,7 @@
         }else{
           $('.navbar-collapse').find('li').removeClass('buka');
           $('.navbar-collapse').find('.overlay').css('height', 0);
+          $('.navbar-collapse').find('.overlay').css('z-index', -100);
           $(el).parent('li').addClass('buka');
           $(el).parent('li').find('.overlay').css('height','100%');
         } 
