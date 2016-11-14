@@ -49,10 +49,11 @@
         height: 0;
         z-index: 1;
         left: 0;
-        top: 50px;
+        top: 0px;
+        margin-top: -50px;
         background-color:#fff;
-        overflow-x: scroll;
-        overflow-y: scroll;
+        overflow-x: hidden;
+        overflow-y: hidden;
         -webkit-box-shadow: 0 7px 10px 0 #9E9E9E;
         box-shadow: 0 7px 10px 0 #9E9E9E;
         transition: 0.2s;
@@ -63,7 +64,7 @@
         top: 0%;
         width: 100%;
         text-align: center;
-        margin-top: 20px;
+        margin-top: 100px;
       }
       .navbar-nav>li{
         border-right: 1px solid #CAFCD8;
@@ -100,8 +101,14 @@
         -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
       }
-      @media only screen and (max-device-width: 767px){
-
+      #div_inven{
+        margin-left: 8%;
+      }
+      @media (max-width: 985px){{
+        #div_inven{
+          margin-left: 0px !important;
+        }
+        
       }
     </style>
 
@@ -197,7 +204,7 @@
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-dropbox" aria-hidden="true"></i> Inventory</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <div style="margin-left: 8%">
+                      <div id="div_inven">
                       <div class="tile-group">
                         <span class="tile-group-title">Inventory</span>
                         <div class="tile-container"><!--Container begins-->
