@@ -46,7 +46,6 @@
       .overlay{
         position: fixed;
         width: 100%;
-        min-width: 1000px;
         height: 0;
         z-index: 1;
         left: 0;
@@ -62,7 +61,6 @@
         position: relative;
         top: 0%;
         width: 100%;
-        min-width: 1000px;
         text-align: center;
         margin-top: 20px;
       }
