@@ -220,21 +220,23 @@
               <li><a href="#" onclick="openNav(this)"><span class="icon mif-shop"></span> Outlets</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <div class="tile-group">
-                        <div class="tile-group-title">Outlet</div>
-                        <div class="tile-container">
-                          <div class="tile-large tile-big-y bg-lime fg-white" data-role="tile">
-                            <div class="tile-content iconic"><span class="icon mif-shop mif-ani-shake"></span><span class="tile-label">Daftar Outlet</span></div>
-                          </div>
-                          <div class="tile tile-wide-x bg-green fg-white" data-role="tile">
-                            <div class="tile-content iconic"><span class="icon mif-user-plus"></span><span class="tile-label">Sales Baru</span></div>
-                          </div>
-                          <div class="tile tile-wide-x bg-emerald fg-white" data-role="tile">
-                            <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Toko Baru</span></div>
-                          </div>
-                          <div class="tile tile-super-x tile-wide-y bg-darkEmerald fg-white" data-role="tile">
-                            <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Daftar Sales</span></div>
-                          </div>
+                      <div style="margin-left: 8%">
+                        <div class="tile-group">
+                          <div class="tile-group-title">Outlet</div>
+                            <div class="tile-container"><!--Container begin-->
+                              <div class="tile-large tile-big-y bg-lime fg-white" data-role="tile">
+                                <div class="tile-content iconic"><span class="icon mif-shop mif-ani-shake"></span><span class="tile-label">Daftar Outlet</span></div>
+                              </div>
+                              <div class="tile tile-wide-x bg-green fg-white" data-role="tile">
+                                <div class="tile-content iconic"><span class="icon mif-user-plus"></span><span class="tile-label">Sales Baru</span></div>
+                              </div>
+                              <div class="tile tile-wide-x bg-emerald fg-white" data-role="tile">
+                                <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Toko Baru</span></div>
+                              </div>
+                              <div class="tile tile-super-x tile-wide-y bg-darkEmerald fg-white" data-role="tile">
+                                <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Daftar Sales</span></div>
+                              </div>
+                            </div><!--Container ends-->
                         </div>
                       </div>
                     </div>
@@ -243,42 +245,36 @@
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-phone" aria-hidden="true"></i> Kontak</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <div class="container overlay">
-                        <div class="overlay-content">
-                          <div class="tile-group triple">
-
+                      <div style="margin-left: 8%">
+                          <div class="tile-group">
                             <span class="tile-group-title">DAFTAR KONTAK</span>
-                            <div class="tile-container">
-                              <a href="#" class="tile tile-wide-y bg-darkCobalt fg-white" data-role="tile">
+                            <div class="tile-container"> <!--Tile container begins-->
+                              <a href="#" class="tile-large tile-big-y bg-darkCobalt fg-white" data-role="tile">
                                 <div class="tile-content iconic">
                                   <span class="icon mif-users mif-ani-bounce"></span>
                                   <span class="tile-label">Daftar Customer</span>
                                 </div>
                               </a>
-
-                              <a class="tile-wide bg-cobalt fg-white" data-role="tile">
+                              <a class="tile tile-super-x tile-wide-y bg-cobalt fg-white" data-role="tile">
                                 <div class="tile-content iconic">
                                   <span class="icon mif-file-text"></span>
                                   <span class="tile-label">Daftar Supplier</span>
                                 </div>
                               </a>
-                              <a class="tile-square bg-darkBlue fg-white" data-role="tile">
+                              <a class="tile tile-wide-x bg-darkBlue fg-white" data-role="tile">
                                 <div class="tile-content iconic">
                                   <span class="icon mif-user-plus"></span>
                                   <span class="tile-label">Tambah Customer</span>
                                 </div>
                               </a>
-                              <a class="tile-square bg-lightBlue fg-white" data-role="tile">
+                              <a class="tile tile-wide-x bg-lightBlue fg-white" data-role="tile">
                                 <div class="tile-content iconic">
                                   <span class="icon mif-user-plus mif-ani-heartbeat"></span>
                                   <span class="tile-label">Tambah Supplier</span>
                                 </div>
                               </a>
-      
-                            </div>
-
+                            </div><!--Container Ends-->
                           </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -286,30 +282,31 @@
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-cog" aria-hidden="true"></i> Konfigurasi</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <div class="tile-group double">
-                        <div class="tile-group-title">Konfigurasi</div>
-                        <div class="tile-container">
-                          <div class="tile bg-darkEmerald fg-white" data-role="tile">
-                            <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Gold</span></div>
-                          </div>
-                          <div class="tile bg-darkEmerald fg-white" data-role="tile">
-                            <div class="tile-content iconic"><span class="icon fa fa-diamond"></span><span class="tile-label">Diamond</span></div>
-                          </div>
-                          <div class="tile-wide bg-darkEmerald fg-white" data-role="tile">
-                            <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Toko</span></div>
-                          </div>
-                          <div class="tile bg-darkEmerald fg-white" data-role="tile">
-                            <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Sales</span></div>
-                          </div>
-                          <div class="tile bg-darkEmerald fg-white" data-role="tile">
-                            <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Member</span></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="tile-group double">
-                        <div class="tile tile-large bg-darkEmerald fg-white" data-role="tile">
-                          <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Promo</span></div>
-                        </div>
+                      <div style="margin-left: 6%">
+                        <div class="tile-group">
+                          <div class="tile-group-title">Konfigurasi</div>
+                          <div class="tile-container"><!--Tile container start-->
+                            <div class="tile tile-large tile-big-x bg-darkEmerald fg-white" data-role="tile">
+                                <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Toko</span></div>
+                            </div>
+                            <div class="tile bg-darkEmerald fg-white" data-role="tile">
+                              <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Gold</span></div>
+                            </div>
+                            <div class="tile-wide bg-darkEmerald fg-white" data-role="tile">
+                              <div class="tile-content iconic"><span class="icon fa fa-diamond"></span><span class="tile-label">Diamond</span></div>
+                            </div>
+                            <div class="tile-wide tile-big-x bg-darkEmerald fg-white" data-role="tile">
+                              <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Promo</span></div>
+                            </div>
+                            <div class="tile bg-darkEmerald fg-white" data-role="tile">
+                                <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Sales</span></div>
+                            </div>
+                            <div class="tile bg-darkEmerald fg-white" data-role="tile">
+                                <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Member</span></div>
+                              </div>
+                            
+                            
+                          </div><!--Tile Container ends-->
                       </div>
                     </div>
                   </div>
