@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Victory !</title>
 
@@ -50,12 +50,13 @@
         z-index: 1;
         left: 0;
         top: 50px;
+        opacity: 0;
         background-color:#fff;
         overflow-x: hidden;
-        overflow-y: scroll;
+        overflow-y: hidden;
         -webkit-box-shadow: 0 7px 10px 0 #9E9E9E;
         box-shadow: 0 7px 10px 0 #9E9E9E;
-        transition: 0.2s;
+        transition: 0.4s ease-in;
         
       }
       @media (max-width: 1127px){
@@ -66,6 +67,23 @@
       @media(max-width: 500px){
         .navbar-brand{
           display: none;
+        }
+      }
+
+      @media(max-width: 425px){
+        .tile-large,.tile,.tile-wide{
+          width: 150px;
+          height: 150px;
+        }
+        .tile-group{
+          width: 320px !important;
+          margin: 0 3% !important;
+        }
+        #transaksi-container{
+          margin:0 !important;
+        }
+        .navbar > .container-fluid{
+          padding: 0;
         }
       }
       @media (max-width: 968px){
@@ -111,7 +129,7 @@
         -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
       }
-      .buka>a:visited{
+      .buka>a:visited,.buka>a:focus,.buka>a:active,.buka>a:hover{
         color: #04BFBF !important;
         background-color: #FFFFFF;
         -webkit-transition: all 0.3s ease-in;
@@ -125,12 +143,12 @@
   <body>
   
   <header>
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-default" style="z-index: 9999">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             
-            <a class="navbar-brand" href="#">Toko Kemenangan</a>
+            <a class="navbar-brand" href="#">Logo</a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -139,9 +157,9 @@
               <li><a href="<?php echo base_url('formula/home') ?>" ><i class="fa fa-home" aria-hidden="true"></i> <span class="menu-text">Home</span></a></li>
               <!--Menu+dropdown Transaksi-->
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> <span class="menu-text">Transaksi</span></a>
-                  <div class="container overlay">
-                    <div class="overlay-content">
-                      <div style="position: relative;overflow: hidden; margin: 0 5%">
+                  <div class="container overlay" style="padding-top: 0px">
+                    <div class="overlay-content" >
+                      <div id="transaksi-container" style="position: relative;overflow: hidden; margin: 0 5%">
                       <div class="tile-group triple" style="display:block; float: left; margin:auto; width: 480px" >
                         <span class="tile-group-title">Penjualan</span>
                           <div class="tile-container"><!--Container Penjualan begins-->
@@ -332,6 +350,7 @@
                   </div>
               </li>
               <!--Konfigurasi ends-->
+              <li><a href=""><i class="fa fa-power-off"></i> <span class="menu-text">Logout</span></a></li>
             </ul>
            <!--Main menu ul ends-->
              
@@ -348,13 +367,22 @@
       function openNav(el){
         if($(el).parent('li').hasClass('buka')){
           $(el).parent('li').find('.overlay').css('height', 0);
+          $(el).parent('li').find('.overlay').css('overflow-y', 'hidden');
+          $(el).parent('li').find('.overlay').css('overflow-x', 'hidden');
+          $(el).parent('li').find('.overlay').css('opacity', 0);
           $(el).parent('li').find('.overlay').css('padding-bottom', '0px');
           $(el).parent('li').removeClass('buka');
         }else{
+          $('.navbar-nav').find('.overlay').css('overflow-x', 'hidden');
+          $('.navbar-nav').find('.overlay').css('opacity', 0);
+          $('.navbar-nav').find('.overlay').css('overflow-y', 'hidden');
           $('.navbar-nav').find('.overlay').css('padding-bottom', '0px');
           $('.navbar-nav').find('li').removeClass('buka');
           $('.navbar-nav').find('.overlay').css('height', 0);
           $(el).parent('li').find('.overlay').css('padding-bottom', '50px');
+          $(el).parent('li').find('.overlay').css('overflow-y', 'scroll');
+          $(el).parent('li').find('.overlay').css('overflow-x', 'scroll');
+          $(el).parent('li').find('.overlay').css('opacity', '1');
           $(el).parent('li').addClass('buka');
           $(el).parent('li').find('.overlay').css('height','100%');
         } 

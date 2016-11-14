@@ -24,7 +24,7 @@
 		}
 
 		public function home(){
-			$this->template->load($this->temp,'home');
+			$this->template->load('default','home');
 		}
 
 	}
