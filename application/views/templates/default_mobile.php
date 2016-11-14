@@ -39,6 +39,9 @@
         font-size: 12px;
         line-height: 30px;
       }
+      .dropdown-menu{
+        background-color: #04BFBF;
+      }
      
       .navbar{
         background-color: #04BFBF;
