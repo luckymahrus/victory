@@ -56,7 +56,7 @@
         -webkit-box-shadow: 0 7px 10px 0 #9E9E9E;
         box-shadow: 0 7px 10px 0 #9E9E9E;
         transition: 0.2s;
-        padding-bottom: 30px;
+        
       }
       .overlay-content{
         position: relative;
@@ -100,8 +100,10 @@
         -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
       }
-      @media only screen and (max-device-width: 767px){
-
+      @media only screen and (max-device-width: 1000px){
+        .bros{
+          margin:0;
+        }
       }
     </style>
 
@@ -197,8 +199,8 @@
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-dropbox" aria-hidden="true"></i> Inventory</a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
-                      <div style="margin-left: 8%">
-                      <div class="tile-group">
+                      
+                      <div class="tile-group bros">
                         <span class="tile-group-title">Inventory</span>
                         <div class="tile-container"><!--Container begins-->
                           <div class="tile-large tile-big-y bg-amber fg-white" data-role="tile">
@@ -218,7 +220,7 @@
                           </div>
                         </div><!--Container ends-->
                       </div>
-                      </div>
+                      
                     </div>
                   </div>
               </li>
@@ -341,7 +343,6 @@
         }else{
           $('.navbar-collapse').find('li').removeClass('buka');
           $('.navbar-collapse').find('.overlay').css('height', 0);
-          $('.navbar-collapse').find('.overlay').css('z-index', -100);
           $(el).parent('li').addClass('buka');
           $(el).parent('li').find('.overlay').css('height','100%');
         } 
