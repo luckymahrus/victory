@@ -63,6 +63,16 @@
         margin:0 !important;
         float: left !important;
       }}
+      @media(max-width: 500px){
+        .navbar-brand{
+          display: none;
+        }
+      }
+      @media (max-width: 968px){
+        .menu-text{
+          display: none;
+        }
+      }
       .tile-group{
         margin: 0 12%;
       }
@@ -119,21 +129,16 @@
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+            
             <a class="navbar-brand" href="#">Toko Kemenangan</a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          
             <ul class="nav navbar-nav">
-              <li><a href="<?php echo base_url('formula/home') ?>" ><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+              <li><a href="<?php echo base_url('formula/home') ?>" ><i class="fa fa-home" aria-hidden="true"></i> <span class="menu-text">Home</span></a></li>
               <!--Menu+dropdown Transaksi-->
-              <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> Transaksi</a>
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> <span class="menu-text">Transaksi</span></a>
                   <div class="container overlay">
                     <div class="overlay-content">
                       <div style="position: relative;overflow: hidden; margin: 0 5%">
@@ -200,7 +205,7 @@
                   </div>
               </li><!--Transaksi ends-->
               <!--Menu + Dropdown Inventory-->
-              <li><a href="#" onclick="openNav(this)"><i class="fa fa-dropbox" aria-hidden="true"></i> Inventory</a>
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-dropbox" aria-hidden="true"></i> <span class="menu-text">Inventory</span></a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
                       
@@ -230,7 +235,7 @@
               </li>
               <!--Inventory ends-->
               <!--Menu + Dropdown Outlets-->
-              <li><a href="#" onclick="openNav(this)"><span class="icon mif-shop"></span> Outlets</a>
+              <li><a href="#" onclick="openNav(this)"><span class="icon mif-shop"></span> <span class="menu-text">Outlets</span></a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
                       
@@ -257,7 +262,7 @@
               </li>
               <!--Outlet ends-->
               <!--Menu + Dropdown Kontak-->
-              <li><a href="#" onclick="openNav(this)"><i class="fa fa-phone" aria-hidden="true"></i> Kontak</a>
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-phone" aria-hidden="true"></i> <span class="menu-text">Kontak</span></a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
                     
@@ -296,7 +301,7 @@
               </li>
               <!--Kontak ends-->
               <!--Menu + Dropdown Konfigurasi-->
-              <li><a href="#" onclick="openNav(this)"><i class="fa fa-cog" aria-hidden="true"></i> Konfigurasi</a>
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-cog" aria-hidden="true"></i> <span class="menu-text">Konfigurasi</span></a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
                       
@@ -330,7 +335,7 @@
             </ul>
            <!--Main menu ul ends-->
              
-          </div><!-- /.navbar-collapse -->
+          
         </div><!-- /.container-fluid -->
       </nav>
   </header>
@@ -346,9 +351,9 @@
           $(el).parent('li').find('.overlay').css('padding-bottom', '0px');
           $(el).parent('li').removeClass('buka');
         }else{
-          $('.navbar-collapse').find('.overlay').css('padding-bottom', '0px');
-          $('.navbar-collapse').find('li').removeClass('buka');
-          $('.navbar-collapse').find('.overlay').css('height', 0);
+          $('.navbar-nav').find('.overlay').css('padding-bottom', '0px');
+          $('.navbar-nav').find('li').removeClass('buka');
+          $('.navbar-nav').find('.overlay').css('height', 0);
           $(el).parent('li').find('.overlay').css('padding-bottom', '50px');
           $(el).parent('li').addClass('buka');
           $(el).parent('li').find('.overlay').css('height','100%');
