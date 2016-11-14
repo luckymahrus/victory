@@ -9,11 +9,20 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo base_url();?>css/yamm.css">
     <link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/metro.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/metro-icons.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/metro-responsive.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/metro-schemes.css" rel="stylesheet">
+
+    <link href="<?php echo base_url() ?>css/docs.css" rel="stylesheet">
+
+    
+    
 
     <script src="<?php echo base_url() ?>js/jquery-1.12.4.min.js"></script>
     <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url() ?>js/metro.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -27,266 +36,306 @@
         font-size: 12px;
         line-height: 30px;
       }
-      .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
-        border-top: none;
-        vertical-align: middle;
-        padding-top: 5px;
-        padding-bottom: 0px;
-      }
+     
       .navbar{
         background-color: #04BFBF;
-        height: 61px;
+        height: 50px;
         border:none;
         border-radius: 0px;
       }
-      .navbar-nav{
-        width: 100%;
+      .overlay{
+        position: fixed;
+        width: 1366px;
+        height: 0;
+        z-index: 1;
+        left: 0;
+        top: 50px;
+        background-color:#fff;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        -webkit-box-shadow: 0 7px 10px 0 #9E9E9E;
+        box-shadow: 0 7px 10px 0 #9E9E9E;
+        transition: 0.2s;
       }
-      .navbar-nav>li>a,.navbar a{
-        color: #fff !important;
+      .overlay-content{
+        position: relative;
+        top: 0%;
+        width: 1366px;
+        text-align: center;
+        margin-top: 20px;
       }
       .navbar-nav>li{
-        height: 67px;
+        border-right: 1px solid #CAFCD8;
+      }
+      .navbar-nav>li:hover{
+
+        background-color: #91e9e0;
+        -webkit-transition: all 0.3s ease-in;
+        -moz-transition: all 0.3s ease-in;
+        transition: all 0.3s ease-in;
       }
       .navbar-nav>li>a{
-        line-height: 37px;
+        color: white !important;
       }
-      .menu-a{
-        padding-bottom: 0px !important;
-        padding-top: 5px !important;
+      .navbar-brand{
+        border-right: 1px solid #CAFCD8; 
+        color: white !important;
       }
-      .menu-a p{
-        margin-top: -12px !important;
+      .tile-group-title{
+        color: black !important;
+        text-transform: uppercase;
       }
-      #home{
-        background-color: #04BFBF;
-        border-right: 1px solid #CAFCD8;
-        border-left: 1px solid #CAFCD8;
+      .buka{
+
+        background-color: #FFFFFF !important;
+        -webkit-transition: all 0.3s ease-in;
+        -moz-transition: all 0.3s ease-in;
+        transition: all 0.3s ease-in;
       }
-      #trans{
-        background-color: #04BFBF;
-        border-right: 1px solid #CAFCD8;
-      }
-      #invent{
-        background-color: #04BFBF;
-        border-right: 1px solid #CAFCD8;
-      }
-      #outlet{
-        background-color: #04BFBF;
-        border-right: 1px solid #CAFCD8;
-      }
-      #contact{
-        background-color: #04BFBF;
-        border-right: 1px solid #CAFCD8;
-      }
-      #configuration{
-        background-color: #04BFBF;
-        border-right: 1px solid #CAFCD8;
-      }
-      
-      .navbar-nav > .active > a {
-          color: red;
-      }
-      .card{
-        width: 100%; 
-        height: 200px; 
-        margin:auto; 
-        padding-top: 50px;
-      }
-      .yamm-fw{
-        width:12%;
+      .buka>a:visited{
+        color: #04BFBF !important;
+        background-color: #FFFFFF;
+        -webkit-transition: all 0.3s ease-in;
+        -moz-transition: all 0.3s ease-in;
+        transition: all 0.3s ease-in;
       }
     </style>
 
   </head>
   <body>
-	
+  
   <header>
-    <nav class="navbar navbar-default yamm">
-      <div class="container-fluid" style="padding-left: 20px;padding-right: 20px">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          
-        </div>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Toko Kemenangan</a>
+          </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav" role="menu">
-            
-            <li style="width: 12%;">
-              <a href="<?php echo base_url('main') ?>" id="home" class="menu-a text-center"><i class="fa fa-home fa-2x" aria-hidden="true"></i><p class="segoe">Home</p>
-              </a>
-            </li>
-            
-            <!--Transactions-->
-            <li class="dropdown yamm-fw">
-              <a href="#" class="dropdown-toggle menu-a text-center" data-toggle="dropdown" id="trans"><i class="fa fa-money fa-2x" aria-hidden="true"></i><p class="segoe">Transactions</p></a>
-              
-              <div class="dropdown-menu yamm-content">
-                <div class="row" style="padding-top: 35px; padding-bottom: 35px;">
-              
-                  <div class="col-md-1"></div>  
-                  
-                  <div class="col-md-10">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <a href="<?php echo base_url('selling') ?>" class="text-center">
-                          <div class="card" style="background-color:#2ecc71; height: 420px;">
-                              <span class="fa fa-shopping-cart fa-5x" aria-hidden="true"></span><p class="segoe">Daftar Penjualan</p>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><a href="<?php echo base_url('formula/home') ?>" ><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> Transaksi</a>
+
+                  <div class="container overlay">
+                    <div class="overlay-content">
+                      <div style="position: relative;overflow: hidden; margin: 0 5%">
+                      <div class="tile-group triple" style="display:block; float: left; margin:auto; width: 480px" >
+                        <span class="tile-group-title">Penjualan</span>
+                          <div class="tile-container">
+                              <div class="tile-large fg-white" data-role="tile" style="background-color: #734ACC">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-coins mif-ani-slow mif-ani-bounce"></span>
+                                  <span class="tile-label">Daftar Penjualan</span>
+                                </div>
+                              </div>
+                              <div class="tile fg-white" data-role="tile" style="background-color: #905CFF">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-plus"></span>
+                                  <span class="tile-label">Penjualan Baru</span>
+                                </div>
+                              </div>    
+                              <div class="tile fg-white" data-role="tile" style="background-color:  #4383E8">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-checkmark"></span>
+                                  <span class="tile-label">Booking Baru</span>
+                                </div>
+                              </div>    
+                              <div class="tile-wide tile-big-x fg-white" data-role="tile" style="background-color: #3466B5">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-clipboard mif-ani-slow mif-ani-heartbeat"></span>
+                                  <span class="tile-label">Daftar Booking</span>
+                                </div>
+                              </div>
                           </div>
-                        </a>
                       </div>
-                      <div class="col-md-6">
-                        <div class="row">
-                          <a href="<?php echo base_url('purchasing') ?>" class="text-center">
-                            <div class="card" style=" height: 200px; background-color:#e74c3c; margin:auto;">
-                                <span class="fa fa-shopping-basket fa-5x" aria-hidden="true"></span><p class="segoe">Daftar Pembelian</p>
-                            </div>
-                          </a>  
-                        </div>
-                        <div class="row" style="margin-top: 20px;">
-                          <a href="<?php echo base_url('purchasing') ?>" class="text-center">
-                            <div class="card" style=" height: 200px; background-color:#e74c3c; margin:auto;">
-                                <span class="fa fa-shopping-basket fa-5x" aria-hidden="true"></span><p class="segoe">Daftar Pembelian</p>
-                            </div>
-                          </a>  
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div class="row" style="margin-top: 20px;">
-                      <div class="col-md-6">
-                        <a href="<?php echo base_url('selling') ?>" class="text-center">
-                        <div class="card" style=" height: 200px; background-color:#f1c40f; margin:auto;">
-                            <span class="fa fa-dollar fa-5x" aria-hidden="true"></span>
-                            <p class="segoe">Penjualan Baru</p>
-                        </div>
-                        </a>
-                      </div>
-                      <div class="col-md-6">
-                        <a href="<?php echo base_url('selling') ?>" class="text-center">
-                          <div class="card" style=" height: 200px; background-color:#f1c40f; margin:auto;">
-                              <span class="fa fa-dollar fa-5x" aria-hidden="true"></span>
-                              <p class="segoe">Penjualan Baru</p>
+                      <div class="tile-group triple" style="display:block; float:right;margin: auto;width: 480px"  >
+                          <span class="tile-group-title">Pembelian</span>
+                          <div class="tile-container">
+                              <div class="tile-wide tile-big-y fg-white" data-role="tile" style="background-color: #3AB2A5">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-file-text mif-ani-slow mif-ani-vertical"></span>
+                                  <span class="tile-label">Daftar Pembelian</span>
+                                </div>
+                              </div>
+                              <div class="tile fg-white" data-role="tile" style="background-color: #3DBD8B">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-plus"></span>
+                                  <span class="tile-label">Beli Emas</span>
+                                </div>
+                              </div>    
+                              <div class="tile fg-white" data-role="tile" style="background-color: #4DF0B0">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-plus"></span>
+                                  <span class="tile-label">Beli Diamond</span>
+                                </div>
+                              </div>    
+                              <div class="tile fg-white" data-role="tile" style="background-color: #4AE5D4">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-plus"></span>
+                                  <span class="tile-label">Beli Perhiasan</span>
+                                </div>
+                              </div>
                           </div>
-                        </a>
+                      </div>
                       </div>
                     </div>
-
                   </div>
-
-                  <div class="col-md-1"></div>
-                
-                </div>
+              </li>
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-dropbox" aria-hidden="true"></i> Inventory</a>
+                  <div class="container-fluid overlay">
+                    <div class="overlay-content">
+                      <div style="margin-left: 8%">
+                      <div class="tile-group">
+                        <span class="tile-group-title">Inventory</span>
+                        <div class="tile-container">
+                          <div class="tile-large tile-big-y bg-amber fg-white" data-role="tile">
+                            <div class="tile-content iconic"><span class="icon mif-list"></span><span class="tile-label">Daftar Barang</span></div>
+                          </div>
+                          <div class="tile-large bg-red fg-white" data-role="tile">
+                            <div class="tile-content iconic"><span class="icon mif-search"></span><span class="tile-label">Stok Opnam</span></div>
+                          </div>
+                          <div class="tile tile-wide-y bg-orange fg-white" data-role="tile">
+                            <div class="tile-content iconic"><span class="icon mif-truck mif-ani-pass"></span><span class="tile-label">Kirim</span></div>
+                          </div>
+                          <div class="tile tile-wide-y bg-crimson fg-white" data-role="tile">
+                            <div class="tile-content iconic"><span class="icon fa fa-check-square-o"></span><span class="tile-label">Terima</span></div>
+                          </div>
+                          <div class="tile tile-super-x bg-lightRed fg-white" data-role="tile">
+                            <div class="tile-content iconic"><span class="icon mif-shopping-basket mif-ani-bounce mif-ani-fast"></span><span class="tile-label">Daftar Baki</span></div>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+              </li>
+              <li><a href="#" onclick="openNav(this)"><span class="icon mif-shop"></span> Outlets</a>
+                  <div class="container-fluid overlay">
+                    <div class="overlay-content">
+                      <div style="margin-left: 8%">
+                        <div class="tile-group">
+                          <div class="tile-group-title">Outlet</div>
+                            <div class="tile-container"><!--Container begin-->
+                              <div class="tile-large tile-big-y bg-lime fg-white" data-role="tile">
+                                <div class="tile-content iconic"><span class="icon mif-shop mif-ani-shake"></span><span class="tile-label">Daftar Outlet</span></div>
+                              </div>
+                              <div class="tile tile-wide-x bg-green fg-white" data-role="tile">
+                                <div class="tile-content iconic"><span class="icon mif-user-plus"></span><span class="tile-label">Sales Baru</span></div>
+                              </div>
+                              <div class="tile tile-wide-x bg-emerald fg-white" data-role="tile">
+                                <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Toko Baru</span></div>
+                              </div>
+                              <div class="tile tile-super-x tile-wide-y bg-darkEmerald fg-white" data-role="tile">
+                                <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Daftar Sales</span></div>
+                              </div>
+                            </div><!--Container ends-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </li>
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-phone" aria-hidden="true"></i> Kontak</a>
+                  <div class="container-fluid overlay">
+                    <div class="overlay-content">
+                      <div style="margin-left: 8%">
+                          <div class="tile-group">
+                            <span class="tile-group-title">DAFTAR KONTAK</span>
+                            <div class="tile-container"> <!--Tile container begins-->
+                              <a href="#" class="tile-large tile-big-y bg-darkCobalt fg-white" data-role="tile">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-users mif-ani-bounce"></span>
+                                  <span class="tile-label">Daftar Customer</span>
+                                </div>
+                              </a>
+                              <a class="tile tile-super-x tile-wide-y bg-cobalt fg-white" data-role="tile">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-file-text"></span>
+                                  <span class="tile-label">Daftar Supplier</span>
+                                </div>
+                              </a>
+                              <a class="tile tile-wide-x bg-darkBlue fg-white" data-role="tile">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-user-plus"></span>
+                                  <span class="tile-label">Tambah Customer</span>
+                                </div>
+                              </a>
+                              <a class="tile tile-wide-x bg-lightBlue fg-white" data-role="tile">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-user-plus mif-ani-heartbeat"></span>
+                                  <span class="tile-label">Tambah Supplier</span>
+                                </div>
+                              </a>
+                            </div><!--Container Ends-->
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+              </li>
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-cog" aria-hidden="true"></i> Konfigurasi</a>
+                  <div class="container-fluid overlay">
+                    <div class="overlay-content">
+                      <div style="margin: 0 8%">
+                        <div class="tile-group">
+                          <div class="tile-group-title">Konfigurasi</div>
+                          <div class="tile-container"><!--Tile container start-->
+                            <div class="tile tile-large tile-big-x bg-darkEmerald fg-white" data-role="tile">
+                                <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Toko</span></div>
+                            </div>
+                            <div class="tile bg-darkEmerald fg-white" data-role="tile">
+                              <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Gold</span></div>
+                            </div>
+                            <div class="tile-wide bg-darkEmerald fg-white" data-role="tile">
+                              <div class="tile-content iconic"><span class="icon fa fa-diamond"></span><span class="tile-label">Diamond</span></div>
+                            </div>
+                            <div class="tile-wide tile-big-x bg-darkEmerald fg-white" data-role="tile">
+                              <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Promo</span></div>
+                            </div>
+                            <div class="tile bg-darkEmerald fg-white" data-role="tile">
+                                <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Sales</span></div>
+                            </div>
+                            <div class="tile bg-darkEmerald fg-white" data-role="tile">
+                                <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Member</span></div>
+                              </div>
+                            
+                            
+                          </div><!--Tile Container ends-->
+                      </div>
+                    </div>
+                  </div>
+              </li>
             
-              </div>
-
-            </li>
-            <!--Transaction end-->
-
-            <!--Inventories-->
-            <li class="dropdown yamm-fw">
-              <a href="#" class="dropdown-toggle menu-a text-center" data-toggle="dropdown" id="invent"><i class="fa fa-dropbox fa-2x" aria-hidden="true"></i><p class="segoe">Inventory</p></a>
-              <div class="dropdown-menu yamm-content">
-                <div class="row">
-                  <div class="col-md-4">
-                    <a href="<?php echo base_url('products') ?>" ><i id="template-button" class="fa fa-archive fa-2x" aria-hidden="true"></i><span><p class="segoe">Produk</p></span></a>
-                  </div>
-                  <div class="col-md-4">
-                    <a href="<?php echo base_url('products/all_category') ?>" ><span class="glyphicon glyphicon-tags" aria-hidden="true"></span><span>Kategori</span></a>
-                  </div>
-                  <div class="col-md-4">
-                    <a href="<?php echo base_url('mutasi') ?>" ><span class="fa fa-institution fa-2x" aria-hidden="true"></span><span>Mutasi</span></a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <!--Inventory End-->
-
-            <!--Outlet/Sales-->
-            <li class="dropdown yamm-fw">
-              <a href="#" class="dropdown-toggle menu-a text-center" data-toggle="dropdown" id="outlet"><i class="fa fa-male fa-2x" aria-hidden="true"></i><p class="segoe">Outlet/Sales</p></a>
-              <div class="dropdown-menu yamm-content">
-                <div class="row">
-                    <div class="col-md-3">
-                      <a href="<?php echo base_url('customers') ?>" ><span class="fa fa-users fa-2x" aria-hidden="true"></span><span>Customer</span></a>
-                    </div>
-                    <div class="col-md-3">
-                      <a href="<?php echo base_url('outlets') ?>" ><span class="glyphicon glyphicon-tags" aria-hidden="true"></span><span>Outlets</span></a>
-                    </div>
-                    <div class="col-md-3">
-                      <a href="<?php echo base_url('drivers') ?>" ><span class="fa fa-car fa-3x" aria-hidden="true"></span><span>Driver</span></a>
-                    </div>
-                    <div class="col-md-3">
-                      <a href="<?php echo base_url('supplier') ?>" ><span class="fa fa-users fa-2x" aria-hidden="true"></span><span>Supplier</span></a>
-                    </div>
-                </div>
-              </div>
-            </li>
-            <!--Outlet/Sales End-->
-
-            <!--Contacts-->
-            <li class="dropdown yamm-fw">
-              <a href="#" class="dropdown-toggle menu-a text-center" data-toggle="dropdown" id="contact"><i class="fa fa-phone fa-2x" aria-hidden="true"></i><p class="segoe">Contacts</p></a>
-              <div class="dropdown-menu yamm-content">
-                <div class="row">
-                    <div class="col-md-3">
-                      <a href="<?php echo base_url('customers') ?>" ><span class="fa fa-users fa-3x" aria-hidden="true"></span><span>Customer</span></a>
-                    </div>
-                    <div class="col-md-3">
-                      <a href="<?php echo base_url('outlets') ?>" ><span class="glyphicon glyphicon-tags" aria-hidden="true"></span><span>Outlets</span></a>
-                    </div>
-                    <div class="col-md-3">
-                      <a href="<?php echo base_url('drivers') ?>" ><span class="fa fa-car fa-3x" aria-hidden="true"></span><span>Driver</span></a>
-                    </div>
-                    <div class="col-md-3">
-                      <a href="<?php echo base_url('supplier') ?>" ><span class="fa fa-users fa-3x" aria-hidden="true"></span><span>Supplier</span></a>
-                    </div>
-                </div>
-              </div>
-            </li>
-            <!--Contacts End-->
-
-            <!--Configuration-->
-            <li class="dropdown yamm-fw">
-              <a href="#" class="dropdown-toggle menu-a text-center" data-toggle="dropdown" id="configuration"><i class="fa fa-gear fa-2x" aria-hidden="true"></i><p class="segoe">Contacts</p></a>
-              <div class="dropdown-menu yamm-content">
-                <div class="row">
-                    <div class="col-md-3">
-                      <a href="<?php echo base_url('customers') ?>" ><span class="fa fa-users fa-3x" aria-hidden="true"></span><span>Customer</span></a>
-                    </div>
-                    <div class="col-md-3">
-                      <a href="<?php echo base_url('outlets') ?>" ><span class="glyphicon glyphicon-tags" aria-hidden="true"></span><span>Outlets</span></a>
-                    </div>
-                    <div class="col-md-3">
-                      <a href="<?php echo base_url('drivers') ?>" ><span class="fa fa-car fa-3x" aria-hidden="true"></span><span>Driver</span></a>
-                    </div>
-                    <div class="col-md-3">
-                      <a href="<?php echo base_url('supplier') ?>" ><span class="fa fa-users fa-3x" aria-hidden="true"></span><span>Supplier</span></a>
-                    </div>
-                </div>
-              </div>
-            </li>
-            <!--Configuration End-->
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-    <!--Navbar Ends-->
+            </ul>
+           
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
   </header>
-
-	<div class="container">
-		<?php echo $body ?>
-	</div>
-	
+  <div class="container">
+    <?php echo $body ?>
+  </div>
+  
   <footer></footer>
-    
+    <script>
+      function openNav(el){
+        if($(el).parent('li').hasClass('buka')){
+          $(el).parent('li').find('.overlay').css('height', 0);
+          $(el).parent('li').removeClass('buka');
+        }else{
+          $('.navbar-collapse').find('li').removeClass('buka');
+          $('.navbar-collapse').find('.overlay').css('height', 0);
+          $(el).parent('li').addClass('buka');
+          $(el).parent('li').find('.overlay').css('height','100%');
+        } 
+        
+      }
+    </script>
   </body>
 </html>

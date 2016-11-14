@@ -3,10 +3,18 @@
 	defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class Formula extends CI_Controller{
-		
+		private $temp;
+
 		function __construct(){
 			parent::__construct();
 			$this->load->library('user_agent');
+			if ($this->agent->is_mobile())
+			{
+		 	  	$this->temp = 'default_mobile';
+			}else{
+				$this->temp = 'default';
+				
+			}
 		}
 
 		public function index(){
@@ -16,13 +24,7 @@
 		}
 
 		public function home(){
-			if ($this->agent->is_mobile())
-			{
-		 	  	echo 'mobile';
-			}else{
-				
-				$this->template->load('navbar','home');
-			}
+			$this->template->load($this->temp,'home');
 		}
 
 	}
