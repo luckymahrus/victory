@@ -23,6 +23,7 @@
     <script src="<?php echo base_url() ?>js/jquery-1.12.4.min.js"></script>
     <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>js/metro.js"></script>
+    <script src="<?php echo base_url() ?>js/webcam.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
