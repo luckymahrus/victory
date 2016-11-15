@@ -81,12 +81,14 @@
                 	</div>
                 </div>
                 <div class="row cells">
-                	<label>Tempat Bekerja</label>
-                	<div class="input-control select full-size">
-                		<select>
-                			<option>--Pilih Outlet--</option>
-                		</select>
-                	</div>
+                    <div class="cell">
+                        <label>Tempat Bekerja</label>
+                        <div class="input-control select full-size">
+                            <select>
+                                <option>--Pilih Outlet--</option>
+                            </select>
+                        </div>    
+                    </div>
                 </div>
 
                 <div class="row text-center">

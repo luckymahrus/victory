@@ -318,7 +318,7 @@
                                   <span class="tile-label ">Daftar Supplier</span>
                                 </div>
                               </a>
-                              <a class="tile tile-wide-x bg-darkBlue fg-white" data-role="tile">
+                              <a class="tile tile-wide-x bg-darkBlue fg-white" data-role="tile" href="<?php echo base_url('customer/add_customer') ?>">
                                 <div class="tile-content iconic">
                                   <span class="icon mif-user-plus"></span>
                                   <span class="tile-label">Tambah Customer</span>
