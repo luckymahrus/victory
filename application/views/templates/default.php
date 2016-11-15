@@ -57,7 +57,7 @@
         overflow-y: hidden;
         -webkit-box-shadow: 0 7px 10px 0 #9E9E9E;
         box-shadow: 0 7px 10px 0 #9E9E9E;
-        transition: 0.4s ease-in;
+        transition: 0.2s ease-in;
         
       }
       @media (max-width: 1127px){
@@ -76,6 +76,13 @@
           width: 150px;
           height: 150px;
         }
+        .navbar-nav>li{
+          width: 14.27% !important;
+          text-align: center;
+        }
+        .navbar-nav{
+          width: 100%;
+        }
         .tile-group{
           width: 320px !important;
           margin: 0 3% !important;
@@ -84,7 +91,7 @@
           margin:0 !important;
         }
         .navbar > .container-fluid{
-          padding: 0;
+          padding: 0 !important;
         }
       }
       @media (max-width: 968px){
@@ -145,7 +152,7 @@
   
   <header>
       <nav class="navbar navbar-default" style="z-index: 9999">
-        <div class="container-fluid">
+        <div class="container-fluid" style="padding-left: 15px; padding-right: 15px;">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             

@@ -4,7 +4,7 @@
 </div>
 <div class="row">
 
-	<form>
+	<?php echo form_open_multipart('sales/add_sales') ?>
 		<div class="grid">
                 <div class="row cells2">
                     <div class="cell">
@@ -24,13 +24,17 @@
                         <?php else: ?>    
                             <div id="my_camera" style="width:320px; height:240px;"></div>
                             <div id="my_result"></div>
+                            <input type="file" id="capture" style="display: none" value="">
                             <script language="JavaScript">
                                 Webcam.attach( '#my_camera' );
                                 
                                 function take_snapshot() {
                                     Webcam.snap( function(data_uri) {
                                         document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
+                                        Webcam.upload( data_uri, "<?php echo base_url('sales/upload') ?>", function(code, text) {
+                                        } );    
                                     } );
+                                    
                                 }
                             </script>
                             <a href="javascript:void(take_snapshot())">Take Snapshot</a>
@@ -80,7 +84,7 @@
                 	</div>
                 </div>
                 <div class="row text-center">
-                	<button class="button info bg-teal">Submit</button>
+                	<input type="submit" name="add" class="button info bg-teal" value="Submit">
                 </div>
                 
         </div>
