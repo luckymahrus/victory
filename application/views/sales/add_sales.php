@@ -1,6 +1,6 @@
-<div class="row">	 
-	<h1>Tambah Sales Baru</h1>
-	<hr class="bg-teal">
+<div class="row" style="padding-bottom: 10px;">	 
+	<h1 style="margin-bottom: 20px;">Tambah Sales Baru</h1>
+    <hr class="bg-teal">	
 </div>
 <div class="row">
 
@@ -15,7 +15,12 @@
 						</div>
                     </div>
                     <div class="cell">
-                        <label>Photo</label>
+                        <label>Upload Photo</label>
+                        <div class="input-control file full-size" data-role="input">
+                            <input type="file" accept="image/*" id="capture" capture="camera">
+                            <button class="button btn-file"><span class="mif-camera"></span></button>
+                        </div>
+                        <br>Atau ambil foto
                         <?php if ($is_mobile): ?>
                             <div class="input-control file full-size" data-role="input">
                                 <input type="file" accept="image/*" id="capture" capture="camera">
@@ -37,7 +42,7 @@
                                     
                                 }
                             </script>
-                            <a href="javascript:void(take_snapshot())">Take Snapshot</a>
+                            <a class="button info bg-teal btn-teal" href="javascript:void(take_snapshot())">Take Snapshot</a>
                         <?php endif ?>
 						
                     </div>
@@ -83,6 +88,7 @@
                 		</select>
                 	</div>
                 </div>
+
                 <div class="row text-center">
                 	<input type="submit" name="add" class="button info bg-teal" value="Submit">
                 </div>

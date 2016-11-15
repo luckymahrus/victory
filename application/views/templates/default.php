@@ -144,7 +144,18 @@
         -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
       }
-      
+      .input-control input, .input-control textarea, .input-control select{
+        border-color: rgba(127, 140, 141,1.0);
+      }
+      .btn-file{
+        border-color: rgba(127, 140, 141,1.0);
+      }
+      .btn-teal:hover{
+        background-color: #30D5F1!important;
+        -webkit-transition: all 0.3s ease-in;
+        -moz-transition: all 0.3s ease-in;
+        transition: all 0.3s ease-in;
+      }
     </style>
 
   </head>
