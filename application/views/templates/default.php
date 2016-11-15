@@ -102,7 +102,7 @@
         margin-top: 20px;
       }
       .navbar-nav>li{
-        border-right: 1px solid #CAFCD8;
+        border-right: 1px solid #fff;
       }
       .navbar-nav>li:hover{
 
@@ -115,7 +115,7 @@
         color: white !important;
       }
       .navbar-brand{
-        border-right: 1px solid #CAFCD8; 
+        border-right: 1px solid #fff; 
         color: white !important;
       }
       .tile-group-title{
@@ -351,6 +351,10 @@
               </li>
               <!--Konfigurasi ends-->
               <li><a href=""><i class="fa fa-power-off"></i> <span class="menu-text">Logout</span></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">
+                Welcome, User <span class="caret"></span></a></li>
             </ul>
            <!--Main menu ul ends-->
              
