@@ -1,6 +1,6 @@
-<div class="row">	 
-	<h1>Tambah Sales Baru</h1>
-	<hr class="bg-teal">
+<div class="row" style="padding-bottom: 10px;">	 
+	<h1 style="margin-bottom: 20px;">Tambah Sales Baru</h1>
+    <hr class="bg-teal">	
 </div>
 <div class="row">
 
@@ -33,7 +33,7 @@
                                     } );
                                 }
                             </script>
-                            <a href="javascript:void(take_snapshot())">Take Snapshot</a>
+                            <a class="button info bg-teal" href="javascript:void(take_snapshot())">Take Snapshot</a>
                         <?php endif ?>
 						
                     </div>
