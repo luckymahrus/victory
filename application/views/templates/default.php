@@ -14,7 +14,7 @@
     <link href="<?php echo base_url() ?>css/metro-icons.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-responsive.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-schemes.css" rel="stylesheet">
-
+    
     <link href="<?php echo base_url() ?>css/docs.css" rel="stylesheet">
 
     
@@ -264,9 +264,9 @@
                               <div class="tile-large tile-big-y bg-lime fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-shop mif-ani-shake"></span><span class="tile-label">Daftar Outlet</span></div>
                               </div>
-                              <div class="tile tile-wide-x bg-green fg-white" data-role="tile">
+                              <a href="<?php echo base_url('sales/add_sales') ?>" class="tile tile-wide-x bg-green fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-user-plus"></span><span class="tile-label">Tambah Sales Baru</span></div>
-                              </div>
+                              </a>
                               <a href="<?php echo base_url('outlets/add_outlet') ?>" class="tile tile-wide-x bg-emerald fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Tambah Toko Baru</span></div>
                               </a>
@@ -353,10 +353,9 @@
               <!--Konfigurasi ends-->
               <li><a href=""><i class="fa fa-power-off"></i> <span class="menu-text">Logout</span></a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">
-                Welcome, User <span class="caret"></span></a></li>
-            </ul>
+            
+              
+            
            <!--Main menu ul ends-->
              
           
