@@ -15,7 +15,12 @@
 						</div>
                     </div>
                     <div class="cell">
-                        <label>Photo</label>
+                        <label>Upload Photo</label>
+                        <div class="input-control file full-size" data-role="input">
+                            <input type="file" accept="image/*" id="capture" capture="camera">
+                            <button class="button btn-file"><span class="mif-camera"></span></button>
+                        </div>
+                        <br>Atau ambil foto
                         <?php if ($is_mobile): ?>
                             <div class="input-control file full-size" data-role="input">
                                 <input type="file" accept="image/*" id="capture" capture="camera">
@@ -33,7 +38,7 @@
                                     } );
                                 }
                             </script>
-                            <a class="button info bg-teal" href="javascript:void(take_snapshot())">Take Snapshot</a>
+                            <a class="button info bg-teal btn-teal" href="javascript:void(take_snapshot())">Take Snapshot</a>
                         <?php endif ?>
 						
                     </div>
@@ -79,8 +84,8 @@
                 		</select>
                 	</div>
                 </div>
-                <div class="row text-center">
-                	<button class="button info bg-teal">Submit</button>
+                <div class="row">
+                	<button class="button info bg-teal btn-teal">Submit</button>
                 </div>
                 
         </div>
