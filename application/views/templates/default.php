@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Victory !</title>
+    <title><?php echo $title ?> - Kemenangan</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap.css">
@@ -266,9 +266,9 @@
                               <div class="tile tile-wide-x bg-green fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-user-plus"></span><span class="tile-label">Tambah Sales Baru</span></div>
                               </div>
-                              <div class="tile tile-wide-x bg-emerald fg-white" data-role="tile">
+                              <a href="<?php echo base_url('outlets/add_outlet') ?>" class="tile tile-wide-x bg-emerald fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Tambah Toko Baru</span></div>
-                              </div>
+                              </a>
                               <div class="tile tile-super-x tile-wide-y bg-darkEmerald fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-users  mif-ani-float"></span><span class="tile-label">Daftar Sales</span></div>
                               </div>
