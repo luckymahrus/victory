@@ -25,7 +25,7 @@
                 </div>         
             </div>
 		</div>
-		<div class="row cells">
+		<div class="row cells2">
         	<div class="cell">
         		<label>No. Telp</label>
         		<div class="input-control text full-size" data-role="input">
@@ -33,8 +33,6 @@
 				    <button class="button helper-button clear"><span class="mif-cross"></span></button>
 				</div>
         	</div>
-        </div>
-        <div class="row cells">
             <div class="cell">
                 <label>E-mail</label>
                 <div class="input-control text full-size" data-role="input">
@@ -42,7 +40,7 @@
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
             </div>
-        </div>
+        </div>        
         <div class="row cells">
         	<div class="cell">
         		<label>Alamat</label>
