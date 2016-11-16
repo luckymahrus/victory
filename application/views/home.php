@@ -4,7 +4,7 @@
       display: inline-block;
     }
     .cont-fluid{
-      padding: 2%;
+      padding: 3%;
       padding-top: 0px;
     }
     .box-req{
