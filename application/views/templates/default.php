@@ -380,9 +380,9 @@
         </div><!-- /.container-fluid -->
       </nav>
   </header>
-  <div class="container">
+  
     <?php echo $body ?>
-  </div>
+  
   
   <footer></footer>
     <script>

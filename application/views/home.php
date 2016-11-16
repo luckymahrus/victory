@@ -1,18 +1,11 @@
 <style type="text/css">
-    .tile-group{
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-    .container{
-        margin-left: 20px !important;
-        margin-right: 20px !important;
-    }
     .ket{
       width: 100px;
       display: inline-block;
     }
 </style>
-        <div class="tile-group">
+    <div class="container-fluid">
+        <div class="tile-group" style="margin:0">
           <div class="tile-group-title"><div id="txt"></div></div>
             <div class="tile-container"><!--Container begin-->
               <div class="tile-wide bg-teal fg-white" data-role="tile">
@@ -27,6 +20,7 @@
               </div>
             </div><!--Container ends-->
         </div>
+    </div>
 <script type="text/javascript">
 $(document).ready(function(){
   startTime();
