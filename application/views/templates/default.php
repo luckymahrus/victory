@@ -24,6 +24,7 @@
     <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>js/metro.js"></script>
     <script src="<?php echo base_url() ?>js/webcam.min.js"></script>
+    <script src="<?php echo base_url();?>js/script.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -160,6 +161,7 @@
         padding-bottom: 10px;
         padding-top: 5px;
       }
+
     </style>
 
   </head>
@@ -231,12 +233,6 @@
                                 <div class="tile-content iconic">
                                   <span class="icon mif-plus"></span>
                                   <span class="tile-label">Beli Diamond</span>
-                                </div>
-                              </div>    
-                              <div class="tile fg-white" data-role="tile" style="background-color: #31DCCA">
-                                <div class="tile-content iconic">
-                                  <span class="icon mif-plus"></span>
-                                  <span class="tile-label">Beli Perhiasan</span>
                                 </div>
                               </div>
                           </div><!--Container ends-->
