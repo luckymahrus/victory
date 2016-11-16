@@ -18,6 +18,14 @@
 			}
 		}
 
+		public function list_outlet(){
+			
+			$data['title'] = 'Outlet';
+			$data['is_mobile'] = $this->is_mobile;
+			$this->template->load('default','outlets/list_outlet',$data);
+		
+		}
+
 	}
 
  ?>

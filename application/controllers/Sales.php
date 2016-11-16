@@ -43,6 +43,14 @@
 			}
 		}
 
+		public function list_sales(){
+			
+			$data['title'] = 'Sales';
+			$data['is_mobile'] = $this->is_mobile;
+			$this->template->load('default','sales/list_sales',$data);
+		
+		}
+
 	}
 
  ?>

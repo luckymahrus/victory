@@ -15,6 +15,14 @@
 			}
 		}
 
+		public function list_customer(){
+			
+			$data['title'] = 'Customer';
+			$data['is_mobile'] = $this->is_mobile;
+			$this->template->load('default','customer/list_customer',$data);
+		
+		}
+
 	}
 
 ?>

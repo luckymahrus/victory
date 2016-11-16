@@ -283,18 +283,18 @@
                         <div class="tile-group">
                           <div class="tile-group-title">Outlet</div>
                             <div class="tile-container"><!--Container begin-->
-                              <div class="tile-large tile-big-y bg-lime fg-white" data-role="tile">
+                              <a href="<?php echo base_url('outlets/list_outlet') ?>" class="tile-large tile-big-y bg-lime fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-shop mif-ani-shake"></span><span class="tile-label">Daftar Outlet</span></div>
-                              </div>
+                              </a>
                               <a href="<?php echo base_url('sales/add_sales') ?>" class="tile tile-wide-x bg-green fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-user-plus"></span><span class="tile-label">Tambah Sales Baru</span></div>
                               </a>
                               <a href="<?php echo base_url('outlets/add_outlet') ?>" class="tile tile-wide-x bg-emerald fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Tambah Toko Baru</span></div>
                               </a>
-                              <div class="tile tile-super-x tile-wide-y bg-darkEmerald fg-white" data-role="tile">
+                              <a href="<?php echo base_url('sales/list_sales') ?>" class="tile tile-super-x tile-wide-y bg-darkEmerald fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-users  mif-ani-float"></span><span class="tile-label">Daftar Sales</span></div>
-                              </div>
+                              </a>
                             </div><!--Container ends-->
                         </div>
                       
@@ -310,7 +310,7 @@
                           <div class="tile-group">
                             <span class="tile-group-title">DAFTAR KONTAK</span>
                             <div class="tile-container"> <!--Tile container begins-->
-                              <a href="#" class="tile-large tile-big-y bg-darkCobalt fg-white" data-role="tile">
+                              <a href="<?php echo base_url('customer/list_customer') ?>" class="tile-large tile-big-y bg-darkCobalt fg-white" data-role="tile">
                                 <div class="tile-content iconic">
                                   <span class="icon mif-users mif-ani-bounce"></span>
                                   <span class="tile-label">Daftar Customer</span>
