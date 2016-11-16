@@ -14,6 +14,13 @@
 				$this->template->load('default','supplier/add_supplier',$data);
 			}
 		}
+		public function list_supplier(){
+			
+			$data['title'] = 'Supplier';
+			$data['is_mobile'] = $this->is_mobile;
+			$this->template->load('default','supplier/list_supplier',$data);
+		
+		}
 
 	}
 

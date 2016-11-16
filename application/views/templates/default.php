@@ -316,7 +316,7 @@
                                   <span class="tile-label">Daftar Customer</span>
                                 </div>
                               </a>
-                              <a class="tile tile-super-x tile-wide-y bg-cobalt fg-white" data-role="tile">
+                              <a class="tile tile-super-x tile-wide-y bg-cobalt fg-white" data-role="tile" href="<?php echo base_url('supplier/list_supplier') ?>">
                                 <div class="tile-content iconic">
                                   <span class="icon mif-file-text  mif-ani-heartbeat"></span>
                                   <span class="tile-label ">Daftar Supplier</span>
