@@ -1,12 +1,5 @@
 <style type="text/css">
-    .tile-group{
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-    .container{
-        margin-left: 20px !important;
-        margin-right: 20px !important;
-    }
+    
     .ket{
       width: 100px;
       display: inline-block;
