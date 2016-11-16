@@ -4,6 +4,7 @@
             <h3><small><a href=""><span class="fa fa-arrow-circle-o-left"></span> Kembali ke daftar outlet</a></small></h3>
         </div>
     </div>
+
     <div class="row form-title">	 
         <div class="cell">
         	<h1 style="margin-bottom: 20px;">Tambah Outlet Baru</h1>
@@ -84,8 +85,8 @@
     	</div>
     </div>
 
-	<div class="row text-center">
-        <div class="cell">
+	<div class="row">
+        <div class="cell text-center">
     	   <input type="Submit" class="button info bg-teal btn-teal" value="Submit">
         </div>
     </div>    
