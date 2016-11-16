@@ -1,5 +1,8 @@
+<div class="row">
+    <h3><small><a href=""><span class="fa fa-arrow-circle-o-left"></span> Kembali ke daftar supplier</a></small></h3>
+</div>
 <div class="row" style="padding-bottom: 10px;">	 
-	<a href="index.html" class="nav-button transform"><span></span></a><h1 style="margin-bottom: 20px;">Tambah Supplier Baru</h1>
+	<h1 style="margin-bottom: 20px;">Tambah Supplier Baru</h1>
     <hr class="bg-teal">	
 </div>
 <div class="row">
@@ -13,7 +16,7 @@
                 </div>
 			</div>
 		</div>
-		<div class="row cells">
+		<div class="row cells2">
         	<div class="cell">
         		<label>No. Telp</label>
         		<div class="input-control text full-size" data-role="input">
@@ -21,12 +24,19 @@
 				    <button class="button helper-button clear"><span class="mif-cross"></span></button>
 				</div>
         	</div>
-        </div>
-        <div class="row cells">
             <div class="cell">
                 <label>E-mail</label>
                 <div class="input-control text full-size" data-role="input">
                     <input type="text" placeholder="Email Supplier">
+                    <button class="button helper-button clear"><span class="mif-cross"></span></button>
+                </div>
+            </div>
+        </div>
+        <div class="row cells">
+            <div class="cell">
+                <label>Keterangan</label>
+                <div class="input-control text full-size">
+                    <input type="text" placeholder="Keterangan Mengenai Supplier">
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
             </div>

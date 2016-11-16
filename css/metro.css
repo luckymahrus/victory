@@ -6026,7 +6026,6 @@ div.square-button.big-button {
 .input-control textarea,
 .input-control select {
   -moz-appearance: none;
-  -webkit-appearance: none;
   appearance: none;
   position: relative;
   border: 1px #d9d9d9 solid;
