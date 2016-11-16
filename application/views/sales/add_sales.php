@@ -25,17 +25,17 @@
             </div>
             <div class="cell">
                 <label>Upload Photo</label>
-                <div class="input-control file full-size" data-role="input">
-                    <input type="file" accept="image/*" id="capture" capture="camera">
-                    <button class="button btn-file"><span class="mif-camera"></span></button>
-                </div>
-                <br>Atau ambil foto
                 <?php if ($is_mobile): ?>
                     <div class="input-control file full-size" data-role="input">
                         <input type="file" accept="image/*" id="capture" capture="camera">
-                        <button class="button"><span class="mif-camera"></span></button>
+                        <button class="button btn-file"><span class="mif-camera"></span></button>
                     </div>
-                <?php else: ?>    
+                <?php else: ?>
+                    <div class="input-control file full-size" data-role="input">
+                        <input type="file" accept="image/*" id="capture" capture="camera">
+                        <button class="button btn-file"><span class="mif-camera"></span></button>
+                    </div>
+                    <br>Atau ambil foto    
                     <div id="my_camera" style="width:320px; height:240px;"></div>
                     <div id="my_result"></div>
                     <input type="file" id="capture" style="display: none" value="">
