@@ -1,5 +1,8 @@
-<div class="row" style="padding-bottom: 10px;">	 
-	<a href="index.html" class="nav-button transform"><span></span></a><h1 style="margin-bottom: 20px;">Tambah Customer Baru</h1>
+<div class="row">
+    <h3><small><a href=""><span class="fa fa-arrow-circle-o-left"></span> Kembali ke daftar customer</a></small></h3>
+</div>
+<div class="row form-title">	 
+	<h1 style="margin-bottom: 20px;">Tambah Customer Baru</h1>
     <hr class="bg-teal">	
 </div>
 <div class="row">

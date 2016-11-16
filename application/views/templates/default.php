@@ -156,6 +156,10 @@
         -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
       }
+      .form-title{
+        padding-bottom: 10px;
+        padding-top: 5px;
+      }
     </style>
 
   </head>
