@@ -397,8 +397,10 @@
           $(el).parent('li').find('.overlay').css('overflow-x', 'hidden');
           $(el).parent('li').find('.overlay').css('opacity', 0);
           $(el).parent('li').find('.overlay').css('padding-bottom', '0px');
+          $('body').css('overflow-y','scroll');
           $(el).parent('li').removeClass('buka');
         }else{
+          $('body').css('overflow-y','hidden');
           $('.navbar-nav').find('.overlay').css('overflow-x', 'hidden');
           $('.navbar-nav').find('.overlay').css('opacity', 0);
           $('.navbar-nav').find('.overlay').css('overflow-y', 'hidden');
