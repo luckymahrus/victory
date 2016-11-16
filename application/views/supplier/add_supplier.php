@@ -19,19 +19,17 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row cells2">
         <div class="cell">
             <label>No. Telp</label>
-            <div class="input-control text full-size">
+            <div class="input-control text full-size" data-role="input">
                 <input type="text" placeholder="Nomor Telephone Supplier">
                 <button class="button helper-button clear"><span class="mif-cross"></span></button>
             </div>
         </div>
-    </div>
-    <div class="row">
         <div class="cell">
-            <label>Email</label>
-            <div class="input-control text full-size">
+            <label>E-mail</label>
+            <div class="input-control text full-size" data-role="input">
                 <input type="text" placeholder="Email Supplier">
                 <button class="button helper-button clear"><span class="mif-cross"></span></button>
             </div>
