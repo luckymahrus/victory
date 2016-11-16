@@ -3,11 +3,63 @@
       width: 100px;
       display: inline-block;
     }
+    .cont-fluid{
+      padding: 2%;
+      padding-top: 0px;
+    }
+    .box-req{
+      border: 3px solid #04BFBF;
+    }
+    .table.border,.table.bordered th, .table.bordered td,.table thead{
+      border-color: #95a5a6;
+    }
 </style>
-    <div class="container-fluid">
+    <div class="cont-fluid">
         <div class="tile-group" style="margin:0">
           <div class="tile-group-title"><div id="txt"></div></div>
             <div class="tile-container"><!--Container begin-->
+              <div class="tile tile-big-x bg-white box-req">
+                <div class="tile-content padding10">
+                  <div class="tilehead fg-teal">
+                      <h4 style="display: inline-block; float: left;"><span class="fa fa-sign-out"></span> Barang Sedang Dikirim</h4>
+                      <table class="table border bordered hovered cell-hovered">
+                        <thead>
+                          <tr>
+                            <td>Outlet Tujuan</td>
+                            <td>Jumah Barang</td>
+                            <td>Status</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td colspan="3" class="text-center">Tidak ada barang yang sedang dikirim</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+                </div>
+              </div>
+              <div class="tile tile-big-x bg-white box-req">
+                <div class="tile-content padding10">
+                  <div class="tilehead fg-teal">
+                      <h4 style="display: inline-block; float: left;"><span class="fa fa-sign-in"></span> Request Barang dari Outlet</h4>
+                      <table class="table border bordered hovered cell-hovered">
+                        <thead>
+                          <tr>
+                            <td>Outlet Tujuan</td>
+                            <td>Jumah Barang</td>
+                            <td>Status</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td colspan="3" class="text-center">Tidak ada request</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+                </div>
+              </div>
               <div class="tile-wide bg-teal fg-white" data-role="tile">
                 <div class="tile-content padding10">
                     <div class="tilehead" style="height: 40px;">
@@ -18,6 +70,14 @@
                     <p><div class="ket">Gold </div>: Rp 568.000 ,- / gram</p>
                 </div>
               </div>
+              <div class="tile-wide tile-wide-y bg-white box-req">
+                <div class="tile-content padding10">
+                  <div class="tilehead fg-teal">
+                      <h4 style="display: inline-block; float: left;"><span class="mif-bubbles"></span> Notes</h4>  
+                  </div>
+                </div>
+              </div>
+
             </div><!--Container ends-->
         </div>
     </div>
