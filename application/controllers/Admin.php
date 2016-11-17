@@ -2,30 +2,18 @@
 
 	defined('BASEPATH') OR exit('No direct script access allowed');
 
-	class Formula extends CI_Controller{
-		private $temp;
+	class Admin extends MY_Controller{
 
 		function __construct(){
 			parent::__construct();
 			
-			if ($this->agent->is_mobile())
-			{
-		 	  	$this->temp = 'default_mobile';
-			}else{
-				$this->temp = 'default';
-				
-			}
 		}
 
 		public function index(){
-			
-			$this->load->view('login');
-
-		}
-
-		public function home(){
 			$data['title'] = 'Home';
 			$this->template->load('default','home',$data);
+			
+
 		}
 
 	}

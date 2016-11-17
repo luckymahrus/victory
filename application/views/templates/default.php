@@ -179,7 +179,7 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           
             <ul class="nav navbar-nav">
-              <li><a href="<?php echo base_url('formula/home') ?>" ><i class="fa fa-home" aria-hidden="true"></i> <span class="menu-text">Home</span></a></li>
+              <li><a href="<?php echo base_url('admin') ?>" ><i class="fa fa-home" aria-hidden="true"></i> <span class="menu-text">Home</span></a></li>
               <!--Menu+dropdown Transaksi-->
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> <span class="menu-text">Transaksi</span></a>
                   <div class="container overlay" style="padding-top: 0px">

@@ -58,6 +58,7 @@
                         </tbody>
                       </table>
                   </div>
+
                 </div>
               </div>
               <div class="tile-wide bg-teal fg-white" data-role="tile">
@@ -68,6 +69,7 @@
                     </div>
                     <p><div class="ket">Dollar </div>: Rp 13.360 ,-</p>
                     <p><div class="ket">Gold </div>: Rp 568.000 ,- / gram</p>
+                    
                 </div>
               </div>
               <div class="tile-wide tile-wide-y bg-white box-req">

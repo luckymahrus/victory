@@ -8,12 +8,17 @@
     <title>Login - Victory</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo base_url();?>css/yamm.css">
+    
+    
     <link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/metro.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/metro-icons.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/metro-responsive.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/metro-schemes.css" rel="stylesheet">
 
     <script src="<?php echo base_url() ?>js/jquery-1.12.4.min.js"></script>
-    <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url() ?>js/metro.js"></script>
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,12 +28,14 @@
     <![endif]-->
 
     <style>
+
       body{
         background: #f0eff0;
       }
       .card{
         text-align: center;
         border: 1px solid #3498db;
+
         
       }
       .card-header{
@@ -43,38 +50,79 @@
         background-color: white;
         padding: 20px;
       }
+      .btn-teal:hover{
+        background-color: #30D5F1!important;
+        -webkit-transition: all 0.3s ease-in;
+        -moz-transition: all 0.3s ease-in;
+        transition: all 0.3s ease-in;
+      }
+      form{
+        width: 40%;
+      }
+      @media (max-width: 768px){
+        form{
+          width: 90% !important;
+          margin:auto !important;
+        }
+      }
     </style>
 
   </head>
   <body>
 
     <div class="container">
-      <div class="row" style="margin: 11% 0;">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
+      <div class="flex-grid" style="margin: 11% 0;">
+      <div class="row flex-just-center">
+        
       
+        
+        
+        <?php echo form_open('accounts/login') ?>
+        <div class="cell">
+        
           <div class="card">
             <div class="card-header">
-              <h2>Login</h2>  
+              <h2>Kemenangan</h2>  
             </div>
             <div class="card-body">
-              
-              <div class="form-group" style="margin-top:40px; ">
-                <input type="text" name="username" placeholder="Username" class="form-control" aria-describedby="username-addon">
+              <div class="grid">
+                <div class="row">
+                  <div class="cell" style="margin:auto">
+                    <div class="input-control modern text iconic" data-role="input">
+                      <input type="text" name="username">
+                      <span class="label">Username</span>
+                      <span class="informer">Please enter your username</span>
+                      <span class="placeholder">Username</span>
+                      <span class="icon mif-user"></span>
+                    </div>        
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="cell" style="margin:auto">
+                      <div class="input-control modern password iconic" data-role="input">
+                        <input type="password" name="password">
+                        <span class="label">Password</span>
+                        <span class="informer">Please enter your password</span>
+                        <span class="placeholder">Password</span>
+                        <span class="icon mif-lock"></span>
+                        <button class="button helper-button reveal"><span class="mif-looks"></span></button>
+                      </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="cell" style="margin:auto">
+                    <input type="submit" class="button info btn-teal" value="Log In" style="background-color: #3498DB">
+                  </div>
+                </div>
               </div>
-              <div class="form-group" style="margin-top:20px; ">                    
-                <input type="password" name="password" placeholder="Password" class="form-control" aria-describedby="username-addon">
-              </div>
-              <div class="form-group">
-                <a href="<?php echo base_url('formula/home') ?>" class="form-control" style="margin-top: 20px; background-color: #3498db; color: white; ">
-                  Log In
-                </a>
-              </div>
+
+            
+            
             </div>
           </div>
-
+        <?php echo form_close() ?>
         </div>
-        <div class="col-sm-4"></div>
+        </div>
       </div>
     </div>
     
