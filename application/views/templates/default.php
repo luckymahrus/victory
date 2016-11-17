@@ -215,9 +215,26 @@
                           </div><!--Container ends-->
                       </div>
                       <div class="tile-group triple" style="display:block; float:right;margin: auto;width: 480px"  >
+                          <span class="tile-group-title">Buyback</span>
+                          <div class="tile-container"><!--Container Buyback begins-->
+                              <div class="tile-wide fg-white" data-role="tile" style="background-color: #A7857E">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-file-text mif-ani-slow mif-ani-vertical"></span>
+                                  <span class="tile-label">Daftar Buyback</span>
+                                </div>
+                              </div>
+                              <div class="tile fg-white" data-role="tile" style="background-color: #E0A194">
+                                <div class="tile-content iconic">
+                                  <span class="icon mif-plus"></span>
+                                  <span class="tile-label">Buyback Baru</span>
+                                </div>
+                              </div>
+                          </div><!--Container ends-->
+                      </div>
+                      <div class="tile-group triple" style="display:block; float:right;margin: auto;width: 480px"  >
                           <span class="tile-group-title">Pembelian</span>
                           <div class="tile-container"><!--Container Pembelian begins-->
-                              <div class="tile-wide tile-big-y fg-white" data-role="tile" style="background-color: #3AB2A5">
+                              <div class="tile-wide fg-white" data-role="tile" style="background-color: #3AB2A5">
                                 <div class="tile-content iconic">
                                   <span class="icon mif-file-text mif-ani-slow mif-ani-vertical"></span>
                                   <span class="tile-label">Daftar Pembelian</span>
@@ -226,13 +243,7 @@
                               <div class="tile fg-white" data-role="tile" style="background-color: #3DBD8B">
                                 <div class="tile-content iconic">
                                   <span class="icon mif-plus"></span>
-                                  <span class="tile-label">Beli Emas</span>
-                                </div>
-                              </div>    
-                              <div class="tile fg-white" data-role="tile" style="background-color: #36ADC5">
-                                <div class="tile-content iconic">
-                                  <span class="icon mif-plus"></span>
-                                  <span class="tile-label">Beli Diamond</span>
+                                  <span class="tile-label">Pembelian Baru</span>
                                 </div>
                               </div>
                           </div><!--Container ends-->
