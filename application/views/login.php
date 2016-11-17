@@ -85,39 +85,29 @@
               <h2>Kemenangan</h2>  
             </div>
             <div class="card-body">
-              <div class="grid">
-                <div class="row">
-                  <div class="cell" style="margin:auto">
-                    <div class="input-control modern text iconic" data-role="input">
-                      <input type="text" name="username">
-                      <span class="label">Username</span>
-                      <span class="informer">Please enter your username</span>
-                      <span class="placeholder">Username</span>
-                      <span class="icon mif-user"></span>
-                    </div>        
+                <div class="cell" style="margin:auto">
+                  <div class="input-control modern text iconic" data-role="input">
+                    <input type="text" name="username">
+                    <span class="label">Username</span>
+                    <span class="informer">Please enter your username</span>
+                    <span class="placeholder">Username</span>
+                    <span class="icon mif-user"></span>
                   </div>
+              
+                <div class="cell" style="margin:auto">
+                    <div class="input-control modern password iconic" data-role="input">
+                      <input type="password" name="password">
+                      <span class="label">Password</span>
+                      <span class="informer">Please enter your password</span>
+                      <span class="placeholder">Password</span>
+                      <span class="icon mif-lock"></span>
+                      <button class="button helper-button reveal"><span class="mif-looks"></span></button>
+                    </div>
                 </div>
-                <div class="row">
-                  <div class="cell" style="margin:auto">
-                      <div class="input-control modern password iconic" data-role="input">
-                        <input type="password" name="password">
-                        <span class="label">Password</span>
-                        <span class="informer">Please enter your password</span>
-                        <span class="placeholder">Password</span>
-                        <span class="icon mif-lock"></span>
-                        <button class="button helper-button reveal"><span class="mif-looks"></span></button>
-                      </div>
-                  </div>
+              
+                <div class="cell" style="margin:auto">
+                  <input type="submit" class="button info btn-teal" value="Log In" style="background-color: #3498DB">
                 </div>
-                <div class="row">
-                  <div class="cell" style="margin:auto">
-                    <input type="submit" class="button info btn-teal" value="Log In" style="background-color: #3498DB">
-                  </div>
-                </div>
-              </div>
-
-            
-            
             </div>
           </div>
         <?php echo form_close() ?>

@@ -171,6 +171,7 @@
       <nav class="navbar navbar-default" style="z-index: 9999">
         <div class="container-fluid" style="padding-left: 15px; padding-right: 15px;">
           <!-- Brand and toggle get grouped for better mobile display -->
+
           <div class="navbar-header">
             
             <a class="navbar-brand" href="#">Logo</a>
@@ -184,6 +185,7 @@
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> <span class="menu-text">Transaksi</span></a>
                   <div class="container overlay" style="padding-top: 0px">
                     <div class="overlay-content" >
+                    <?php echo hash('sha512', 'asdf' . config_item('encryption_key')); ?>
                       <div id="transaksi-container" style="position: relative;overflow: hidden; margin: 0 5%">
                       <div class="tile-group triple" style="display:block; float: left; margin:auto; width: 480px" >
                         <span class="tile-group-title">Penjualan</span>

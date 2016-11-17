@@ -10,6 +10,7 @@
 		}
 
 		public function index(){
+
 			$data['title'] = 'Home';
 			$this->template->load('default','home',$data);
 			
