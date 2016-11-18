@@ -23,7 +23,7 @@
 				    content: 'Berhasil tambah customer',
 				    type: 'success'
 				});");
-	            redirect('admin');
+	            redirect($this->user_role);
 
 			}else{
 				$data['title'] = 'Customer';

@@ -4,9 +4,13 @@
 
 	class Outlets extends MY_Controller{
 
+		private $user_role;
+		private $user_id;
+
 		function __construct(){
 			parent::__construct();
-				
+			$this->user_role = $this->session->userdata('user_role');
+			$this->user_id = $this->session->userdata('user_id');
 		}
 
 		public function add_outlet(){
