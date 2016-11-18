@@ -2,7 +2,8 @@
     <div class="grid">
         <div class="row">
             <div class="cell">
-                <h3><small><a href=""><span class="fa fa-arrow-circle-o-left"></span> Kembali ke daftar sales</a></small></h3>
+                <h3 style="display:inline-block"><small><a href="<?php echo base_url('sales/list_sales') ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke daftar sales</a></small></h3>
+                
             </div>
         </div>
 
@@ -13,7 +14,8 @@
             </div>
         </div>
 
-    <?php echo form_open_multipart('sales/add_sales',array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false')) ?>
+    <?php //echo form_open_multipart('sales/add_sales',array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false')) ?>
+    <?php echo form_open_multipart('sales/add_sales',array('data-role' =>  'validator','data-hint-mode' => 'hint','data-hint-easing' => 'easeOutBounce','data-hint-position' => 'bottom')) ?>
     		
         <div class="row cells2">
             <div class="cell">
@@ -25,44 +27,38 @@
             </div>
             <div class="cell">
                 <label>Upload Photo</label>
-                <?php if ($is_mobile): ?>
                     <div class="input-control file full-size" data-role="input">
                         <input type="file" accept="image/*" name="capture" id="capture" capture="camera">
                         <button class="button btn-file"><span class="mif-camera"></span></button>
                     </div>
-                <?php else: ?>
-                    <div class="input-control file full-size" data-role="input">
-                        <input type="file" accept="image/*" name="capture" id="capture" capture="camera">
-                        <button class="button btn-file"><span class="mif-camera"></span></button>
-                    </div>
-                    
-                    
-                <?php endif ?>
-    			
-            </div>
-        </div>
-        <div class="row">
-            <div class="cell">
-                <label class="switch">
-                    <input type="checkbox" onchange="show_cam(this)">
-                    <span class="check"></span>
-                    <span class="caption">Ambil Foto</span>
-                </label>
-            </div>
-        </div>
-        <div class="row cells2" id="snapshot" style="display: none">
-
-            <div class="cell text-center">
-                <div id="my_camera" style="width:320px; height:240px; margin:auto"></div>
                 
-                <a class="button info bg-teal btn-teal" href="javascript:void(take_snapshot())"><span class="mif mif-camera"></span> Take Snapshot</a>
             </div>
-            <div class="cell text-center">
-                <div id="my_result" style="margin:auto"></div>    
-            </div>
-            
-            
         </div>
+        <?php if (!$is_mobile): ?>
+            <div class="row">
+                <div class="cell">
+                    <label class="switch">
+                        <input type="checkbox" onchange="show_cam(this)">
+                        <span class="check"></span>
+                        <span class="caption">Ambil Foto</span>
+                    </label>
+                </div>
+            </div>
+            <div class="row cells2" id="snapshot" style="display: none">
+
+                <div class="cell text-center">
+                    <div id="my_camera" style="width:320px; height:240px; margin:auto"></div>
+                    
+                    <a class="button info bg-teal btn-teal" href="javascript:void(take_snapshot())"><span class="mif mif-camera"></span> Take Snapshot</a>
+                </div>
+                <div class="cell text-center">
+                    <div id="my_result" style="margin:auto"></div>    
+                </div>
+                
+                
+            </div>    
+        <?php endif ?>
+        
 
         <div class="row">
         	<div class="cell">

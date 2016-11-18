@@ -6,7 +6,8 @@
 
 		function __construct(){
 			parent::__construct();
-				
+			$this->load->model('sales_model');
+
 		}
 
 
@@ -97,6 +98,7 @@
 		public function list_sales(){
 			
 			$data['title'] = 'Sales';
+			$data['sales'] = $this->sales_model->get_all_sales();
 			$data['is_mobile'] = $this->is_mobile;
 			$this->template->load('default','sales/list_sales',$data);
 		

@@ -12,8 +12,8 @@
 	        </div>
 	    </div>
 		<div class="row">
-			<div class="cell">
-				<table class="table hovered border">
+			<div class="cell" style="overflow-x: scroll;">
+				<table class="table hovered border" id="table_outlet" >
 					<thead>
 						<tr>
 							<th class="sortable-column">No.</th>

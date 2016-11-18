@@ -2,7 +2,8 @@
 	<div class="grid">
 		<div class="row">
 	        <div class="cell">
-	            <h3><small><a href=""><span class="fa fa-arrow-circle-o-left"></span> Kembali ke Menu</a></small></h3>
+	            <h3 style="display: inline-block;"><small><a href="<?php echo base_url() ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke Menu</a></small></h3>
+	            <h3 style="display:inline-block;float:right;"><small><a href="<?php echo base_url('sales/add_sales') ?>">Tambah sales <span class="fa fa-arrow-circle-o-right"></span></a></small></h3>
 	        </div>
 	    </div>
 		<div class="row form-title">
@@ -16,37 +17,26 @@
 				<table class="table hovered border">
 					<thead>
 						<tr>
-							<th class="sortable-column">Column 1</th>
-							<th class="sortable-column">Column 2</th>
-							<th class="sortable-column">Column 3</th>
-							<th class="sortable-column">Column 4</th>
+							<th class="sortable-column">No.</th>
+							<th class="sortable-column">Nama Sales</th>
+							<th class="sortable-column">Telp.</th>
+							<th class="sortable-column">Outlet</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>John</td>
-							<td>0812111111</td>
-							<td>Male</td>
-							<td>18</td>
-						</tr>
-						<tr>
-							<td>Felix</td>
-							<td>0812111444</td>
-							<td>Male</td>
-							<td>20</td>
-						</tr>
-						<tr>
-							<td>ivan</td>
-							<td>0812111333</td>
-							<td>Male</td>
-							<td>21</td>
-						</tr>
-						<tr>
-							<td>Rey</td>
-							<td>0812111222</td>
-							<td>Male</td>
-							<td>19</td>
-						</tr>
+						<?php if($sales): ?>
+							<?php $i = 1; ?>
+							<?php foreach($sales as $row): ?>
+								<tr>
+									<td><?php echo $i ?></td>
+									<td><?php echo $row->name ?></td>
+									<td><?php echo $row->phone ?></td>
+									<td><?php echo $row->outlet_name ?></td>
+								</tr>
+							<?php $i++; ?>
+							<?php endforeach ?>
+						<?php endif; ?>
+						
 					</tbody>
 				</table>
 			</div>
