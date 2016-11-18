@@ -11,9 +11,9 @@
 			if($this->agent->is_mobile()){
 				$this->is_mobile = true;
 			}
-			if(!$this->session->userdata('is_logged')){
-				redirect('accounts');
-			}		
+			// if(!$this->session->userdata('is_logged')){
+			// 	redirect('accounts');
+			// }		
 		}
 
 	}

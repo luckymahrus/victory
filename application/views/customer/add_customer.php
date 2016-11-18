@@ -14,18 +14,20 @@
             </div>
         </div>
 
+        <?php echo form_open('customer/add_customer') ?>
+
         <div class="row cells2">
             <div class="cell">
                 <label>Nama Customer</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Nama Customer">
+                    <input type="text" placeholder="Nama Customer" name="customer_name">
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
             </div>
             <div class="cell">
                 <label>Jenis Customer</label>
                 <div class="input-control select full-size">
-                    <select>
+                    <select name="customer_type">
                         <option>Customer Biasa</option>
                         <option>Member</option>
                     </select>
@@ -37,14 +39,14 @@
             <div class="cell">
                 <label>No. Telp</label>
                 <div class="input-control text full-size" data-role="input">
-                    <input type="text" placeholder="Nomor Telephone Customer">
+                    <input type="text" placeholder="Nomor Telephone Customer" name="customer_telephone">
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
             </div>
             <div class="cell">
                 <label>E-mail</label>
-                <div class="input-control text full-size" data-role="input">
-                    <input type="text" placeholder="Email Customer">
+                <div class="input-control text full-size" data-role="input" >
+                    <input type="text" placeholder="Email Customer" name="customer_email">
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
             </div>
@@ -54,16 +56,18 @@
             <div class="cell">
                 <label>Alamat</label>
                 <div class="input-control textarea full-size" data-role="input" data-text-auto-resize="true">
-                    <textarea></textarea>
+                    <textarea name="customer_address"></textarea>
                 </div>
             </div>
         </div>  
 
         <div class="row">
             <div class="cell text-center">
-                <input type="Submit" class="button info bg-teal btn-teal" value="Submit">
+                <input type="submit" class="button info bg-teal btn-teal" name="submit" value="Submit">
             </div>
         </div>
+
+        <?php echo form_close(); ?>
 
     </div>
 </div>

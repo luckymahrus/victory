@@ -6,8 +6,25 @@
 			parent::__construct();
 		}
 		public function add_customer(){
-			if($this->input->post('add')){
-	            print_r($this->input->post());
+			if($this->input->post('submit')){
+	            $data = array(
+
+	            		'name' => $this->input->post('customer_name'),
+	            		'type' => $this->input->post('customer_type'),
+	            		'telephone' => $this->input->post('customer_telephone'),
+	            		'email' => $this->input->post('customer_email'),
+	            		'address' =>$this->input->post('customer_address')
+
+	            	);
+
+	            $this->crud_model->insert_data('customers',$data);
+	            $this->session->set_flashdata('success',"$.Notify({
+				    caption: 'Notify title',
+				    content: 'Notify content',
+				    type: 'success'
+				});");
+	            redirect('accounts');
+
 			}else{
 				$data['title'] = 'Customer';
 				$data['is_mobile'] = $this->is_mobile;
