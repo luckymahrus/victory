@@ -7,18 +7,19 @@
 		function __construct(){
 			parent::__construct();
 			$this->load->model('accounts_model');
-			if($this->session->userdata('is_logged')){
-				redirect($this->session->userdata('user_role'));
-			}
+			
 		}
 
 		public function index(){
 			
-			$this->load->view('login');
+			$this->login();
 
 		}
 
 		public function login(){
+			if($this->session->userdata('is_logged')){
+				redirect($this->session->userdata('user_role'));
+			}
 			if($this->input->post()){
 				$username = $this->input->post('username');
 				$password = hash_password($this->input->post('password'));

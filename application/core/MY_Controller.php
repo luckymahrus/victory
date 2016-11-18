@@ -4,8 +4,8 @@
 
 	class MY_Controller extends CI_Controller{
 		protected $is_mobile;
-		protected $user_role;
-		protected $user_id;
+		protected $session_role;
+		protected $session_id;
 
 		
 			
@@ -20,8 +20,8 @@
 			if(!$this->session->userdata('is_logged')){
 				redirect('accounts');
 			}else{
-				$this->user_role = $this->session->userdata('user_role');
-				$this->user_id = $this->session->userdata('user_id');
+				$this->session_role = $this->session->userdata('user_role');
+				$this->session_id = $this->session->userdata('user_id');
 			}		
 		}
 

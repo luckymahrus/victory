@@ -23,7 +23,7 @@
 				    content: 'Berhasil tambah customer',
 				    type: 'success'
 				});");
-	            redirect($this->user_role);
+	            redirect($this->session_role);
 
 			}else{
 				$data['title'] = 'Customer';
