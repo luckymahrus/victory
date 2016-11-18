@@ -1,5 +1,5 @@
 <div class="container">
-    <?php echo form_open('outlets/add_outlet') ?>
+    <?php echo form_open('outlets/add_outlet', array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false')) ?>
     <div class="grid">
         <div class="row">
             <div class="cell">
@@ -89,7 +89,7 @@
 
     	<div class="row">
             <div class="cell text-center">
-        	   <input type="Submit" name="add" class="button info bg-teal btn-teal" value="Submit">
+        	   <input type="Submit" name="submit" class="button info bg-teal btn-teal" value="Submit">
             </div>
         </div>    
     </div>

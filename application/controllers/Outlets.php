@@ -14,7 +14,7 @@
 		}
 
 		public function add_outlet(){
-			if($this->input->post('add')){
+			if($this->input->post()){
 				$data_outlet = array(
 						'name'			=> $this->input->post('outlet_name'),
 						'code'			=> $this->input->post('outlet_code'),
@@ -34,18 +34,15 @@
 						'outlet_id'		=> $outlet_id
 					);
 
-					if($this->crud_model->insert_data('accounts',$data_account)){
-						$this->session->set_flashdata('outlet', "$.Notify({caption: 'Berhasil !', content: 'Toko berhasil dibuat', type: 'info'});");
-						$data['title'] = 'Outlet';
-						$this->template->load('default','outlets/add_outlet',$data);
-					}
+					$this->crud_model->insert_data('accounts',$data_account);
+					$this->session->set_flashdata('outlet', "$.Notify({caption: 'Berhasil !', content: 'Toko berhasil dibuat', type: 'info'});");
+					
 				}else{
 					$this->session->set_flashdata('outlet', "$.Notify({caption: 'Toko Gagal Dibuat!', content: 'Periksa kembali data toko', type: 'alert'});");
-					
-					$data['title'] = 'Outlet';
-					$this->template->load('default','outlets/add_outlet',$data);
 				}				
 
+				$data['title'] = 'Outlet';
+				$this->template->load('default','outlets/add_outlet',$data);
 				
 			}else{
 				$data['title'] = 'Outlet';
@@ -57,6 +54,7 @@
 			
 			$data['title'] = 'Outlet';
 			$data['is_mobile'] = $this->is_mobile;
+			$data['outlets'] = $this->crud_model->get_data('outlets')->result();
 			$this->template->load('default','outlets/list_outlet',$data);
 		
 		}

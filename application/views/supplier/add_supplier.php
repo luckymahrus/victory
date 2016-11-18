@@ -12,12 +12,12 @@
                 <hr class="bg-teal">    
             </div>
         </div>
-        <?php echo form_open('supplier/add_supplier');?>
+        <?php echo form_open('supplier/add_supplier',array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false'));?>
         <div class="row">
             <div class="cell">
                 <label>Nama Supplier</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Nama Supplier" name="supplier_name">
+                    <input type="text" placeholder="Nama Supplier" data-validate-func="required" data-validate-hint="Nama supplier harus diisi" name="supplier_name">
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
             </div>
@@ -68,3 +68,14 @@
         <?php echo form_close()?>
     </div>
 </div>
+
+<script>
+    function notifyOnErrorInput(input){
+        var message = input.data('validateHint');
+        $.Notify({
+            caption: 'Error',
+            content: message,
+            type: 'alert'
+        });
+    }
+</script>

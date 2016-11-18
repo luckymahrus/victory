@@ -16,37 +16,29 @@
 				<table class="table hovered border">
 					<thead>
 						<tr>
-							<th class="sortable-column">Column 1</th>
-							<th class="sortable-column">Column 2</th>
-							<th class="sortable-column">Column 3</th>
-							<th class="sortable-column">Column 4</th>
+							<th class="sortable-column">No.</th>
+							<th class="sortable-column">Kode</th>
+							<th class="sortable-column">Nama</th>
+							<th class="sortable-column">Telp</th>
+							<th class="sortable-column">Alamat</th>
+							<th class="sortable-column">Manager</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Outlet A</td>
-							<td>0812111111</td>
-							<td>N/A</td>
-							<td>18</td>
-						</tr>
-						<tr>
-							<td>Outlet B</td>
-							<td>0812111444</td>
-							<td>N/A</td>
-							<td>20</td>
-						</tr>
-						<tr>
-							<td>Outlet C</td>
-							<td>0812111333</td>
-							<td>N/A</td>
-							<td>21</td>
-						</tr>
-						<tr>
-							<td>Outlet D</td>
-							<td>0812111222</td>
-							<td>N/A</td>
-							<td>19</td>
-						</tr>
+						<?php if($outlets): ?>
+							<?php $i = 1; ?>
+							<?php foreach($outlets as $outlet): ?>
+								<tr>
+									<td><?php echo $i ?></td>
+									<td><?php echo $outlet->code ?></td>
+									<td><?php echo $outlet->name ?></td>
+									<td><?php echo $outlet->phone ?></td>
+									<td><?php echo $outlet->address ?></td>
+									<td><?php echo $outlet->store_manager ?></td>
+								</tr>		
+								<?php $i++; ?>
+							<?php endforeach; ?>
+						<?php endif; ?>
 					</tbody>
 				</table>
 			</div>
