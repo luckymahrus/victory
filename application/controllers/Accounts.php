@@ -13,6 +13,8 @@
 		public function login(){
 			if($this->input->post('login')){
 				
+			}else{
+				$this->index();
 			}
 		}
 
