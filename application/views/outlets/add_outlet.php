@@ -102,7 +102,8 @@
        <?php echo $this->session->flashdata('outlet') ?>
 
     <?php endif; ?>
-</script><script>
+</script>
+<script>
     function notifyOnErrorInput(input){
         var message = input.data('validateHint');
         $.Notify({

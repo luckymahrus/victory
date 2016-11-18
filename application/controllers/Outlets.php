@@ -41,9 +41,7 @@
 					$this->session->set_flashdata('outlet', "$.Notify({caption: 'Toko Gagal Dibuat!', content: 'Periksa kembali data toko', type: 'alert'});");
 				}				
 
-				$data['title'] = 'Outlet';
-				$this->template->load('default','outlets/add_outlet',$data);
-				
+				redirect('outlets/add_outlet');
 			}else{
 				$data['title'] = 'Outlet';
 				$this->template->load('default','outlets/add_outlet',$data);

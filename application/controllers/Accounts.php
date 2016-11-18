@@ -26,9 +26,10 @@
 
 				if($user = $this->accounts_model->check_user($username,$password)){
 					$data_session = array(
-							'user_id'	=> $user->id,
-							'user_role'	=> $user->role,
-							'is_logged'	=> true,
+							'user_id'		=> $user->id,
+							'user_role'		=> $user->role,
+							'user_outlet'	=> $user->outlet_id,
+							'is_logged'		=> true,
 						);
 					$this->session->set_userdata($data_session);
 
