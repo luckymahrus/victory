@@ -20,7 +20,7 @@
 				    content: 'Supplier telah ditambahkan',
 				    type: 'success'
 				});");
-				redirect('supplier/add_supplier');
+				redirect($this->session_role);
 			}else{
 				$data['title'] = 'Supplier';
 				$data['is_mobile'] = $this->is_mobile;
