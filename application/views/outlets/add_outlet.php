@@ -97,13 +97,12 @@
 </div>
 
 <script>
-    <?php if($this->session->userdata('outlet')): ?>
+    <?php if($this->session->flashdata('outlet')): ?>
 
-       <?php echo $this->session->userdata('outlet') ?>
+       <?php echo $this->session->flashdata('outlet') ?>
 
     <?php endif; ?>
-</script>
-<script>
+</script><script>
     function notifyOnErrorInput(input){
         var message = input.data('validateHint');
         $.Notify({
