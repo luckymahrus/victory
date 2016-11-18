@@ -36,6 +36,7 @@
 							<td><?php echo $customer->email ?></td>
 							<td><?php echo $customer->address ?></td>
 						</tr>
+						<?php $i++; ?>
 						<?php endforeach; ?>
 					</tbody>
 				</table>
