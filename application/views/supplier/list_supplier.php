@@ -16,37 +16,27 @@
 				<table class="table hovered border">
 					<thead>
 						<tr>
-							<th class="sortable-column">Column 1</th>
-							<th class="sortable-column">Column 2</th>
-							<th class="sortable-column">Column 3</th>
-							<th class="sortable-column">Column 4</th>
+							<th class="sortable-column">No</th>
+							<th class="sortable-column">Nama</th>
+							<th class="sortable-column">Telephone</th>
+							<th class="sortable-column">Email</th>
+							<th class="sortable-column">Alamat</th>
+							<th class="sortable-column">Keterangan</th>
 						</tr>
 					</thead>
 					<tbody>
+						<?php $i=1; ?>
+						<?php foreach($suppliers as $supplier): ?>
 						<tr>
-							<td>John</td>
-							<td>0812111111</td>
-							<td>Male</td>
-							<td>18</td>
+							<td><?php echo $i ?></td>
+							<td><?php echo $supplier->name ?></td>
+							<td><?php echo $supplier->phone ?></td>
+							<td><?php echo $supplier->email ?></td>
+							<td><?php echo $supplier->address ?></td>
+							<td><?php echo $supplier->description ?></td>
 						</tr>
-						<tr>
-							<td>Felix</td>
-							<td>0812111444</td>
-							<td>Male</td>
-							<td>20</td>
-						</tr>
-						<tr>
-							<td>ivan</td>
-							<td>0812111333</td>
-							<td>Male</td>
-							<td>21</td>
-						</tr>
-						<tr>
-							<td>Rey</td>
-							<td>0812111222</td>
-							<td>Male</td>
-							<td>19</td>
-						</tr>
+						<?php $i++;?>
+						<?php endforeach; ?>
 					</tbody>
 				</table>
 			</div>

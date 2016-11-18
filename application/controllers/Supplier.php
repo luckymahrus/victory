@@ -11,7 +11,8 @@
 						'name' => $this->input->post('supplier_name'),
 						'phone' => $this->input->post('supplier_phone'),
 						'address' => $this->input->post('supplier_address'),
-						'keterangan' => $this->input->post('supplier_desc')
+						'email' => $this->input->post('supplier_email'),
+						'description' => $this->input->post('supplier_desc')
 					);
 	            $this->crud_model->insert_data('suppliers',$data);
 	            $this->session->set_flashdata('success',"$.Notify({
@@ -30,7 +31,7 @@
 			
 			$data['title'] = 'Supplier';
 			$data['is_mobile'] = $this->is_mobile;
-			
+			$data['suppliers'] = $this->crud_model->get_data('suppliers')->result();
 			$this->template->load('default','supplier/list_supplier',$data);
 		
 		}

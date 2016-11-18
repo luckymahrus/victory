@@ -34,7 +34,7 @@
             <div class="cell">
                 <label>E-mail</label>
                 <div class="input-control text full-size" data-role="input">
-                    <input type="email" placeholder="Email Supplier" name="supplier_mail">
+                    <input type="email" placeholder="Email Supplier" name="supplier_email">
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
             </div>
@@ -53,7 +53,7 @@
             <div class="cell">
                 <label>Keterangan</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Nama Supplier" name="supplier_desc">
+                    <input type="text" placeholder="Keterangan Supplier" name="supplier_desc">
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
             </div>
