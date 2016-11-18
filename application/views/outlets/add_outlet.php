@@ -18,14 +18,14 @@
     		<div class="cell">
     			<label>Nama Toko</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Nama Toko" name="outlet_name">
+                    <input type="text" placeholder="Nama Toko" name="outlet_name" data-validate-func="required" data-validate-hint="Nama toko harus diisi">
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
     		</div>
     		<div class="cell">
     			<label>Kode Toko</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Masukkan Kode Toko (2 Karakter)" title="Contoh : KM" pattern="[a-zA-Z0-9]{2}" required="1" name="outlet_code">
+                    <input type="text" placeholder="Masukkan Kode Toko (2 Karakter)" title="Contoh : KM" name="outlet_code" data-validate-func="required, maxlength" data-validate-arg=",2" data-validate-hint="Kode toko harus 2 huruf">
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
     		</div>
@@ -64,14 +64,14 @@
             <div class="cell">
                 <label>Username</label>
     			<div class="input-control text full-size" data-role="input">
-    			    <input type="text" placeholder="Username Outlet" name="outlet_username">
+    			    <input type="text" placeholder="Username Outlet" name="outlet_username" data-validate-func="required" data-validate-hint="Username harus diisi">
     			    <button class="button helper-button clear"><span class="mif-cross"></span></button>
     			</div>
             </div>
             <div class="cell">
                 <label>Password</label>
     			<div class="input-control password full-size" data-role="input">
-    			    <input type="password" placeholder="Password" name="outlet_password">
+    			    <input type="password" placeholder="Password" name="outlet_password" data-validate-func="required" data-validate-hint="Password harus diisi">
     			    <button class="button helper-button reveal"><span class="mif-looks"></span></button>
     			</div>
         	</div>
@@ -81,7 +81,7 @@
         	<div class="cell">
         		<label>Margin Toko</label>
     			<div class="input-control text full-size" data-role="input">
-    			    <input type="number" placeholder="Perbedaan Dasar Harga dengan Toko Utama" min="0" max="100" required="1" name="outlet_margin">
+    			    <input type="number" placeholder="Perbedaan Dasar Harga dengan Toko Utama" name="outlet_margin" data-validate-func="required, min, max" data-validate-arg=",0,100" data-validate-hint="Margin toko harus diisi">
     			    <button class="button" style="border-color: rgba(127, 140, 141,1.0); cursor: default;"><span class="fa fa-percent" aria-hidden="true"></span></button>  
     			</div>
         	</div>
@@ -102,4 +102,14 @@
        <?php echo $this->session->userdata('outlet') ?>
 
     <?php endif; ?>
+</script>
+<script>
+    function notifyOnErrorInput(input){
+        var message = input.data('validateHint');
+        $.Notify({
+            caption: 'Error',
+            content: message,
+            type: 'alert'
+        });
+    }
 </script>
