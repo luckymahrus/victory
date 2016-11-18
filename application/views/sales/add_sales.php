@@ -3,7 +3,7 @@
         <div class="row">
             <div class="cell">
                 <h3 style="display:inline-block"><small><a href="<?php echo base_url('sales/list_sales') ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke daftar sales</a></small></h3>
-                
+
             </div>
         </div>
 
@@ -15,7 +15,7 @@
         </div>
 
     <?php //echo form_open_multipart('sales/add_sales',array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false')) ?>
-    <?php echo form_open_multipart('sales/add_sales',array('data-role' =>  'validator','data-hint-mode' => 'hint','data-hint-easing' => 'easeOutBounce','data-hint-position' => 'bottom')) ?>
+    <?php echo form_open_multipart('sales/add_sales',array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false')) ?>
     		
         <div class="row cells2">
             <div class="cell">
@@ -83,7 +83,7 @@
             <div class="cell">
                 <label>Username</label>
     			<div class="input-control text full-size" data-role="input">
-    			    <input type="text" placeholder="Username Sales" name="sales_username" data-validate-func="required" data-validate-hint="Username harus diisi">
+    			    <input type="text" placeholder="Username Sales" onblur="check_username(this)" name="sales_username" data-validate-func="required" data-validate-hint="Username harus diisi">
     			    
     			</div>
             </div>
@@ -122,6 +122,30 @@
 </div>
 
 <script>
+    function check_username(el){
+        if($(el).val() != ''){
+            $.ajax({
+              url: "<?php echo base_url('accounts/check_username/')?>" + $(el).val(),
+              type: 'GET',
+              cache : false,
+              success: function(result){
+                if(result == 'taken'){
+                    $.Notify({
+                        caption: 'Error !',
+                        content: 'Username sudah terpakai',
+                        type: 'alert'
+                    });
+                    $(el).val('');
+                }
+               
+                
+              }
+            
+            });    
+        }
+        
+    }
+
     function show_cam(el){
         if($(el).is(":checked") ){
             $('#snapshot').show();

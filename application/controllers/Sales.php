@@ -39,7 +39,7 @@
 
 				$config['allowed_types']        = 'jpg|png|jpeg';
 	            $config['max_size']             = 5000;					
-				$config['upload_path']          = 'uploads/photo/sales/';
+				$config['upload_path']          = 'uploads/photo/sales/'.$this->input->post('sales_username').'/';
 				$config['overwrite']			= false;
 				$config['file_name']			= 'sales-'.substr($this->input->post('sales_name'),0,3).'.jpg';
 				$this->upload->initialize($config);
@@ -56,8 +56,11 @@
 	                //Get the link for the database
 	                $photo = $config ['upload_path'] . '/' . $config ['file_name'];
 	            }else{
-	            	rename('uploads/temp/sales/'.$this->session_outlet.'/'.$this->session_id.'/'.'sales'.$this->session_id.'.jpg' , $config ['upload_path'] . '/' . $config ['file_name']);
+
 	            	$photo = $config ['upload_path'] . '/' . $config ['file_name'];
+
+					rename('uploads/temp/sales/'.$this->session_outlet.'/'.$this->session_id.'/'.'sales'.$this->session_id.'.jpg' , $photo);	
+					
 	            }
 
 				if(!file_exists($photo))

@@ -56,6 +56,17 @@
 			$this->load->view('login');
 		}
 
+		public function check_username($username = ''){
+			if ($username != '') {
+				if ($this->accounts_model->check_username($username)) {
+					echo 'taken';
+				}
+				else{
+					echo 'available';
+				}
+			}
+		}
+
 	}
 
  ?>
