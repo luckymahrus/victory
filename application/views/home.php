@@ -108,4 +108,10 @@ $(document).ready(function(){
         if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
         return i;
     }
+
+    <?php if($this->session->userdata('success')): ?>
+
+       <?php echo $this->session->userdata('success') ?>
+
+    <?php endif; ?>
 </script>

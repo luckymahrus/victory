@@ -185,7 +185,6 @@
               <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> <span class="menu-text">Transaksi</span></a>
                   <div class="container overlay" style="padding-top: 0px">
                     <div class="overlay-content" >
-                    <?php echo hash('sha512', 'asdf' . config_item('encryption_key')); ?>
                       <div id="transaksi-container" style="position: relative;overflow: hidden; margin: 0 5%">
                       <div class="tile-group triple" style="display:block; float: left; margin:auto; width: 480px" >
                         <span class="tile-group-title">Penjualan</span>
@@ -398,15 +397,6 @@
   
   
   <footer></footer>
-
-    <script>
-
-      <?php if($this->session->userdata('success')): ?>
-
-         <?php echo $this->session->userdata('success') ?>
-
-      <?php endif; ?>
-    </script>
 
     <script>
       function openNav(el){

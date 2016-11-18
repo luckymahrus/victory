@@ -7,6 +7,9 @@
 		function __construct(){
 			parent::__construct();
 			$this->load->model('accounts_model');
+			if($this->session->userdata('is_logged')){
+				redirect($this->session->userdata('user_role'));
+			}
 		}
 
 		public function index(){
@@ -47,7 +50,8 @@
 
 		public function logout(){
 			$this->session->sess_destroy();
-			redirect('accounts');
+			$this->session->set_flashdata('failed',"$.Notify({caption: 'Logout Sukses !', content: '', type: 'alert'});");
+			$this->load->view('login');
 		}
 
 	}
