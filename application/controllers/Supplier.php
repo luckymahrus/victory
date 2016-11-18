@@ -6,8 +6,20 @@
 			parent::__construct();
 		}
 		public function add_supplier(){
-			if($this->input->post('add')){
-	            print_r($this->input->post());
+			if($this->input->post('submit')){
+				$data= array(
+						'name' => $this->input->post('supplier_name'),
+						'phone' => $this->input->post('supplier_phone'),
+						'address' => $this->input->post('supplier_address'),
+						'keterangan' => $this->input->post('supplier_desc')
+					);
+	            $this->crud_model->insert_data('suppliers',$data);
+	            $this->session->set_flashdata('success',"$.Notify({
+				    caption: 'Berhasil',
+				    content: 'Supplier telah ditambahkan',
+				    type: 'success'
+				});");
+				redirect('supplier/add_supplier');
 			}else{
 				$data['title'] = 'Supplier';
 				$data['is_mobile'] = $this->is_mobile;
@@ -18,6 +30,7 @@
 			
 			$data['title'] = 'Supplier';
 			$data['is_mobile'] = $this->is_mobile;
+			
 			$this->template->load('default','supplier/list_supplier',$data);
 		
 		}
