@@ -28,8 +28,8 @@
                 <label>Jenis Customer</label>
                 <div class="input-control select full-size">
                     <select name="customer_type">
-                        <option>Customer Biasa</option>
-                        <option>Member</option>
+                        <option value="Regular">Customer Biasa</option>
+                        <option value="Member">Member</option>
                     </select>
                 </div>         
             </div>

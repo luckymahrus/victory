@@ -19,11 +19,11 @@
 
 	            $this->crud_model->insert_data('customers',$data);
 	            $this->session->set_flashdata('success',"$.Notify({
-				    caption: 'Notify title',
-				    content: 'Notify content',
+				    caption: 'Berhasil',
+				    content: 'Berhasil tambah customer',
 				    type: 'success'
 				});");
-	            redirect('accounts');
+	            redirect('admin');
 
 			}else{
 				$data['title'] = 'Customer';
@@ -36,6 +36,7 @@
 			
 			$data['title'] = 'Customer';
 			$data['is_mobile'] = $this->is_mobile;
+			$data['customers'] = $this->crud_model->get_data('customers')->result();
 			$this->template->load('default','customer/list_customer',$data);
 		
 		}
