@@ -87,7 +87,7 @@
             <div class="card-body">
                 <div class="cell" style="margin:auto">
                   <div class="input-control modern text iconic" data-role="input">
-                    <input type="text" name="username">
+                    <input type="text" name="username" required="1">
                     <span class="label">Username</span>
                     <span class="informer">Please enter your username</span>
                     <span class="placeholder">Username</span>
@@ -96,7 +96,7 @@
               
                 <div class="cell" style="margin:auto">
                     <div class="input-control modern password iconic" data-role="input">
-                      <input type="password" name="password">
+                      <input type="password" name="password" required="1">
                       <span class="label">Password</span>
                       <span class="informer">Please enter your password</span>
                       <span class="placeholder">Password</span>
@@ -106,7 +106,7 @@
                 </div>
               
                 <div class="cell" style="margin:auto">
-                  <input type="submit" class="button info btn-teal" value="Log In" style="background-color: #3498DB">
+                  <input type="submit" name="submit" class="button info btn-teal" value="Log In" style="background-color: #3498DB">
                 </div>
             </div>
           </div>
@@ -117,4 +117,13 @@
     </div>
     
   </body>
+
+  <script>
+
+    <?php if($this->session->userdata('failed')): ?>
+
+       <?php echo $this->session->userdata('failed') ?>
+
+    <?php endif; ?>
+  </script>
 </html>

@@ -168,7 +168,7 @@
   <body>
   
   <header>
-      <nav class="navbar navbar-default" style="z-index: 9999">
+      <nav class="navbar navbar-default">
         <div class="container-fluid" style="padding-left: 15px; padding-right: 15px;">
           <!-- Brand and toggle get grouped for better mobile display -->
 
@@ -382,7 +382,7 @@
                   </div>
               </li>
               <!--Konfigurasi ends-->
-              <li><a href=""><i class="fa fa-power-off"></i> <span class="menu-text">Logout</span></a></li>
+              <li><a href="<?php echo base_url('accounts/logout') ?>"><i class="fa fa-power-off"></i> <span class="menu-text">Logout</span></a></li>
             </ul>
             
               
@@ -398,6 +398,16 @@
   
   
   <footer></footer>
+
+    <script>
+
+      <?php if($this->session->userdata('success')): ?>
+
+         <?php echo $this->session->userdata('success') ?>
+
+      <?php endif; ?>
+    </script>
+
     <script>
       function openNav(el){
         if($(el).parent('li').hasClass('buka')){
