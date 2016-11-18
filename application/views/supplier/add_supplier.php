@@ -27,7 +27,7 @@
             <div class="cell">
                 <label>No. Telp</label>
                 <div class="input-control text full-size" data-role="input">
-                    <input type="text" placeholder="Nomor Telephone Supplier" name="supplier_phone">
+                    <input type="text" placeholder="Nomor Telephone Supplier" name="supplier_phone" data-validate-func="digits" data-validate-hint="No. telp hanya terdiri dari angka">
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
             </div>
