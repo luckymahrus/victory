@@ -18,11 +18,11 @@
 					<thead>
 						<tr>
 							<th class="sortable-column">No</th>
-							<th class="sortable-column">Name</th>
-							<th class="sortable-column">Type</th>
+							<th class="sortable-column">Nama</th>
+							<th class="sortable-column">Tipe</th>
 							<th class="sortable-column">Telephone</th>
 							<th class="sortable-column">Email</th>
-							<th class="sortable-column">Address</th>
+							<th class="sortable-column">Alamat</th>
 						</tr>
 					</thead>
 					<tbody>
