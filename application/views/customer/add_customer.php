@@ -39,7 +39,7 @@
             <div class="cell">
                 <label>No. Telp</label>
                 <div class="input-control text full-size" data-role="input">
-                    <input type="text" placeholder="Nomor Telephone Customer" name="customer_telephone">
+                    <input type="text" placeholder="Nomor Telephone Customer" name="customer_phone">
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
             </div>

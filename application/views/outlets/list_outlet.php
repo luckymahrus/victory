@@ -32,7 +32,7 @@
 									<td><?php echo $i ?></td>
 									<td><?php echo $outlet->code ?></td>
 									<td><?php echo $outlet->name ?></td>
-									<td><?php echo $outlet->phone ?></td>
+									<td><a href="tel:<?php echo $outlet->phone ?>"><?php echo $outlet->phone ?></a></td>
 									<td><?php echo $outlet->address ?></td>
 									<td><?php echo $outlet->store_manager ?></td>
 								</tr>		

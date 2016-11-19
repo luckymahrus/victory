@@ -13,7 +13,7 @@
 	    </div>
 	    
 		<div class="row">
-			<div class="cell">
+			<div class="cell" style="overflow-x: scroll;">
 				<table class="table hovered border">
 					<thead>
 						<tr>
@@ -32,7 +32,7 @@
 							<td><?php echo $i ?></td>
 							<td><?php echo $customer->name ?></td>
 							<td><?php echo $customer->type ?></td>
-							<td><?php echo $customer->telephone ?></td>
+							<td><a href="tel:<?php echo $customer->phone ?>"><?php echo $customer->phone ?></a></td>
 							<td><?php echo $customer->email ?></td>
 							<td><?php echo $customer->address ?></td>
 						</tr>

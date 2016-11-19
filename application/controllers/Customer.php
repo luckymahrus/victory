@@ -11,7 +11,7 @@
 
 	            		'name' => $this->input->post('customer_name'),
 	            		'type' => $this->input->post('customer_type'),
-	            		'telephone' => $this->input->post('customer_telephone'),
+	            		'phone' => $this->input->post('customer_phone'),
 	            		'email' => $this->input->post('customer_email'),
 	            		'address' =>$this->input->post('customer_address')
 
