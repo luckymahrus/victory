@@ -5,6 +5,16 @@
 		function __construct(){
 			parent::__construct();
 		}
+
+		public function index(){
+			
+			$data['title'] = 'Customer';
+			$data['is_mobile'] = $this->is_mobile;
+			$data['customers'] = $this->crud_model->get_data('customers')->result();
+			$this->template->load('default','customer/list_customer',$data);
+		
+		}
+
 		public function add_customer(){
 			if($this->input->post('submit')){
 	            $data = array(
@@ -23,7 +33,7 @@
 				    content: 'Berhasil tambah customer',
 				    type: 'success'
 				});");
-	            redirect($this->session_role);
+	            redirect('customer/add_customer');
 
 			}else{
 				$data['title'] = 'Customer';
@@ -32,14 +42,7 @@
 			}
 		}
 
-		public function list_customer(){
-			
-			$data['title'] = 'Customer';
-			$data['is_mobile'] = $this->is_mobile;
-			$data['customers'] = $this->crud_model->get_data('customers')->result();
-			$this->template->load('default','customer/list_customer',$data);
 		
-		}
 
 	}
 

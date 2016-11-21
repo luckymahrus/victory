@@ -22,6 +22,7 @@
 							<th class="sortable-column">Telp</th>
 							<th class="sortable-column">Alamat</th>
 							<th class="sortable-column">Manager</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -35,6 +36,7 @@
 									<td><a href="tel:<?php echo $outlet->phone ?>"><?php echo $outlet->phone ?></a></td>
 									<td><?php echo $outlet->address ?></td>
 									<td><?php echo $outlet->store_manager ?></td>
+									<td><a href="<?php echo base_url('outlets/edit_outlet/'.$outlet->id) ?>"><mif class="mif-pencil"></mif> Ubah</a> - <a href=""><mif class="mif-bin"></mif> Hapus</a></td>
 								</tr>		
 								<?php $i++; ?>
 							<?php endforeach; ?>

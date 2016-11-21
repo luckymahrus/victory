@@ -10,8 +10,18 @@
 
 		}
 
+		public function index(){
+			
+			$data['title'] = 'Sales';
+			$data['sales'] = $this->sales_model->get_all_sales();
+			$data['is_mobile'] = $this->is_mobile;
+			$this->template->load('default','sales/list_sales',$data);
+		
+		}
 
 		public function upload(){
+			$this->load->library('image_moo');
+
 			$config['allowed_types']        = 'jpg|png|jpeg';
             $config['max_size']             = 5000;					
 			$config['upload_path']          = 'uploads/temp/sales/'.$this->session_outlet.'/'.$this->session_id.'/';
@@ -31,6 +41,11 @@
                 //Get the link for the database
                 $photo = $config ['upload_path'] . '/' . $config ['file_name'];
             }
+
+            $this->image_moo
+				->load($photo)
+				->resize_crop(300,400)
+				->save($photo,TRUE);
 
 		}
 
@@ -98,14 +113,7 @@
 			}
 		}
 
-		public function list_sales(){
-			
-			$data['title'] = 'Sales';
-			$data['sales'] = $this->sales_model->get_all_sales();
-			$data['is_mobile'] = $this->is_mobile;
-			$this->template->load('default','sales/list_sales',$data);
 		
-		}
 
 			
 		

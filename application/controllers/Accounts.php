@@ -35,7 +35,7 @@
 
 					$this->session->set_flashdata('success',"$.Notify({caption: 'Login Sukses !', content: 'Selamat Datang ,".$user->name."', type: 'info'});");
 
-					redirect($user->role);
+					redirect('home');
 
 				}else{
 					$this->session->set_flashdata('failed',"$.Notify({caption: 'Login Gagal !', content: 'Username atau Password salah', type: 'alert'});");

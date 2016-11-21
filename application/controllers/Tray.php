@@ -1,7 +1,7 @@
 <?php
 	defined('BASEPATH') or exit('No direct script access allowed');
 
-	class Supplier extends MY_Controller{
+	class Tray extends MY_Controller{
 		function __construct(){
 			parent::__construct();
 		}
@@ -15,7 +15,7 @@
 		
 		}
 
-		public function add_supplier(){
+		public function add_tray(){
 			if($this->input->post('submit')){
 				$data= array(
 						'name' => $this->input->post('supplier_name'),

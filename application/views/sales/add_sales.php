@@ -2,7 +2,7 @@
     <div class="grid">
         <div class="row">
             <div class="cell">
-                <h3 style="display:inline-block"><small><a href="<?php echo base_url('sales/list_sales') ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke daftar sales</a></small></h3>
+                <h3 style="display:inline-block"><small><a href="<?php echo base_url('sales') ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke daftar sales</a></small></h3>
 
             </div>
         </div>
@@ -105,7 +105,6 @@
                         <?php foreach ($outlets as $outlet): ?>
                             <option value="<?php echo $outlet->id ?>"><?php echo $outlet->name; ?></option>
                         <?php endforeach; ?>
-                        <option value=""></option>
                     </select>
                 </div>    
             </div>
@@ -136,6 +135,10 @@
                         type: 'alert'
                     });
                     $(el).val('');
+                    $(el).parent().addClass('error');
+                    setTimeout(function(){$(el).parent().removeClass('error')},3000);
+                }else{
+                    $(el).parent().addClass('success');
                 }
                
                 
