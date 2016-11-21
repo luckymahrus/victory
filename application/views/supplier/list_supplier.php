@@ -8,7 +8,7 @@
 		<div class="row form-title">
 	        <div class="cell">
 	            <h1 style="margin-bottom: 20px;">Daftar Supplier</h1>
-	            <hr class="bg-teal">    
+	            <hr class="bg-primary">    
 	        </div>
 	    </div>
 		<div class="row">

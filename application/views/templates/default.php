@@ -31,8 +31,25 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <?php $configuration = $this->crud_model->get_data('configuration')->row() ?>
     <style>
+      /**alertify modal**/
+      .alertify .ajs-header{
+        color: <?php echo $configuration->primary_color ?> !important;
+        background: white !important;
+        border-bottom: 1px solid <?php echo $configuration->primary_color ?> !important;
+      }
+      .alertify .ajs-footer{
+        color: <?php echo $configuration->primary_color ?> !important;
+        background: white !important;
+        border-top: 1px solid <?php echo $configuration->primary_color ?> !important;
+      }
+
+      .alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok{
+        background-color: <?php echo $configuration->primary_color ?> !important;
+        color: white !important;
+      }
+
       .segoe{
         font-family: 'Segoe UI';
         font-size: 12px;
@@ -40,10 +57,14 @@
       }
      
       .navbar{
-        background-color: #04BFBF;
+        background-color: <?php echo $configuration->primary_color ?>;
         height: 50px;
         border:none;
         border-radius: 0px;
+      }
+      .bg-primary{
+        background-color: <?php echo $configuration->primary_color ?> !important;
+        color: white !important;
       }
       .overlay{
         position: fixed;
@@ -115,10 +136,13 @@
       }
       .navbar-nav>li:hover{
 
-        background-color: #91e9e0;
+        background-color: white !important;
         -webkit-transition: all 0.3s ease-in;
         -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
+      }
+      .navbar-nav>li:hover .menu-a{
+        color: <?php echo $configuration->primary_color ?> !important;
       }
       .navbar-nav>li>a{
         color: white !important;
@@ -139,7 +163,7 @@
         transition: all 0.3s ease-in;
       }
       .buka>a:visited,.buka>a:focus,.buka>a:active,.buka>a:hover{
-        color: #04BFBF !important;
+        color: <?php echo $configuration->primary_color ?> !important;
         background-color: #FFFFFF;
         -webkit-transition: all 0.3s ease-in;
         -moz-transition: all 0.3s ease-in;
@@ -152,10 +176,13 @@
         border-color: rgba(127, 140, 141,1.0);
       }
       .btn-teal:hover{
-        background-color: #30D5F1!important;
+        background-color: white !important;
         -webkit-transition: all 0.3s ease-in;
         -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
+        color: <?php echo $configuration->primary_color ?> !important;
+        border: 1px solid <?php echo $configuration->primary_color ?> !important;
+        font-weight: bold
       }
       .form-title{
         padding-bottom: 10px;
@@ -180,9 +207,9 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           
             <ul class="nav navbar-nav">
-              <li><a href="<?php echo base_url('admin') ?>" ><i class="fa fa-home" aria-hidden="true"></i> <span class="menu-text">Home</span></a></li>
+              <li><a href="<?php echo base_url('admin') ?>" class="menu-a" ><i class="fa fa-home" aria-hidden="true"></i> <span class="menu-text">Home</span></a></li>
               <!--Menu+dropdown Transaksi-->
-              <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" aria-hidden="true"></i> <span class="menu-text">Transaksi</span></a>
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-money" class="menu-a" aria-hidden="true"></i> <span class="menu-text">Transaksi</span></a>
                   <div class="container overlay" style="padding-top: 0px">
                     <div class="overlay-content" >
                       <div id="transaksi-container" style="position: relative;overflow: hidden; margin: 0 5%">
@@ -254,7 +281,7 @@
                   </div>
               </li><!--Transaksi ends-->
               <!--Menu + Dropdown Inventory-->
-              <li><a href="#" onclick="openNav(this)"><i class="fa fa-dropbox" aria-hidden="true"></i> <span class="menu-text">Inventory</span></a>
+              <li><a href="#" onclick="openNav(this)"><i class="fa fa-dropbox" class="menu-a" aria-hidden="true"></i> <span class="menu-text">Inventory</span></a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
                       
@@ -284,7 +311,7 @@
               </li>
               <!--Inventory ends-->
               <!--Menu + Dropdown Outlets-->
-              <li><a href="#" onclick="openNav(this)"><span class="icon mif-shop"></span> <span class="menu-text">Outlets</span></a>
+              <li><a href="#" onclick="openNav(this)" class="menu-a"><span class="icon mif-shop"></span> <span class="menu-text">Outlets</span></a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
                       
@@ -311,7 +338,7 @@
               </li>
               <!--Outlet ends-->
               <!--Menu + Dropdown Kontak-->
-              <li><a href="#" onclick="openNav(this)"><i class="fa fa-phone" aria-hidden="true"></i> <span class="menu-text">Kontak</span></a>
+              <li><a href="#" onclick="openNav(this)" class="menu-a"><i class="fa fa-phone" aria-hidden="true"></i> <span class="menu-text">Kontak</span></a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
                     
@@ -350,7 +377,7 @@
               </li>
               <!--Kontak ends-->
               <!--Menu + Dropdown Konfigurasi-->
-              <li><a href="#" onclick="openNav(this)"><i class="fa fa-cog" aria-hidden="true"></i> <span class="menu-text">Konfigurasi</span></a>
+              <li><a href="#" onclick="openNav(this)" class="menu-a"><i class="fa fa-cog" aria-hidden="true"></i> <span class="menu-text">Konfigurasi</span></a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
                       
@@ -366,8 +393,11 @@
                             <div class="tile-wide bg-darkOrange fg-white" data-role="tile">
                               <div class="tile-content iconic"><span class="icon fa fa-diamond"></span><span class="tile-label">Diamond</span></div>
                             </div>
-                            <div class="tile-wide tile-super-x bg-taupe fg-white" data-role="tile">
+                            <div class="tile-wide tile-big-x bg-taupe fg-white" data-role="tile">
                               <div class="tile-content iconic"><span class="icon mif-discout  mif-ani-shuttle"></span><span class="tile-label">Promo</span></div>
+                            </div>
+                            <div class="tile bg-darkCrimson fg-white" data-role="tile">
+                              <div class="tile-content iconic"><span class="icon mif-palette mif-ani-bounce"></span><span class="tile-label">Tampilan</span></div>
                             </div>
                             <div class="tile tile-big-x bg-mauve fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Sales</span></div>
@@ -381,7 +411,7 @@
                   </div>
               </li>
               <!--Konfigurasi ends-->
-              <li><a href="<?php echo base_url('accounts/logout') ?>"><i class="fa fa-power-off"></i> <span class="menu-text">Logout</span></a></li>
+              <li><a href="<?php echo base_url('accounts/logout') ?>" class="menu-a"><i class="fa fa-power-off"></i> <span class="menu-text">Logout</span></a></li>
             </ul>
             
               

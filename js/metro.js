@@ -5468,7 +5468,7 @@ $.widget( "metro.fitImage" , {
             'background-size': 'cover',
             'background-repeat': 'no-repeat',
             'border-radius': o.format === 'cycle' ? '50%' : '0'
-        });
+        }).addClass('image-frame');
 
         $(window).on('resize', function(){
             var p_w = image_frame.innerWidth();
@@ -9164,7 +9164,7 @@ $.widget( "metro.validator" , {
             if (isNaN(val)) {
                 return false;
             }
-            return val >= min_value;
+            return Number(val) >= Number(min_value);
         },
         max: function(val, max_value){
             if (max_value == undefined || isNaN(max_value)) {
@@ -9176,7 +9176,7 @@ $.widget( "metro.validator" , {
             if (isNaN(val)) {
                 return false;
             }
-            return val <= max_value;
+            return Number(val) <= Number(max_value);
         },
         email: function(val){
             return /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i.test(val);
@@ -9300,6 +9300,7 @@ $.widget( "metro.validator" , {
                 if (!this_result) return;
                 var _args = arg[i] != undefined ? arg[i] : false;
                 this_result = that.funcs[func_name.trim()](input.val(), _args);
+                console.log(this_result);
             });
 
 //            this_result = that.funcs[func](input.val(), arg);

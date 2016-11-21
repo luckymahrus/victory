@@ -3,14 +3,14 @@
     <div class="grid">
         <div class="row">
             <div class="cell">
-                <h3><small><a href=""><span class="fa fa-arrow-circle-o-left"></span> Kembali ke daftar outlet</a></small></h3>
+                <h3><small><a href="<?php echo base_url('outlets') ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke daftar outlet</a></small></h3>
             </div>
         </div>
 
         <div class="row form-title">	 
             <div class="cell">
             	<h1 style="margin-bottom: 20px;">Tambah Outlet Baru</h1>
-                <hr class="bg-teal">	
+                <hr class="bg-primary">	
             </div>
         </div>
     	
@@ -25,7 +25,7 @@
     		<div class="cell">
     			<label>Kode Toko</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Masukkan Kode Toko (2 Karakter)" title="Contoh : KM" name="outlet_code" data-validate-func="required, maxlength" data-validate-arg=",2" data-validate-hint="Kode toko harus 2 huruf">
+                    <input type="text" placeholder="Masukkan Kode Toko (2 Karakter)" title="Contoh : KM" name="outlet_code" data-validate-func="required,maxlength" data-validate-arg=",2" data-validate-hint="Kode toko harus 2 huruf">
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
     		</div>
@@ -76,12 +76,12 @@
     			</div>
         	</div>
         </div>
-
+<?php #max="100" min="0"  ?>
         <div class="row cells2">
         	<div class="cell">
         		<label>Margin Toko</label>
     			<div class="input-control text full-size" data-role="input">
-    			    <input type="text" placeholder="Perbedaan Dasar Harga dengan Toko Utama" name="outlet_margin" max="100" min="0" data-validate-func="required,min,max" data-validate-arg=",0,100" data-validate-hint="Margin toko harus diisi">
+    			    <input type="number" placeholder="Perbedaan Dasar Harga dengan Toko Utama" name="outlet_margin" data-validate-func="required,min,max" data-validate-arg=",0,100" data-validate-hint="Margin toko harus diisi min: 0, max: 100">
     			    <button class="button" style="border-color: rgba(127, 140, 141,1.0); cursor: default;"><span class="fa fa-percent" aria-hidden="true"></span></button>  
     			</div>
         	</div>
@@ -89,7 +89,7 @@
 
     	<div class="row">
             <div class="cell text-center">
-        	   <input type="Submit" name="submit" class="button info bg-teal btn-teal" value="Submit">
+        	   <input type="Submit" name="submit" class="button bg-primary btn-teal" value="Submit">
             </div>
         </div>    
     </div>
@@ -131,6 +131,10 @@ function check_username(el){
             });    
         }
         
+    }
+
+    function tk(el){
+        alert($(el).val());
     }
 
 

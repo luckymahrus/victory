@@ -17,43 +17,60 @@
 		}
 
 		public function login(){
+			//check if user has logged in
 			if($this->session->userdata('is_logged')){
-				redirect($this->session->userdata('user_role'));
+				//redirect to home if user already logged in
+				redirect('home');
 			}
+			//begin login process
 			if($this->input->post()){
+				//store username and password to variables
 				$username = $this->input->post('username');
 				$password = hash_password($this->input->post('password'));
 
+				//check if the username and password exist
 				if($user = $this->accounts_model->check_user($username,$password)){
 					$data_session = array(
 							'user_id'		=> $user->id,
 							'user_role'		=> $user->role,
 							'user_outlet'	=> $user->outlet_id,
+							'user_name'		=> $user->name,
 							'is_logged'		=> true,
 						);
+
+					//store user information into session
 					$this->session->set_userdata($data_session);
 
+					//success notification
 					$this->session->set_flashdata('success',"$.Notify({caption: 'Login Sukses !', content: 'Selamat Datang ,".$user->name."', type: 'info'});");
 
 					redirect('home');
 
-				}else{
+				}
+				//if user does not exist
+				else{
+					//failed notification
 					$this->session->set_flashdata('failed',"$.Notify({caption: 'Login Gagal !', content: 'Username atau Password salah', type: 'alert'});");
 
-					$this->load->view('login');
+					redirect('accounts/login');
 				}
 
 
-			}else{
-				
+			}
+			//if there is no post.
+			else{
+				//show login page
 				$this->load->view('login');
 			}
 		}
 
 		public function logout(){
+			//destroy the session
 			$this->session->sess_destroy();
+			//notification
 			$this->session->set_flashdata('failed',"$.Notify({caption: 'Logout Sukses !', content: '', type: 'alert'});");
-			$this->load->view('login');
+
+			redirect('accounts/login');
 		}
 
 		public function check_username($username = ''){

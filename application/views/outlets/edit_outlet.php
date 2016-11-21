@@ -9,8 +9,8 @@
 
         <div class="row form-title">	 
             <div class="cell">
-            	<h1 style="margin-bottom: 20px;">Ubah Outlet <?php echo ucfirst($outlet->name) ?></h1>
-                <hr class="bg-teal">	
+            	<h1 style="margin-bottom: 20px;">Edit Outlet <?php echo ucfirst($outlet->name) ?></h1>
+                <hr class="bg-primary">	
             </div>
         </div>
     	
@@ -76,7 +76,7 @@
                     <span class="caption"> Ubah Password</span>
                 </label>
     			<div class="input-control password full-size" data-role="input" style="display: none">
-    			    <input type="password" placeholder="Password" id="password" name="outlet_password" data-validate-func="required" data-validate-hint="Password harus diisi">
+    			    <input type="password" placeholder="Password" id="password" name="outlet_password">
     			    <button class="button helper-button reveal"><span class="mif-looks"></span></button>
     			</div>
         	</div>
@@ -86,7 +86,7 @@
         	<div class="cell">
         		<label>Margin Toko</label>
     			<div class="input-control text full-size" data-role="input">
-    			    <input type="number" placeholder="Perbedaan Dasar Harga dengan Toko Utama" name="outlet_margin" value="30" data-validate-func="required,min,max" data-validate-arg=",0,100" data-validate-hint="Margin toko harus diisi min: 0, max: 100">
+    			    <input type="number" placeholder="Perbedaan Dasar Harga dengan Toko Utama" name="outlet_margin" value="<?php echo $outlet->margin ?>" data-validate-func="required,min,max" data-validate-arg=",0,100" data-validate-hint="Margin toko harus diisi min: 0, max: 100">
     			    <button class="button" style="border-color: rgba(127, 140, 141,1.0); cursor: default;"><span class="fa fa-percent" aria-hidden="true"></span></button>  
     			</div>
         	</div>
@@ -94,7 +94,7 @@
 
     	<div class="row">
             <div class="cell text-center">
-        	   <input type="Submit" name="submit" class="button info bg-teal btn-teal" value="Submit">
+        	   <input type="Submit" name="submit" class="button info bg-primary btn-teal" value="Submit">
             </div>
         </div>    
     </div>

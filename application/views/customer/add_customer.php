@@ -10,7 +10,7 @@
         <div class="row">
             <div class="cell">
                 <h1 style="margin-bottom: 20px;">Tambah Customer Baru</h1>
-                <hr class="bg-teal">
+                <hr class="bg-primary">
             </div>
         </div>
 
@@ -63,7 +63,7 @@
 
         <div class="row">
             <div class="cell text-center">
-                <input type="submit" class="button info bg-teal btn-teal" name="submit" value="Submit">
+                <input type="submit" class="button bg-primary btn-teal" name="submit" value="Submit">
             </div>
         </div>
 

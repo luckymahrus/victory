@@ -61,7 +61,7 @@
 
                 </div>
               </div>
-              <div class="tile-wide bg-teal fg-white" data-role="tile">
+              <div class="tile-wide bg-primary fg-white" data-role="tile">
                 <div class="tile-content padding10">
                     <div class="tilehead" style="height: 40px;">
                         <h4 style="display: inline-block; float: left;"><span class="fa fa-dollar"></span> Kurs Hari Ini</h4>  

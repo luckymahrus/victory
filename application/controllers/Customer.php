@@ -7,6 +7,7 @@
 		}
 
 		public function index(){
+			//customer main page
 			
 			$data['title'] = 'Customer';
 			$data['is_mobile'] = $this->is_mobile;
@@ -16,7 +17,7 @@
 		}
 
 		public function add_customer(){
-			if($this->input->post('submit')){
+			if($this->input->post()){
 	            $data = array(
 
 	            		'name' => $this->input->post('customer_name'),

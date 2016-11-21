@@ -1,3 +1,10 @@
+<style>
+    .image-frame{
+        height: 150px !important;
+        width: 150px !important;
+        margin: auto;
+    }
+</style>
 <div class="container">
     <div class="grid">
         <div class="row">
@@ -7,23 +14,27 @@
             </div>
         </div>
 
-        <div class="row form-title">	 
+        <div class="row form-title" style="margin-bottom: 0">     
             <div class="cell">
-            	<h1 style="margin-bottom: 20px;">Tambah Sales Baru</h1>
-                <hr class="bg-primary">	
+                <h1 style="margin-bottom: 20px;">Edit Sales <?php echo ucfirst($sales->name) ?></h1>
+                <hr class="bg-primary"> 
             </div>
         </div>
 
     <?php //echo form_open_multipart('sales/add_sales',array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false')) ?>
-    <?php echo form_open_multipart('sales/add_sales',array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false')) ?>
-    		
+    <?php echo form_open_multipart('sales/edit_sales/'.$sales->id,array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false')) ?>
+        <div class="row">
+            <div class="cell">
+                <img src="<?php echo base_url().$sales->photo ?>" data-role="fitImage" data-format="cycle">
+            </div>
+        </div>    
         <div class="row cells2">
             <div class="cell">
                 <label>Nama</label>
-    			<div class="input-control text full-size" data-role="input">
-    			    <input type="text" placeholder="Nama Lengkap" name="sales_name" data-validate-func="required" data-validate-hint="Nama sales harus diisi">
-    			    <button class="button helper-button clear"><span class="mif-cross"></span></button>
-    			</div>
+                <div class="input-control text full-size" data-role="input">
+                    <input type="text" placeholder="Nama Lengkap" name="sales_name" value="<?php echo $sales->name ?>" data-validate-func="required" data-validate-hint="Nama sales harus diisi">
+                    <button class="button helper-button clear"><span class="mif-cross"></span></button>
+                </div>
             </div>
             <div class="cell">
                 <label>Upload Photo</label>
@@ -61,39 +72,43 @@
         
 
         <div class="row">
-        	<div class="cell">
-        		<label>No. Telp</label>
-        		<div class="input-control text full-size" data-role="input">
-    			    <input type="text" placeholder="Nomor Telephone Sales" name="sales_phone">
-    			    <button class="button helper-button clear"><span class="mif-cross"></span></button>
-    			</div>
-        	</div>
+            <div class="cell">
+                <label>No. Telp</label>
+                <div class="input-control text full-size" data-role="input">
+                    <input type="text" placeholder="Nomor Telephone Sales" value="<?php echo $sales->phone ?>" name="sales_phone">
+                    <button class="button helper-button clear"><span class="mif-cross"></span></button>
+                </div>
+            </div>
         </div>
 
         <div class="row">
-        	<div class="cell">
-        		<label>Alamat</label>
-        		<div class="input-control textarea full-size" data-role="input" data-text-auto-resize="true">
-    			    <textarea placeholder="Alamat Sales" name="sales_address"></textarea>
-    			</div>
-        	</div>
+            <div class="cell">
+                <label>Alamat</label>
+                <div class="input-control textarea full-size" data-role="input" data-text-auto-resize="true">
+                    <textarea placeholder="Alamat Sales" name="sales_address"><?php echo $sales->address ?></textarea>
+                </div>
+            </div>
         </div>
 
         <div class="row cells2">
             <div class="cell">
                 <label>Username</label>
-    			<div class="input-control text full-size" data-role="input">
-    			    <input type="text" placeholder="Username Sales" onblur="check_username(this)" name="sales_username" data-validate-func="required" data-validate-hint="Username harus diisi">
-    			    
-    			</div>
+                <div class="input-control text full-size" data-role="input" style="margin-top: 9px;">
+                    <input type="text" placeholder="Username Sales" onblur="check_username(this)" value="<?php echo $sales->username ?>" name="sales_username" data-validate-func="required" data-validate-hint="Username harus diisi">
+                    
+                </div>
             </div>
             <div class="cell">
-                <label>Password</label>
-    			<div class="input-control password full-size" data-role="input">
-    			    <input type="password" placeholder="Password" name="sales_password" data-validate-func="required" data-validate-hint="Password harus diisi">
-    			    
-    			</div>
-        	</div>
+                <label class="switch">
+                    <input type="checkbox" onchange="change_password(this)">
+                    <span class="check"></span>
+                    <span class="caption"> Ubah Password</span>
+                </label>
+                <div class="input-control password full-size" data-role="input" style="display: none">
+                    <input type="password" id="password" placeholder="Password" name="sales_password">
+                    <button class="button helper-button reveal"><span class="mif-looks"></span></button>
+                </div>
+            </div>
         </div>
 
         <div class="row">
@@ -103,7 +118,7 @@
                     <select data-validate-func="required" data-validate-hint="Nama toko harus diisi" name="sales_outlet">
                         <option value="" selected="selected">--Pilih Outlet--</option>
                         <?php foreach ($outlets as $outlet): ?>
-                            <option value="<?php echo $outlet->id ?>"><?php echo $outlet->name; ?></option>
+                            <option value="<?php echo $outlet->id ?>" <?php echo ($outlet->id == $sales->outlet_id) ? 'selected' : '' ?>><?php echo $outlet->name; ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>    
@@ -112,7 +127,7 @@
 
         <div class="row">
             <div class="cell text-center">
-        	   <input type="submit" name="submit" class="button bg-primary" value="Submit">
+               <input type="submit" name="submit" class="button bg-primary" value="Submit">
             </div>
         </div>
     </form>
@@ -121,6 +136,15 @@
 </div>
 
 <script>
+    function change_password(el){
+        if($(el).is(":checked") ){
+            $('#password').parent().show();
+        }else{
+            $('#password').parent().hide();
+            $('#password').val('');            
+        }
+      }
+
     function check_username(el){
         if($(el).val() != ''){
             $.ajax({

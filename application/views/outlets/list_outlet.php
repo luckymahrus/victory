@@ -8,7 +8,7 @@
 		<div class="row form-title">
 	        <div class="cell">
 	            <h1 style="margin-bottom: 20px;">Daftar Outlet</h1>
-	            <hr class="bg-teal">    
+	            <hr class="bg-primary">    
 	        </div>
 	    </div>
 		<div class="row">
@@ -36,7 +36,7 @@
 									<td><a href="tel:<?php echo $outlet->phone ?>"><?php echo $outlet->phone ?></a></td>
 									<td><?php echo $outlet->address ?></td>
 									<td><?php echo $outlet->store_manager ?></td>
-									<td><a href="<?php echo base_url('outlets/edit_outlet/'.$outlet->id) ?>"><mif class="mif-pencil"></mif> Ubah</a> - <a href=""><mif class="mif-bin"></mif> Hapus</a></td>
+									<td><a href="<?php echo base_url('outlets/edit_outlet/'.$outlet->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_outlet('<?php echo $outlet->id ?>','<?php echo $outlet->name ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
 								</tr>		
 								<?php $i++; ?>
 							<?php endforeach; ?>
@@ -47,3 +47,24 @@
 		</div>
 	</div>
 </div>
+<link rel="stylesheet" href="<?php echo base_url() ?>css/alertify.min.css">
+<link rel="stylesheet" href="<?php echo base_url() ?>css/default.min.css">
+<script src="<?php echo base_url() ?>js/alertify.min.js"></script>
+
+<script>
+	function delete_outlet(id,name){
+		alertify.confirm("Apakah anda yakin ingin menghapus Toko "+name,
+		  function(){
+		    window.location.assign("<?php echo base_url() ?>outlets/delete_outlet/"+id);
+		  },
+		  function(){
+		    $.Notify({caption: 'Gagal !', content: 'Toko gagal dihapus', type: 'alert'});
+		  });
+	}
+
+	<?php if($this->session->userdata('success')): ?>
+
+       <?php echo $this->session->userdata('success') ?>
+
+    <?php endif; ?>
+</script>

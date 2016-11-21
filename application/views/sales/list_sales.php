@@ -9,7 +9,7 @@
 		<div class="row form-title">
 	        <div class="cell">
 	            <h1 style="margin-bottom: 20px;">Daftar Sales</h1>
-	            <hr class="bg-teal">    
+	            <hr class="bg-primary">    
 	        </div>
 	    </div>
 		<div class="row">
@@ -21,6 +21,7 @@
 							<th class="sortable-column">Nama Sales</th>
 							<th class="sortable-column">Telp.</th>
 							<th class="sortable-column">Outlet</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -32,6 +33,7 @@
 									<td><?php echo $row->name ?></td>
 									<td><a href="tel:<?php echo $row->phone ?>"><?php echo $row->phone ?></a></td>
 									<td><?php echo $row->outlet_name ?></td>
+									<td><a href="<?php echo base_url('sales/edit_sales/'.$row->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_sales('<?php echo $row->id ?>','<?php echo $row->name ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
 								</tr>
 							<?php $i++; ?>
 							<?php endforeach ?>
@@ -43,3 +45,23 @@
 		</div>
 	</div>
 </div>
+<link rel="stylesheet" href="<?php echo base_url() ?>css/alertify.min.css">
+<link rel="stylesheet" href="<?php echo base_url() ?>css/default.min.css">
+<script src="<?php echo base_url() ?>js/alertify.min.js"></script>
+<script>
+	function delete_sales(id,name){
+		alertify.confirm("Apakah anda yakin ingin menghapus Sales "+name,
+		  function(){
+		    window.location.assign("<?php echo base_url() ?>sales/delete_sales/"+id);
+		  },
+		  function(){
+		    $.Notify({caption: 'Gagal !', content: 'Toko gagal dihapus', type: 'alert'});
+		  });
+	}
+
+	<?php if($this->session->userdata('success')): ?>
+
+       <?php echo $this->session->userdata('success') ?>
+
+    <?php endif; ?>
+</script>

@@ -9,7 +9,7 @@
         <div class="row form-title">
             <div class="cell">
                 <h1 style="margin-bottom: 20px;">Tambah Supplier Baru</h1>
-                <hr class="bg-teal">    
+                <hr class="bg-primary">    
             </div>
         </div>
         <?php echo form_open('supplier/add_supplier',array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false'));?>
@@ -61,7 +61,7 @@
 
         <div class="row">
             <div class="cell text-center">
-                <input type="Submit" class="button info bg-teal btn-teal" value="Submit" name="submit">
+                <input type="Submit" class="button bg-primary btn-teal" value="Submit" name="submit">
             </div>
         </div>
 
