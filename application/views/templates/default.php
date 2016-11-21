@@ -49,6 +49,7 @@
         background-color: <?php echo $configuration->primary_color ?> !important;
         color: white !important;
       }
+      /** end of alertify **/
 
       .segoe{
         font-family: 'Segoe UI';
@@ -63,7 +64,7 @@
         border-radius: 0px;
       }
       .bg-primary{
-        background-color: <?php echo $configuration->primary_color ?> !important;
+        background-color: <?php echo $configuration->primary_color ?>;
         color: white !important;
       }
       .overlay{
@@ -396,9 +397,9 @@
                             <div class="tile-wide tile-big-x bg-taupe fg-white" data-role="tile">
                               <div class="tile-content iconic"><span class="icon mif-discout  mif-ani-shuttle"></span><span class="tile-label">Promo</span></div>
                             </div>
-                            <div class="tile bg-darkCrimson fg-white" data-role="tile">
+                            <a href="<?php echo base_url('configuration/color') ?>" class="tile bg-darkCrimson fg-white" data-role="tile">
                               <div class="tile-content iconic"><span class="icon mif-palette mif-ani-bounce"></span><span class="tile-label">Tampilan</span></div>
-                            </div>
+                            </a>
                             <div class="tile tile-big-x bg-mauve fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Sales</span></div>
                             </div>
