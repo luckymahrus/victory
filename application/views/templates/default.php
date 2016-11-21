@@ -209,6 +209,7 @@
             <ul class="nav navbar-nav">
               <li><a href="<?php echo base_url('home') ?>" class="menu-a" ><i class="fa fa-home" aria-hidden="true"></i> <span class="menu-text">Home</span></a></li>
               <!--Menu+dropdown Transaksi-->
+              <li><a href="#" onclick="openNav(this)" class="menu-a"><i class="fa fa-money" aria-hidden="true"></i> <span class="menu-text">Transaksi</span></a>
                   <div class="container overlay" style="padding-top: 0px">
                     <div class="overlay-content" >
                       <div id="transaksi-container" style="position: relative;overflow: hidden; margin: 0 5%">
@@ -280,6 +281,7 @@
                   </div>
               </li><!--Transaksi ends-->
               <!--Menu + Dropdown Inventory-->
+              <li><a href="#" onclick="openNav(this)" class="menu-a"><i class="fa fa-dropbox" aria-hidden="true"></i> <span class="menu-text">Inventory</span></a>
                   <div class="container-fluid overlay">
                     <div class="overlay-content">
                       
