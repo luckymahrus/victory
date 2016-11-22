@@ -64,7 +64,7 @@
         border-radius: 0px;
       }
       .bg-primary{
-        background-color: <?php echo $configuration->primary_color ?>;
+        background-color: <?php echo $configuration->primary_color ?> !important;
         color: white !important;
       }
       .overlay{

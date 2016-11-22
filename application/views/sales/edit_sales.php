@@ -25,7 +25,7 @@
     <?php echo form_open_multipart('sales/edit_sales/'.$sales->id,array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false')) ?>
         <div class="row">
             <div class="cell">
-                <img src="<?php echo base_url().$sales->photo ?>" data-role="fitImage" data-format="cycle">
+                <a href="<?php echo base_url().$sales->photo ?>" rel="group" class="fancybox"><img src="<?php echo base_url().$sales->photo ?>?timestamp=<?php echo rand(0,999999) ?>" data-role="fitImage" data-format="cycle"></a>
             </div>
         </div>    
         <div class="row cells2">
@@ -135,7 +135,14 @@
     </div>
 </div>
 
+
+<link rel="stylesheet" href="<?php echo base_url() ?>fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="<?php echo base_url() ?>fancybox/source/jquery.fancybox.pack.js"></script>
+
 <script>
+    $(document).ready(function(){
+        $('.fancybox').fancybox();
+    });
     function change_password(el){
         if($(el).is(":checked") ){
             $('#password').parent().show();
@@ -199,7 +206,6 @@
        <?php echo $this->session->flashdata('sales') ?>
 
     <?php endif; ?>
-
 
 </script>
 

@@ -14,7 +14,7 @@
             </div>
         </div>
 
-        <?php echo form_open('customer/add_customer') ?>
+        <?php echo form_open('customer/edit_customer/') ?>
 
         <div class="row cells2">
             <div class="cell">
@@ -71,11 +71,3 @@
 
     </div>
 </div>
-
-<script>
-    $(document).ready(function(){
-        <?php if($this->session->flashdata('customer')): ?>
-            <?php echo $this->session->flashdata('customer') ?>
-        <?php endif; ?>
-    });
-</script>

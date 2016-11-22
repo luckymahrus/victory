@@ -107,9 +107,11 @@
 	            		'role'		=> 'sales'
 	            	);
 
-	            $this->crud_model->insert_data('accounts',$data_sales);
-
-	            $this->session->set_flashdata('sales', "$.Notify({caption: 'Berhasil !', content: 'Sales berhasil ditambahkan', type: 'info'});");
+	            if($this->crud_model->insert_data('accounts',$data_sales)){
+	            	$this->session->set_flashdata('sales', "$.Notify({caption: 'Berhasil !', content: 'Sales berhasil ditambahkan', type: 'info'});");
+	            }else{
+	            	$this->session->set_flashdata('sales', "$.Notify({caption: 'Gagal !', content: 'Sales gagal ditambahkan', type: 'alert'});");
+	            }
 
 	            redirect('sales/add_sales');
 
@@ -189,9 +191,11 @@
 					$data_account['password'] = hash_password($this->input->post('sales_password'));
 				}
 
-	            $this->crud_model->update_data('accounts',$data_sales,array('id' => $sales_id));
-
-	            $this->session->set_flashdata('sales', "$.Notify({caption: 'Berhasil !', content: 'Sales berhasil diedit', type: 'info'});");
+	            if($this->crud_model->update_data('accounts',$data_sales,array('id' => $sales_id))){
+	            	$this->session->set_flashdata('sales', "$.Notify({caption: 'Berhasil !', content: 'Sales berhasil diedit', type: 'info'});");	
+	            }else{
+	            	$this->session->set_flashdata('sales', "$.Notify({caption: 'Gagal !', content: 'Sales gagal diedit', type: 'alert'});");
+	            }        
 
 	            redirect('sales');
 
@@ -204,6 +208,27 @@
 			}
 		}
 		
+		public function delete_sales($sales_id = ''){
+			$sales = $this->crud_model->get_by_condition('accounts',array('id' => $sales_id,'role' => 'sales'))->row();
+			if($sales){
+				$dir = 'uploads/photo/sales/'.$sales->username;
+				unlink($sales->photo);
+				rmdir($dir);	
+				if($this->crud_model->delete_data('accounts',array('id' => $sales_id))){
+					$this->session->set_flashdata('sales', "$.Notify({caption: 'Berhasil !', content: 'Sales berhasil dihapus', type: 'info'});");
+				}else{
+					$this->session->set_flashdata('sales', "$.Notify({caption: 'Gagal !', content: 'Sales gagal dihapus', type: 'alert'});");
+				}
+			}else{
+				$this->session->set_flashdata('sales', "$.Notify({caption: 'Gagal !', content: 'Sales tidak ditemukan', type: 'alert'});");
+			}
+			redirect('sales');
+
+			
+
+
+
+		}
 
 			
 		

@@ -55,13 +55,15 @@
 		    window.location.assign("<?php echo base_url() ?>sales/delete_sales/"+id);
 		  },
 		  function(){
-		    $.Notify({caption: 'Gagal !', content: 'Toko gagal dihapus', type: 'alert'});
+		    $.Notify({caption: 'Gagal !', content: 'Sales gagal dihapus', type: 'alert'});
 		  });
 	}
+	$(document).ready(function(){
+		<?php if($this->session->userdata('sales')): ?>
 
-	<?php if($this->session->userdata('success')): ?>
+	       <?php echo $this->session->userdata('sales') ?>
 
-       <?php echo $this->session->userdata('success') ?>
-
-    <?php endif; ?>
+	    <?php endif; ?>
+	});
+	
 </script>

@@ -44,3 +44,11 @@
 		</div>
 	</div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        <?php if($this->session->flashdata('customer')): ?>
+            <?php echo $this->session->flashdata('customer') ?>
+        <?php endif; ?>
+    });
+</script>
