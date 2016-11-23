@@ -142,7 +142,7 @@
         -moz-transition: all 0.3s ease-in;
         transition: all 0.3s ease-in;
       }
-      .navbar-nav>li:hover .menu-a{
+      .navbar-nav>li:hover .menu-a {
         color: <?php echo $configuration->primary_color ?> !important;
       }
       .navbar-nav>li>a{
@@ -404,7 +404,7 @@
                                 <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Sales</span></div>
                             </div>
                             <div class="tile tile-big-x bg-olive fg-white" data-role="tile">
-                                <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Member</span></div>
+                                <div class="tile-content iconic"><span class="icon mif-organization"></span><span class="tile-label">Member</span></div>
                               </div>  
                           </div><!--Tile Container ends-->
                       </div>
@@ -414,7 +414,11 @@
               <!--Konfigurasi ends-->
               <li><a href="<?php echo base_url('accounts/logout') ?>" class="menu-a"><i class="fa fa-power-off"></i> <span class="menu-text">Logout</span></a></li>
             </ul>
-            
+            <ul class="nav navbar-nav navbar-right" style="hidden-sm">
+              <li class="dropdown">
+                  <a class="menu-a" style="cursor: pointer;" href="#"><span class="icon mif-user" style="margin-bottom: 4px;"></span> <span class="menu-text">Welcome, <?php echo $this->session->user_name?></span></a>
+              </li>
+            </ul>
               
             
            <!--Main menu ul ends-->
@@ -450,6 +454,8 @@
           $(el).parent('li').find('.overlay').css('padding-bottom', '50px');
           $(el).parent('li').find('.overlay').css('overflow-y', 'scroll');
           $(el).parent('li').find('.overlay').css('overflow-x', 'scroll');
+          $(el).parent('li').find('.drop').css('overflow-y', 'hidden');
+          $(el).parent('li').find('.drop').css('overflow-x', 'hidden');
           $(el).parent('li').find('.overlay').css('opacity', '1');
           $(el).parent('li').addClass('buka');
           $(el).parent('li').find('.overlay').css('height','100%');
