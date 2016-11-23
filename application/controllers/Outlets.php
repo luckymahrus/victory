@@ -81,7 +81,7 @@
 					);
 
 				//update the outlet information
-				$this->crud_model->update_data('outlets',$data_outlet,array('outlet_id' => $outlet_id));
+				$this->crud_model->update_data('outlets',$data_outlet,array('id' => $outlet_id));
 				
 				$data_account = array(
 					'username'		=> $this->input->post('outlet_username'),
