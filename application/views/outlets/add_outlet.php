@@ -19,14 +19,13 @@
     			<label>Nama Toko</label>
                 <div class="input-control text full-size">
                     <input type="text" placeholder="Nama Toko" name="outlet_name" data-validate-func="required" data-validate-hint="Nama toko harus diisi">
-                    <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
     		</div>
     		<div class="cell">
     			<label>Kode Toko</label>
                 <div class="input-control text full-size">
                     <input type="text" placeholder="Masukkan Kode Toko (2 Karakter)" title="Contoh : KM" name="outlet_code" data-validate-func="required,maxlength" data-validate-arg=",2" data-validate-hint="Kode toko harus 2 huruf">
-                    <button class="button helper-button clear"><span class="mif-cross"></span></button>
+                    
                 </div>
     		</div>
     	</div>
@@ -65,14 +64,14 @@
                 <label>Username</label>
     			<div class="input-control text full-size" data-role="input">
     			    <input type="text" placeholder="Username Outlet" name="outlet_username" onblur="check_username(this)" data-validate-func="required" data-validate-hint="Username harus diisi">
-    			    <button class="button helper-button clear"><span class="mif-cross"></span></button>
+    			    
     			</div>
             </div>
             <div class="cell">
                 <label>Password</label>
     			<div class="input-control password full-size" data-role="input">
     			    <input type="password" placeholder="Password" name="outlet_password" data-validate-func="required" data-validate-hint="Password harus diisi">
-    			    <button class="button helper-button reveal"><span class="mif-looks"></span></button>
+    			    
     			</div>
         	</div>
         </div>

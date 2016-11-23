@@ -22,7 +22,7 @@
                 <label>Nama</label>
     			<div class="input-control text full-size" data-role="input">
     			    <input type="text" placeholder="Nama Lengkap" name="sales_name" data-validate-func="required" data-validate-hint="Nama sales harus diisi">
-    			    <button class="button helper-button clear"><span class="mif-cross"></span></button>
+    			    
     			</div>
             </div>
             <div class="cell">
