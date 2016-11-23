@@ -24,7 +24,8 @@
 	            		'type' => $this->input->post('customer_type'),
 	            		'phone' => $this->input->post('customer_phone'),
 	            		'email' => $this->input->post('customer_email'),
-	            		'address' =>$this->input->post('customer_address')
+	            		'address' =>$this->input->post('customer_address'),
+	            		'outlet_id' => $this->session->user_outlet
 
 	            	);
 

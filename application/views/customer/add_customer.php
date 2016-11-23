@@ -21,7 +21,7 @@
                 <label>Nama Customer</label>
                 <div class="input-control text full-size">
                     <input type="text" placeholder="Nama Customer" data-validate-func="required" data-validate-hint="Nama customer harus diisi" name="customer_name">
-                    <button class="button helper-button clear"><span class="mif-cross"></span></button>
+                    
                 </div>
             </div>
             <div class="cell">
