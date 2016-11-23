@@ -292,17 +292,21 @@
                           <div class="tile-large tile-big-y bg-amber fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-list  mif-ani-float"></span><span class="tile-label">Daftar Barang</span></div>
                           </div>
-                          <div class="tile-large bg-red fg-white" data-role="tile">
+                          <div class="tile-large bg-orange fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-search"></span><span class="tile-label">Stok Opnam</span></div>
                           </div>
-                          <div class="tile tile-wide-y bg-orange fg-white" data-role="tile">
+                          <div class="tile tile-wide-y bg-red fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-truck mif-ani-pass"></span><span class="tile-label">Kirim</span></div>
                           </div>
-                          <div class="tile tile-wide-y bg-crimson fg-white" data-role="tile">
+                          <div class="tile tile-wide-y bg-lightRed fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon fa fa-check-square-o"></span><span class="tile-label">Terima</span></div>
                           </div>
-                          <div class="tile tile-super-x bg-lightRed fg-white" data-role="tile">
+
+                          <div class="tile tile-wide-x bg-yellow fg-white" data-role="tile">
                             <div class="tile-content iconic"><span class="icon mif-shopping-basket mif-ani-bounce mif-ani-fast"></span><span class="tile-label">Daftar Baki</span></div>
+                          </div>
+                          <div class="tile tile-wide-x bg-magenta fg-white" data-role="tile">
+                            <div class="tile-content iconic"><span class="icon mif-versions mif-ani-horizontal"></span><span class="tile-label">Daftar Transaksi Barang</span></div>
                           </div>
                         </div><!--Container ends-->
                       </div>
