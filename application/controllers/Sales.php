@@ -101,6 +101,7 @@
 	            		'photo'		=> $photo,
 	            		'address'	=> $this->input->post('sales_address'),
 	            		'phone'		=> $this->input->post('sales_phone'),
+	            		'email'		=> $this->input->post('sales_email'),
 	            		'username'	=> $this->input->post('sales_username'),
 	            		'password'	=> hash_password($this->input->post('sales_password')),
 	            		'outlet_id'	=> $this->input->post('sales_outlet'),
@@ -180,6 +181,7 @@
 	            		'photo'		=> $photo,
 	            		'address'	=> $this->input->post('sales_address'),
 	            		'phone'		=> $this->input->post('sales_phone'),
+	            		'email'		=> $this->input->post('sales_email'),
 	            		'username'	=> $this->input->post('sales_username'),
 	            		'outlet_id'	=> $this->input->post('sales_outlet'),
 	            		'role'		=> 'sales'

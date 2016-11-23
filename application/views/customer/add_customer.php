@@ -3,31 +3,31 @@
 
         <div class="row">
             <div class="cell">
-                <h3><small><a href=""><span class="fa fa-arrow-circle-o-left"></span> Kembali ke Daftar Customer</a></small></h3>
+                <h3 style="display:inline-block"><small><a href="<?php echo base_url('customer') ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke daftar customer</a></small></h3>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row form-title">
             <div class="cell">
                 <h1 style="margin-bottom: 20px;">Tambah Customer Baru</h1>
                 <hr class="bg-primary">
             </div>
         </div>
 
-        <?php echo form_open('customer/add_customer') ?>
+        <?php echo form_open('customer/add_customer',array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false')) ?>
 
         <div class="row cells2">
             <div class="cell">
                 <label>Nama Customer</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Nama Customer" name="customer_name">
+                    <input type="text" placeholder="Nama Customer" data-validate-func="required" data-validate-hint="Nama customer harus diisi" name="customer_name">
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
             </div>
             <div class="cell">
                 <label>Jenis Customer</label>
                 <div class="input-control select full-size">
-                    <select name="customer_type">
+                    <select name="customer_type" data-validate-func="required" data-validate-hint="Jenis customer harus diisi">
                         <option value="Regular">Customer Biasa</option>
                         <option value="Member">Member</option>
                     </select>
@@ -56,14 +56,14 @@
             <div class="cell">
                 <label>Alamat</label>
                 <div class="input-control textarea full-size" data-role="input" data-text-auto-resize="true">
-                    <textarea name="customer_address"></textarea>
+                    <textarea placeholder="Alamat Customer" name="customer_address"></textarea>
                 </div>
             </div>
         </div>  
 
         <div class="row">
             <div class="cell text-center">
-                <input type="submit" class="button bg-primary btn-teal" name="submit" value="Submit">
+                <input type="submit" class="button bg-primary" name="submit" value="Submit">
             </div>
         </div>
 
@@ -73,9 +73,18 @@
 </div>
 
 <script>
-    $(document).ready(function(){
-        <?php if($this->session->flashdata('customer')): ?>
-            <?php echo $this->session->flashdata('customer') ?>
-        <?php endif; ?>
-    });
+     function notifyOnErrorInput(input){
+        var message = input.data('validateHint');
+        $.Notify({
+            caption: 'Error',
+            content: message,
+            type: 'alert'
+        });
+    }
+
+    <?php if($this->session->flashdata('customer')): ?>
+
+       <?php echo $this->session->flashdata('customer') ?>
+
+    <?php endif; ?>
 </script>

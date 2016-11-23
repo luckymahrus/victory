@@ -60,14 +60,21 @@
         <?php endif ?>
         
 
-        <div class="row">
-        	<div class="cell">
-        		<label>No. Telp</label>
-        		<div class="input-control text full-size" data-role="input">
-    			    <input type="text" placeholder="Nomor Telephone Sales" name="sales_phone">
-    			    <button class="button helper-button clear"><span class="mif-cross"></span></button>
-    			</div>
-        	</div>
+        <div class="row cells2">
+            <div class="cell">
+                <label>No. Telp</label>
+                <div class="input-control text full-size" data-role="input">
+                    <input type="text" placeholder="Nomor Telephone Sales" name="sales_phone">
+                    <button class="button helper-button clear"><span class="mif-cross"></span></button>
+                </div>
+            </div>
+            <div class="cell">
+                <label>E-mail</label>
+                <div class="input-control text full-size" data-role="input" >
+                    <input type="text" placeholder="Email Sales" name="sales_email">
+                    <button class="button helper-button clear"><span class="mif-cross"></span></button>
+                </div>
+            </div>
         </div>
 
         <div class="row">

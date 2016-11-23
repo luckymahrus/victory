@@ -18,8 +18,10 @@
 					<thead>
 						<tr>
 							<th class="sortable-column">No.</th>
-							<th class="sortable-column">Nama Sales</th>
-							<th class="sortable-column">Telp.</th>
+							<th class="sortable-column">Nama</th>
+							<th class="sortable-column">Telephone</th>
+							<th class="sortable-column">Email</th>
+							<th class="sortable-column">Alamat</th>
 							<th class="sortable-column">Outlet</th>
 							<th>Action</th>
 						</tr>
@@ -32,6 +34,8 @@
 									<td><?php echo $i ?></td>
 									<td><?php echo $row->name ?></td>
 									<td><a href="tel:<?php echo $row->phone ?>"><?php echo $row->phone ?></a></td>
+									<td><?php echo $row->email ?></td>
+									<td><?php echo $row->address ?></td>
 									<td><?php echo $row->outlet_name ?></td>
 									<td><a href="<?php echo base_url('sales/edit_sales/'.$row->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_sales('<?php echo $row->id ?>','<?php echo $row->name ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
 								</tr>

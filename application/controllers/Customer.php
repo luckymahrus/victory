@@ -83,8 +83,19 @@
 				$data['title'] = 'Customer';
 				$data['is_mobile'] = $this->is_mobile;
 				$data['customer'] = $this->crud_model->get_by_condition('customers',array('id' => $cust_id))->row();
-				$this->template->load('default','customer/edit_customer/'.$cust_id,$data);
+				$this->template->load('default','customer/edit_customer',$data);
 			}
+		}
+
+		public function delete_customer($cust_id = ''){
+		
+			if($this->crud_model->delete_data('customers',array('id' => $cust_id))){
+				$this->session->set_flashdata('customer', "$.Notify({caption: 'Berhasil !', content: 'Customer berhasil dihapus', type: 'info'});");
+			}else{
+				$this->session->set_flashdata('customer', "$.Notify({caption: 'Gagal !', content: 'Customer gagal dihapus', type: 'alert'});");
+			}
+			
+			redirect('customer');
 		}
 
 		
