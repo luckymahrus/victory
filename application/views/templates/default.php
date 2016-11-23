@@ -330,7 +330,7 @@
                                 <div class="tile-content iconic"><span class="icon mif-user-plus"></span><span class="tile-label">Tambah Sales Baru</span></div>
                               </a>
                               <a href="<?php echo base_url('outlets/add_outlet') ?>" class="tile tile-wide-x bg-emerald fg-white" data-role="tile">
-                                <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Tambah Toko Baru</span></div>
+                                <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Tambah Outlet Baru</span></div>
                               </a>
                               <a href="<?php echo base_url('sales') ?>" class="tile tile-super-x tile-wide-y bg-darkEmerald fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-users  mif-ani-float"></span><span class="tile-label">Daftar Sales</span></div>
