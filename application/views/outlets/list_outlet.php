@@ -2,7 +2,8 @@
 	<div class="grid">
 		<div class="row">
 	        <div class="cell">
-	            <h3><small><a href=""><span class="fa fa-arrow-circle-o-left"></span> Kembali ke Menu</a></small></h3>
+	            <h3 style="display: inline-block;"><small><a href="<?php echo base_url() ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke Menu</a></small></h3>
+	            <h3 style="display:inline-block;float:right;"><small><a href="<?php echo base_url('outlets/add_outlet') ?>">Tambah Outlet <span class="fa fa-arrow-circle-o-right"></span></a></small></h3>
 	        </div>
 	    </div>
 		<div class="row form-title">
