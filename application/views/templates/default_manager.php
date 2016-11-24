@@ -397,36 +397,6 @@
                   </div>
               </li>
               <!--Kontak ends-->
-              <!--Menu + Dropdown Konfigurasi-->
-              <li><a href="#" onclick="openNav(this)" class="menu-a"><i class="fa fa-cog" aria-hidden="true"></i> <span class="menu-text">Konfigurasi</span></a>
-                  <div class="container-fluid overlay">
-                    <div class="overlay-content">
-                      <div class="grid">
-                        <div class="row">
-                          <div class="cell">
-                            <div class="tile-group">
-                              <div class="tile-group-title">Konfigurasi</div>
-                              <div class="tile-container"><!--Tile container start-->
-                                <div class="tile tile-wide-y tile-big-x bg-taupe fg-white" data-role="tile">
-                                  <div class="tile-content iconic"><span class="icon mif-discout  mif-ani-shuttle"></span><span class="tile-label">Promo</span></div>
-                                </div>
-                                <a href="<?php echo base_url('configuration/color') ?>" class="tile tile-big-x bg-darkCrimson fg-white" data-role="tile">
-                                  <div class="tile-content iconic"><span class="icon mif-palette mif-ani-bounce"></span><span class="tile-label">Tampilan</span></div>
-                                </a>
-                                <div class="tile tile-wide-x bg-mauve fg-white" data-role="tile">
-                                    <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Sales</span></div>
-                                </div>
-                                <div class="tile bg-olive fg-white" data-role="tile">
-                                    <div class="tile-content iconic"><span class="icon mif-organization"></span><span class="tile-label">Member</span></div>
-                                  </div>  
-                              </div><!--Tile Container ends-->
-                          </div>    
-                          </div>
-                        </div>
-                      </div>
-                  </div>
-              </li>
-              <!--Konfigurasi ends-->
               <li><a href="<?php echo base_url('accounts/logout') ?>" class="menu-a"><i class="fa fa-power-off"></i> <span class="menu-text">Logout</span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" style="hidden-sm">
