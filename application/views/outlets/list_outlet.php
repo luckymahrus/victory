@@ -13,6 +13,13 @@
 	            <hr class="bg-primary">    
 	        </div>
 	    </div>
+	    <div class="row">
+	    	<div class="cell">
+	    		<div class="input-control text full-size">
+                    <input type="text" placeholder="Cari..." id="filter" >
+                </div>
+	    	</div>
+	    </div>
 		<div class="row">
 			<div class="cell table-responsive toggle-circle-filled" style="overflow-x: scroll;">
 				<table class="table hovered border table-condensed" id="table_outlet" data-filter="#filter" data-page-size="12">
