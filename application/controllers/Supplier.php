@@ -11,7 +11,7 @@
 			$data['title'] = 'Supplier';
 			$data['is_mobile'] = $this->is_mobile;
 			$data['suppliers'] = $this->crud_model->get_data('suppliers')->result();
-			$this->template->load('default','supplier/list_supplier',$data);
+			$this->template->load($this->default,'supplier/list_supplier',$data);
 		
 		}
 
@@ -34,7 +34,7 @@
 			}else{
 				$data['title'] = 'Supplier';
 				$data['is_mobile'] = $this->is_mobile;
-				$this->template->load('default','supplier/add_supplier',$data);
+				$this->template->load($this->default,'supplier/add_supplier',$data);
 			}
 		}
 		
@@ -70,7 +70,7 @@
 				$data['title'] = 'Supplier';
 				$data['is_mobile'] = $this->is_mobile;
 				$data['supplier'] = $this->crud_model->get_by_condition('suppliers',array('id' => $supp_id))->row();
-				$this->template->load('default','supplier/edit_supplier',$data);
+				$this->template->load($this->default,'supplier/edit_supplier',$data);
 			}
 		}
 

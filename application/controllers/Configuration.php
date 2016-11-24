@@ -13,7 +13,7 @@
 
 			$data['title'] = 'Ubah Warna';
 			$data['configuration'] = $this->crud_model->get_data('configuration')->row();
-			$this->template->load('default','configuration/color',$data);
+			$this->template->load($this->default,'configuration/color',$data);
 			
 
 		}

@@ -339,11 +339,8 @@
                                   <a href="<?php echo base_url('outlets') ?>" class="tile-large tile-big-y bg-lime fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-shop mif-ani-shake"></span><span class="tile-label">Daftar Outlet</span></div>
                                   </a>
-                                  <a href="<?php echo base_url('sales/add_sales') ?>" class="tile tile-wide-x bg-green fg-white" data-role="tile">
+                                  <a href="<?php echo base_url('sales/add_sales') ?>" class="tile tile-super-x bg-green fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-user-plus"></span><span class="tile-label">Tambah Sales Baru</span></div>
-                                  </a>
-                                  <a href="<?php echo base_url('outlets/add_outlet') ?>" class="tile tile-wide-x bg-emerald fg-white" data-role="tile">
-                                    <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Tambah Outlet Baru</span></div>
                                   </a>
                                   <a href="<?php echo base_url('sales') ?>" class="tile tile-super-x tile-wide-y bg-darkEmerald fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-users  mif-ani-float"></span><span class="tile-label">Daftar Sales</span></div>
@@ -410,25 +407,16 @@
                             <div class="tile-group">
                               <div class="tile-group-title">Konfigurasi</div>
                               <div class="tile-container"><!--Tile container start-->
-                                <div class="tile tile-large bg-darkBrown fg-white" data-role="tile">
-                                    <div class="tile-content iconic"><span class="icon mif-shop  mif-ani-float"></span><span class="tile-label">Toko</span></div>
-                                </div>
-                                <div class="tile-wide bg-brown fg-white" data-role="tile">
-                                  <div class="tile-content iconic"><span class="icon mif-coins"></span><span class="tile-label">Gold</span></div>
-                                </div>
-                                <div class="tile-wide bg-darkOrange fg-white" data-role="tile">
-                                  <div class="tile-content iconic"><span class="icon fa fa-diamond"></span><span class="tile-label">Diamond</span></div>
-                                </div>
-                                <div class="tile-wide tile-big-x bg-taupe fg-white" data-role="tile">
+                                <div class="tile tile-wide-y tile-big-x bg-taupe fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-discout  mif-ani-shuttle"></span><span class="tile-label">Promo</span></div>
                                 </div>
-                                <a href="<?php echo base_url('configuration/color') ?>" class="tile bg-darkCrimson fg-white" data-role="tile">
+                                <a href="<?php echo base_url('configuration/color') ?>" class="tile tile-big-x bg-darkCrimson fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-palette mif-ani-bounce"></span><span class="tile-label">Tampilan</span></div>
                                 </a>
-                                <div class="tile tile-big-x bg-mauve fg-white" data-role="tile">
+                                <div class="tile tile-wide-x bg-mauve fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Sales</span></div>
                                 </div>
-                                <div class="tile tile-big-x bg-olive fg-white" data-role="tile">
+                                <div class="tile bg-olive fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-organization"></span><span class="tile-label">Member</span></div>
                                   </div>  
                               </div><!--Tile Container ends-->
