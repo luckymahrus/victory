@@ -392,16 +392,19 @@
                             <div class="tile tile-large bg-darkBrown fg-white" data-role="tile">
                                 <div class="tile-content iconic"><span class="icon mif-shop  mif-ani-float"></span><span class="tile-label">Toko</span></div>
                             </div>
-                            <div class="tile-wide bg-brown fg-white" data-role="tile">
+                            <div class="tile bg-brown fg-white" data-role="tile">
                               <div class="tile-content iconic"><span class="icon mif-coins"></span><span class="tile-label">Gold</span></div>
                             </div>
-                            <div class="tile-wide bg-darkOrange fg-white" data-role="tile">
+                            <div class="tile bg-darkOrange fg-white" data-role="tile">
                               <div class="tile-content iconic"><span class="icon fa fa-diamond"></span><span class="tile-label">Diamond</span></div>
                             </div>
+                            <a class="tile-wide bg-darkTeal fg-white" data-role="tile" href="<?php echo base_url('currency/add_dollar')?>">
+                              <div class="tile-content iconic"><span class="icon mif-dollar2"></span><span class="tile-label">Dollar</span></div>
+                            </a>
                             <div class="tile-wide tile-big-x bg-taupe fg-white" data-role="tile">
                               <div class="tile-content iconic"><span class="icon mif-discout  mif-ani-shuttle"></span><span class="tile-label">Promo</span></div>
                             </div>
-                            <a href="<?php echo base_url('configuration/color') ?>" class="tile bg-darkCrimson fg-white" data-role="tile">
+                            <a href="<?php echo base_url('configuration/color') ?>" class="tile bg-gray fg-white" data-role="tile">
                               <div class="tile-content iconic"><span class="icon mif-palette mif-ani-bounce"></span><span class="tile-label">Tampilan</span></div>
                             </a>
                             <div class="tile tile-big-x bg-mauve fg-white" data-role="tile">
