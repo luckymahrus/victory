@@ -18,13 +18,13 @@
 				<table class="table hovered border table-condensed" id="table_outlet" data-filter="#filter" data-page-size="12">
 					<thead>
 						<tr>
-							<th class="sortable-column">No.</th>
-							<th class="sortable-column">Kode</th>
-							<th class="sortable-column">Nama</th>
-							<th class="sortable-column">Telp</th>
-							<th class="sortable-column">Alamat</th>
-							<th class="sortable-column">Manager</th>
-							<th>Action</th>
+							<th data-type="numeric">No.</th>
+							<th data-hide="phone">Kode</th>
+							<th >Nama</th>
+							<th data-hide="phone">Telp</th>
+							<th data-hide="phone">Alamat</th>
+							<th data-hide="phone">Manager</th>
+							<th data-hide="phone">Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -74,6 +74,8 @@
 	       <?php echo $this->session->userdata('outlet') ?>
 
 	    <?php endif; ?>
+
+	    $('#table_outlet').footable();
 
 
 	});
