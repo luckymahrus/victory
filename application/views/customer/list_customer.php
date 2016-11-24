@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/alertify.min.css">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/default.min.css">
-<link href="<?php echo base_url() ?>css/footable.standalone.min.css" rel="stylesheet">
+<link href="<?php echo base_url() ?>css/footable.core.css" type="text/css" rel="stylesheet">
 <div class="container">
 	<div class="grid">
 		<div class="row">
@@ -22,14 +22,14 @@
 				<table class="table table-condensed" id="table_customer" data-page-size="10">
 					<thead>
 						<tr>
-							<th data-hide="phone">No</th>
-							<th data-hide="phone">Nama</th>
+							<th data-type="numeric">No</th>
+							<th>Nama</th>
 							<th data-hide="phone">Tipe</th>
 							<th data-hide="phone">Telephone</th>
 							<th data-hide="phone">Email</th>
 							<th data-hide="phone">Alamat</th>
 							<th data-hide="phone">Outlet</th>
-							<th>Action</th>
+							<th data-hide="phone">Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -62,7 +62,11 @@
 </div>
 
 <script src="<?php echo base_url() ?>js/alertify.min.js"></script>
-<script src="<?php echo base_url();?>js/footable.min.js"></script>
+<script src="<?php echo base_url() ?>js/footable.js"></script>
+<script src="<?php echo base_url() ?>js/footable.filter.js"></script>
+<script src="<?php echo base_url() ?>js/footable.paginate.js"></script>
+<script src="<?php echo base_url() ?>js/footable.sort.js" type="text/javascript"></script>
+
 <script>
 	$('#table_customer').footable();
 
