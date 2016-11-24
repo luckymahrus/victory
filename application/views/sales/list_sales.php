@@ -1,3 +1,4 @@
+<link href="<?php echo base_url() ?>css/footable.core.css" type="text/css" rel="stylesheet">
 <div class="container">
 	<div class="grid">
 		<div class="row">
@@ -13,17 +14,17 @@
 	        </div>
 	    </div>
 		<div class="row">
-			<div class="cell" style="overflow-x: scroll;">
-				<table class="table hovered border">
+				<div class="cell table-responsive toggle-circle-filled">
+				<table class="table hovered border table-condensed" id="table_sales" data-filter="#filter" data-page-size="12">
 					<thead>
 						<tr>
-							<th class="sortable-column">No.</th>
-							<th class="sortable-column">Nama</th>
-							<th class="sortable-column">Telephone</th>
-							<th class="sortable-column">Email</th>
-							<th class="sortable-column">Alamat</th>
-							<th class="sortable-column">Outlet</th>
-							<th>Action</th>
+							<th data-type="numeric">No.</th>
+							<th>Nama</th>
+							<th data-hide="phone" data-toggle>Telephone</th>
+							<th data-hide="phone">Email</th>
+							<th data-hide="phone">Alamat</th>
+							<th data-hide="phone">Outlet</th>
+							<th data-hide="phone">Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -45,14 +46,20 @@
 						
 					</tbody>
 				</table>
-			</div>
+				</div>
 		</div>
 	</div>
 </div>
 <link rel="stylesheet" href="<?php echo base_url() ?>css/alertify.min.css">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/default.min.css">
+
+<script src="<?php echo base_url() ?>js/footable.js"></script>
+<script src="<?php echo base_url() ?>js/footable.filter.js"></script>
+<script src="<?php echo base_url() ?>js/footable.paginate.js"></script>
+<script src="<?php echo base_url() ?>js/footable.sort.js" type="text/javascript"></script>
 <script src="<?php echo base_url() ?>js/alertify.min.js"></script>
 <script>
+	$('#table_sales').footable();
 	function delete_sales(id,name){
 		alertify.confirm("Apakah anda yakin ingin menghapus Sales "+name,
 		  function(){
