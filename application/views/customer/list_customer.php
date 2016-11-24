@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="<?php echo base_url() ?>css/alertify.min.css">
+<link rel="stylesheet" href="<?php echo base_url() ?>css/default.min.css">
+<link href="<?php echo base_url() ?>css/footable.standalone.min.css" rel="stylesheet">
 <div class="container">
 	<div class="grid">
 		<div class="row">
@@ -15,16 +18,17 @@
 	    
 		<div class="row">
 			<div class="cell" style="overflow-x: scroll;">
-				<table class="table hovered border">
+				<div class="table-responsive toggle-circle-filled">
+				<table class="table table-condensed" id="table_customer" data-page-size="10">
 					<thead>
 						<tr>
-							<th class="sortable-column">No</th>
-							<th class="sortable-column">Nama</th>
-							<th class="sortable-column">Tipe</th>
-							<th class="sortable-column">Telephone</th>
-							<th class="sortable-column">Email</th>
-							<th class="sortable-column">Alamat</th>
-							<th class="sortable-column">Outlet</th>
+							<th data-hide="phone">No</th>
+							<th data-hide="phone">Nama</th>
+							<th data-hide="phone">Tipe</th>
+							<th data-hide="phone">Telephone</th>
+							<th data-hide="phone">Email</th>
+							<th data-hide="phone">Alamat</th>
+							<th data-hide="phone">Outlet</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -51,14 +55,17 @@
 						<?php endif; ?>
 					</tbody>
 				</table>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<link rel="stylesheet" href="<?php echo base_url() ?>css/alertify.min.css">
-<link rel="stylesheet" href="<?php echo base_url() ?>css/default.min.css">
+
 <script src="<?php echo base_url() ?>js/alertify.min.js"></script>
+<script src="<?php echo base_url();?>js/footable.min.js"></script>
 <script>
+	$('#table_customer').footable();
+
     $(document).ready(function(){
         <?php if($this->session->flashdata('customer')): ?>
             <?php echo $this->session->flashdata('customer') ?>
