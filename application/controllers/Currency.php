@@ -27,7 +27,7 @@
 			}
 			//show the form view
 			else{
-				$data['title'] = 'Outlet';
+				$data['title'] = 'Nilai Dollar';
 				$this->template->load('default','currency/change_dollar',$data);
 			}
 		}		
