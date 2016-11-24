@@ -19,7 +19,7 @@
 			$data['title'] = 'Outlet';
 			$data['is_mobile'] = $this->is_mobile;
 			$data['outlets'] = $this->crud_model->get_data('outlets')->result();
-			$this->template->load('default','outlets/list_outlet',$data);
+			$this->template->load($this->default,'outlets/list_outlet',$data);
 		
 		}
 
@@ -64,7 +64,7 @@
 			//show the form view
 			else{
 				$data['title'] = 'Outlet';
-				$this->template->load('default','outlets/add_outlet',$data);
+				$this->template->load($this->default,'outlets/add_outlet',$data);
 			}
 		}
 
@@ -110,7 +110,7 @@
 			else{
 				$data['title'] = 'Outlet';
 				$data['outlet']	= $this->outlets_model->get_outlet($outlet_id);
-				$this->template->load('default','outlets/edit_outlet',$data);
+				$this->template->load($this->default,'outlets/edit_outlet',$data);
 			}
 		}
 

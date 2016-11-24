@@ -7,6 +7,7 @@
 		protected $session_role;
 		protected $session_id;
 		protected $session_outlet;
+		protected $default;
 
 		function __construct(){
 			parent::__construct();
@@ -20,6 +21,13 @@
 				$this->session_role = $this->session->userdata('user_role');
 				$this->session_id = $this->session->userdata('user_id');
 				$this->session_outlet = $this->session->userdata('user_outlet');
+				if($this->session_role == 'admin'){
+					$this->default = 'default';
+				}elseif($this->session_role == 'manager'){
+					$this->default = 'default_manager';
+				}elseif($this->session_role == 'sales'){
+					$this->default = 'default_sales';
+				}
 			}
 
 			// $sales_photo = 'uploads/temp/sales/'.$this->session_outlet.'/'.$this->session_id.'/'.'sales'.$this->session_id.'.jpg';
