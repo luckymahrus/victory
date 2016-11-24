@@ -14,7 +14,9 @@
     <link href="<?php echo base_url() ?>css/metro-icons.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-responsive.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-schemes.css" rel="stylesheet">
-    
+    <link href="<?php echo base_url() ?>css/footable.standalone.min.css" rel="stylesheet">
+
+
     <link href="<?php echo base_url() ?>css/docs.css" rel="stylesheet">
 
     
@@ -25,6 +27,7 @@
     <script src="<?php echo base_url() ?>js/metro.js"></script>
     <script src="<?php echo base_url() ?>js/webcam.min.js"></script>
     <script src="<?php echo base_url();?>js/script.js"></script>
+    <script src="<?php echo base_url();?>js/footable.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -189,6 +192,21 @@
         padding-bottom: 10px;
         padding-top: 5px;
       }
+      .footable>thead>tr>th, .footable>thead>tr>td {       
+        background-color : #ecf0f1 !important;
+        border : 1px solid #999 !important;
+        color: #000 !important;
+      }
+
+   
+
+    .footable>tfoot>tr>th, .footable>tfoot>tr>td { 
+      background-color : #ecf0f1 !important;
+      border : 1px solid <?php echo $configuration->primary_color ?> !important; !important
+    }
+    .footable>tbody{
+      border: 1px solid #999 !important;
+    }
 
     </style>
 

@@ -6,7 +6,8 @@
                 <h3><small><a href="<?php echo base_url('outlets') ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke riwayat nilai dollar</a></small></h3>
             </div>
         </div>
-
+    </div>
+    <div class="grid condensed">
         <div class="row form-title">	 
             <div class="cell">
             	<h3 style="margin-bottom: 20px;">Nilai Dollar Baru</h3>
@@ -14,27 +15,35 @@
             </div>
         </div>
     	
-    	<div class="row">
+    	<div class="row cells2">
     		<div class="cell">
     			<label>Nilai Dollar Baru</label>
                 <div class="input-control text full-size">
                     <input type="text" placeholder="Masukkan Nilai Dollar Baru" name="new_dollar" data-validate-func="required" data-validate-hint="Nilai dollar harus diisi">
                 </div>
     		</div>
-    	</div>
-        
-    	<div class="row">
-            <div class="cell text-center">
-        	   <input type="Submit" name="submit" class="button bg-primary btn-teal" value="Submit">
+            <div class="cell" style="padding-top: 18px;">
+               <input type="Submit" name="submit" class="button bg-primary btn-teal" value="Submit"> 
             </div>
-        </div>
+    	</div>
+        <?php echo form_close() ?>    
         <div class="row form-title">     
             <div class="cell">
                 <h3 style="margin-bottom: 20px;">Riwayat Nilai Dollar</h3>
+                <div class="table-responsive toggle-circle-filled">
+                    <table class="table table-condensed" data-page-size="10" id="table_dollar">
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Nilai Dollar</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>    
             </div>
         </div>
     </div>
-    <?php echo form_close() ?>
 </div>
 
 <script>
@@ -45,6 +54,7 @@
     <?php endif; ?>
 </script>
 <script>
+$('#table_dollar').footable();
 
 function check_username(el){
         if($(el).val() != ''){
@@ -87,4 +97,5 @@ function check_username(el){
             type: 'alert'
         });
     }
+
 </script>
