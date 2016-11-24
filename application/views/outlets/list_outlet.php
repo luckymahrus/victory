@@ -1,3 +1,4 @@
+<link href="<?php echo base_url() ?>css/footable.core.css" type="text/css" rel="stylesheet">
 <div class="container">
 	<div class="grid">
 		<div class="row">
@@ -13,8 +14,8 @@
 	        </div>
 	    </div>
 		<div class="row">
-			<div class="cell" style="overflow-x: scroll;">
-				<table class="table hovered border" id="table_outlet" >
+			<div class="cell table-responsive toggle-circle-filled" style="overflow-x: scroll;">
+				<table class="table hovered border table-condensed" id="table_outlet" data-filter="#filter" data-page-size="12">
 					<thead>
 						<tr>
 							<th class="sortable-column">No.</th>
@@ -51,6 +52,10 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/alertify.min.css">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/default.min.css">
 <script src="<?php echo base_url() ?>js/alertify.min.js"></script>
+<script src="<?php echo base_url() ?>js/footable.js"></script>
+<script src="<?php echo base_url() ?>js/footable.filter.js"></script>
+<script src="<?php echo base_url() ?>js/footable.paginate.js"></script>
+<script src="<?php echo base_url() ?>js/footable.sort.js" type="text/javascript"></script>
 
 <script>
 	function delete_outlet(id,name){
@@ -63,9 +68,15 @@
 		  });
 	}
 
-	<?php if($this->session->userdata('success')): ?>
+	$(document).ready(function(){
+		<?php if($this->session->userdata('outlet')): ?>
 
-       <?php echo $this->session->userdata('success') ?>
+	       <?php echo $this->session->userdata('outlet') ?>
 
-    <?php endif; ?>
+	    <?php endif; ?>
+
+
+	});
+
+	
 </script>
