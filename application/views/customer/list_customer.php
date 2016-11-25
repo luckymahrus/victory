@@ -39,7 +39,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php if($customers): ?>
+						<?php if($customers!=NULL): ?>
 							<?php $i=1; ?>
 							<?php foreach($customers as $customer): ?>
 							<tr>
@@ -58,6 +58,10 @@
 							</tr>
 							<?php $i++; ?>
 							<?php endforeach; ?>
+						<?php else:?>
+							<tr>
+								<td colspan="8" class="text-center"><h3>Table kosong</h3></td>
+							</tr>
 						<?php endif; ?>
 					</tbody>
 				</table>
@@ -84,7 +88,7 @@
 
     
 	function delete_customer(id,name){
-		alertify.confirm("Apakah anda yakin ingin menghapus Customer "+name,
+		alertify.confirm("Apakah anda yakin ingin menghapus customer "+name+"?",
 		  function(){
 		    window.location.assign("<?php echo base_url() ?>customer/delete_customer/"+id);
 		  },
