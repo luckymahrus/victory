@@ -1,3 +1,4 @@
+<link href="<?php echo base_url() ?>css/footable.core.css" type="text/css" rel="stylesheet">
 <div class="container">
 	<div class="grid">
 		<div class="row">
@@ -12,18 +13,26 @@
 	            <hr class="bg-primary">    
 	        </div>
 	    </div>
+	    <div class="row">
+	    	<div class="cell">
+	    		<div class="input-control text full-size">
+                    <input type="text" placeholder="Cari supplier" id="filter" >
+                </div>
+	    	</div>
+	    </div>
 		<div class="row">
-			<div class="cell" style="overflow-x: scroll;">
-				<table class="table hovered border">
+			<div class="cell">
+				<div class="table-responsive toggle-circle-filled">
+				<table class="table table-condensed" id="supplier_table" data-filter="#filter" data-page-size="10">
 					<thead>
 						<tr>
-							<th class="sortable-column">No</th>
-							<th class="sortable-column">Nama</th>
-							<th class="sortable-column">Telephone</th>
-							<th class="sortable-column">Email</th>
-							<th class="sortable-column">Alamat</th>
-							<th class="sortable-column">Keterangan</th>
-							<th>Action</th>
+							<th data-type="numeric">No</th>
+							<th>Nama</th>
+							<th data-hide="phone">Telephone</th>
+							<th data-hide="phone">Email</th>
+							<th data-hide="phone">Alamat</th>
+							<th data-hide="phone">Keterangan</th>
+							<th data-hide="phone">Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -44,18 +53,26 @@
 						<?php endif ?>
 					</tbody>
 				</table>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <link rel="stylesheet" href="<?php echo base_url() ?>css/alertify.min.css">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/default.min.css">
+<script src="<?php echo base_url() ?>js/footable.js"></script>
+<script src="<?php echo base_url() ?>js/footable.filter.js"></script>
+<script src="<?php echo base_url() ?>js/footable.paginate.js"></script>
+<script src="<?php echo base_url() ?>js/footable.sort.js" type="text/javascript"></script>
+
 <script src="<?php echo base_url() ?>js/alertify.min.js"></script>
 <script>
     $(document).ready(function(){
         <?php if($this->session->flashdata('supplier')): ?>
             <?php echo $this->session->flashdata('supplier') ?>
         <?php endif; ?>
+
+        $('#supplier_table').footable();
     });
 
     

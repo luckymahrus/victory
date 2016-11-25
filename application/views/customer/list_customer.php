@@ -15,11 +15,17 @@
 	            <hr class="bg-primary">    
 	        </div>
 	    </div>
-	    
+	    <div class="row">
+	    	<div class="cell">
+	    		<div class="input-control text full-size">
+                    <input type="text" placeholder="Cari customer" id="filter" >
+                </div>
+	    	</div>
+	    </div>
 		<div class="row">
-			<div class="cell" style="overflow-x: scroll;">
+			<div class="cell">
 				<div class="table-responsive toggle-circle-filled">
-				<table class="table table-condensed" id="table_customer" data-page-size="10">
+				<table class="table table-condensed" id="table_customer" data-page-size="10" data-filter="#filter">
 					<thead>
 						<tr>
 							<th data-type="numeric">No</th>
