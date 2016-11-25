@@ -6,28 +6,28 @@
 		<div class="row">
 	        <div class="cell">
 	            <h3 style="display: inline-block;"><small><a href="<?php echo base_url() ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke Home</a></small></h3>
-	          <!--   <h3 style="display:inline-block;float:right;"><small><a href="<?php echo base_url('tray/add_tray') ?>">Tambah tray baru <span class="fa fa-arrow-circle-o-right"></span></a></small></h3> -->
+	            <h3 style="display:inline-block;float:right;"><small><a id="add_link" style="cursor: pointer;">Tambah baki baru <span class="fa fa-plus-circle"></span></a></small></h3>
 	        </div>
 	    </div>
 	</div>
 	<div class="grid condensed">
-		<div class="row form-title">	 
-            <div class="cell">
-            	<h3 style="margin-bottom: 20px;">Tambah Baki Baru</h3>
-                <hr class="bg-primary">	
-            </div>
-        </div>
-		<div class="row cells2">
+		<!--Form Add Tray-->
+		<?php echo form_open('Tray/add_tray')?>
+		<div class="row" id="append_tray" style="display: none" class="closed-add">
+			<h3 style="margin-bottom: 20px;">Tambah Baki Baru</h3>
+            <hr class="bg-primary">	
     		<div class="cell">
-    			<label>Kode Tray</label>
+    			<label>Kode Baki</label>
                 <div class="input-control text full-size">
                     <input type="text" placeholder="Masukkan kode untuk baki baru" name="new_tray" data-validate-func="required" data-validate-hint="Kode tray harus diisi">
                 </div>
     		</div>
-            <div class="cell" style="padding-top: 19px;padding-left: 10px;">
+            <div class="cell text-center">
                <input type="Submit" name="submit" class="button bg-primary btn-teal" value="Submit"> 
             </div>
     	</div>
+    	<?php echo form_close()?>
+    	<!--End Form-->
 	    <div class="row">
 	    	<div class="cell">
 	    		<h3 style="margin-bottom: 20px;">Daftar Baki</h3>
@@ -80,14 +80,18 @@
 <script src="<?php echo base_url() ?>js/footable.sort.js" type="text/javascript"></script>
 
 <script>
-	$('#table_tray').footable();
+	
 
     $(document).ready(function(){
         <?php if($this->session->flashdata('tray')): ?>
             <?php echo $this->session->flashdata('tray') ?>
         <?php endif; ?>
+        $('#table_tray').footable();
     });
 
+    $('#add_link').click(function(){
+    	$('#append_tray').show();
+    });
     
 	function delete_tray(id,kode){
 		alertify.confirm("Apakah anda yakin ingin menghapus Customer "+name,

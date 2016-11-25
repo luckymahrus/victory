@@ -21,11 +21,7 @@
 		public function add_tray(){
 			if($this->input->post('submit')){
 				$data= array(
-						'name' => $this->input->post('supplier_name'),
-						'phone' => $this->input->post('supplier_phone'),
-						'address' => $this->input->post('supplier_address'),
-						'email' => $this->input->post('supplier_email'),
-						'description' => $this->input->post('supplier_desc')
+						'code' => $this->input->post('new_tray'),
 					);
 	            $this->crud_model->insert_data('suppliers',$data);
 	            $this->session->set_flashdata('success',"$.Notify({
