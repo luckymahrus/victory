@@ -302,7 +302,7 @@
                                   <div class="tile-content iconic"><span class="icon mif-list  mif-ani-float"></span><span class="tile-label">Daftar Barang</span></div>
                                 </div>
                                 <div class="tile-large bg-orange fg-white" data-role="tile">
-                                  <div class="tile-content iconic"><span class="icon mif-search"></span><span class="tile-label">Stok Opnam</span></div>
+                                  <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Input Barang</span></div>
                                 </div>
                                 <div class="tile tile-wide-y bg-red fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-truck mif-ani-pass"></span><span class="tile-label">Kirim</span></div>
@@ -311,8 +311,11 @@
                                   <div class="tile-content iconic"><span class="icon fa fa-check-square-o"></span><span class="tile-label">Terima</span></div>
                                 </div>
 
-                                <a class="tile tile-wide-x bg-yellow fg-white" data-role="tile" href="<?php echo base_url('tray')?>">>
+                                <a class="tile bg-green fg-white" data-role="tile" href="<?php echo base_url('tray')?>">
                                   <div class="tile-content iconic"><span class="icon mif-shopping-basket mif-ani-bounce mif-ani-fast"></span><span class="tile-label">Daftar Baki</span></div>
+                                </a>
+                                <a class="tile bg-lime fg-white" data-role="tile" href="<?php echo base_url('tray')?>">
+                                  <div class="tile-content iconic"><span class="icon mif-search"></span><span class="tile-label">Stok Opnam</span></div>
                                 </a>
                                 <div class="tile tile-wide-x bg-magenta fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-versions mif-ani-horizontal"></span><span class="tile-label">Daftar Transaksi Barang</span></div>

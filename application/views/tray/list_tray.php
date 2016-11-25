@@ -89,7 +89,7 @@
     });
 
     
-	function delete_customer(id,name){
+	function delete_tray(id,kode){
 		alertify.confirm("Apakah anda yakin ingin menghapus Customer "+name,
 		  function(){
 		    window.location.assign("<?php echo base_url() ?>customer/delete_customer/"+id);
