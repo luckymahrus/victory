@@ -26,7 +26,7 @@
 			<div class="cell">
 				<label for="">Kode Produk</label>
 				<div class="input-control text full-size">
-					<input type="text" placeholder="Kode Produk" name="product_code">
+					<input type="text" placeholder="Kode Produk" name="product_code" value="<?php echo $code ?>" readonly="readonly">
 				</div>
 			</div>
 			<div class="cell">
@@ -37,11 +37,20 @@
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row cells2">
+			<div class="cell">
+				<label for="">Baki</label>
+				<div class="input-control select full-size">
+					<select name="product_tray" id="" data-validate-func="required" data-validate-hint="Baki harus dipilih">
+						<option value="">--Pilih Tipe--</option>
+					</select>
+				</div>
+			</div>
 			<div class="cell">
 				<label for="">Tipe</label>
 				<div class="input-control select full-size">
-					<select name="product_type" id="" data-validate-func="required" data-validate-hint="Jenis customer harus diisi">
+					<select name="product_type" id="" data-validate-func="required" data-validate-hint="Jenis barang harus diisi">
+						<option value="">--Pilih Tipe--</option>
 						<option value="gold">Gold</option>
 						<option value="diamond">Diamond</option>
 					</select>
@@ -52,9 +61,21 @@
 		<div class="row cells2">
 			<div class="cell">
 				<!-- Category -->
+				<label for="">Kategori</label>
+				<div class="input-control select full-size">
+					<select name="product_category" id="" data-validate-func="required" data-validate-hint="Kategori harus diisi">
+						<option value="">--Pilih Kategori--</option>
+					</select>
+				</div>				
 			</div>
 			<div class="cell">
 				<!-- Model -->
+				<label for="">Model</label>
+				<div class="input-control select full-size">
+					<select name="product_model" id="" data-validate-func="required" data-validate-hint="Model harus diisi">
+						<option value="">--Pilih Model--</option>
+					</select>
+				</div>
 			</div>
 		</div>
 

@@ -43,7 +43,8 @@
 			}else{
 				$data['title'] = 'Product';
 				$data['is_mobile'] = $this->is_mobile;
-				$this->template->load($this->default,'products/add_product',$data);
+				$data['tray'] = 
+				$this->template->load($this->default,'product/add_product',$data);
 			}
 		}
 
