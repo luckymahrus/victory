@@ -6,20 +6,24 @@
 		<div class="row">
 	        <div class="cell">
 	            <h3 style="display: inline-block;"><small><a href="<?php echo base_url() ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke Home</a></small></h3>
-	            <h3 style="display:inline-block;float:right;"><small><a id="add_link" style="cursor: pointer;">Tambah baki baru <span class="fa fa-plus-circle"></span></a></small></h3>
+	            <h3 style="display:inline-block;float:right;"><small><a id="add_link" style="cursor: pointer;">Tambah kategori baru <span class="fa fa-plus-circle"></span></a></small></h3>
 	        </div>
 	    </div>
 	</div>
 	<div class="grid condensed">
 		<!--Form Add Tray-->
-		<?php echo form_open('Tray/add_tray')?>
-		<div class="row" id="append_tray" style="display: none" class="closed-add">
-			<h3 style="margin-bottom: 20px;">Tambah Baki Baru</h3>
+		<?php echo form_open('category/add_category')?>
+		<div class="row" id="append_category" style="display: none" class="closed-add">
+			<h3 style="margin-bottom: 20px;">Tambah Kategori Baru</h3>
             <hr class="bg-primary">	
     		<div class="cell">
-    			<label>Kode Baki</label>
+    			<label>Nama Kategori</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Masukkan kode untuk baki baru" name="new_tray" data-validate-func="required" data-validate-hint="Kode tray harus diisi">
+                    <input type="text" placeholder="Masukkan nama kategori" name="category_name" data-validate-func="required" data-validate-hint="Nama kategori harus diisi">
+                </div>
+                <label>Kode Kategori</label>
+                <div class="input-control text full-size">
+                    <input type="text" placeholder="Masukkan kode untuk kategori (1 Huruf/Angka)" name="new_tray" data-validate-func="required,maxlength" data-validate-arg=",1" data-validate-hint="Kode kategori harus diisi max 1 karakter">
                 </div>
     		</div>
             <div class="cell text-center">
@@ -90,18 +94,18 @@
     });
 
     $('#add_link').click(function(){
-    	if($('#append_tray').hasClass('closed-add')){
-    		$('#append_tray').show();	
-			$('#append_tray').removeClass('closed-add');
+    	if($('#append_category').hasClass('closed-add')){
+    		$('#append_category').show();	
+			$('#append_category').removeClass('closed-add');
     	}
     	else{
-    		$('#append_tray').hide();	
-			$('#append_tray').addClass('closed-add');	
+    		$('#append_category').hide();	
+			$('#append_category').addClass('closed-add');	
     	}
     	
     });
     
-	function delete_tray(id,code){
+	function delete_tray(id,kode){
 		alertify.confirm("Apakah anda yakin ingin menghapus Customer "+name,
 		  function(){
 		    window.location.assign("<?php echo base_url() ?>customer/delete_customer/"+id);
