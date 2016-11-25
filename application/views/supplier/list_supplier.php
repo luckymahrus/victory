@@ -36,7 +36,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php if($suppliers): ?>
+						<?php if($suppliers!=NULL): ?>
 							<?php $i=1; ?>
 							<?php foreach($suppliers as $supplier): ?>
 							<tr>
@@ -50,6 +50,10 @@
 							</tr>
 							<?php $i++;?>
 							<?php endforeach; ?>
+						<?php else:?>
+							<tr>
+								<td colspan="7" class="text-center"><h3>Table kosong</h3></td>
+							</tr>
 						<?php endif ?>
 					</tbody>
 				</table>

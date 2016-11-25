@@ -28,7 +28,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php if($sales): ?>
+						<?php if($sales!=NULL): ?>
 							<?php $i = 1; ?>
 							<?php foreach($sales as $row): ?>
 								<tr>
@@ -42,8 +42,12 @@
 								</tr>
 							<?php $i++; ?>
 							<?php endforeach ?>
-						<?php endif; ?>
 						
+						<?php else:?>
+							<tr>
+								<td colspan="7" class="text-center"><h3>Table kosong</h3></td>
+							</tr>
+						<?php endif; ?>
 					</tbody>
 				</table>
 				</div>

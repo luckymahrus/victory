@@ -49,7 +49,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php if($trays): ?>
+						<?php if($trays!=NULL): ?>
 							<?php $i=1; ?>
 							<?php foreach($trays as $tray): ?>
 							<tr>
@@ -64,7 +64,12 @@
 							</tr>
 							<?php $i++; ?>
 							<?php endforeach; ?>
+						<?php else: ?>
+							<tr>
+								<td colspan="3" class="text-center"><h3>Table kosong</h3></td>
+							</tr>
 						<?php endif; ?>
+
 					</tbody>
 				</table>
 				</div>
@@ -101,10 +106,10 @@
     	
     });
     
-	function delete_tray(id,kode){
-		alertify.confirm("Apakah anda yakin ingin menghapus Customer "+name,
+	function delete_tray(id,code){
+		alertify.confirm("Apakah anda yakin ingin menghapus Baki "+code,
 		  function(){
-		    window.location.assign("<?php echo base_url() ?>customer/delete_customer/"+id);
+		    window.location.assign("<?php echo base_url() ?>Tray/delete_tray/"+id);
 		  },
 		  function(){
 		    $.Notify({caption: 'Gagal !', content: 'Customer gagal dihapus', type: 'alert'});
