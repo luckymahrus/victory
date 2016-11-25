@@ -8,10 +8,10 @@
 
 		public function index(){
 			
-			$data['title'] = 'Supplier';
+			$data['title'] = 'Daftar Baki';
 			$data['is_mobile'] = $this->is_mobile;
-			$data['suppliers'] = $this->crud_model->get_data('suppliers')->result();
-			$this->template->load($this->default,'supplier/list_supplier',$data);
+			$data['trays'] = $this->crud_model->get_data('tray')->result();
+			$this->template->load($this->default,'tray/list_tray',$data);
 		
 		}
 

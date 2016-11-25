@@ -22,7 +22,7 @@
                     <input type="text" placeholder="Masukkan Nilai Dollar Baru" name="new_dollar" data-validate-func="required" data-validate-hint="Nilai dollar harus diisi">
                 </div>
     		</div>
-            <div class="cell" style="padding-top: 18px;">
+            <div class="cell" style="padding-top: 19px;padding-left: 10px;">
                <input type="Submit" name="submit" class="button bg-primary btn-teal" value="Submit"> 
             </div>
     	</div>
@@ -56,46 +56,15 @@
 <script>
 $('#table_dollar').footable();
 
-function check_username(el){
-        if($(el).val() != ''){
-            $.ajax({
-              url: "<?php echo base_url('accounts/check_username/')?>" + $(el).val(),
-              type: 'GET',
-              cache : false,
-              success: function(result){
-                if(result == 'taken'){
-                    $.Notify({
-                        caption: 'Error !',
-                        content: 'Username sudah terpakai',
-                        type: 'alert'
-                    });
-                    $(el).val('');
-                    $(el).parent().addClass('error');
-                    setTimeout(function(){$(el).parent().removeClass('error')},3000);
-                }else{
-                    $(el).parent().addClass('success');
-                }
-               
-                
-              }
-            
-            });    
-        }
-        
-    }
-
-    function tk(el){
-        alert($(el).val());
-    }
 
 
-    function notifyOnErrorInput(input){
-        var message = input.data('validateHint');
-        $.Notify({
-            caption: 'Error',
-            content: message,
-            type: 'alert'
-        });
-    }
+function notifyOnErrorInput(input){
+    var message = input.data('validateHint');
+    $.Notify({
+        caption: 'Error',
+        content: message,
+        type: 'alert'
+    });
+}
 
 </script>

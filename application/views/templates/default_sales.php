@@ -294,9 +294,9 @@
                                   <div class="tile-content iconic"><span class="icon fa fa-check-square-o"></span><span class="tile-label">Terima</span></div>
                                 </div>
 
-                                <div class="tile tile-wide-x bg-yellow fg-white" data-role="tile">
+                                <a class="tile tile-wide-x bg-yellow fg-white" data-role="tile" href="<?php echo base_url('tray')?>">>
                                   <div class="tile-content iconic"><span class="icon mif-shopping-basket mif-ani-bounce mif-ani-fast"></span><span class="tile-label">Daftar Baki</span></div>
-                                </div>
+                                </a>
                                 <div class="tile tile-wide-x bg-magenta fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-versions mif-ani-horizontal"></span><span class="tile-label">Daftar Transaksi Barang</span></div>
                                 </div>
