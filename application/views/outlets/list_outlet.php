@@ -76,9 +76,9 @@
 	}
 
 	$(document).ready(function(){
-		<?php if($this->session->userdata('outlet')): ?>
+		<?php if($this->session->flashdata('outlet')): ?>
 
-	       <?php echo $this->session->userdata('outlet') ?>
+	       <?php echo $this->session->flashdata('outlet') ?>
 
 	    <?php endif; ?>
 

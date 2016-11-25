@@ -70,9 +70,9 @@
 		  });
 	}
 	$(document).ready(function(){
-		<?php if($this->session->userdata('sales')): ?>
+		<?php if($this->session->flashdata('sales')): ?>
 
-	       <?php echo $this->session->userdata('sales') ?>
+	       <?php echo $this->session->flashdata('sales') ?>
 
 	    <?php endif; ?>
 	});
