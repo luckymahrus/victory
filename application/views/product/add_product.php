@@ -51,8 +51,8 @@
 				<div class="input-control select full-size">
 					<select name="product_type" id="" data-validate-func="required" data-validate-hint="Jenis barang harus diisi">
 						<option value="">--Pilih Tipe--</option>
-						<option value="gold">Gold</option>
-						<option value="diamond">Diamond</option>
+						<option value="1">Emas</option>
+						<option value="2">Berlian</option>
 					</select>
 				</div>
 			</div>

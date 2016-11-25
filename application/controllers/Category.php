@@ -19,6 +19,27 @@
 
 		}
 
+		public function add_category(){
+			if($this->input->post('submit')){
+				$data= array(
+						'name'	=> $this->input->post('category_name'),
+						'code' => ucfirst($this->input->post('category_code')),
+						'type_id'=> $this->input->post('category_type')
+				);
+	            $this->crud_model->insert_data('category',$data);
+	            $this->session->set_flashdata('category',"$.Notify({
+				    caption: 'Berhasil',
+				    content: 'Kategori telah ditambahkan',
+				    type: 'success'
+				});");
+				redirect('category');
+			}else{
+				$data['title'] = 'Daftar Kategori';
+				$data['is_mobile'] = $this->is_mobile;
+				$this->template->load($this->default,'category/list_category',$data);
+			}
+		}
+
 	}
 
  ?>

@@ -131,11 +131,6 @@ function check_username(el){
         
     }
 
-    function tk(el){
-        alert($(el).val());
-    }
-
-
     function notifyOnErrorInput(input){
         var message = input.data('validateHint');
         $.Notify({
