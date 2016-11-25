@@ -69,7 +69,7 @@
 								<td><?php echo $i ?></td>
 								<td><?php echo $row->name ?></td>
 								<td><?php echo $row->code ?></td>
-								<td><a href="<?php echo base_url('category/edit_category/'.$row->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_category('<?php echo $row->id ?>','<?php echo $row->code ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
+								<td><a href="#"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" ><span class="mif mif-bin"></span> Hapus</a></td>
 							</tr>
 							<?php $i++; ?>
 							<?php endforeach; ?>

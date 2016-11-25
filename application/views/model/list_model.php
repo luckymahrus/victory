@@ -6,31 +6,37 @@
 		<div class="row">
 	        <div class="cell">
 	            <h3 style="display: inline-block;"><small><a href="<?php echo base_url() ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke Home</a></small></h3>
-	            <h3 style="display:inline-block;float:right;"><small><a id="add_link" style="cursor: pointer;">Tambah kategori baru <span class="fa fa-plus-circle"></span></a></small></h3>
+	            <h3 style="display:inline-block;float:right;"><small><a id="add_link" style="cursor: pointer;">Tambah Model baru <span class="fa fa-plus-circle"></span></a></small></h3>
 	        </div>
 	    </div>
 	</div>
 	<div class="grid condensed">
 		<!--Form Add Tray-->
-		<?php echo form_open('category/add_category', array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false'))?>
-		<div class="row" id="append_category" style="display: none" class="closed-add">
-			<h3 style="margin-bottom: 20px;">Tambah Kategori Baru</h3>
+		<?php echo form_open('model/add_model', array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false'))?>
+		<div class="row closed-add" id="append_model" style="display: none">
+			<h3 style="margin-bottom: 20px;">Tambah Model Baru</h3>
             <hr class="bg-primary">	
     		<div class="cell">
-    			<label>Nama Kategori</label>
+    			<label>Nama Model</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Masukkan nama kategori" name="category_name" data-validate-func="required" data-validate-hint="Nama kategori harus diisi">
+                    <input type="text" placeholder="Masukkan nama model" name="model_name" data-validate-func="required" data-validate-hint="Nama model harus diisi">
                 </div>
-                <label>Kode Kategori</label>
+                <label>Kode Model</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Masukkan kode untuk kategori (1 Huruf/Angka)" name="category_code" data-validate-func="required,maxlength" data-validate-arg=",1" data-validate-hint="Kode kategori harus diisi max 1 karakter">
+                    <input type="text" placeholder="Masukkan kode untuk model (5 Huruf/Angka)" name="model_code" data-validate-func="required,maxlength" data-validate-arg=",5" data-validate-hint="Kode model harus diisi max 5 karakter">
                 </div>
                 <label for="">Tipe</label>
 				<div class="input-control select full-size">
-					<select name="category_type" id="" data-validate-func="required" data-validate-hint="Jenis barang harus diisi">
+					<select name="type" id="" onchange="get_category(this)" data-validate-func="required" data-validate-hint="Jenis barang harus diisi">
 						<option value="">--Pilih Tipe--</option>
 						<option value="1">Emas</option>
 						<option value="2">Berlian</option>
+					</select>
+				</div>
+				<label for="">Category</label>
+				<div class="input-control select full-size">
+					<select name="category_type" id="category" data-validate-func="required" data-validate-hint="Jenis barang harus diisi">
+						<option value="">--Pilih Kategori--</option>
 					</select>
 				</div>
     		</div>
@@ -42,7 +48,7 @@
     	<!--End Form-->
 	    <div class="row">
 	    	<div class="cell">
-	    		<h3 style="margin-bottom: 20px;">Kategori Emas</h3>
+	    		<h3 style="margin-bottom: 20px;">Model Emas</h3>
 				<hr class="bg-primary">	
 	    		<div class="input-control text full-size">
                     <input type="text" placeholder="Cari..." id="filter" >
@@ -62,18 +68,57 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php if($category_gold): ?>
+						<?php if($model_gold): ?>
 							<?php $i=1; ?>
-							<?php foreach($category_gold as $row): ?>
+							<?php foreach($model_gold as $row): ?>
 							<tr>
 								<td><?php echo $i ?></td>
 								<td><?php echo $row->name ?></td>
 								<td><?php echo $row->code ?></td>
-								<td><a href="<?php echo base_url('category/edit_category/'.$row->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_category('<?php echo $row->id ?>','<?php echo $row->code ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
+								<td><a href="#"><span class="mif mif-pencil"></span> Edit</a> - <a href="#"><span class="mif mif-bin"></span> Hapus</a></td>
 							</tr>
 							<?php $i++; ?>
 							<?php endforeach; ?>
-						<?php endif; ?>
+						<?php endif; ?> 
+					</tbody>
+				</table>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+	    	<div class="cell">
+	    		<h3 style="margin-bottom: 20px;">Model Berlian</h3>
+				<hr class="bg-primary">	
+	    		<div class="input-control text full-size">
+                    <input type="text" placeholder="Cari..." id="filter" >
+                </div>
+	    	</div>
+	    </div>
+		<div class="row">
+			<div class="cell">
+				<div class="table-responsive toggle-circle-filled">
+				<table class="table table-condensed category-table" data-page-size="10" data-filter="#filter">
+					<thead>
+						<tr>
+							<th data-type="numeric">No</th>
+							<th >Nama</th>
+							<th data-hide="phone">Kode</th>
+							<th data-hide="phone">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php if($model_diamond): ?>
+							<?php $i=1; ?>
+							<?php foreach($model_diamond as $row): ?>
+							<tr>
+								<td><?php echo $i ?></td>
+								<td><?php echo $row->name ?></td>
+								<td><?php echo $row->code ?></td>
+								<td><a href="#"><span class="mif mif-pencil"></span> Edit</a> - <a href="#"><span class="mif mif-bin"></span> Hapus</a></td>
+							</tr>
+							<?php $i++; ?>
+							<?php endforeach; ?>
+						<?php endif; ?> 
 					</tbody>
 				</table>
 				</div>
@@ -99,13 +144,13 @@
     });
 
     $('#add_link').click(function(){
-    	if($('#append_category').hasClass('closed-add')){
-    		$('#append_category').show();	
-			$('#append_category').removeClass('closed-add');
+    	if($('#append_model').hasClass('closed-add')){
+    		$('#append_model').show();	
+			$('#append_model').removeClass('closed-add');
     	}
     	else{
-    		$('#append_category').hide();	
-			$('#append_category').addClass('closed-add');
+    		$('#append_model').hide();	
+			$('#append_model').addClass('closed-add');
     	}
     	
     });
@@ -118,6 +163,26 @@
 		  function(){
 		    $.Notify({caption: 'Gagal !', content: 'Customer gagal dihapus', type: 'alert'});
 		  });
+	}
+
+	function get_category(el){
+		if($(el).val() != ''){
+			$.ajax({
+              url: "<?php echo base_url('model/get_category/')?>" + $(el).val(),
+              type: 'GET',
+              cache : false,
+              success: function(result){
+              	$('#category').empty();
+                $('#category').append(result);
+               
+                
+              }
+            
+            });
+		}else{
+			$('#category').empty();
+            $('#category').append('<option value="">--Pilih Kategori--</option>');
+		}
 	}
 
 	function notifyOnErrorInput(input){

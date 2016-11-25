@@ -26,7 +26,7 @@
 			<div class="cell">
 				<label for="">Kode Produk</label>
 				<div class="input-control text full-size">
-					<input type="text" placeholder="Kode Produk" name="product_code" value="<?php echo $code ?>" readonly="readonly">
+					<input type="text" placeholder="Kode Produk" name="product_code" readonly="readonly">
 				</div>
 			</div>
 			<div class="cell">
