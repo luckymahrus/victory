@@ -79,45 +79,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-	    	<div class="cell">
-	    		<h3 style="margin-bottom: 20px;">Kategori Berlian</h3>
-				<hr class="bg-primary">	
-	    		<div class="input-control text full-size">
-                    <input type="text" placeholder="Cari..." id="filter" >
-                </div>
-	    	</div>
-	    </div>
-		<div class="row">
-			<div class="cell">
-				<div class="table-responsive toggle-circle-filled">
-				<table class="table table-condensed category-table" data-page-size="10" data-filter="#filter">
-					<thead>
-						<tr>
-							<th data-type="numeric">No</th>
-							<th >Nama</th>
-							<th data-hide="phone">Kode</th>
-							<th data-hide="phone">Action</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php if($category_diamond): ?>
-							<?php $i=1; ?>
-							<?php foreach($category_diamond as $row): ?>
-							<tr>
-								<td><?php echo $i ?></td>
-								<td><?php echo $row->name ?></td>
-								<td><?php echo $row->code ?></td>
-								<td><a href="<?php echo base_url('category/edit_category/'.$row->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_category('<?php echo $row->id ?>','<?php echo $row->code ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
-							</tr>
-							<?php $i++; ?>
-							<?php endforeach; ?>
-						<?php endif; ?>
-					</tbody>
-				</table>
-				</div>
-			</div>
-		</div>
 	</div>
 </div>
 
