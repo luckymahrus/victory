@@ -28,6 +28,25 @@
 			}
 		}
 
+		public function currency(){
+			$data['title'] = 'Currency';
+			$data['is_mobile'] = $this->is_mobile;
+			
+			$this->template->load('default','currency/list_add_currency',$data);
+		}
+
+		public function currency_add(){
+			//process the insertion
+			if($this->input->post('submit')){
+				
+			}
+			//show the form view
+			else{
+				$data['title'] = 'Nilai Dollar';
+				$this->template->load('default','currency/list_add_currency',$data);
+			}
+		}
+
 	}
 
  ?>

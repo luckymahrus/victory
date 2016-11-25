@@ -434,8 +434,8 @@
                                 <div class="tile tile-large bg-darkBrown fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-shop  mif-ani-float"></span><span class="tile-label">Toko</span></div>
                                 </div>
-                                <a class="tile-wide bg-darkTeal fg-white" data-role="tile" href="<?php echo base_url('currency/add_dollar')?>">
-                                  <div class="tile-content iconic"><span class="icon mif-dollar2"></span><span class="tile-label">Dollar</span></div>
+                                <a class="tile-wide bg-darkTeal fg-white" data-role="tile" href="<?php echo base_url('configuration/currency')?>">
+                                  <div class="tile-content iconic"><span class="icon mif-dollar2"></span><span class="tile-label">Kurs</span></div>
                                 </a>
                                 <div class="tile bg-brown fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-coins"></span><span class="tile-label">Gold</span></div>
