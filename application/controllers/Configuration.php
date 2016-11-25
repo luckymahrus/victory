@@ -7,6 +7,9 @@
 		function __construct(){
 			parent::__construct();
 			
+			if($this->session_role != 'admin'){
+				redirect('home');
+			}
 		}
 
 		public function color(){

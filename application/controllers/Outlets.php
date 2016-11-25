@@ -4,14 +4,12 @@
 
 	class Outlets extends MY_Controller{
 
-		private $user_role;
-		private $user_id;
-
 		function __construct(){
 			parent::__construct();
-			$this->user_role = $this->session->userdata('user_role');
-			$this->user_id = $this->session->userdata('user_id');
 			$this->load->model('outlets_model');
+			if($this->session_role != 'admin'){
+				redirect('home');
+			}
 		}
 
 		public function index(){
@@ -24,6 +22,7 @@
 		}
 
 		public function add_outlet(){
+			
 			//process the insertion
 			if($this->input->post()){
 				$data_outlet = array(
@@ -66,9 +65,12 @@
 				$data['title'] = 'Outlet';
 				$this->template->load($this->default,'outlets/add_outlet',$data);
 			}
+			
+			
 		}
 
 		public function edit_outlet($outlet_id = ''){
+			
 			//process the edit if there is posts from the view
 			if($this->input->post()){
 				$data_outlet = array(
@@ -115,6 +117,7 @@
 		}
 
 		public function delete_outlet($outlet_id = ''){
+			
 			//update the sales' outlet_id
 			$this->crud_model->update_data('accounts',array('outlet_id' => $outlet_id, 'role' => 'sales'), array('outlet_id' => 0));
 			//delete the manager acount

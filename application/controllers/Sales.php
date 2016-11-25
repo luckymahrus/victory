@@ -7,6 +7,9 @@
 		function __construct(){
 			parent::__construct();
 			$this->load->model('sales_model');
+			if($this->session_role=='sales'){
+				redirect('home');
+			}
 
 		}
 
