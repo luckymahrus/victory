@@ -4,6 +4,9 @@
 	class Tray extends MY_Controller{
 		function __construct(){
 			parent::__construct();
+			if($this->session_role=='sales'){
+				redirect('home');
+			}
 		}
 
 		public function index(){
