@@ -44,7 +44,7 @@
 					<thead>
 						<tr>
 							<th data-type="numeric">No</th>
-							<th data-type="numeric">Kode Tray</th>
+							<th data-type="numeric">Kode Baki</th>
 							<th data-hide="phone">Action</th>
 						</tr>
 					</thead>
@@ -56,11 +56,11 @@
 								<td><?php echo $i ?></td>
 								<td><?php echo $tray->code ?></td>
 								<!-- <td>
-									<?php $outlet = $this->crud_model->get_by_condition('outlets', array('id'=>$customer->outlet_id))->row('name');
-										echo $outlet;
+									<?php #$outlet = $this->crud_model->get_by_condition('outlets', array('id'=>$customer->outlet_id))->row('name');
+										#echo $outlet;
 									?>
 								</td> -->
-								<td><a href="<?php echo base_url('tray/edit_tray/'.$tray->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_tray('<?php echo $tray->id ?>','<?php echo $customer->name ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
+								<td><a href="<?php echo base_url('tray/edit_tray/'.$tray->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_tray('<?php echo $tray->id ?>','<?php echo $tray->code ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
 							</tr>
 							<?php $i++; ?>
 							<?php endforeach; ?>
@@ -90,7 +90,15 @@
     });
 
     $('#add_link').click(function(){
-    	$('#append_tray').show();
+    	if($('#append_tray').hasClass('closed-add')){
+    		$('#append_tray').show();	
+			$('#append_tray').removeClass('closed-add');
+    	}
+    	else{
+    		$('#append_tray').hide();	
+			$('#append_tray').addClass('closed-add');	
+    	}
+    	
     });
     
 	function delete_tray(id,kode){
