@@ -3,10 +3,6 @@
       width: 100px;
       display: inline-block;
     }
-    .cont-fluid{
-      padding: 3%;
-      padding-top: 0px;
-    }
     .box-req{
       border: 3px solid #04BFBF;
     }
@@ -14,8 +10,11 @@
       border-color: #95a5a6;
     }
 </style>
-    <div class="cont-fluid">
-        <div class="tile-group" style="margin:0">
+    <div class="container-fluid">
+    <div class="grid">
+      <div class="row">
+        <div class="cell">
+          <div class="tile-group" style="margin:0">
           <div class="tile-group-title"><div id="txt"></div></div>
             <div class="tile-container"><!--Container begin-->
               <div class="tile tile-big-x bg-white box-req">
@@ -82,6 +81,10 @@
 
             </div><!--Container ends-->
         </div>
+        </div>
+      </div>
+    </div>
+        
     </div>
 <script type="text/javascript">
 $(document).ready(function(){
