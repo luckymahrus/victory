@@ -13,7 +13,7 @@
 	<div class="grid condensed">
 		<!--Form Add Tray-->
 		<?php echo form_open('Tray/add_tray')?>
-		<div class="row" id="append_tray" style="display: none" class="closed-add">
+		<div class="row closed-add" id="append_tray" style="display: none">
 			<h3 style="margin-bottom: 20px;">Tambah Baki Baru</h3>
             <hr class="bg-primary">	
     		<div class="cell">
@@ -107,7 +107,7 @@
     });
     
 	function delete_tray(id,code){
-		alertify.confirm("Apakah anda yakin ingin menghapus Baki "+code,
+		alertify.confirm("Apakah anda yakin ingin menghapus Baki "+code+"?",
 		  function(){
 		    window.location.assign("<?php echo base_url() ?>Tray/delete_tray/"+id);
 		  },

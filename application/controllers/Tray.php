@@ -32,9 +32,7 @@
 				});");
 				redirect('tray');
 			}else{
-				$data['title'] = 'Daftar Baki';
-				$data['is_mobile'] = $this->is_mobile;
-				$this->template->load($this->default,'tray/list_tray',$data);
+				$this->index();
 			}
 		}
 
