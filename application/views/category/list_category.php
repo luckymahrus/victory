@@ -13,7 +13,7 @@
 	<div class="grid condensed">
 		<!--Form Add Tray-->
 		<?php echo form_open('category/add_category', array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false'))?>
-		<div class="row" id="append_category" style="display: none" class="closed-add">
+		<div class="row closed-add" id="append_category" style="display: none">
 			<h3 style="margin-bottom: 20px;">Tambah Kategori Baru</h3>
             <hr class="bg-primary">	
     		<div class="cell">
