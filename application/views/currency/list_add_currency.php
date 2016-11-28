@@ -34,13 +34,13 @@
             <?php echo form_close() ?>
         </div>
         <!--Form End-->
-
-        <div class="row form-title">     
+        <!--Daftar Kurs-->
+        <div class="row">     
             <div class="cell">
                 <h3 style="margin-bottom: 20px;">Daftar Nilai Kurs</h3>
                 <hr class="bg-primary"> 
                 <div class="table-responsive toggle-circle-filled">
-                    <table class="table table-condensed" data-page-size="10" id="table_dollar">
+                    <table class="table table-condensed" data-page-size="10" id="table_kurs">
                         <thead>
                             <tr>
                                 <th>Nama Kurs</th>
@@ -54,9 +54,43 @@
                                 <?php foreach($currencies as $currency):?>
                                 <tr>
                                     <td><?php echo $currency->name ?></td>
-                                    <td><?php echo $currency->value ?></td>
+                                    <td>Rp <?php echo $currency->value ?></td>
                                     <td>Date</td>
                                     <td><a href="<?php echo base_url('configuration/edit_currency/'.$currency->id) ?>"><span class="mif mif-pencil"></span> Update</a> - <a href="#" onclick="delete_currency('<?php echo $currency->id ?>','<?php echo $currency->name ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
+                                </tr>
+                                <?php endforeach;?>
+                            <?php else : ?>
+                                <tr>
+                                    <td colspan="4" class="text-center"><h3>Table kosong</h3></td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>    
+            </div>
+        </div>
+        <!--Row Daftar Kurs End-->
+        <!--History Kurs-->
+        <div class="row">     
+            <div class="cell">
+                <h3 style="margin-bottom: 20px;">Riwayat Nilai Kurs</h3>
+                <hr class="bg-primary"> 
+                <div class="table-responsive toggle-circle-filled">
+                    <table class="table table-condensed" data-page-size="10" id="table_history">
+                        <thead>
+                            <tr>
+                                <th>Nama Kurs</th>
+                                <th>Nilai</th>
+                                <th>Tanggal Update</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if($histories!=NULL) : ?>
+                                <?php foreach($histories as $history):?>
+                                <tr>
+                                    <td><?php echo $history->name ?></td>
+                                    <td>Rp <?php echo $history->value ?></td>
+                                    <td><?php echo $history->date ?></td>
                                 </tr>
                                 <?php endforeach;?>
                             <?php else : ?>
@@ -82,7 +116,8 @@
 
 <script>
     $(document).ready(function(){
-        $('#table_dollar').footable();
+        $('#table_kurs').footable();
+        $('#table_history').footable();
         <?php if($this->session->flashdata('currency')): ?>
            <?php echo $this->session->flashdata('currency') ?>
         <?php endif; ?>

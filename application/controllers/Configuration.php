@@ -32,6 +32,10 @@
 			$data['title'] = 'Kurs';
 			$data['is_mobile'] = $this->is_mobile;
 			$data['currencies'] = $this->crud_model->get_data('currency')->result();
+			$this->db->select('currency_history.*,currency.name');
+			$this->db->from('currency_history');
+			$this->db->join('currency','currency_history.currency_id=currency.id');
+			$data['histories'] = $this->db->get()->result();
 			$this->template->load('default','currency/list_add_currency',$data);
 		}
 
@@ -44,6 +48,12 @@
 				);
 				
 				$this->crud_model->insert_data('currency',$data);
+				$data_history = array(
+					'currency_id'=>$this->db->insert_id(),
+					'value'=> $this->input->post('currency_value'),
+					'date' => date('Y-m-d H:i:s')
+				);
+				$this->crud_model->insert_data('currency_history',$data_history);
 				$this->session->set_flashdata('currency',"$.Notify({
 				    caption: 'Berhasil',
 				    content: 'Kurs telah ditambahkan',
@@ -52,6 +62,31 @@
 				redirect('configuration/currency');
 			}
 			//show the form view
+			else{
+				$this->currency();
+			}
+		}
+
+		public function edit_currency($id){
+			if($this->input->post('submit')){
+				$data=array(
+					'name'=>$this->input->post('edit_currency_name');
+					'value'=>$this->input->post('edit_currency_value');
+				);
+				$this->crud_model->update_data('currency',$data,array('id'=>$id));
+				$data_history=array(
+					'currency_id'=>$id,
+					'value'=>$this->input->post('edit_currency_value'),
+					'date' => date('Y-m-d H:i:s')
+				);
+				$this->crud_model->insert_data('currency_history',$data_history);
+				$this->session->set_flashdata('currency',"$.Notify({
+				    caption: 'Berhasil',
+				    content: 'Kurs telah ditambahkan',
+				    type: 'success'
+				});");
+				redirect('configuration/currency');
+			}
 			else{
 				$this->currency();
 			}
