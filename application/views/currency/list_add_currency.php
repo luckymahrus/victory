@@ -55,7 +55,7 @@
                                 <tr>
                                     <td><?php echo $currency->name ?></td>
                                     <td>Rp <?php echo $currency->value ?></td>
-                                    <td>Date</td>
+                                    <td><?php echo $currency->last_update?></td>
                                     <td><a href="<?php echo base_url('configuration/edit_currency/'.$currency->id) ?>"><span class="mif mif-pencil"></span> Update</a> - <a href="#" onclick="delete_currency('<?php echo $currency->id ?>','<?php echo $currency->name ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
                                 </tr>
                                 <?php endforeach;?>

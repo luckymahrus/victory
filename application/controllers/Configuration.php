@@ -44,7 +44,8 @@
 			if($this->input->post('submit')){
 				$data=array(
 					'name'=>$this->input->post('currency_name'),
-					'value'=>$this->input->post('currency_value')
+					'value'=>$this->input->post('currency_value'),
+					'last_update'=>date('Y-m-d H:i:s')
 				);
 				
 				$this->crud_model->insert_data('currency',$data);
@@ -70,8 +71,9 @@
 		public function edit_currency($id){
 			if($this->input->post('submit')){
 				$data=array(
-					'name'=>$this->input->post('edit_currency_name');
-					'value'=>$this->input->post('edit_currency_value');
+					'name'=>$this->input->post('edit_currency_name'),
+					'value'=>$this->input->post('edit_currency_value'),
+					'last_update'=>date('Y-m-d H:i:s')
 				);
 				$this->crud_model->update_data('currency',$data,array('id'=>$id));
 				$data_history=array(

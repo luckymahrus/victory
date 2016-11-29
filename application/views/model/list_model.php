@@ -68,7 +68,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php if($model_gold): ?>
+						<?php if($model_gold!=NULL): ?>
 							<?php $i=1; ?>
 							<?php foreach($model_gold as $row): ?>
 							<tr>
@@ -79,7 +79,11 @@
 							</tr>
 							<?php $i++; ?>
 							<?php endforeach; ?>
-						<?php endif; ?> 
+						<?php else : ?>
+                            <tr>
+                                <td colspan="4" class="text-center"><h3>Table kosong</h3></td>
+                            </tr>
+                        <?php endif; ?>
 					</tbody>
 				</table>
 				</div>
@@ -107,7 +111,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php if($model_diamond): ?>
+						<?php if($model_diamond!=NULL): ?>
 							<?php $i=1; ?>
 							<?php foreach($model_diamond as $row): ?>
 							<tr>
@@ -118,7 +122,11 @@
 							</tr>
 							<?php $i++; ?>
 							<?php endforeach; ?>
-						<?php endif; ?> 
+						<?php else : ?>
+                                <tr>
+                                    <td colspan="4" class="text-center"><h3>Table kosong</h3></td>
+                                </tr>
+                            <?php endif; ?>
 					</tbody>
 				</table>
 				</div>
