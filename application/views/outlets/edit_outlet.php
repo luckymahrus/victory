@@ -19,14 +19,12 @@
     			<label>Nama Toko</label>
                 <div class="input-control text full-size">
                     <input type="text" placeholder="Nama Toko" name="outlet_name" value="<?php echo $outlet->name ?>" data-validate-func="required" data-validate-hint="Nama toko harus diisi">
-                    <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
     		</div>
     		<div class="cell">
     			<label>Kode Toko</label>
                 <div class="input-control text full-size">
                     <input type="text" placeholder="Masukkan Kode Toko (2 Karakter)" value="<?php echo $outlet->code ?>" title="Contoh : KM" name="outlet_code" data-validate-func="required, maxlength" data-validate-arg=",2" data-validate-hint="Kode toko harus 2 huruf">
-                    <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
     		</div>
     	</div>
@@ -65,7 +63,6 @@
                 <label>Username</label>
     			<div class="input-control text full-size" data-role="input"  style="margin-top: 9px;">
     			    <input type="text" placeholder="Username Outlet" value="<?php echo $outlet->username ?>" name="outlet_username" onblur="check_username(this)" data-validate-func="required" data-validate-hint="Username harus diisi">
-    			    <button class="button helper-button clear"><span class="mif-cross"></span></button>
     			</div>
             </div>
 

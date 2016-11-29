@@ -45,8 +45,8 @@
                             <tr>
                                 <th>Nama Kurs</th>
                                 <th>Nilai</th>
-                                <th>Update Terakhir</th>
-                                <th>Action</th>
+                                <th data-hide="phone">Update Terakhir</th>
+                                <th data-hide="phone">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,8 +55,8 @@
                                 <tr>
                                     <td><?php echo $currency->name ?></td>
                                     <td>Rp <?php echo $currency->value ?></td>
-                                    <td><?php echo $currency->last_update?></td>
-                                    <td><a href="<?php echo base_url('configuration/edit_currency/'.$currency->id) ?>"><span class="mif mif-pencil"></span> Update</a> - <a href="#" onclick="delete_currency('<?php echo $currency->id ?>','<?php echo $currency->name ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
+                                    <td><?php echo date('d-M-Y H:i:s',strtotime($currency->last_update))?></td>
+                                    <td><a href="<?php echo base_url('configuration/update_currency/'.$currency->id) ?>"><span class="mif mif-pencil"></span> Update</a> - <a href="#" onclick="delete_currency('<?php echo $currency->id ?>','<?php echo $currency->name ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
                                 </tr>
                                 <?php endforeach;?>
                             <?php else : ?>
@@ -75,13 +75,20 @@
             <div class="cell">
                 <h3 style="margin-bottom: 20px;">Riwayat Nilai Kurs</h3>
                 <hr class="bg-primary"> 
+        
+                <div class="cell">
+                    <div class="input-control text full-size">
+                        <input type="text" placeholder="Cari..." id="filter" >
+                    </div>
+                </div>
+        
                 <div class="table-responsive toggle-circle-filled">
-                    <table class="table table-condensed" data-page-size="10" id="table_history">
+                    <table class="table table-condensed" data-page-size="10" id="table_history" data-filter="#filter">
                         <thead>
                             <tr>
                                 <th>Nama Kurs</th>
                                 <th>Nilai</th>
-                                <th>Tanggal Update</th>
+                                <th data-hide="phone">Tanggal Update</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -90,12 +97,12 @@
                                 <tr>
                                     <td><?php echo $history->name ?></td>
                                     <td>Rp <?php echo $history->value ?></td>
-                                    <td><?php echo $history->date ?></td>
+                                    <td><?php echo date('d-M-Y H:i:s',strtotime($history->date)) ?></td>
                                 </tr>
                                 <?php endforeach;?>
                             <?php else : ?>
                                 <tr>
-                                    <td colspan="4" class="text-center"><h3>Table kosong</h3></td>
+                                    <td colspan="3" class="text-center"><h3>Table kosong</h3></td>
                                 </tr>
                             <?php endif; ?>
                         </tbody>

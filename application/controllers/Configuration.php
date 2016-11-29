@@ -68,17 +68,17 @@
 			}
 		}
 
-		public function edit_currency($id){
+		public function update_currency($id){
 			if($this->input->post('submit')){
 				$data=array(
-					'name'=>$this->input->post('edit_currency_name'),
-					'value'=>$this->input->post('edit_currency_value'),
+					'name'=>$this->input->post('update_currency_name'),
+					'value'=>$this->input->post('update_currency_value'),
 					'last_update'=>date('Y-m-d H:i:s')
 				);
 				$this->crud_model->update_data('currency',$data,array('id'=>$id));
 				$data_history=array(
 					'currency_id'=>$id,
-					'value'=>$this->input->post('edit_currency_value'),
+					'value'=>$this->input->post('update_currency_value'),
 					'date' => date('Y-m-d H:i:s')
 				);
 				$this->crud_model->insert_data('currency_history',$data_history);
@@ -90,7 +90,10 @@
 				redirect('configuration/currency');
 			}
 			else{
-				$this->currency();
+				$data['title'] = 'Update Kurs';
+				$data['currency'] = $this->crud_model->get_by_condition('currency',array('id'=>$id))->row();
+				$data['histories'] = $this->crud_model->get_by_condition('currency_history',array('currency_id'=>$id))->result();
+				$this->template->load($this->default,'currency/update_currency',$data);
 			}
 		}
 
