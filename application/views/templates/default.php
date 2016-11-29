@@ -441,9 +441,9 @@
                                 <a class="tile-wide bg-darkTeal fg-white" data-role="tile" href="<?php echo base_url('configuration/currency')?>">
                                   <div class="tile-content iconic"><span class="icon mif-dollar2"></span><span class="tile-label">Kurs</span></div>
                                 </a>
-                                <div class="tile bg-brown fg-white" data-role="tile">
+                                <a href="<?php echo base_url('configuration/gold_amount') ?>" class="tile bg-brown fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-coins"></span><span class="tile-label">Gold</span></div>
-                                </div>
+                                </a>
                                 <div class="tile bg-darkOrange fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon fa fa-diamond"></span><span class="tile-label">Diamond</span></div>
                                 </div>
