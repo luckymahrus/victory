@@ -49,7 +49,7 @@
                 <div class="cell text-center">
                     <div id="my_camera" style="width:320px; height:240px; margin:auto"></div>
                     
-                    <a class="button info bg-primary btn-teal" href="javascript:void(take_snapshot())"><span class="mif mif-camera"></span> Take Snapshot</a>
+                    <a class="button info bg-primary btn-teal" href="javascript:void(take_snapshot())"><span class="mif mif-camera"></span> Ambil Foto</a>
                 </div>
                 <div class="cell text-center">
                     <div id="my_result" style="margin:auto"></div>    
@@ -125,6 +125,8 @@
         
     </div>
 </div>
+
+<script src="<?php echo base_url() ?>js/webcam.min.js"></script>
 
 <script>
     function check_username(el){

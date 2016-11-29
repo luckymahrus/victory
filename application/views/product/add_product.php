@@ -13,15 +13,23 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="cell">
+		<div class="row cells8">
+			<div class="cell colspan7">
 				<label for="">Nama Barang</label>
 				<div class="input-control text full-size">
 					<input type="text" placeholder="Nama Barang" name="product_name" data-validate-func="required" data-validate-hint="Nama barang harus diisi">
 				</div>
 			</div>
+			<div class="cell">
+				<label class="input-control checkbox place-right" style="margin-top: 20px;">
+					
+				    <input type="checkbox">
+				    <span class="check"></span>
+				    <span class="caption">Buyback</span>
+				</label> 
+			</div>
 		</div>
-
+		
 		<div class="row cells2">
 			<div class="cell">
 				<label for="">Kode Produk</label>
@@ -102,16 +110,40 @@
 				</div>
 			</div>
 			<div class="cell">
-				<br>
-				<br>
-				<label class="switch">
-				    <input type="checkbox">
-				    <span class="check"></span>
-				    <span class="caption">Buyback</span>
-				</label> 
+				<div class="cell">
+                <label>Upload Photo</label>
+                    <div class="input-control file full-size" data-role="input">
+                        <input type="file" accept="image/*" name="capture" id="capture" capture="camera">
+                        <button class="button btn-file"><span class="mif-camera"></span></button>
+                    </div>
+            	</div>
 			</div>
 		</div>
+		<?php if (!$is_mobile): ?>
+            <div class="row">
+                <div class="cell">
+                    <label class="switch">
+                        <input type="checkbox" onchange="show_cam(this)">
+                        <span class="check"></span>
+                        <span class="caption">Ambil Foto</span>
+                    </label>
+                </div>
+            </div>
+            <div class="row cells2" id="snapshot" style="display: none">
 
+                <div class="cell text-center">
+                    <div id="my_camera" style="width:320px; height:240px; margin:auto"></div>
+                    
+                    <a class="button info bg-primary btn-teal" href="javascript:void(take_snapshot())"><span class="mif mif-camera"></span> Ambil Foto</a>
+                </div>
+                <div class="cell text-center">
+                    <div id="my_result" style="margin:auto"></div>    
+                </div>
+                
+                
+            </div>    
+        <?php endif ?>
+        
 		<div class="row">
             <div class="cell text-center">
         	   <input type="submit" name="submit" class="button bg-primary" value="Submit">
@@ -120,3 +152,47 @@
 
 	</div>
 </div>
+
+<script src="<?php echo base_url() ?>js/webcam.min.js"></script>
+
+<script>
+    function show_cam(el){
+        if($(el).is(":checked") ){
+            $('#snapshot').show();
+            Webcam.attach('#my_camera');
+            $('#capture').attr('disabled','disabled');
+        }else{
+            $('#snapshot').hide();
+            $('#capture').removeAttr('disabled');
+            Webcam.reset();            
+        }
+      }
+
+    function notifyOnErrorInput(input){
+        var message = input.data('validateHint');
+        $.Notify({
+            caption: 'Error',
+            content: message,
+            type: 'alert'
+        });
+    }
+
+    <?php if($this->session->flashdata('product')): ?>
+
+       <?php echo $this->session->flashdata('product') ?>
+
+    <?php endif; ?>
+
+
+</script>
+
+<script language="JavaScript">
+    function take_snapshot() {
+        Webcam.snap( function(data_uri) {
+            document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
+            Webcam.upload( data_uri, "<?php echo base_url('product/upload') ?>", function(code, text) {
+            } );    
+        } );
+        
+    }
+</script>

@@ -25,7 +25,6 @@
     <script src="<?php echo base_url() ?>js/jquery-1.12.4.min.js"></script>
     <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>js/metro.js"></script>
-    <script src="<?php echo base_url() ?>js/webcam.min.js"></script>
     <script src="<?php echo base_url();?>js/script.js"></script>
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -484,10 +483,16 @@
       </nav>
   </header>
   
-    <?php echo $body ?>
+
+  <?php echo $body ?>
   
+  <button style="position: fixed; right: 20px; z-index: 1; top: 588px" onclick="toggleMetroCharm('#charm_currency')">Kurs</button>
   
-  <footer></footer>
+  <div data-role="charm" data-position="bottom" id="charm_currency">
+      test
+  </div>
+
+  <footer style="height: 50px"></footer>
 
     <script>
       function openNav(el){
