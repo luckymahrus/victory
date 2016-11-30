@@ -110,13 +110,11 @@
 				</div>
 			</div>
 			<div class="cell">
-				<div class="cell">
                 <label>Upload Photo</label>
-                    <div class="input-control file full-size" data-role="input">
-                        <input type="file" accept="image/*" name="capture" id="capture" capture="camera">
-                        <button class="button btn-file"><span class="mif-camera"></span></button>
-                    </div>
-            	</div>
+                <div class="input-control file full-size" data-role="input">
+                    <input type="file" accept="image/*" name="capture" id="capture" capture="camera">
+                    <button class="button btn-file"><span class="mif-camera"></span></button>
+                </div>
 			</div>
 		</div>
 		<?php if (!$is_mobile): ?>

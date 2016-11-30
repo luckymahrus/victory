@@ -6,6 +6,7 @@
 
 		function __construct(){
 			parent::__construct();
+			$this->load->model('configuration_model');
 			
 			if($this->session_role != 'admin'){
 				redirect('home');
@@ -32,10 +33,7 @@
 			$data['title'] = 'Kurs';
 			$data['is_mobile'] = $this->is_mobile;
 			$data['currencies'] = $this->crud_model->get_data('currency')->result();
-			$this->db->select('currency_history.*,currency.name');
-			$this->db->from('currency_history');
-			$this->db->join('currency','currency_history.currency_id=currency.id');
-			$data['histories'] = $this->db->get()->result();
+			$data['histories'] = $this->configuration_model->get_currency_history();
 			$this->template->load('default','currency/list_add_currency',$data);
 		}
 
