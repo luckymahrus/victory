@@ -111,14 +111,4 @@
     	}
     	
     });
-    
-	function delete_tray(id,code){
-		alertify.confirm("Apakah anda yakin ingin menghapus Baki "+code+"?",
-		  function(){
-		    window.location.assign("<?php echo base_url() ?>Tray/delete_tray/"+id);
-		  },
-		  function(){
-		    $.Notify({caption: 'Gagal !', content: 'Customer gagal dihapus', type: 'alert'});
-		  });
-	}
 </script>
