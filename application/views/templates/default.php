@@ -516,7 +516,7 @@
           <tbody>
             <tr>
               <?php foreach ($currencies as $currency):?>
-                  <td>Rp <?php echo $currency->value; ?></td>
+                  <td><?php echo 'Rp '. number_format($currency->value,2,',','.') ?></td>
               <?php endforeach; ?>
             </tr>  
           </tbody>

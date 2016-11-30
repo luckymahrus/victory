@@ -54,7 +54,7 @@
                                 <?php foreach($currencies as $currency):?>
                                 <tr>
                                     <td><?php echo $currency->name ?></td>
-                                    <td>Rp <?php echo $currency->value ?></td>
+                                    <td><?php echo 'Rp '. number_format($currency->value,2,',','.') ?></td>
                                     <td><?php echo date('d-M-Y H:i:s',strtotime($currency->last_update))?></td>
                                     <td><a href="<?php echo base_url('configuration/update_currency/'.$currency->id) ?>"><span class="mif mif-pencil"></span> Update</a> - <a href="#" onclick="delete_currency('<?php echo $currency->id ?>','<?php echo $currency->name ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
                                 </tr>
@@ -96,7 +96,7 @@
                                 <?php foreach($histories as $history):?>
                                 <tr>
                                     <td><?php echo $history->name ?></td>
-                                    <td>Rp <?php echo $history->value ?></td>
+                                    <td><?php echo 'Rp '. number_format($history->value,2,',','.') ?></td>
                                     <td><?php echo date('d-M-Y H:i:s',strtotime($history->date)) ?></td>
                                 </tr>
                                 <?php endforeach;?>
