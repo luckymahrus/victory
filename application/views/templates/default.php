@@ -83,7 +83,23 @@
         -webkit-box-shadow: 0 7px 10px 0 #9E9E9E;
         box-shadow: 0 7px 10px 0 #9E9E9E;
         transition: 0.2s ease-in;
-        
+      }
+      #kurstoggle{
+        background-color: <?php echo $configuration->primary_color ?> !important;
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        position: fixed; 
+        right: 20px; 
+        z-index: 1; 
+        top: 560px;
+      }
+      #charm_currency{
+          height: 100px;        
+          background-color: <?php echo $configuration->primary_color ?> !important;
+      }
+      #currency_head{
+        border-bottom: 0px;
       }
       @media (max-width: 1127px){
       .tile-group {
@@ -486,10 +502,25 @@
 
   <?php echo $body ?>
   
-  <button style="position: fixed; right: 20px; z-index: 1; top: 588px" onclick="toggleMetroCharm('#charm_currency')">Kurs</button>
-  
+  <button onclick="toggleMetroCharm('#charm_currency')" id="kurstoggle" class="button bg-primary"><span class="icon mif-dollar2 mif-2x" style="margin-bottom: 4px;"></span>Kurs</button>
+  <?php $currencies = $this->crud_model->get_data('currency')->result();?>
   <div data-role="charm" data-position="bottom" id="charm_currency">
-      test
+      <table class="table" style="margin-top: 0px;">
+          <thead id="currency_head">
+            <tr>
+              <?php foreach ($currencies as $currency):?>
+                  <td style="color: #fff;text-transform:uppercase;"><?php echo $currency->name; ?></td>
+              <?php endforeach; ?>
+            </tr>  
+          </thead>
+          <tbody>
+            <tr>
+              <?php foreach ($currencies as $currency):?>
+                  <td>Rp <?php echo $currency->value; ?></td>
+              <?php endforeach; ?>
+            </tr>  
+          </tbody>
+      </table>
   </div>
 
   <footer style="height: 50px"></footer>
