@@ -1,3 +1,4 @@
+<?php echo form_open_multipart('product/add_product') ?>
 <div class="container">
 	<div class="grid">
 		<div class="row">
@@ -13,20 +14,12 @@
 			</div>
 		</div>
 
-		<div class="row cells8">
-			<div class="cell colspan7">
+		<div class="row">
+			<div class="cell">
 				<label for="">Nama Barang</label>
 				<div class="input-control text full-size">
-					<input type="text" placeholder="Nama Barang" name="product_name" data-validate-func="required" data-validate-hint="Nama barang harus diisi">
+					<input type="text" placeholder="Nama Barang" id="name" name="product_name" data-validate-func="required" data-validate-hint="Nama barang harus diisi">
 				</div>
-			</div>
-			<div class="cell">
-				<label class="input-control checkbox place-right" style="margin-top: 20px;">
-					
-				    <input type="checkbox">
-				    <span class="check"></span>
-				    <span class="caption">Buyback</span>
-				</label> 
 			</div>
 		</div>
 		
@@ -34,33 +27,19 @@
 			<div class="cell">
 				<label for="">Kode Produk</label>
 				<div class="input-control text full-size">
-					<input type="text" placeholder="Kode Produk" name="product_code" readonly="readonly">
+					<input type="text" placeholder="Kode Produk" id="code" name="product_code" readonly="readonly">
+					<input type="hidden" name="code" id="hidden_code">
+					<input type="hidden" name="count" id="hidden_count">
 				</div>
 			</div>
-			<div class="cell">
-				<label for="">Kode Model</label>
-				<div class="input-control text full-size">
-					<input type="text" placeholder="Kode Model" name="product_model_code">
-				</div>
-			</div>
-		</div>
-
-		<div class="row cells2">
 			<div class="cell">
 				<label for="">Baki</label>
 				<div class="input-control select full-size">
-					<select name="product_tray" id="" data-validate-func="required" data-validate-hint="Baki harus dipilih">
+					<select name="product_tray" id="tray" onchange="get_data_new_product()" data-validate-func="required" data-validate-hint="Baki harus dipilih">
 						<option value="">--Pilih Tipe--</option>
-					</select>
-				</div>
-			</div>
-			<div class="cell">
-				<label for="">Tipe</label>
-				<div class="input-control select full-size">
-					<select name="product_type" id="" data-validate-func="required" data-validate-hint="Jenis barang harus diisi">
-						<option value="">--Pilih Tipe--</option>
-						<option value="1">Emas</option>
-						<option value="2">Berlian</option>
+						<?php foreach($trays as $tray): ?>
+							<option value="<?php echo $tray->id ?>"><?php echo $tray->code.' - '.$tray->name ?></option>
+						<?php endforeach; ?>
 					</select>
 				</div>
 			</div>
@@ -71,42 +50,63 @@
 				<!-- Category -->
 				<label for="">Kategori</label>
 				<div class="input-control select full-size">
-					<select name="product_category" id="" data-validate-func="required" data-validate-hint="Kategori harus diisi">
-						<option value="">--Pilih Kategori--</option>
-					</select>
+					<input type="text" placeholder="Kategori" id="category" readonly="readonly" name="product_category">
 				</div>				
 			</div>
 			<div class="cell">
-				<!-- Model -->
-				<label for="">Model</label>
+				<label for="">Tipe</label>
 				<div class="input-control select full-size">
-					<select name="product_model" id="" data-validate-func="required" data-validate-hint="Model harus diisi">
-						<option value="">--Pilih Model--</option>
-					</select>
+					<input type="text" placeholder="Tipe" id="type" readonly="readonly" name="product_type">
 				</div>
 			</div>
 		</div>
 
 		<div class="row cells2">
 			<div class="cell">
-				<label for="">Harga Beli</label>
+				<label for="">Berat Real</label>
 				<div class="input-control text full-size">
-					<input type="text" placeholder="Harga Beli" name="product_purchase_price">
+					<input type="text" placeholder="Timbang disini" id="real" onblur="rounded_weight()" name="product_real_weight">
 				</div>
 			</div>
 			<div class="cell">
-				<label for="">Harga Jual</label>
+				<label for="">Penyesuaian</label>
 				<div class="input-control text full-size">
-					<input type="text" placeholder="Harga Jual" name="product_selling_price">
+					<input type="text" placeholder="" id="rounded" name="product_rounded_weight" readonly="readonly">
 				</div>
 			</div>
 		</div>
 
-		<div class="row cells2">
+		<div class="row cells3">
 			<div class="cell">
 				<label for="">Kadar</label>
 				<div class="input-control text full-size">
-					<input type="text" placeholder="Kadar" name="product_amount">
+					<select name="gold_amount" id="original" onchange="count_gold_amount()" data-validate-func="required" data-validate-hint="Baki harus dipilih">
+						<option value="">--Pilih Kadar--</option>
+						<?php foreach($gold_amount as $row): ?>
+							<option value="<?php echo $row->id ?>"><?php echo $row->type.$row->original ?></option>
+						<?php endforeach; ?>
+					</select>
+				</div>
+			</div>
+			<div class="cell">
+				<label for="">Kadar</label>
+				<div class="input-control text full-size">
+					<input type="text" placeholder="Kadar" id="marked_up" name="product_amount">
+				</div>
+			</div>
+			<div class="cell">
+				<label for="">Kadar</label>
+				<div class="input-control text full-size">
+					<input type="text" id="gold_price" name="product_amount">
+				</div>
+			</div>
+		</div>
+
+		<div class="row cells2">
+			<div class="cell">
+				<label for="">Harga Jual</label>
+				<div class="input-control text full-size">
+					<input type="text" placeholder="Harga Jual" id="selling_price" name="product_selling_price">
 				</div>
 			</div>
 			<div class="cell">
@@ -150,10 +150,102 @@
 
 	</div>
 </div>
-
+<?php echo form_close() ?>
 <script src="<?php echo base_url() ?>js/webcam.min.js"></script>
 
 <script>
+	function count_selling_price(){
+		if($('#gold_price').val() != '' && $('#marked_up').val() != '' && $('#rounded').val()){
+			var price = Number($('#gold_price').val()) * Number($('#marked_up').val()) * Number($('#rounded').val()) /100;
+			$('#selling_price').val(price);
+		}
+	}
+
+	function get_data_new_product(){
+		if($('#tray').val() != ''){
+			$.ajax({
+              url: "<?php echo base_url('product/get_data_new_product/')?>" + $('#tray').val(),
+              type: 'GET',
+              cache : false,
+              success: function(result){
+               	var data = JSON.parse(result);
+				$('#name').val(data.category);
+				$('#category').val(data.category);
+				$('#type').val(data.type);
+				$('#code').val(data.product_code);    
+				$('#hidden_code').val(data.hidden_code);
+				$('#hidden_count').val(data.hidden_count);           	
+                
+              }
+            
+            });
+		}
+	}
+
+	function count_gold_amount(){
+		if($('#real').val() != '' && $('#original').val() != ''){
+			$.ajax({
+              url: "<?php echo base_url('product/count_gold_amount/')?>" + $('#original').val(),
+              type: 'GET',
+              cache : false,
+              success: function(result){
+               	var data = JSON.parse(result);
+               	$('#marked_up').val(data.marked_up);
+               	$('#gold_price').val(data.price);          	
+                count_selling_price();
+              }
+            
+            });
+		}else{
+			$.ajax({
+              url: "<?php echo base_url('product/count_gold_amount/')?>" + $('#original').val(),
+              type: 'GET',
+              cache : false,
+              success: function(result){
+               	var data = JSON.parse(result);
+               	$('#marked_up').val(data.marked_up);
+               	$('#gold_price').val(data.price);  
+                
+              }
+            
+            });
+		}
+	}
+
+	function rounded_weight(){
+		if($('#real').val() != '' && $('#original').val() != ''){
+			var real = $('#real').val();
+			var substr = real.substring(real.length - 1, real.length);
+			if(Number(substr) < 5){
+				var round = 0.05;
+			}else{
+				var round = 0.1;
+			}
+			substr = '0.0'+substr;
+			substr = Number(substr);
+			real = Number(real);
+			weight = real - substr + round;
+			$('#rounded').val(weight.toFixed(2));
+
+			count_selling_price();
+
+
+		}else{
+			var real = $('#real').val();
+			var substr = real.substring(real.length - 1, real.length);
+			if(Number(substr) < 5){
+				var round = 0.05;
+			}else{
+				var round = 0.1;
+			}
+			substr = '0.0'+substr;
+			substr = Number(substr);
+			real = Number(real);
+			weight = real - substr + round;
+			$('#rounded').val(weight.toFixed(2));
+		}
+	}
+
     function show_cam(el){
         if($(el).is(":checked") ){
             $('#snapshot').show();

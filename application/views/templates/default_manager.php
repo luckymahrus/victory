@@ -298,12 +298,12 @@
                             <div class="tile-group">
                               <span class="tile-group-title">Inventory</span>
                               <div class="tile-container"><!--Container begins-->
-                                <div class="tile-large tile-big-y bg-amber fg-white" data-role="tile">
+                                <a href="<?php echo base_url('product') ?>" class="tile-large tile-big-y bg-amber fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-list  mif-ani-float"></span><span class="tile-label">Daftar Barang</span></div>
-                                </div>
-                                <div class="tile-large bg-orange fg-white" data-role="tile">
+                                </a>
+                                <a href="<?php echo base_url('product/add_product') ?>" class="tile-large bg-orange fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Input Barang</span></div>
-                                </div>
+                                </a>
                                 <div class="tile tile-wide-y bg-red fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-truck mif-ani-pass"></span><span class="tile-label">Kirim</span></div>
                                 </div>

@@ -331,9 +331,9 @@
                             <div class="tile-group">
                               <span class="tile-group-title">Inventori</span>
                               <div class="tile-container left-margin"><!--Container begins-->
-                                <div class="tile-large tile-wide-y bg-amber fg-white" data-role="tile">
+                                <a href="<?php echo base_url('product') ?>" class="tile-large tile-wide-y bg-amber fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-list  mif-ani-float"></span><span class="tile-label">Daftar Barang</span></div>
-                                </div>
+                                </a>
                                 <a class="tile-large bg-orange fg-white" data-role="tile" href="<?php echo base_url('product/add_product') ?>">
                                   <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Input Barang</span></div>
                                 </a>
@@ -343,11 +343,8 @@
                                 <div class="tile tile-wide-y bg-lightRed fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon fa fa-check-square-o"></span><span class="tile-label">Terima</span></div>
                                 </div>
-                                <a class="tile bg-cyan fg-white" data-role="tile" href="<?php echo base_url('category')?>">
+                                <a class="tile tile-wide-x bg-cyan fg-white" data-role="tile" href="<?php echo base_url('category')?>">
                                   <div class="tile-content iconic"><span class="icon mif-file-text"></span><span class="tile-label">Kategori</span></div>
-                                </a>
-                                <a class="tile bg-violet fg-white" data-role="tile" href="<?php echo base_url('model')?>">
-                                  <div class="tile-content iconic"><span class="icon mif-medium"></span><span class="tile-label">Model</span></div>
                                 </a>
                                 <a class="tile bg-green fg-white" data-role="tile" href="<?php echo base_url('tray')?>">
                                   <div class="tile-content iconic"><span class="icon mif-shopping-basket mif-ani-bounce mif-ani-fast"></span><span class="tile-label">Daftar Baki</span></div>

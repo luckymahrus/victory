@@ -62,6 +62,9 @@
 						<tr>
 							<th data-type="numeric">No</th>
 							<th data-type="numeric">Kode Baki</th>
+							<th>Nama Baki</th>
+							<th>Kategori</th>
+							<th>Jenis</th>
 							<th data-hide="phone">Action</th>
 						</tr>
 					</thead>
@@ -72,18 +75,16 @@
 							<tr>
 								<td><?php echo $i ?></td>
 								<td><?php echo $tray->code ?></td>
-								<!-- <td>
-									<?php #$outlet = $this->crud_model->get_by_condition('outlets', array('id'=>$customer->outlet_id))->row('name');
-										#echo $outlet;
-									?>
-								</td> -->
+								<td><?php echo $tray->name ?></td>
+								<td><?php echo $tray->category ?></td>
+								<td><?php echo $tray->type ?></td>
 								<td><a href="<?php echo base_url('tray/edit_tray/'.$tray->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_tray('<?php echo $tray->id ?>','<?php echo $tray->code ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
 							</tr>
 							<?php $i++; ?>
 							<?php endforeach; ?>
 						<?php else: ?>
 							<tr>
-								<td colspan="3" class="text-center"><h3>Table kosong</h3></td>
+								<td colspan="3" class="text-center"><h3>Tidak ada Baki</h3></td>
 							</tr>
 						<?php endif; ?>
 
@@ -103,25 +104,24 @@
 
 <script>
 	function generate_code(){
-		if($('#category').val() != '' && $('#number').val() != ''){
-			alert('bro');
+		if($('#category').val() !== '' && $('#number').val() !== ''){
 			$.ajax({
               url: "<?php echo base_url('tray/check_code/')?>" + $('#category').val() + '/' + $('#number').val(),
               type: 'GET',
               cache : false,
               success: function(result){
-              	alert(result);
-                // if(result == 'taken'){
-                //     $.Notify({
-                //         caption: 'Error !',
-                //         content: 'Kode sudah terdaftar',
-                //         type: 'alert'
-                //     });
-                //     $('#number').val('');
-                //     $('#number').focus();
-                // }else{
-                //  	$('#code').val(result);   
-                // }
+                if(result == 'taken'){
+                    $.Notify({
+                        caption: 'Error !',
+                        content: 'Kode sudah terdaftar',
+                        type: 'alert'
+                    });
+                    $('#number').val('');
+                    $('#code').val('');
+                    $('#number').focus();
+                }else{
+                 	$('#code').val(result);   
+                }
                
                 
               }

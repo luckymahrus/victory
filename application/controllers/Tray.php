@@ -7,15 +7,15 @@
 			if($this->session_role=='sales'){
 				redirect('home');
 			}
+			$this->load->model('category_model');
+			$this->load->model('tray_model');
 		}
 
 		public function index(){
 			
 			$data['title'] = 'Daftar Baki';
 			$data['is_mobile'] = $this->is_mobile;
-			$data['trays'] = $this->crud_model->get_data('tray')->result();
-			
-			$this->load->model('category_model');
+			$data['trays'] = $this->tray_model->get_tray($this->session_outlet);
 			$data['category'] = $this->category_model->get_category('category');
 			$this->template->load($this->default,'tray/list_tray',$data);
 		
@@ -24,8 +24,10 @@
 		public function add_tray(){
 			if($this->input->post('submit')){
 				$data= array(
-						'code' => $this->input->post('new_tray'),
-						'outlet_id'=> $this->session_outlet
+						'code' => $this->input->post('tray_code'),
+						'outlet_id'=> $this->session_outlet,
+						'category_id' => $this->input->post('tray_category'),
+						'name'	=> $this->input->post('tray_name')
 				);
 	            $this->crud_model->insert_data('tray',$data);
 	            $this->session->set_flashdata('tray',"$.Notify({
