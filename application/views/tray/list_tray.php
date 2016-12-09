@@ -17,9 +17,26 @@
 			<h3 style="margin-bottom: 20px;">Tambah Baki Baru</h3>
             <hr class="bg-primary">	
     		<div class="cell">
-    			<label>Kode Baki</label>
+    			<label for="">Kategori</label>
+    			<div class="input-control select full-size">
+					<select name="tray_category" id="category" data-validate-func="required" onchange="generate_code()" data-validate-hint="Baki harus dipilih">
+						<option value="">--Pilih Kategori--</option>
+						<?php foreach($category as $row): ?>
+    					<option value="<?php echo $row->id ?>"><?php echo $row->name.' - ('.$row->type.') '; ?></option>
+    				<?php endforeach; ?>
+					</select>
+				</div>
+    			<label>Nomor Baki</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Masukkan kode untuk baki baru" name="new_tray" data-validate-func="required" data-validate-hint="Kode tray harus diisi">
+                    <input type="text" placeholder="Masukkan nomor untuk baki baru" id="number" onblur="generate_code()" name="tray_number" data-validate-func="required" data-validate-hint="Kode tray harus diisi">
+                </div>
+                <label>Nama Baki</label>
+                <div class="input-control text full-size">
+                    <input type="text" placeholder="Masukkan nama untuk baki baru" name="tray_name" data-validate-func="required" data-validate-hint="Kode tray harus diisi">
+                </div>
+                <label>Kode Baki</label>
+                <div class="input-control text full-size">
+                    <input type="text" placeholder="Kode baki baru" id="code" name="tray_code" readonly="readonly">
                 </div>
     		</div>
             <div class="cell text-center">
@@ -85,7 +102,33 @@
 <script src="<?php echo base_url() ?>js/footable.sort.js" type="text/javascript"></script>
 
 <script>
-	
+	function generate_code(){
+		if($('#category').val() != '' && $('#number').val() != ''){
+			alert('bro');
+			$.ajax({
+              url: "<?php echo base_url('tray/check_code/')?>" + $('#category').val() + '/' + $('#number').val(),
+              type: 'GET',
+              cache : false,
+              success: function(result){
+              	alert(result);
+                // if(result == 'taken'){
+                //     $.Notify({
+                //         caption: 'Error !',
+                //         content: 'Kode sudah terdaftar',
+                //         type: 'alert'
+                //     });
+                //     $('#number').val('');
+                //     $('#number').focus();
+                // }else{
+                //  	$('#code').val(result);   
+                // }
+               
+                
+              }
+            
+            });    
+		}
+	}	
 
     $(document).ready(function(){
         <?php if($this->session->flashdata('tray')): ?>

@@ -14,6 +14,9 @@
 			$data['title'] = 'Daftar Baki';
 			$data['is_mobile'] = $this->is_mobile;
 			$data['trays'] = $this->crud_model->get_data('tray')->result();
+			
+			$this->load->model('category_model');
+			$data['category'] = $this->category_model->get_category('category');
 			$this->template->load($this->default,'tray/list_tray',$data);
 		
 		}
@@ -50,6 +53,16 @@
 					content : 'Baki gagal dihapus',
 					type : 'alert'
 				});");
+			}
+		}
+
+		public function check_code($category_id, $number){
+			$category_code = $this->db->get_where('category',array('id' => $category_id))->row('code');
+			$tray_code = $this->db->get_where('tray',array('code' => $category_code.$number,'outlet_id' => $this->session_outlet))->row('code');
+			if($tray_code != NULL){
+				echo 'taken';
+			}else{
+				echo $category_code.$number;
 			}
 		}
 		

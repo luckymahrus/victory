@@ -14,7 +14,7 @@
     <link href="<?php echo base_url() ?>css/metro-icons.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-responsive.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-schemes.css" rel="stylesheet">
-    
+    <link href="<?php echo base_url() ?>css/custom.css" rel="stylesheet">
 
 
     <link href="<?php echo base_url() ?>css/docs.css" rel="stylesheet">
@@ -330,7 +330,7 @@
                           <div class="cell">
                             <div class="tile-group">
                               <span class="tile-group-title">Inventori</span>
-                              <div class="tile-container"><!--Container begins-->
+                              <div class="tile-container left-margin"><!--Container begins-->
                                 <div class="tile-large tile-wide-y bg-amber fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-list  mif-ani-float"></span><span class="tile-label">Daftar Barang</span></div>
                                 </div>
@@ -376,7 +376,7 @@
                           <div class="cell">
                             <div class="tile-group">
                               <div class="tile-group-title">Outlet</div>
-                                <div class="tile-container"><!--Container begin-->
+                                <div class="tile-container left-margin"><!--Container begin-->
                                   <a href="<?php echo base_url('outlets') ?>" class="tile-large tile-big-y bg-lime fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-shop mif-ani-shake"></span><span class="tile-label">Daftar Outlet</span></div>
                                   </a>
@@ -407,7 +407,7 @@
                           <div class="cell">
                             <div class="tile-group">
                               <span class="tile-group-title">DAFTAR KONTAK</span>
-                              <div class="tile-container"> <!--Tile container begins-->
+                              <div class="tile-container left-margin"> <!--Tile container begins-->
                                 <a href="<?php echo base_url('customer') ?>" class="tile-large tile-big-y bg-darkCobalt fg-white" data-role="tile">
                                   <div class="tile-content iconic">
                                     <span class="icon mif-users mif-ani-bounce"></span>
@@ -450,7 +450,7 @@
                           <div class="cell">
                             <div class="tile-group">
                               <div class="tile-group-title">Konfigurasi</div>
-                              <div class="tile-container"><!--Tile container start-->
+                              <div class="tile-container left-margin"><!--Tile container start-->
                                 <div class="tile tile-large bg-darkBrown fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-shop  mif-ani-float"></span><span class="tile-label">Toko</span></div>
                                 </div>
@@ -485,11 +485,11 @@
               <!--Konfigurasi ends-->
               <li><a href="<?php echo base_url('accounts/logout') ?>" class="menu-a"><i class="fa fa-power-off"></i> <span class="menu-text">Logout</span></a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right" style="hidden-sm">
+            <!-- <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs">
               <li class="dropdown">
                   <a class="menu-a" style="cursor: pointer;" href="#"><span class="icon mif-user" style="margin-bottom: 4px;"></span> <span class="menu-text">Welcome, <?php echo $this->session->user_name?></span></a>
               </li>
-            </ul>
+            </ul> -->
               
             
            <!--Main menu ul ends-->

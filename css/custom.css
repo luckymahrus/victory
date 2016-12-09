@@ -1,0 +1,15 @@
+.left-margin{
+	margin: 0 1em;
+}
+
+@media (max-width: 768px){
+	.left-margin{
+		margin: 0 5%;
+	}
+}
+
+@media (max-width: 768px){
+	.left-margin{
+		margin: 0 5%;
+	}
+}
