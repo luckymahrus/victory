@@ -14,24 +14,7 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="cell">
-				<label for="">Nama Barang</label>
-				<div class="input-control text full-size">
-					<input type="text" placeholder="Nama Barang" id="name" name="product_name" data-validate-func="required" data-validate-hint="Nama barang harus diisi">
-				</div>
-			</div>
-		</div>
-		
 		<div class="row cells2">
-			<div class="cell">
-				<label for="">Kode Produk</label>
-				<div class="input-control text full-size">
-					<input type="text" placeholder="Kode Produk" id="code" name="product_code" readonly="readonly">
-					<input type="hidden" name="code" id="hidden_code">
-					<input type="hidden" name="count" id="hidden_count">
-				</div>
-			</div>
 			<div class="cell">
 				<label for="">Baki</label>
 				<div class="input-control select full-size">
@@ -41,6 +24,24 @@
 							<option value="<?php echo $tray->id ?>"><?php echo $tray->code.' - '.$tray->name ?></option>
 						<?php endforeach; ?>
 					</select>
+				</div>
+			</div>
+
+			<div class="cell">
+				<label for="">Kode Produk</label>
+				<div class="input-control text full-size">
+					<input type="text" placeholder="Kode Produk" id="code" name="product_code" readonly="readonly">
+					<input type="hidden" name="code" id="hidden_code">
+					<input type="hidden" name="count" id="hidden_count">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="cell">
+				<label for="">Nama Barang</label>
+				<div class="input-control text full-size">
+					<input type="text" placeholder="Nama Barang" id="name" name="product_name" data-validate-func="required" data-validate-hint="Nama barang harus diisi">
 				</div>
 			</div>
 		</div>
@@ -78,7 +79,7 @@
 
 		<div class="row cells3">
 			<div class="cell">
-				<label for="">Kadar</label>
+				<label for="">Kode Harga</label>
 				<div class="input-control text full-size">
 					<select name="gold_amount" id="original" onchange="count_gold_amount()" data-validate-func="required" data-validate-hint="Baki harus dipilih">
 						<option value="">--Pilih Kadar--</option>
@@ -95,7 +96,7 @@
 				</div>
 			</div>
 			<div class="cell">
-				<label for="">Kadar</label>
+				<label for="">Harga / gram</label>
 				<div class="input-control text full-size">
 					<input type="text" id="gold_price" name="product_amount">
 				</div>
