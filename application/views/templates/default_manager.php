@@ -304,12 +304,12 @@
                                 <a href="<?php echo base_url('product/add_product') ?>" class="tile-large bg-orange fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Input Barang</span></div>
                                 </a>
-                                <div class="tile tile-wide-y bg-red fg-white" data-role="tile">
+                                <a href="<?php echo base_url('product/sent_item') ?>" class="tile tile-wide-y bg-red fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-truck mif-ani-pass"></span><span class="tile-label">Kirim</span></div>
-                                </div>
-                                <div class="tile tile-wide-y bg-lightRed fg-white" data-role="tile">
+                                </a>
+                                <a href="<?php echo base_url('product/receive_item') ?>" class="tile tile-wide-y bg-lightRed fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon fa fa-check-square-o"></span><span class="tile-label">Terima</span></div>
-                                </div>
+                                </a>
 
                                 <a class="tile bg-green fg-white" data-role="tile" href="<?php echo base_url('tray')?>">
                                   <div class="tile-content iconic"><span class="icon mif-shopping-basket mif-ani-bounce mif-ani-fast"></span><span class="tile-label">Daftar Baki</span></div>

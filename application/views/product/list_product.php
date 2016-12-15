@@ -62,7 +62,7 @@
 							<?php endforeach; ?>
 						<?php else:?>
 							<tr>
-								<td colspan="7" class="text-center"><h3>Table kosong</h3></td>
+								<td colspan="12" class="text-center"><h3>Table kosong</h3></td>
 							</tr>
 						<?php endif; ?>
 					</tbody>

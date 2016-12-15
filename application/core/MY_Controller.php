@@ -29,13 +29,7 @@
 					$this->default = 'default_sales';
 				}
 			}
-
-			// $sales_photo = 'uploads/temp/sales/'.$this->session_outlet.'/'.$this->session_id.'/'.'sales'.$this->session_id.'.jpg';
-			// if(file_exists($sales_photo))
-			// {
-			// 	//if not make the folder so the upload is possible
-			// 	unlink($sales_photo);
-			// }
+			date_default_timezone_set('Asia/Jakarta');
 					
 		}
 	}

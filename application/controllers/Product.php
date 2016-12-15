@@ -28,6 +28,7 @@
 		
 		}
 
+		/****ADD NEW ITEM START****/
 		public function upload(){
 			//upload image via webcam
 
@@ -150,53 +151,7 @@
 			}
 		}
 
-		public function edit_customer($cust_id = ''){
-			if($this->input->post()){
-	            $data_customer = array(
-
-	            		'name' => $this->input->post('customer_name'),
-	            		'type' => $this->input->post('customer_type'),
-	            		'phone' => $this->input->post('customer_phone'),
-	            		'email' => $this->input->post('customer_email'),
-	            		'address' =>$this->input->post('customer_address')
-
-	            	);
-
-	            if($this->crud_model->update_data('customers',$data_customer,array('id' => $cust_id))){
-	            	$this->session->set_flashdata('customer',"$.Notify({
-					    caption: 'Berhasil',
-					    content: 'Berhasil edit customer',
-					    type: 'success'
-					});");
-	            }else{
-	            	$this->session->set_flashdata('Customer',"$.Notify({
-					    caption: 'Gagal',
-					    content: 'Gagal edit customer',
-					    type: 'success'
-					});");
-	            }
-	            
-	            redirect('customer');
-
-			}else{
-				$data['title'] = 'Customer';
-				$data['is_mobile'] = $this->is_mobile;
-				$data['customer'] = $this->crud_model->get_by_condition('customers',array('id' => $cust_id))->row();
-				$this->template->load($this->default,'customer/edit_customer',$data);
-			}
-		}
-
-		public function delete_customer($cust_id = ''){
-		
-			if($this->crud_model->delete_data('customers',array('id' => $cust_id))){
-				$this->session->set_flashdata('customer', "$.Notify({caption: 'Berhasil !', content: 'Customer berhasil dihapus', type: 'info'});");
-			}else{
-				$this->session->set_flashdata('customer', "$.Notify({caption: 'Gagal !', content: 'Customer gagal dihapus', type: 'alert'});");
-			}
-			
-			redirect('customer');
-		}
-
+		/*ajax for insert product*/
 		public function get_data_new_product($tray_id = ''){
 			$this->load->model('tray_model');
 			$outlet_code = $this->db->get_where('outlets',array('id' => $this->session_outlet))->row('code');
@@ -220,15 +175,137 @@
 				
 			}
 		}
+		/* end of ajax */
 
+		/*ajax for insert product*/
 		public function count_gold_amount($gold_amount_id = ''){
 			$gold_amount = $this->db->get_where('gold_amount',array('id'=>$gold_amount_id))->row();
 			$gold_amount = (array) $gold_amount;
 			echo json_encode($gold_amount);
 
 		}
-		
+		/* end of ajax */
+		/****ADD NEW ITEM END****/
 
+		/****SEND ITEM START****/
+		public function send_item(){
+			if ($this->input->post()) {
+
+				$data_mutation = array(
+						'product_qty' 	=> count($this->input->post('product_code')),
+						'from_outlet' 	=> $this->session_outlet,
+						'to_outlet'		=> $this->input->post('to_outlet'),
+						'status'		=> 'Pending',
+						'date'			=> date('Y-m-d H:i:s')
+					);
+
+				$outlet_code = $this->db->get_where('outlets',array('id' => $this->session_outlet))->row('code');
+				$code = $this->db->get_where('code',array('code' => $outlet_code.'MUT'))->row();
+
+				if($code){
+					$data_mutation['mutation_code'] = $code->code.sprintf("%05d", $code->count);
+					$this->db->update('code',array('count' => $code->count+1),array('code' => $code->code));
+					
+				}else{
+					$this->db->insert('code',array('code' => $outlet_code.'MUT','count' => 1));
+					$data_mutation['mutation_code'] = $outlet_code.'MUT'.sprintf("%05d", 1);
+					$this->db->update('code',array('count' => 2),array('code' => $outlet_code.'MUT'));
+				}
+
+				$this->db->insert('mutation',$data_mutation);
+
+				foreach($this->input->post('product_code') as $product_code){
+					$data_product = array(
+							'product_code' => $product_code,
+							'mutation_code' => $data_mutation['mutation_code'],
+							'status'		=> 'OK'
+						);
+					$this->db->insert('mutation_product',$data_product);
+					$this->db->update('products',array('status' => 'pending'),array('product_code' => $product_code));
+				}
+
+				$this->session->set_flashdata('success',"$.Notify({
+				    caption: 'Berhasil',
+				    content: 'Berhasil mengirim barang',
+				    type: 'success'
+				});");	
+
+				redirect('home');
+			
+
+			}else{
+				$this->load->model('outlets_model');
+				$data['outlets'] = $this->outlets_model->get_all_outlet_except($this->session_outlet);
+				$data['title'] = 'Kirim Barang';	
+				$this->template->load($this->default,'product/send_item',$data);
+			}
+			
+
+				
+		}
+
+		/*ajax for send_item*/
+		public function get_product_by_code($product_code = ''){
+			$product = $this->product_model->get_product_by_code($product_code,$this->session_outlet);
+			if($product == NULL){
+				echo 'not found';
+			}else{
+				$product = (Object) $product;
+				echo json_encode($product);	
+			}
+			
+		}
+		/* end of ajax */
+		/****SEND ITEM END****/
+
+
+		/****SENT ITEM START****/
+		public function sent_item(){
+			$this->load->model('mutation_model');
+			$data['title'] = "Pengiriman Barang";
+			$data['sent_items'] = $this->mutation_model->get_sent_items($this->session_outlet);
+			$this->template->load($this->default,'product/sent_item',$data);
+		}
+
+		/****SENT ITEM END****/
+
+		/****RECEIVE ITEM START****/
+		public function receive_item($mutation_code = ''){
+			if($mutation_code == ''){
+				$this->load->model('mutation_model');
+				$data['title'] = "Penerimaan Barang";
+				$data['receives'] = $this->mutation_model->get_received_transactions($this->session_outlet);
+				$data['transaction_count'] = count($data['receives']);
+				$this->template->load($this->default,'product/receive_item',$data);
+			}else{
+				$mutation = $this->db->get_where('mutation',array('mutation_code' => $mutation_code))->row();
+
+				if($mutation->to_outlet == $this->session_outlet){
+					$this->load->model('mutation_model');
+					$data['title'] = "Penerimaan Barang";
+					$data['receives'] = $this->mutation_model->get_received_items($mutation->mutation_code);
+					$this->template->load($this->default,'product/receiving',$data);
+				}else{
+					redirect('product/receive_item');
+				}
+			}
+			
+		}
+
+		public function get_product_from_mutation($product_code = '',$mutation_code = ''){
+			$this->load->model('mutation_model');
+			$product = $this->mutation_model->get_mutation_product($product_code, $mutation_code);
+			if($product == NULL){
+				echo 'not found';
+			}else{
+				$product = (Object) $product;
+				echo json_encode($product);	
+			}
+
+		}
+
+
+		/****RECEIVE ITEM END****/
 	}
 
 ?>
