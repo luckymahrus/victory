@@ -1,6 +1,7 @@
 <link href="<?php echo base_url() ?>css/footable.core.css" type="text/css" rel="stylesheet">
 <link rel="stylesheet" href="<?php echo base_url() ?>fancybox/source/jquery.fancybox.css">
-<?php echo form_open_multipart('product/send_item',array('id'=>'form_mutation','data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false')) ?>
+<?php echo form_open_multipart('product/received',array('id'=>'form_mutation','data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false')) ?>
+
 <div class="container">
 	<div class="grid">
 		<div class="row">
@@ -33,6 +34,7 @@
 							<th data-hide="phone">Berat Real</th>
 							<th data-hide="phone">Penyesuaian</th>
 							<th data-hide="phone">Status</th>
+							<th>Baki</th>
 							<th>&nbsp;</th>
 						</tr>
 					</thead>
@@ -50,6 +52,7 @@
 									<td><?php echo $row->real_weight ?></td>
 									<td><?php echo $row->rounded_weight ?></td>
 									<td><?php echo $row->status ?></td>
+									<td id="tray_<?php echo $row->product_code ?>"></td>
 									<td id="<?php echo $row->product_code ?>"></td>
 								</tr>		
 								<?php $i++; ?>
@@ -65,6 +68,7 @@
 		</div>
 		<div class="row">
 			<div class="cell text-center">
+				<input type="hidden" name="mutation_code" value="<?php echo $receives[0]->mutation_code ?>">
         	   <input type="submit" name="submit" class="button bg-primary" value="Submit" >
             </div>
 		</div>
@@ -123,6 +127,7 @@
 						$('#'+data.product_code).append("<span class='mif-checkmark'></span>");
 						$('#code_'+data.product_code).removeAttr('name');
 						$('#code_'+data.product_code).attr('name','checked_code[]');
+						$('#tray_'+data.product_code).append("<select name='tray[]' id=''><option value=''>Pilih Baki</option><?php foreach($trays as $tray): ?><option value='<?php echo $tray->id ?>'><?php echo $tray->code ?> <?php echo $tray->name ?></option><?php endforeach; ?></select>");
 						
 						
 					}

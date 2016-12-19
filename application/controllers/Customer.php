@@ -10,7 +10,6 @@
 			//customer main page
 			
 			$data['title'] = 'Customer';
-			$data['is_mobile'] = $this->is_mobile;
 			$data['customers'] = $this->crud_model->get_data('customers')->result();
 			$this->template->load($this->default,'customer/list_customer',$data);
 		
@@ -47,7 +46,6 @@
 
 			}else{
 				$data['title'] = 'Customer';
-				$data['is_mobile'] = $this->is_mobile;
 				$this->template->load($this->default,'customer/add_customer',$data);
 			}
 		}
@@ -82,7 +80,6 @@
 
 			}else{
 				$data['title'] = 'Customer';
-				$data['is_mobile'] = $this->is_mobile;
 				$data['customer'] = $this->crud_model->get_by_condition('customers',array('id' => $cust_id))->row();
 				$this->template->load($this->default,'customer/edit_customer',$data);
 			}

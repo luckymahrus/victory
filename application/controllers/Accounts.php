@@ -66,9 +66,9 @@
 
 		public function logout(){
 			//destroy the session
-			$this->session->sess_destroy();
+			$this->session->unset_userdata(array('user_id','user_role','user_outlet','user_name','is_logged'));
 			//notification
-			$this->session->set_flashdata('failed',"$.Notify({caption: 'Logout Sukses !', content: '', type: 'alert'});");
+			$this->session->set_flashdata('failed',"$.Notify({caption: 'Sukses !', content: 'Berhasil Logout', type: 'success'});");
 
 			redirect('accounts/login');
 		}

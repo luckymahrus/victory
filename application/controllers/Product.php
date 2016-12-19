@@ -12,14 +12,14 @@
 				//customer main page
 				
 				$data['title'] = 'Product';
-				$data['is_mobile'] = $this->is_mobile;
+				$data['outlet_name'] = $this->db->get_where('outlets',array('id' => $this->session_outlet))->row('name');
 				$data['products'] = $this->product_model->get_product_outlet($this->session_outlet);
 				$this->template->load($this->default,'product/list_product',$data);
 			}else{
 				//customer main page
 				
 				$data['title'] = 'Product';
-				$data['is_mobile'] = $this->is_mobile;
+				$data['outlet_name'] = 'Semua Outlet';
 				$data['products'] = $this->product_model->get_product_all_outlet();
 				$this->template->load($this->default,'product/list_product',$data);	
 			}
@@ -144,7 +144,6 @@
 
 			}else{
 				$data['title'] = 'Product';
-				$data['is_mobile'] = $this->is_mobile;
 				$data['trays'] = $this->db->get_where('tray', array('outlet_id' => $this->session_outlet))->result();
 				$data['gold_amount'] = $this->db->get('gold_amount')->result();
 				$this->template->load($this->default,'product/add_product',$data);
@@ -282,7 +281,9 @@
 
 				if($mutation->to_outlet == $this->session_outlet){
 					$this->load->model('mutation_model');
+					$this->load->model('tray_model');
 					$data['title'] = "Penerimaan Barang";
+					$data['trays'] = $this->tray_model->get_tray($this->session_outlet);
 					$data['receives'] = $this->mutation_model->get_received_items($mutation->mutation_code);
 					$this->template->load($this->default,'product/receiving',$data);
 				}else{
@@ -304,7 +305,28 @@
 
 		}
 
+		public function received(){
+			if ($this->input->post()) {
+				for($i = 0; $i < count($this->input->post('checked_code')); $i++){
+					$data_update = array(
+							'tray_id' => $this->input->post('tray')[$i],
+							'outlet_id' => $this->session_outlet,
+							'status'	=> 'available'
+						);
+					$this->db->update('products',$data_update,array('product_code' => $this->input->post('checked_code')[$i]));
+				}
 
+				if($this->db->update('mutation',array('status' => 'Diterima'),array('mutation_code' => $this->input->post('mutation_code')))){
+					$this->session->set_flashdata('success',"$.Notify({
+					    caption: 'Berhasil',
+					    content: 'Barang berhasil diterima',
+					    type: 'success'
+					});");	
+
+					redirect('home');
+				}
+			}
+		}
 		/****RECEIVE ITEM END****/
 	}
 

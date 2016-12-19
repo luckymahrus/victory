@@ -1,5 +1,4 @@
 <?php 
-
 	defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class Sales extends MY_Controller{
@@ -17,7 +16,6 @@
 			
 			$data['title'] = 'Sales';
 			$data['sales'] = $this->sales_model->get_all_sales();
-			$data['is_mobile'] = $this->is_mobile;
 			$this->template->load($this->default,'sales/list_sales',$data);
 		
 		}
@@ -122,7 +120,6 @@
 			}else{
 				$data['title'] = 'Sales';
 				$data['outlets'] = $this->crud_model->get_data('outlets')->result();
-				$data['is_mobile'] = $this->is_mobile;
 				$this->template->load($this->default,'sales/add_sales',$data);
 			}
 		}
@@ -208,7 +205,6 @@
 				$data['title'] = 'Sales';
 				$data['outlets'] = $this->crud_model->get_data('outlets')->result();
 				$data['sales'] = $this->crud_model->get_by_condition('accounts',array('id' => $sales_id,'role' => 'sales'))->row();
-				$data['is_mobile'] = $this->is_mobile;
 				$this->template->load($this->default,'sales/edit_sales',$data);
 			}
 		}

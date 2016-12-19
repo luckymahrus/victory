@@ -1,23 +1,22 @@
 <link href="<?php echo base_url() ?>css/footable.core.css" type="text/css" rel="stylesheet">
 <link rel="stylesheet" href="<?php echo base_url() ?>fancybox/source/jquery.fancybox.css">
-<div class="container">
+<div class="container-fluid">
 	<div class="grid">
 		<div class="row">
 	        <div class="cell">
 	            <h3 style="display: inline-block;"><small><a href="<?php echo base_url() ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke Home</a></small></h3>
-	            <h3 style="display:inline-block;float:right;"><small><a href="<?php echo base_url('product/add_product') ?>">Tambah product <span class="fa fa-arrow-circle-o-right"></span></a></small></h3>
 	        </div>
 	    </div>
 		<div class="row form-title">
 	        <div class="cell">
-	            <h1 style="margin-bottom: 20px;">Daftar Produk</h1>
+	            <h1 style="margin-bottom: 20px;">Daftar Barang <?php echo ucfirst($outlet_name) ?></h1>
 	            <hr class="bg-primary">    
 	        </div>
 	    </div>
 	    <div class="row">
 	    	<div class="cell">
 	    		<div class="input-control text full-size">
-                    <input type="text" placeholder="Cari product" id="filter" >
+                    <input type="text" placeholder="Cari barang" id="filter" >
                 </div>
 	    	</div>
 	    </div>

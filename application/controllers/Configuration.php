@@ -31,7 +31,6 @@
 
 		public function currency(){
 			$data['title'] = 'Kurs';
-			$data['is_mobile'] = $this->is_mobile;
 			$data['currencies'] = $this->crud_model->get_data('currency')->result();
 			$data['histories'] = $this->configuration_model->get_currency_history();
 			$this->template->load('default','currency/list_add_currency',$data);

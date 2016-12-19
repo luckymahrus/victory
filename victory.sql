@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2016 at 08:01 AM
+-- Generation Time: Dec 16, 2016 at 03:03 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -91,7 +91,10 @@ CREATE TABLE `code` (
 INSERT INTO `code` (`id`, `code`, `count`) VALUES
 (1, 'KMK1', 4),
 (2, 'KMC1', 3),
-(3, 'KMK2', 2);
+(3, 'KMK2', 2),
+(4, 'KMMUT', 6),
+(5, 'ASC1', 2),
+(6, 'ASMUT', 5);
 
 -- --------------------------------------------------------
 
@@ -109,7 +112,7 @@ CREATE TABLE `configuration` (
 --
 
 INSERT INTO `configuration` (`id`, `primary_color`) VALUES
-(1, '#b30b0b');
+(1, '#7d93b3');
 
 -- --------------------------------------------------------
 
@@ -200,6 +203,62 @@ INSERT INTO `gold_amount` (`id`, `type`, `original`, `marked_up`, `price`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `mutation`
+--
+
+CREATE TABLE `mutation` (
+  `id` int(11) NOT NULL,
+  `mutation_code` varchar(200) NOT NULL,
+  `product_qty` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `from_outlet` int(11) NOT NULL,
+  `to_outlet` int(11) NOT NULL,
+  `status` enum('Pending','Diterima') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mutation`
+--
+
+INSERT INTO `mutation` (`id`, `mutation_code`, `product_qty`, `date`, `from_outlet`, `to_outlet`, `status`) VALUES
+(2, 'KMMUT00001', 2, '2016-12-14 11:12:25', 1, 2, 'Diterima'),
+(4, 'KMMUT00003', 1, '2016-12-14 11:23:05', 1, 4, 'Pending'),
+(7, 'ASMUT00002', 1, '2016-12-15 08:39:38', 2, 1, 'Pending'),
+(8, 'KMMUT00004', 1, '2016-12-15 08:44:28', 1, 4, 'Pending'),
+(9, 'KMMUT00005', 1, '2016-12-15 08:45:36', 1, 2, 'Diterima'),
+(10, 'ASMUT00004', 2, '2016-12-15 17:34:12', 2, 1, 'Diterima');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mutation_product`
+--
+
+CREATE TABLE `mutation_product` (
+  `id` int(11) NOT NULL,
+  `product_code` varchar(200) NOT NULL,
+  `mutation_code` varchar(200) NOT NULL,
+  `status` enum('OK','Rusak') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mutation_product`
+--
+
+INSERT INTO `mutation_product` (`id`, `product_code`, `mutation_code`, `status`) VALUES
+(1, 'KMK100001', 'KMMUT00001', 'OK'),
+(2, 'KMC100001', 'KMMUT00001', 'OK'),
+(3, 'KMK100002', 'KMMUT00001', 'OK'),
+(4, 'KMC100002', 'KMMUT00003', 'OK'),
+(7, 'ASC100001', 'ASMUT00002', 'OK'),
+(8, 'KMK100003', 'KMMUT00004', 'OK'),
+(9, 'KMK200001', 'KMMUT00005', 'OK'),
+(10, 'KMK100001', 'ASMUT00004', 'OK'),
+(11, 'KMK100002', 'ASMUT00004', 'OK');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `outlets`
 --
 
@@ -242,20 +301,22 @@ CREATE TABLE `products` (
   `gold_amount` int(11) NOT NULL,
   `tray_id` int(11) NOT NULL,
   `photo` varchar(200) NOT NULL,
-  `outlet_id` int(11) NOT NULL
+  `outlet_id` int(11) NOT NULL,
+  `status` enum('available','pending') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `product_code`, `name`, `type`, `category`, `real_weight`, `rounded_weight`, `purchase_price`, `selling_price`, `buyback`, `gold_amount`, `tray_id`, `photo`, `outlet_id`) VALUES
-(2, 'KMK100001', 'Kalung MK Hello Kitty', 'Emas', 'Kalung MK', 2.67, 2.7, 0, 829440, 0, 1, 1, 'uploads/photo/product/1/KMK100001.jpg', 1),
-(3, 'KMK100002', 'Kalung MK Merah', 'Emas', 'Kalung MK', 2.89, 2.9, 0, 890880, 0, 1, 1, 'uploads/photo/product/1/KMK100002.jpg', 1),
-(4, 'KMK100003', 'Kalung MK', 'Emas', 'Kalung MK', 4.87, 4.9, 0, 1505280, 0, 1, 1, 'uploads/photo/product/1/KMK100003.jpg', 1),
-(5, 'KMC100001', 'Cincin Emas Hello Kitty', 'Emas', 'Cincin', 2.33, 2.35, 0, 721920, 0, 1, 2, 'uploads/photo/product/2/KMC100001.jpg', 1),
-(6, 'KMC100002', 'Cincin Hello Kitty', 'Emas', 'Cincin', 2.33, 2.35, 0, 721920, 0, 1, 2, 'uploads/photo/product/2/KMC100002.jpg', 1),
-(7, 'KMK200001', 'Kalung Elora', 'Berlian', 'Kalung', 5.21, 5.25, 0, 1701000, 0, 2, 3, 'uploads/photo/product/3/KMK200001.jpg', 1);
+INSERT INTO `products` (`id`, `product_code`, `name`, `type`, `category`, `real_weight`, `rounded_weight`, `purchase_price`, `selling_price`, `buyback`, `gold_amount`, `tray_id`, `photo`, `outlet_id`, `status`) VALUES
+(2, 'KMK100001', 'Kalung MK Hello Kitty', 'Emas', 'Kalung MK', 2.67, 2.7, 0, 829440, 0, 1, 1, 'uploads/photo/product/1/KMK100001.jpg', 1, 'available'),
+(3, 'KMK100002', 'Kalung MK Merah', 'Emas', 'Kalung MK', 2.89, 2.9, 0, 890880, 0, 1, 1, 'uploads/photo/product/1/KMK100002.jpg', 1, 'available'),
+(4, 'KMK100003', 'Kalung MK', 'Emas', 'Kalung MK', 4.87, 4.9, 0, 1505280, 0, 1, 1, 'uploads/photo/product/1/KMK100003.jpg', 1, 'pending'),
+(5, 'KMC100001', 'Cincin Emas Hello Kitty', 'Emas', 'Cincin', 2.33, 2.35, 0, 721920, 0, 1, 4, 'uploads/photo/product/2/KMC100001.jpg', 2, 'available'),
+(6, 'KMC100002', 'Cincin Hello Kitty', 'Emas', 'Cincin', 2.33, 2.35, 0, 721920, 0, 1, 2, 'uploads/photo/product/2/KMC100002.jpg', 1, 'pending'),
+(7, 'KMK200001', 'Kalung Elora', 'Berlian', 'Kalung', 5.21, 5.25, 0, 1701000, 0, 2, 5, 'uploads/photo/product/3/KMK200001.jpg', 2, 'available'),
+(8, 'ASC100001', 'Cincin Kawin', 'Emas', 'Cincin', 1.36, 1.4, 0, 430080, 0, 1, 4, 'uploads/photo/product/4/ASC100001.jpg', 2, 'pending');
 
 -- --------------------------------------------------------
 
@@ -293,7 +354,9 @@ CREATE TABLE `tray` (
 INSERT INTO `tray` (`id`, `code`, `outlet_id`, `name`, `category_id`) VALUES
 (1, 'K1', 1, 'Baki Kalung', 3),
 (2, 'C1', 1, 'Baki Cincin', 1),
-(3, 'K2', 1, 'Kalung Berlian', 2);
+(3, 'K2', 1, 'Kalung Berlian', 2),
+(4, 'C1', 2, 'Cincin Emas', 1),
+(5, 'K1', 2, 'Kalung Panjang', 3);
 
 -- --------------------------------------------------------
 
@@ -368,6 +431,18 @@ ALTER TABLE `gold_amount`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `mutation`
+--
+ALTER TABLE `mutation`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mutation_product`
+--
+ALTER TABLE `mutation_product`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `outlets`
 --
 ALTER TABLE `outlets`
@@ -415,7 +490,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `code`
 --
 ALTER TABLE `code`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `configuration`
 --
@@ -442,6 +517,16 @@ ALTER TABLE `customers`
 ALTER TABLE `gold_amount`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `mutation`
+--
+ALTER TABLE `mutation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `mutation_product`
+--
+ALTER TABLE `mutation_product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
 -- AUTO_INCREMENT for table `outlets`
 --
 ALTER TABLE `outlets`
@@ -450,7 +535,7 @@ ALTER TABLE `outlets`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
@@ -460,7 +545,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `tray`
 --
 ALTER TABLE `tray`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `type`
 --

@@ -225,12 +225,12 @@
                                         <span class="tile-label">Daftar Penjualan</span>
                                       </div>
                                     </div>
-                                    <div class="tile fg-white" data-role="tile" style="background-color: #905CFF">
+                                    <a href="<?php echo base_url('sale') ?>" class="tile fg-white" data-role="tile" style="background-color: #905CFF">
                                       <div class="tile-content iconic">
                                         <span class="icon mif-plus"></span>
                                         <span class="tile-label">Penjualan Baru</span>
                                       </div>
-                                    </div>    
+                                    </a>    
                                     <div class="tile fg-white" data-role="tile" style="background-color:  #4383E8">
                                       <div class="tile-content iconic">
                                         <span class="icon mif-checkmark"></span>
@@ -298,10 +298,10 @@
                             <div class="tile-group">
                               <span class="tile-group-title">Inventory</span>
                               <div class="tile-container"><!--Container begins-->
-                                <a href="<?php echo base_url('product') ?>" class="tile-large tile-big-y bg-amber fg-white" data-role="tile">
+                                <a accesskey="b" href="<?php echo base_url('product') ?>" class="tile-large tile-big-y bg-amber fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-list  mif-ani-float"></span><span class="tile-label">Daftar Barang</span></div>
                                 </a>
-                                <a href="<?php echo base_url('product/add_product') ?>" class="tile-large bg-orange fg-white" data-role="tile">
+                                <a accesskey="i" href="<?php echo base_url('product/add_product') ?>" class="tile-large bg-orange fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Input Barang</span></div>
                                 </a>
                                 <a href="<?php echo base_url('product/sent_item') ?>" class="tile tile-wide-y bg-red fg-white" data-role="tile">

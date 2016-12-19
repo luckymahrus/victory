@@ -12,7 +12,6 @@
 		public function index(){
 			
 			$data['title'] = 'Supplier';
-			$data['is_mobile'] = $this->is_mobile;
 			$data['suppliers'] = $this->crud_model->get_data('suppliers')->result();
 			$this->template->load($this->default,'supplier/list_supplier',$data);
 		
@@ -36,7 +35,6 @@
 				redirect('supplier/add_supplier');
 			}else{
 				$data['title'] = 'Supplier';
-				$data['is_mobile'] = $this->is_mobile;
 				$this->template->load($this->default,'supplier/add_supplier',$data);
 			}
 		}
@@ -71,7 +69,6 @@
 
 			}else{
 				$data['title'] = 'Supplier';
-				$data['is_mobile'] = $this->is_mobile;
 				$data['supplier'] = $this->crud_model->get_by_condition('suppliers',array('id' => $supp_id))->row();
 				$this->template->load($this->default,'supplier/edit_supplier',$data);
 			}

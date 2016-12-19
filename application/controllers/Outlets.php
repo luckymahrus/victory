@@ -7,22 +7,30 @@
 		function __construct(){
 			parent::__construct();
 			$this->load->model('outlets_model');
-			if($this->session_role != 'admin'){
-				redirect('home');
-			}
+			
 		}
 
 		public function index(){
-			
 			$data['title'] = 'Outlet';
-			$data['is_mobile'] = $this->is_mobile;
-			$data['outlets'] = $this->crud_model->get_data('outlets')->result();
-			$this->template->load($this->default,'outlets/list_outlet',$data);
+			
+			if ($this->session_role != 'admin') {
+				
+
+				$data['outlets'] = $this->outlets_model->get_all_outlet_except($this->session_outlet);
+			}else{
+
+				$data['outlets'] = $this->crud_model->get_data('outlets')->result();
+
+			}
+
+				$this->template->load($this->default,'outlets/list_outlet',$data);
 		
 		}
-
+		/****ADMIN FUNCTIONALITY****/
 		public function add_outlet(){
-			
+			if($this->session_role != 'admin'){
+				redirect('home');
+			}
 			//process the insertion
 			if($this->input->post()){
 				$data_outlet = array(
@@ -70,7 +78,9 @@
 		}
 
 		public function edit_outlet($outlet_id = ''){
-			
+			if($this->session_role != 'admin'){
+				redirect('home');
+			}
 			//process the edit if there is posts from the view
 			if($this->input->post()){
 				$data_outlet = array(
@@ -117,7 +127,9 @@
 		}
 
 		public function delete_outlet($outlet_id = ''){
-			
+			if($this->session_role != 'admin'){
+				redirect('home');
+			}
 			//update the sales' outlet_id
 			$this->crud_model->update_data('accounts',array('outlet_id' => $outlet_id, 'role' => 'sales'), array('outlet_id' => 0));
 			//delete the manager acount
@@ -128,8 +140,17 @@
 			$this->session->set_flashdata('success',"$.Notify({caption: 'Berhasil !', content: 'Toko Berhasil Dihapus', type: 'info'});");
 			redirect('outlets');
 		}
-
+		/****ADMIN FUNCTIONALITY END****/
 		
+		/****VIEW OTHER OUTLET's PRODUCT FUNCTIONALITY****/
+		public function view_outlet($outlet_id = ''){
+			$this->load->model('product_model');
+			$data['title'] = 'Daftar Barang';
+			$data['outlet_name'] = $this->db->get_where('outlets',array('id' => $outlet_id))->row('name');
+			$data['products'] = $this->product_model->get_product_outlet($outlet_id);
+			$this->template->load($this->default,'product/list_product',$data);
+		}
+		/****VIEW OTHER OUTLET's PRODUCT FUNCTIONALITY END****/		
 
 	}
 

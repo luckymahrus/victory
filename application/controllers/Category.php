@@ -45,7 +45,6 @@
 				redirect('category');
 			}else{
 				$data['title'] = 'Daftar Kategori';
-				$data['is_mobile'] = $this->is_mobile;
 				$this->template->load($this->default,'category/list_category',$data);
 			}
 		}

@@ -47,7 +47,9 @@
 									<td><?php echo $receive->from_outlet ?></td>
 									<td><?php echo $receive->to_outlet ?></td>
 									<td><?php echo $receive->status ?></td>
-									<td><a href="<?php echo base_url('product/receive_item/'.$receive->mutation_code) ?>">Terima</a></td>
+									<td><?php if ($receive->status == 'Pending'): ?>
+										<a href="<?php echo base_url('product/receive_item/'.$receive->mutation_code) ?>">Terima</a>
+									<?php endif ?></td>
 								</tr>		
 								<?php $i++; ?>
 							<?php endforeach; ?>

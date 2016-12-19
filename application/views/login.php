@@ -74,9 +74,6 @@
       <div class="flex-grid" style="margin: 11% 0;">
       <div class="row flex-just-center">
         
-      
-        
-        
         <?php echo form_open('accounts/login') ?>
         <div class="cell">
         
@@ -115,15 +112,16 @@
         </div>
       </div>
     </div>
-    
+    <script>
+
+      <?php if($this->session->flashdata('failed')): ?>
+
+         <?php echo $this->session->flashdata('failed') ?>
+
+      <?php endif; ?>
+    </script>
+
   </body>
 
-  <script>
-
-    <?php if($this->session->userdata('failed')): ?>
-
-       <?php echo $this->session->userdata('failed') ?>
-
-    <?php endif; ?>
-  </script>
+  
 </html>

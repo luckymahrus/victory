@@ -14,7 +14,6 @@
 		public function index(){
 			
 			$data['title'] = 'Daftar Baki';
-			$data['is_mobile'] = $this->is_mobile;
 			$data['trays'] = $this->tray_model->get_tray($this->session_outlet);
 			$data['category'] = $this->category_model->get_category('category');
 			$this->template->load($this->default,'tray/list_tray',$data);
