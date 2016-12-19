@@ -144,6 +144,7 @@
 
 			}else{
 				$data['title'] = 'Product';
+				$data['is_mobile'] = $this->is_mobile;
 				$data['trays'] = $this->db->get_where('tray', array('outlet_id' => $this->session_outlet))->result();
 				$data['gold_amount'] = $this->db->get('gold_amount')->result();
 				$this->template->load($this->default,'product/add_product',$data);

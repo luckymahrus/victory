@@ -225,7 +225,7 @@
                                         <span class="tile-label">Daftar Penjualan</span>
                                       </div>
                                     </div>
-                                    <a href="<?php echo base_url('sale') ?>" class="tile fg-white" data-role="tile" style="background-color: #905CFF">
+                                    <a href="<?php echo base_url('sale/new_sale') ?>" class="tile fg-white" data-role="tile" style="background-color: #905CFF">
                                       <div class="tile-content iconic">
                                         <span class="icon mif-plus"></span>
                                         <span class="tile-label">Penjualan Baru</span>

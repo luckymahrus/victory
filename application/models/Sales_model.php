@@ -10,6 +10,15 @@ class Sales_model extends CI_Model{
 		return $this->db->get()->result();
 	}
 
+	function get_outlet_sales($outlet_id = ''){
+		$this->db->select('accounts.*,outlets.name AS outlet_name');
+		$this->db->from('accounts');
+		$this->db->join('outlets','outlets.id = accounts.outlet_id');
+		$this->db->where('accounts.role','sales');
+		$this->db->where('accounts.outlet_id',$outlet_id);
+		return $this->db->get()->result();
+	}
+
 }
 
 ?>
