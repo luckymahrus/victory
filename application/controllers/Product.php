@@ -8,12 +8,14 @@
 		}
 
 		public function index(){
+			$this->load->model('outlets_model');
 			if($this->session_role != 'admin'){
 				//customer main page
 				
 				$data['title'] = 'Product';
 				$data['outlet_name'] = $this->db->get_where('outlets',array('id' => $this->session_outlet))->row('name');
 				$data['products'] = $this->product_model->get_product_outlet($this->session_outlet);
+				$data['outlets'] = $this->db->get('outlets')->result();
 				$this->template->load($this->default,'product/list_product',$data);
 			}else{
 				//customer main page
@@ -21,6 +23,7 @@
 				$data['title'] = 'Product';
 				$data['outlet_name'] = 'Semua Outlet';
 				$data['products'] = $this->product_model->get_product_all_outlet();
+				$data['outlets'] = $this->db->get('outlets')->result();
 				$this->template->load($this->default,'product/list_product',$data);	
 			}
 			
@@ -247,6 +250,17 @@
 		/*ajax for send_item*/
 		public function get_product_by_code($product_code = ''){
 			$product = $this->product_model->get_product_by_code($product_code,$this->session_outlet);
+			if($product == NULL){
+				echo 'not found';
+			}else{
+				$product = (Object) $product;
+				echo json_encode($product);	
+			}
+			
+		}
+
+		public function get_product_by_outlet($outlet_id = ''){
+			$product = $this->product_model->get_product_outlet($outlet_id);
 			if($product == NULL){
 				echo 'not found';
 			}else{

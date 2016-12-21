@@ -15,6 +15,17 @@
 	    </div>
 	    <div class="row">
 	    	<div class="cell">
+	   				<?php foreach($outlets as $outlet): ?>
+                    	<label class="input-control radio small-check">
+						    <input type="radio" value="<?php echo $outlet->id ?>" name="radio_outlet" onclick="get_product_from_outlet(this)">
+						    <span class="check"></span>
+						    <span class="caption"><?php echo $outlet->name ?></span>
+						</label>
+                	<?php endforeach; ?>
+	    	</div>
+	    </div>
+	    <div class="row">
+	    	<div class="cell">
 	    		<div class="input-control text full-size">
                     <input type="text" placeholder="Cari barang" id="filter" >
                 </div>
@@ -39,7 +50,7 @@
 							<th data-hide="phone">Lokasi</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="table_body">
 						<?php if($products !=NULL): ?>
 							<?php $i = 1; ?>
 							<?php foreach($products as $product): ?>
@@ -94,5 +105,28 @@
 
 	});
 
-	
+	function get_product_from_outlet(el){
+		var no=1;
+		$.ajax({
+              url: "<?php echo base_url('product/get_product_by_outlet/')?>" + $(el).val(),
+              type: 'GET',
+              cache : false,
+              success: function(result){
+               	if(result == 'not found'){
+      		        $.Notify({
+			            caption: 'Error',
+			            content: 'Barang Tidak Ditemukan',
+			            type: 'alert'
+			        });
+              	}else{
+              		var data = JSON.parse(result);
+              		$('#table_body').empty();
+              		$.each(data, function( index, value ) {
+					  $('#table_body').append("<tr><td>"+no+"</td><td><a class=photobox href='<?php echo base_url() ?>"+value.photo+"'><img width='20' src='<?php echo base_url()?>"+value.photo+"' alt=''/></a></td><td>"+value.product_code+"</td><td>"+value.name+"</td><td>"+value.tray+"</td><td>"+value.type+"</td><td>"+value.category+"</td><td>"+value.real_weight+"</td><td>"+value.rounded_weight+"</td><td>"+value.selling_price+"</td><td>"+value.amount_type+" "+value.original+"->"+value.marked_up+"</td><td>"+value.outlet+"</td></tr>");	
+					  no++;
+					});
+              	}
+              }
+            });
+	}
 </script>
