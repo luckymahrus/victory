@@ -13,8 +13,10 @@
 	            <hr class="bg-primary">    
 	        </div>
 	    </div>
+	    <?php if($outlets): ?>
 	    <div class="row">
 	    	<div class="cell">
+
 	    		<?php foreach ($outlets as $outlet):?>
 	    			<!-- Small Checkbox -->
 					<label class="input-control checkbox small-check">
@@ -25,6 +27,7 @@
 	    		<?php endforeach; ?>
 	    	</div>
 	    </div>
+	<?php endif; ?>
 	    <div class="row">
 	    	<div class="cell">
 	    		<div class="input-control text full-size">
@@ -34,7 +37,7 @@
 	    </div>
 		<div class="row">
 			<div class="cell table-responsive toggle-circle-filled">
-				<table class="table hovered bordered table-condensed" id="table_sale" data-filter="#filter" data-page-size="10">
+				<table class="table hovered border bordered table-condensed" id="table_sale" data-filter="#filter" data-page-size="10">
 					<thead>
 						<tr>
 							<th data-type="numeric">No.</th>

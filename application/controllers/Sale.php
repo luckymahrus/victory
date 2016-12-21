@@ -16,6 +16,7 @@
 				$data['outlets'] = $this->db->get('outlets')->result();
 				$data['sale'] = $this->sale_model->get_sale_by_outlet(1);
 			}else{
+				$data['outlets'] = NULL;
 				$data['sale'] = $this->sale_model->get_sale_by_outlet($this->session_outlet);	
 			}
 			

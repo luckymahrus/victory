@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2016 at 03:03 AM
+-- Generation Time: Dec 21, 2016 at 04:07 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `accounts` (
   `id` int(11) NOT NULL,
+  `code` varchar(5) DEFAULT NULL,
   `name` varchar(200) NOT NULL,
   `username` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
@@ -43,12 +44,13 @@ CREATE TABLE `accounts` (
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`id`, `name`, `username`, `password`, `role`, `address`, `email`, `phone`, `photo`, `outlet_id`) VALUES
-(1, 'admin', 'admin', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'admin', NULL, 'admin@k-signature.xyz', '081316878995', '', 0),
-(2, 'Vano', 'kemenangan', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'manager', NULL, '', '', '', 1),
-(3, 'Felita', 'asia', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'manager', NULL, '', '', '', 2),
-(7, 'Reyner', 'gethassee', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'manager', NULL, '', '', NULL, 4),
-(8, 'Josua Reynaldo', 'jos', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'sales', 'GGL', '', '08132148129', 'uploads/photo/sales/jos//sales-Jos.jpg', 4);
+INSERT INTO `accounts` (`id`, `code`, `name`, `username`, `password`, `role`, `address`, `email`, `phone`, `photo`, `outlet_id`) VALUES
+(1, NULL, 'admin', 'admin', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'admin', NULL, 'admin@k-signature.xyz', '081316878995', '', 0),
+(2, NULL, 'Vano', 'kemenangan', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'manager', NULL, '', '', '', 1),
+(3, NULL, 'Felita', 'asia', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'manager', NULL, '', '', '', 2),
+(7, NULL, 'Reyner', 'gethassee', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'manager', NULL, '', '', NULL, 4),
+(8, 'JOS', 'Josua Reynaldo', 'jos', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'sales', 'GGL', '', '08132148129', 'uploads/photo/sales/jos//sales-Jos.jpg', 4),
+(9, 'JOH', 'John Doe', 'john', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'sales', '', '', '08123910232', 'uploads/photo/sales/john//sales-Joh.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -94,7 +96,9 @@ INSERT INTO `code` (`id`, `code`, `count`) VALUES
 (3, 'KMK2', 2),
 (4, 'KMMUT', 6),
 (5, 'ASC1', 2),
-(6, 'ASMUT', 5);
+(6, 'ASMUT', 5),
+(7, 'MKM', 4),
+(11, 'KMJU', 3);
 
 -- --------------------------------------------------------
 
@@ -112,7 +116,7 @@ CREATE TABLE `configuration` (
 --
 
 INSERT INTO `configuration` (`id`, `primary_color`) VALUES
-(1, '#7d93b3');
+(1, '#000a54');
 
 -- --------------------------------------------------------
 
@@ -162,6 +166,7 @@ INSERT INTO `currency_history` (`id`, `currency_id`, `value`, `date`) VALUES
 
 CREATE TABLE `customers` (
   `id` int(11) NOT NULL,
+  `code` varchar(15) NOT NULL,
   `name` varchar(30) NOT NULL,
   `phone` varchar(30) NOT NULL,
   `email` varchar(30) DEFAULT NULL,
@@ -174,9 +179,11 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `name`, `phone`, `email`, `address`, `type`, `outlet_id`) VALUES
-(3, 'Setyawan', '081316361519', 'setyawansusanto99@outlook.com', 'Apartemen Puri ParkView\r\n', 'Regular', 0),
-(4, 'Felita', '081316361514', 'felita_31895@gmail.com', 'Gading Kirana', 'Member', 0);
+INSERT INTO `customers` (`id`, `code`, `name`, `phone`, `email`, `address`, `type`, `outlet_id`) VALUES
+(3, 'MKM0000001', 'Setyawan', '081316361519', 'setyawansusanto99@outlook.com', 'Apartemen Puri ParkView\r\n', 'Regular', 0),
+(4, 'MKM0000002', 'Felita', '081316361514', 'felita_31895@gmail.com', 'Gading Kirana', 'Member', 0),
+(5, 'MKM0000003', 'Sally', '08127312', '', '', 'Member', 0),
+(6, 'MKM0000004', 'Gabriella', '019830123', '', 'Gandaria', 'Regular', 0);
 
 -- --------------------------------------------------------
 
@@ -223,8 +230,7 @@ CREATE TABLE `mutation` (
 INSERT INTO `mutation` (`id`, `mutation_code`, `product_qty`, `date`, `from_outlet`, `to_outlet`, `status`) VALUES
 (2, 'KMMUT00001', 2, '2016-12-14 11:12:25', 1, 2, 'Diterima'),
 (4, 'KMMUT00003', 1, '2016-12-14 11:23:05', 1, 4, 'Pending'),
-(7, 'ASMUT00002', 1, '2016-12-15 08:39:38', 2, 1, 'Pending'),
-(8, 'KMMUT00004', 1, '2016-12-15 08:44:28', 1, 4, 'Pending'),
+(7, 'ASMUT00002', 1, '2016-12-15 08:39:38', 2, 1, 'Diterima'),
 (9, 'KMMUT00005', 1, '2016-12-15 08:45:36', 1, 2, 'Diterima'),
 (10, 'ASMUT00004', 2, '2016-12-15 17:34:12', 2, 1, 'Diterima');
 
@@ -251,7 +257,6 @@ INSERT INTO `mutation_product` (`id`, `product_code`, `mutation_code`, `status`)
 (3, 'KMK100002', 'KMMUT00001', 'OK'),
 (4, 'KMC100002', 'KMMUT00003', 'OK'),
 (7, 'ASC100001', 'ASMUT00002', 'OK'),
-(8, 'KMK100003', 'KMMUT00004', 'OK'),
 (9, 'KMK200001', 'KMMUT00005', 'OK'),
 (10, 'KMK100001', 'ASMUT00004', 'OK'),
 (11, 'KMK100002', 'ASMUT00004', 'OK');
@@ -302,7 +307,7 @@ CREATE TABLE `products` (
   `tray_id` int(11) NOT NULL,
   `photo` varchar(200) NOT NULL,
   `outlet_id` int(11) NOT NULL,
-  `status` enum('available','pending') NOT NULL
+  `status` enum('available','pending','terjual','rusak') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -310,13 +315,61 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `product_code`, `name`, `type`, `category`, `real_weight`, `rounded_weight`, `purchase_price`, `selling_price`, `buyback`, `gold_amount`, `tray_id`, `photo`, `outlet_id`, `status`) VALUES
-(2, 'KMK100001', 'Kalung MK Hello Kitty', 'Emas', 'Kalung MK', 2.67, 2.7, 0, 829440, 0, 1, 1, 'uploads/photo/product/1/KMK100001.jpg', 1, 'available'),
-(3, 'KMK100002', 'Kalung MK Merah', 'Emas', 'Kalung MK', 2.89, 2.9, 0, 890880, 0, 1, 1, 'uploads/photo/product/1/KMK100002.jpg', 1, 'available'),
+(2, 'KMK100001', 'Kalung MK Hello Kitty', 'Emas', 'Kalung MK', 2.67, 2.7, 0, 829440, 0, 1, 1, 'uploads/photo/product/1/KMK100001.jpg', 1, 'terjual'),
+(3, 'KMK100002', 'Kalung MK Merah', 'Emas', 'Kalung MK', 2.89, 2.9, 0, 890880, 0, 1, 1, 'uploads/photo/product/1/KMK100002.jpg', 1, 'terjual'),
 (4, 'KMK100003', 'Kalung MK', 'Emas', 'Kalung MK', 4.87, 4.9, 0, 1505280, 0, 1, 1, 'uploads/photo/product/1/KMK100003.jpg', 1, 'pending'),
 (5, 'KMC100001', 'Cincin Emas Hello Kitty', 'Emas', 'Cincin', 2.33, 2.35, 0, 721920, 0, 1, 4, 'uploads/photo/product/2/KMC100001.jpg', 2, 'available'),
 (6, 'KMC100002', 'Cincin Hello Kitty', 'Emas', 'Cincin', 2.33, 2.35, 0, 721920, 0, 1, 2, 'uploads/photo/product/2/KMC100002.jpg', 1, 'pending'),
 (7, 'KMK200001', 'Kalung Elora', 'Berlian', 'Kalung', 5.21, 5.25, 0, 1701000, 0, 2, 5, 'uploads/photo/product/3/KMK200001.jpg', 2, 'available'),
-(8, 'ASC100001', 'Cincin Kawin', 'Emas', 'Cincin', 1.36, 1.4, 0, 430080, 0, 1, 4, 'uploads/photo/product/4/ASC100001.jpg', 2, 'pending');
+(8, 'ASC100001', 'Cincin Kawin', 'Emas', 'Cincin', 1.36, 1.4, 0, 430080, 0, 1, 2, 'uploads/photo/product/4/ASC100001.jpg', 1, 'available');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sale`
+--
+
+CREATE TABLE `sale` (
+  `id` int(11) NOT NULL,
+  `sale_code` varchar(200) NOT NULL,
+  `date` datetime NOT NULL,
+  `outlet_id` int(11) NOT NULL,
+  `sales_id` int(11) NOT NULL,
+  `cashier_id` int(11) NOT NULL,
+  `customer_code` varchar(20) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `total_price` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sale`
+--
+
+INSERT INTO `sale` (`id`, `sale_code`, `date`, `outlet_id`, `sales_id`, `cashier_id`, `customer_code`, `qty`, `total_price`) VALUES
+(2, 'KMJU00002', '2016-12-20 07:42:00', 1, 9, 2, 'MKM0000003', 2, 1600000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sale_detail`
+--
+
+CREATE TABLE `sale_detail` (
+  `id` int(11) NOT NULL,
+  `product_code` varchar(10) NOT NULL,
+  `sale_code` varchar(10) NOT NULL,
+  `selling_price` double NOT NULL,
+  `discount` double NOT NULL,
+  `total_price` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sale_detail`
+--
+
+INSERT INTO `sale_detail` (`id`, `product_code`, `sale_code`, `selling_price`, `discount`, `total_price`) VALUES
+(3, 'KMK100001', 'KMJU00002', 829440, 29440, 800000),
+(4, 'KMK100002', 'KMJU00002', 890880, 90880, 800000);
 
 -- --------------------------------------------------------
 
@@ -422,7 +475,8 @@ ALTER TABLE `currency_history`
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `code` (`code`);
 
 --
 -- Indexes for table `gold_amount`
@@ -455,6 +509,18 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sale`
+--
+ALTER TABLE `sale`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sale_detail`
+--
+ALTER TABLE `sale_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `suppliers`
 --
 ALTER TABLE `suppliers`
@@ -480,7 +546,7 @@ ALTER TABLE `type`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -490,7 +556,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `code`
 --
 ALTER TABLE `code`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `configuration`
 --
@@ -510,7 +576,7 @@ ALTER TABLE `currency_history`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `gold_amount`
 --
@@ -536,6 +602,16 @@ ALTER TABLE `outlets`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `sale`
+--
+ALTER TABLE `sale`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `sale_detail`
+--
+ALTER TABLE `sale_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
