@@ -41,7 +41,7 @@
 								<tr>
 									<td><?php echo $i ?></td>
 									<td><?php echo $outlet->code ?></td>
-									<td><a href="<?php echo base_url('outlets/view_outlet/'.$outlet->id) ?>"><?php echo $outlet->name ?></a></td>
+									<td><?php echo $outlet->name ?></td>
 									<td><a href="tel:<?php echo $outlet->phone ?>"><?php echo $outlet->phone ?></a></td>
 									<td><?php echo $outlet->address ?></td>
 									<td><?php echo $outlet->store_manager ?></td>
