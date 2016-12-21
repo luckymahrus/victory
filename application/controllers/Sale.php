@@ -5,17 +5,53 @@
 
 		function __construct(){
 			parent::__construct();
-			if($this->session_role=='admin'){
-				redirect('home');
-			}
-
+			
+			$this->load->model('sale_model');
 		}
 
+		/****List Penjualan****/
+		public function index(){
+			$data['title'] = 'Daftar Penjualan';
+			if ($this->session_role == 'admin') {
+				$data['outlets'] = $this->db->get('outlets')->result();
+				$data['sale'] = $this->sale_model->get_sale_by_outlet(1);
+			}else{
+				$data['sale'] = $this->sale_model->get_sale_by_outlet($this->session_outlet);	
+			}
+			
+			$this->template->load($this->default,'sale/sale_list',$data);
+		}
+		/****list Penjualan END****/
+
+		/****Detail Transaksi Penjualan****/
+		public function detail($code = ''){
+			$data['title'] = 'Detail Penjualan';
+			$data['details'] = $this->sale_model->get_sale_detail($this->session_outlet,$code);
+			$this->template->load($this->default,'sale/sale_detail',$data);
+		}
+		/****Detail Transaksi Penjualan END****/
 
 		/**** SELLING START ****/
 		public function new_sale(){
+			if($this->session_role=='admin'){
+				redirect('home');
+			}
 			if($this->input->post()){
 				/**kalo ada customer baru di insert**/
+				if($this->input->post('new_customer') == 'on'){
+					$data_customer = array(
+							'code'		=> $this->input->post('customer_code'),
+							'name'		=> $this->input->post('customer_name'),
+							'phone'		=> $this->input->post('customer_phone'),
+							'email'		=> $this->input->post('customer_email'),
+							'address'	=> $this->input->post('customer_address'),
+							'type'		=> $this->input->post('customer_type')
+						);
+
+					$this->db->insert('customers', $data_customer);
+					$this->db->update('code',array('count' => $this->input->post('hidden_customer_count') + 1 ),array('code' => $this->input->post('hidden_customer_code')));
+				}
+
 				$data_sale = array(
 						'sale_code' => $this->input->post('sale_code'),
 						'date' => date('Y-m-d'),
@@ -35,9 +71,12 @@
 								'total_price' => $this->input->post('product_price')[$i] - $this->input->post('discount')[$i],
 							);
 						/**update barang kejual**/
+						$this->db->update('products', array('status' => 'terjual'), array('product_code' => $this->input->post('product_code')[$i]));
 						$this->db->insert('sale_detail',$data_detail);
 					}
 					/**update count code**/
+					$this->db->update('code',array('count' => $this->input->post('hidden_count') + 1 ),array('code' => $this->input->post('hidden_code')));
+
 					$this->session->set_flashdata('sale',"$.Notify({
 					    caption: 'Berhasil',
 					    content: 'Penjualan Berhasil',

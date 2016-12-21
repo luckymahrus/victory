@@ -40,6 +40,8 @@
 		    	<div class="cell">
 	    			<div class="input-control text full-size" data-role="input">
 	    			    <input type="text" placeholder="Nama Customer" id="customer_name" data-validate-func="required" data-validate-hint="Nama customer harus diisi" class="customer" name="customer_name" readonly="readonly">
+	    			    <input type="hidden" name="hidden_customer_code" id="hidden_customer_code">
+	    			    <input type="hidden" name="hidden_customer_count" id="hidden_customer_count">
 	    			</div>
 	    		</div>
 	    		<div class="cell">
@@ -173,9 +175,9 @@
               	
 	          		var data = JSON.parse(result);
 					
-					
 					$('#customer_code').val(data.customer_code);
-					
+					$('#hidden_customer_code').val(data.hidden_customer_code);
+					$('#hidden_customer_count').val(data.hidden_customer_count);
 					
           		}
             
@@ -227,6 +229,7 @@
 					$('#customer_email').val(data.email);
 					$('#customer_type').val(data.type);
 					$('#customer_address').val(data.address);	
+
               	}	
                		
 				

@@ -17,8 +17,20 @@
 
 		public function add_customer(){
 			if($this->input->post()){
-	            $data_customer = array(
 
+				$code = $this->db->get_where('code',array('code' => 'MKM'))->row();
+				if($code){
+
+					$customer_code = $code->code.sprintf("%07d", $code->count);
+					
+				}else{
+					$this->db->insert('code',array('code' => 'MKM','count' => 1));
+					$customer_code = 'MKM'.sprintf("%07d", 1);
+					
+				}
+
+	            $data_customer = array(
+	            		'code' => $customer_code,
 	            		'name' => $this->input->post('customer_name'),
 	            		'type' => $this->input->post('customer_type'),
 	            		'phone' => $this->input->post('customer_phone'),

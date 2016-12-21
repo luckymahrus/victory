@@ -252,12 +252,12 @@
                             <div class="tile-group triple">
                               <span class="tile-group-title">Penjualan</span>
                                 <div class="tile-container"><!--Container Penjualan begins-->
-                                    <div class="tile-large fg-white" data-role="tile" style="background-color: #734ACC">
+                                    <a href="<?php echo base_url('sale') ?>" class="tile-large fg-white" data-role="tile" style="background-color: #734ACC">
                                       <div class="tile-content iconic">
                                         <span class="icon mif-coins mif-ani-slow mif-ani-bounce"></span>
                                         <span class="tile-label">Daftar Penjualan</span>
                                       </div>
-                                    </div>
+                                    </a>
                                     <div class="tile fg-white" data-role="tile" style="background-color: #905CFF">
                                       <div class="tile-content iconic">
                                         <span class="icon mif-plus"></span>

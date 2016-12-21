@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/alertify.min.css">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/default.min.css">
 <link href="<?php echo base_url() ?>css/footable.core.css" type="text/css" rel="stylesheet">
-<div class="container">
+<div class="container-fluid">
 	<div class="grid">
 		<div class="row">
 	        <div class="cell">
@@ -25,10 +25,11 @@
 		<div class="row">
 			<div class="cell">
 				<div class="table-responsive toggle-circle-filled">
-				<table class="table table-condensed" id="table_customer" data-page-size="10" data-filter="#filter">
+				<table class="table hovered table-condensed" id="table_customer" data-page-size="10" data-filter="#filter">
 					<thead>
 						<tr>
 							<th data-type="numeric">No</th>
+							<th data-type="phone">Kode</th>
 							<th>Nama</th>
 							<th data-hide="phone">Tipe</th>
 							<th data-hide="phone">Telephone</th>
@@ -44,6 +45,7 @@
 							<?php foreach($customers as $customer): ?>
 							<tr>
 								<td><?php echo $i ?></td>
+								<td><?php echo $customer->code ?></td>
 								<td><?php echo $customer->name ?></td>
 								<td><?php echo $customer->type ?></td>
 								<td><a href="tel:<?php echo $customer->phone ?>"><?php echo $customer->phone ?></a></td>
