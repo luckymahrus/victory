@@ -457,9 +457,9 @@
                                 <a href="<?php echo base_url('configuration/gold_amount') ?>" class="tile bg-brown fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-coins"></span><span class="tile-label">Gold</span></div>
                                 </a>
-                                <div class="tile bg-darkOrange fg-white" data-role="tile">
+                                <a href="<?php echo base_url('configuration/diamond_type') ?>" class="tile bg-darkOrange fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon fa fa-diamond"></span><span class="tile-label">Diamond</span></div>
-                                </div>
+                                </a>
                                 <div class="tile-wide tile-big-x bg-taupe fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-discout  mif-ani-shuttle"></span><span class="tile-label">Promo</span></div>
                                 </div>

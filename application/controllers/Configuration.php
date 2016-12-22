@@ -112,9 +112,29 @@
 			}
 		}
 
+		/****Gold Amount (KADAR)****/
 		public function gold_amount(){
 			if($this->input->post()){
-
+				$data_amount = array(
+						'type'			=> $this->input->post('type'),
+						'amount_limit'	=> $this->input->post('limit'),
+						'original'		=> $this->input->post('original'),
+						'marked_up'		=> $this->input->post('marked_up')
+					);
+				if($this->db->insert('gold_amount',$data_amount)){
+					$this->session->set_flashdata('gold',"$.Notify({
+						caption: 'Berhasil',
+						content : 'Kadar telah ditambahkan',
+						type: 'success'
+					});");
+				}else{
+					$this->session->set_flashdata('gold',"$.Notify({
+						caption: 'Berhasil',
+						content : 'Kadar gagal ditambahkan',
+						type: 'alert'
+					});");
+				}
+				redirect('configuration/gold_amount');
 			}else{
 				$data['title'] = 'Kadar Emas';
 				$data['gold_amount'] = $this->crud_model->get_data('gold_amount')->result();
@@ -122,6 +142,131 @@
 			}
 			
 		}
+		public function edit_gold_amount($id = ''){
+			if($this->input->post()){
+				$data_amount = array(
+						'type'			=> $this->input->post('type'),
+						'amount_limit'	=> $this->input->post('limit'),
+						'original'		=> $this->input->post('original'),
+						'marked_up'		=> $this->input->post('marked_up')
+					);
+				if($this->db->update('gold_amount',$data_amount, array('id' => $id))){
+					$this->session->set_flashdata('gold',"$.Notify({
+						caption: 'Berhasil',
+						content : 'Kadar telah diedit',
+						type: 'success'
+					});");
+				}else{
+					$this->session->set_flashdata('gold',"$.Notify({
+						caption: 'Berhasil',
+						content : 'Kadar gagal diedit',
+						type: 'alert'
+					});");
+				}
+				redirect('configuration/gold_amount');
+			}else{
+				$data['title'] = 'Edit Kadar Emas';
+				$data['gold_amount'] = $this->db->get_where('gold_amount',array('id' => $id))->row();
+				$this->template->load($this->default,'configuration/edit_gold_amount',$data);	
+			}
+		}
+
+		public function delete_gold_amount($id = ''){
+			if($this->db->delete('gold_amount',array('id'=>$id))){
+				$this->session->set_flashdata('gold',"$.Notify({
+					caption: 'Berhasil',
+					content : 'Kadar telah dihapus',
+					type: 'success'
+				});");
+				
+			}else{
+				$this->session->set_flashdata('gold',"$.Notify({
+					caption: 'Gagal',
+					content : 'Kadar gagal dihapus',
+					type : 'alert'
+				});");
+				
+			}
+			redirect('configuration/gold_amount');
+		}
+
+		/****Gold Amount (KADAR) END****/
+
+		/****Diamond stone type****/
+		public function diamond_type(){
+			if($this->input->post()){
+				$data_diamond = array(
+						'code'			=> $this->input->post('type'),
+						'name'		=> $this->input->post('name')
+					);
+				if($this->db->insert('diamond_type',$data_diamond)){
+					$this->session->set_flashdata('diamond',"$.Notify({
+						caption: 'Berhasil',
+						content : 'Tipe Berlian telah ditambahkan',
+						type: 'success'
+					});");
+				}else{
+					$this->session->set_flashdata('diamond',"$.Notify({
+						caption: 'Berhasil',
+						content : 'Tipe Berlian gagal ditambahkan',
+						type: 'alert'
+					});");
+				}
+				redirect('configuration/diamond_type');
+			}else{
+				$data['title'] = 'Tipe Berlian';
+				$data['diamond_type'] = $this->crud_model->get_data('diamond_type')->result();
+				$this->template->load($this->default,'configuration/diamond_type',$data);	
+			}
+			
+		}
+		public function edit_diamond_type($id = ''){
+			if($this->input->post()){
+				$data_diamond = array(
+						'code'			=> $this->input->post('type'),
+						'name'		=> $this->input->post('name')
+					);
+				if($this->db->update('diamond_type',$data_diamond, array('id' => $id))){
+					$this->session->set_flashdata('diamond',"$.Notify({
+						caption: 'Berhasil',
+						content : 'Tipe Berlian telah diedit',
+						type: 'success'
+					});");
+				}else{
+					$this->session->set_flashdata('diamond',"$.Notify({
+						caption: 'Berhasil',
+						content : 'Tipe Berlian gagal diedit',
+						type: 'alert'
+					});");
+				}
+				redirect('configuration/diamond_type');
+			}else{
+				$data['title'] = 'Edit Tipe Berlian';
+				$data['diamond_type'] = $this->db->get_where('diamond_type', array('id' => $id))->row();
+				$this->template->load($this->default,'configuration/edit_gold_amount',$data);	
+			}
+		}
+
+		public function delete_diamond_type($id = ''){
+			if($this->db->delete('diamond_type',array('id'=>$id))){
+				$this->session->set_flashdata('diamond',"$.Notify({
+					caption: 'Berhasil',
+					content : 'Tipe Berlian telah dihapus',
+					type: 'success'
+				});");
+				
+			}else{
+				$this->session->set_flashdata('diamond',"$.Notify({
+					caption: 'Gagal',
+					content : 'Tipe Berlian gagal dihapus',
+					type : 'alert'
+				});");
+				
+			}
+			redirect('configuration/diamond_type');
+		}
+		/****Diamond stone type END****/
+
 
 	}
 
