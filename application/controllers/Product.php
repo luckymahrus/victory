@@ -343,6 +343,13 @@
 			}
 		}
 		/****RECEIVE ITEM END****/
+
+		public function mutation_item_detail($code = ''){
+			$data['title'] = 'Detail Penerimaan';
+			$data['details'] = $this->product_model->get_mutation_detail($this->session_outlet,$code);
+			$this->template->load($this->default,'product/mutation_item_detail',$data);
+		}
+		
 	}
 
 ?>

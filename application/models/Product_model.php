@@ -37,6 +37,16 @@ class Product_model extends CI_Model{
 		$this->db->order_by('products.product_code','asc');
 		return $this->db->get()->row();
 	}
+
+	function get_mutation_detail($outlet_id = '',$mutation_code = ''){
+		$this->db->select('mutation_product.*, products.name, products.photo, products.real_weight, products.rounded_weight');
+		$this->db->from('mutation_product');
+		$this->db->join('mutation','mutation.mutation_code = mutation_product.mutation_code','left');
+		$this->db->join('products','products.product_code = mutation_product.product_code','left');
+		$this->db->where('mutation.mutation_code',$mutation_code);
+		$this->db->order_by('mutation.date','desc');
+		return $this->db->get()->result();
+	}
 }
 
 ?>
