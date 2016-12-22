@@ -113,9 +113,14 @@
 		}
 
 		public function gold_amount(){
-			$data['title'] = 'Kadar Emas';
-			$data['gold_amount'] = $this->crud_model->get_data('gold_amount')->result();
-			$this->template->load($this->default,'configuration/gold_amount',$data);
+			if($this->input->post()){
+
+			}else{
+				$data['title'] = 'Kadar Emas';
+				$data['gold_amount'] = $this->crud_model->get_data('gold_amount')->result();
+				$this->template->load($this->default,'configuration/gold_amount',$data);	
+			}
+			
 		}
 
 	}

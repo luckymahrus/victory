@@ -32,6 +32,11 @@
 				</div>
 	    	</div>
 	    </div>
+	    <div class="row">
+	    	<div class="cell">
+	    		<div id="wait">Please Wait</div>
+	    	</div>
+	    </div>
 		<div class="row">
 			<div class="cell table-responsive toggle-circle-filled">
 				<table class="table hovered border table-condensed" id="table_product" data-page-size="10">
@@ -83,7 +88,12 @@
 
 	    $('#table_product').footable();
 	    $('a.photobox').fancybox();
-
+	    $(document).ajaxStart(function(){
+        	$("#wait").css("display", "block");
+	    });
+	    $(document).ajaxComplete(function(){
+	        $("#wait").css("display", "none");
+	    });
 	});
 
 	function get_product(el){

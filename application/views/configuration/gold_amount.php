@@ -13,9 +13,19 @@
 	<div class="grid condensed">
 		<!--Form Add Tray-->
 		<?php echo form_open('configuration/gold_amount')?>
-		<div class="row cells2 closed-add" id="append_tray" style="display: none">
+		<div class="row cells3 closed-add" id="append_tray" style="display: none">
 			<h3 style="margin-bottom: 20px;">Tambah Kadar Baru</h3>
             <hr class="bg-primary">	
+            <div class="cell">
+            	<label for="">Tipe</label>
+            	<div class="input-control select full-size">
+					<select name="product_tray" id="tray" onchange="get_data_new_product()" data-validate-func="required" data-validate-hint="Baki harus dipilih">
+						<option value="">--Pilih Tipe--</option>
+						<option value="K">Emas Kuning</option>
+						<option value="P">Emas Putih</option>
+					</select>
+				</div>
+            </div>
     		<div class="cell">
     			<label>Kadar Emas</label>
                 <div class="input-control text full-size">
@@ -29,7 +39,7 @@
                     <input type="text" placeholder="Masukkan markup kadar emas" name="marked_up" data-validate-func="required" data-validate-hint="Markup harus diisi">
                 </div>
     		</div>
-            <div class="cell colspan2 text-center">
+            <div class="cell colspan3 text-center">
                <input type="Submit" name="submit" id="submit" class="button bg-primary btn-teal" value="Submit" disabled="disabled"> 
             </div>
     	</div>
@@ -51,6 +61,7 @@
 					<thead>
 						<tr>
 							<th data-type="numeric">No</th>
+							<th>Tipe Emas</th>
 							<th data-type="numeric">Kadar Emas</th>
 							<th data-type="numeric">Markup Kadar Emas</th>
 							<th data-hide="phone">Action</th>
@@ -62,6 +73,7 @@
 							<?php foreach($gold_amount as $row): ?>
 							<tr>
 								<td><?php echo $i ?></td>
+								<td><?php echo ($row->type == 'K')? 'Kuning' : 'Putih' ?></td>
 								<td><?php echo $row->original ?>%</td>
 								<td><?php echo $row->marked_up ?>%</td>
 								<td>edit delete</td>
