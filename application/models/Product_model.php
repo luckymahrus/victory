@@ -19,7 +19,9 @@ class Product_model extends CI_Model{
 		$this->db->join('outlets','outlets.id = products.outlet_id');
 		$this->db->join('tray','tray.id = products.tray_id');
 		$this->db->join('gold_amount','gold_amount.id = products.gold_amount');
-		$this->db->where('products.outlet_id',$outlet_id);
+		if($outlet_id != ''){
+			$this->db->where('products.outlet_id',$outlet_id);	
+		}
 		$this->db->where('products.status','available');
 		$this->db->order_by('products.product_code','asc');
 		return $this->db->get()->result();

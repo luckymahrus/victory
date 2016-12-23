@@ -270,16 +270,6 @@
 			
 		}
 
-		public function get_product_all_outlet(){
-			$product = $this->product_model->get_product_all_outlet();
-			if($product == NULL){
-				echo 'not found';
-			}else{
-				$product = (Object) $product;
-				echo json_encode($product);	
-			}
-			
-		}
 		/* end of ajax */
 		/****SEND ITEM END****/
 
