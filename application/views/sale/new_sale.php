@@ -103,7 +103,8 @@
 							<th >Nama</th>
 							<th data-hide="phone">Berat</th>
 							<th data-hide="phone">Harga Jual</th>
-							<th data-hide="phone">Discount</th>
+							<th data-hide="phone">Limit Jual</th>
+							<th data-hide="phone">Harga Deal</th>
 							<th data-hide="phone">Subtotal</th>
 						</tr>
 					</thead>
@@ -265,7 +266,7 @@
 				            type: 'alert'
 				        });
 					}else{
-						$('#table_body').append("<tr><td>"+no+"</td><td><a class='photobox' href='<?php echo base_url() ?>"+data.photo+"'><img width='20' src='<?php echo base_url() ?>"+data.photo+"' alt=''/></a></td><td>"+data.product_code+"</td><td>"+data.name+"</td><td>"+data.rounded_weight+"</td><td id='price_"+data.id+"'>"+data.selling_price+"</td><td><input type='text' name='discount[]' value='0' id='discount_"+data.id+"' onblur='calc_price("+data.id+")'></td><td id='total_"+data.id+"'>"+data.selling_price+"</td><input type='hidden' name='product_code[]' value='"+data.product_code+"'><input type='hidden' name='product_price[]' value='"+data.selling_price+"'></tr>");
+						$('#table_body').append("<tr><td>"+no+"</td><td><a class='photobox' href='<?php echo base_url() ?>"+data.photo+"'><img width='20' src='<?php echo base_url() ?>"+data.photo+"' alt=''/></a></td><td>"+data.product_code+"</td><td>"+data.name+"</td><td>"+data.rounded_weight+"</td><td id='price_"+data.id+"'>"+data.selling_price+"</td><td id='limit_"+data.id+"'>"+data.limit+"</td><td><input type='text' name='discount[]' value='0' id='discount_"+data.id+"' onblur='calc_price("+data.id+")'></td><td id='total_"+data.id+"'>"+data.selling_price+"</td><input type='hidden' name='product_code[]' value='"+data.product_code+"'><input type='hidden' name='product_price[]' value='"+data.selling_price+"'></tr>");
 
 							var total = $('#total_price').html();
 							total = +total + +data.selling_price;
@@ -294,14 +295,22 @@
 		price = +price - $('#discount_'+id).val();
 		var subtotal = $('#total_'+id).html();
 		var total = $('#total_price').html();
+		var limit = $('#limit_'+id).html();
+
 		total = +total - +subtotal;
-		if(price >= 0){
-			total = +total + +price;
-			$('#total_'+id).empty();
-			$('#total_'+id).html(price);
-			$('#total_price').empty();
-			$('#total_price').html(total);
-			$('#hidden_total').val(total);
+		if($('#discount_'+id).val() > limit){
+
+		
+			if(price >= 0){
+				total = +total + +price;
+				$('#total_'+id).empty();
+				$('#total_'+id).html(price);
+				$('#total_price').empty();
+				$('#total_price').html(total);
+				$('#hidden_total').val(total);
+			}else{
+				$('#discount_'+id).val('');
+			}
 		}else{
 			$('#discount_'+id).val('');
 		}

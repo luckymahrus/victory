@@ -254,9 +254,15 @@
 		/*ajax for send_item*/
 		public function get_product_by_code($product_code = ''){
 			$product = $this->product_model->get_product_by_code($product_code,$this->session_outlet);
+			$limit = $this->db->get_where('amount_limit',array('outlet_id' => $this->session_outlet, 'amount_id' => $product->gold_amount))->row('amount_limit');
+			$gold_price = $this->db->get_where('currency',array('id' => 2))->row('value');
+			$limit = $gold_price * $limit / 100;
+			$limit = $limit * $product->rounded_weight;
 			if($product == NULL){
 				echo 'not found';
 			}else{
+				$product = (array) $product;
+				$product['limit'] = $limit;
 				$product = (Object) $product;
 				echo json_encode($product);	
 			}

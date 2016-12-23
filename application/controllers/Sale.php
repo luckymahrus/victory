@@ -28,6 +28,7 @@
 		public function detail($code = ''){
 			$data['title'] = 'Detail Penjualan';
 			$data['details'] = $this->sale_model->get_sale_detail($this->session_outlet,$code);
+			
 			$this->template->load($this->default,'sale/sale_detail',$data);
 		}
 		/****Detail Transaksi Penjualan END****/
