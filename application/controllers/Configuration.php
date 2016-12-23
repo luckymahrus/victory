@@ -6,7 +6,7 @@
 
 		function __construct(){
 			parent::__construct();
-			$this->load->model('configuration_model');
+			
 			
 			if($this->session_role != 'admin'){
 				redirect('home');
@@ -31,9 +31,10 @@
 
 		/****Currency start****/
 		public function currency(){
+			$this->load->model('currency_model');
 			$data['title'] = 'Kurs';
 			$data['currencies'] = $this->crud_model->get_data('currency')->result();
-			$data['histories'] = $this->configuration_model->get_currency_history();
+			$data['histories'] = $this->currency_model->get_currency_history();
 			$this->template->load('default','currency/list_add_currency',$data);
 		}
 

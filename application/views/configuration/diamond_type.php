@@ -55,7 +55,7 @@
 		<div class="row">
 			<div class="cell">
 				<div class="table-responsive toggle-circle-filled">
-				<table class="table table-condensed" id="table_tray" data-page-size="10" data-filter="#filter">
+				<table class="table bordered table-condensed" id="table_tray" data-page-size="10" data-filter="#filter">
 					<thead>
 						<tr>
 							<th data-type="numeric">No</th>

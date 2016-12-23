@@ -23,7 +23,7 @@
 		<div class="row">
 			<div class="cell">
 				<div class="table-responsive toggle-circle-filled">
-				<table class="table table-condensed" id="supplier_table" data-filter="#filter" data-page-size="10">
+				<table class="table table-condensed bordered hovered" id="supplier_table" data-filter="#filter" data-page-size="10">
 					<thead>
 						<tr>
 							<th data-type="numeric">No</th>
