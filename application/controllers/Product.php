@@ -184,6 +184,7 @@
 		public function count_gold_amount($gold_amount_id = ''){
 			$gold_amount = $this->db->get_where('gold_amount',array('id'=>$gold_amount_id))->row();
 			$gold_amount = (array) $gold_amount;
+			$gold_amount['gold_price'] = $this->db->get_where('currency',array('id' => 2))->row('value');
 			echo json_encode($gold_amount);
 
 		}

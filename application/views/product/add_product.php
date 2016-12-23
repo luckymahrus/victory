@@ -157,7 +157,7 @@
 <script>
 	function count_selling_price(){
 		if($('#gold_price').val() != '' && $('#marked_up').val() != '' && $('#rounded').val()){
-			var price = Number($('#gold_price').val()) * Number($('#marked_up').val()) * Number($('#rounded').val()) /100;
+			var price = Number($('#gold_price').val()) * Number($('#rounded').val());
 			$('#selling_price').val(price);
 		}
 	}
@@ -184,67 +184,60 @@
 	}
 
 	function count_gold_amount(){
-		if($('#real').val() != '' && $('#original').val() != ''){
-			$.ajax({
-              url: "<?php echo base_url('product/count_gold_amount/')?>" + $('#original').val(),
-              type: 'GET',
-              cache : false,
-              success: function(result){
-               	var data = JSON.parse(result);
-               	$('#marked_up').val(data.marked_up);
-               	$('#gold_price').val(data.price);          	
+	
+		$.ajax({
+          url: "<?php echo base_url('product/count_gold_amount/')?>" + $('#original').val(),
+          type: 'GET',
+          cache : false,
+          success: function(result){
+          	var data = JSON.parse(result);
+           	$('#marked_up').val(data.marked_up);
+           	$('#gold_price').val(data.gold_price * data.marked_up / 100);
+          	
+          	if($('#real').val() != '' && $('#original').val() != ''){
+               	          	
                 count_selling_price();
-              }
-            
-            });
-		}else{
-			$.ajax({
-              url: "<?php echo base_url('product/count_gold_amount/')?>" + $('#original').val(),
-              type: 'GET',
-              cache : false,
-              success: function(result){
-               	var data = JSON.parse(result);
-               	$('#marked_up').val(data.marked_up);
-               	$('#gold_price').val(data.price);  
-                
-              }
-            
-            });
-		}
+        	}
+          }
+        
+        });
+		
 	}
 
 	function rounded_weight(){
-		if($('#real').val() != '' && $('#original').val() != ''){
+		
 			var real = $('#real').val();
-			var substr = real.substring(real.length - 1, real.length);
-			if(Number(substr) < 5){
-				var round = 0.05;
+
+			var n = real.lastIndexOf('.');
+			
+			var result = real.substring(n + 1);
+			if(result.length == 1){
+				var substr = 0;
 			}else{
-				var round = 0.1;
+				var substr = real.substring(real.length - 1, real.length);	
 			}
+			if(n != -1){
+				if(Number(substr) == 0){
+					var round = 0.00;
+				}else if(Number(substr) <= 5){
+					var round = 0.05;
+				}else{
+					var round = 0.1;
+				}
+			}else{
+				var round = 0.00;
+			}
+			
 			substr = '0.0'+substr;
 			substr = Number(substr);
 			real = Number(real);
 			weight = real - substr + round;
 			$('#rounded').val(weight.toFixed(2));
 
-			count_selling_price();
-
-
-		}else{
-			var real = $('#real').val();
-			var substr = real.substring(real.length - 1, real.length);
-			if(Number(substr) < 5){
-				var round = 0.05;
-			}else{
-				var round = 0.1;
+			
+			if($('#real').val() != '' && $('#original').val() != ''){
+				count_selling_price();
 			}
-			substr = '0.0'+substr;
-			substr = Number(substr);
-			real = Number(real);
-			weight = real - substr + round;
-			$('#rounded').val(weight.toFixed(2));
-		}
 	}
 
     function show_cam(el){
