@@ -19,26 +19,6 @@
         	<div class="grid">
             	<div class="row cells2">
             		<div class="cell">
-            			<label for="">Tipe</label>
-		            	<div class="input-control select full-size" data-role="input">
-							<select name="type" id="type" onchange="get_data_new_product()" data-validate-func="required" data-validate-hint="Baki harus dipilih">
-								<option value="">--Pilih Tipe--</option>
-								<option value="K">Emas Kuning</option>
-								<option value="P">Emas Putih</option>
-							</select>
-						</div>
-            		</div>
-            		<div class="cell">
-            			<label>Limit Jual</label>
-		                <div class="input-control text full-size" data-role="input">
-		                    <input type="text" placeholder="Masukkan Limit Jual" name="limit" data-validate-func="required" data-validate-hint="Limit harus diisi">
-		                    <span class="button">%</span>
-		                </div>
-		                
-            		</div>
-            	</div>
-            	<div class="row cells2">
-            		<div class="cell">
             			<label>Kadar Emas</label>
 		                <div class="input-control text full-size" data-role="input">
 		                    <input type="text" placeholder="Masukkan kadar emas" name="original" data-validate-func="required" data-validate-hint="Kadar emas harus diisi">
@@ -51,6 +31,18 @@
 		                    <input type="text" placeholder="Masukkan markup kadar emas" name="marked_up" data-validate-func="required" data-validate-hint="Markup harus diisi">
 		                    <span class="button">%</span>
 		                </div>
+            		</div>
+            	</div>
+            	<div class="row cells2">
+            		<div class="cell">
+            			<label for="">Tipe</label>
+		            	<div class="input-control select full-size" data-role="input">
+							<select name="type" id="type" onchange="get_data_new_product()" data-validate-func="required" data-validate-hint="Baki harus dipilih">
+								<option value="">--Pilih Tipe--</option>
+								<option value="K">Emas Kuning</option>
+								<option value="P">Emas Putih</option>
+							</select>
+						</div>
             		</div>
             	</div>
             	<div class="row">
@@ -82,7 +74,6 @@
 							<th>Tipe Emas</th>
 							<th data-type="numeric">Kadar Emas</th>
 							<th data-type="numeric">Markup Kadar Emas</th>
-							<th data-hide="phone">Limit Jual</th>
 							<th data-hide="phone">Action</th>
 						</tr>
 					</thead>
@@ -95,7 +86,6 @@
 								<td><?php echo ($row->type == 'K')? 'Kuning' : 'Putih' ?></td>
 								<td><?php echo $row->original ?>%</td>
 								<td><?php echo $row->marked_up ?>%</td>
-								<td><?php echo $row->amount_limit ?>%</td>
 								<td><a href="<?php echo base_url('configuration/edit_gold_amount/'.$row->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_gold_amount('<?php echo $row->id ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
 							</tr>
 							<?php $i++; ?>

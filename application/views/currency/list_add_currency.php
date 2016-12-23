@@ -4,7 +4,7 @@
         <div class="row">
             <div class="cell">
                 <h3 style="display: inline-block;"><small><a href="<?php echo base_url() ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke Home</a></small></h3>
-                <h3 style="display:inline-block;float:right;"><small><a id="add_link" style="cursor: pointer;">Tambah kurs baru <span class="fa fa-plus-circle"></span></a></small></h3>
+                <h3 style="display:inline-block;float:right;"><small><a id="add_link" style="cursor: pointer;">Tambah kurs baru <span id="plus" class="fa fa-plus-circle"></span></a></small></h3>
             </div>
         </div>
         <!--Field dollar insertion-->
@@ -40,7 +40,7 @@
                 <h3 style="margin-bottom: 20px;">Daftar Nilai Kurs</h3>
                 <hr class="bg-primary"> 
                 <div class="table-responsive toggle-circle-filled">
-                    <table class="table table-condensed" data-page-size="10" id="table_kurs">
+                    <table class="table bordered table-condensed" data-page-size="10" id="table_kurs">
                         <thead>
                             <tr>
                                 <th>Nama Kurs</th>
@@ -56,7 +56,9 @@
                                     <td><?php echo $currency->name ?></td>
                                     <td><?php echo 'Rp '. number_format($currency->value,2,',','.') ?></td>
                                     <td><?php echo date('d-M-Y H:i:s',strtotime($currency->last_update))?></td>
-                                    <td><a href="<?php echo base_url('configuration/update_currency/'.$currency->id) ?>"><span class="mif mif-pencil"></span> Update</a> - <a href="#" onclick="delete_currency('<?php echo $currency->id ?>','<?php echo $currency->name ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
+                                    <td><a href="<?php echo base_url('configuration/update_currency/'.$currency->id) ?>"><span class="mif mif-pencil"></span> Update</a>
+                                    <?php if($currency->id != 1 && $currency->id != 2): ?> - <a href="#" onclick="delete_currency('<?php echo $currency->id ?>','<?php echo $currency->name ?>')"><span class="mif mif-bin"></span> Hapus</a>
+                                    <?php endif; ?></td>
                                 </tr>
                                 <?php endforeach;?>
                             <?php else : ?>
@@ -83,7 +85,7 @@
                 </div>
         
                 <div class="table-responsive toggle-circle-filled">
-                    <table class="table table-condensed" data-page-size="10" id="table_history" data-filter="#filter">
+                    <table class="table bordered table-condensed" data-page-size="10" id="table_history" data-filter="#filter">
                         <thead>
                             <tr>
                                 <th>Nama Kurs</th>
@@ -133,11 +135,15 @@
         if($('#append_kurs').hasClass('closed-add')){
             $('#append_kurs').removeClass('closed-add');
             $('#append_kurs').show();
+            $('#plus').removeClass('fa-plus-circle');
+            $('#plus').addClass('fa-minus-circle'); 
             
         }
         else{
             $('#append_kurs').hide();
             $('#append_kurs').addClass('closed-add');
+            $('#plus').removeClass('fa-minus-circle');
+            $('#plus').addClass('fa-plus-circle'); 
         }
     });
     

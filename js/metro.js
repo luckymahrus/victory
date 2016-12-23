@@ -4018,7 +4018,7 @@ window.toggleMetroCharm = function(el, position){
         console.log('Charm ' + el + ' not found!');
         return false;
     }
-
+    
     charm_obj = charm.data('charm');
 
     if (charm_obj == undefined) {

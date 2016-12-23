@@ -5,7 +5,7 @@
 	<div class="grid">
 		<div class="row">
 	        <div class="cell">
-	            <h3 style="display: inline-block;"><small><a href="<?php echo base_url('configuration/diamond_type/') ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke Kadar Emas</a></small></h3>
+	            <h3 style="display: inline-block;"><small><a href="<?php echo base_url('configuration/diamond_type/') ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke Tipe Berlian</a></small></h3>
 	        </div>
 	    </div>
 	</div>
@@ -17,41 +17,20 @@
             <hr class="bg-primary">	
         	<div class="grid">
             	<div class="row cells2">
-            		<div class="cell">
-            			<label for="">Tipe</label>
-		            	<div class="input-control select full-size" data-role="input">
-							<select name="type" id="type" onchange="get_data_new_product()" data-validate-func="required" data-validate-hint="Baki harus dipilih">
-								<option value="">--Pilih Tipe--</option>
-								<option value="K" <?php echo ($diamond_type->type == 'K')? 'selected' : '' ?>>Emas Kuning</option>
-								<option value="P" <?php echo ($diamond_type->type == 'P')? 'selected' : '' ?>>Emas Putih</option>
-							</select>
-						</div>
-            		</div>
-            		<div class="cell">
-            			<label>Limit Jual</label>
-		                <div class="input-control text full-size" data-role="input">
-		                    <input type="text" placeholder="Masukkan Limit Jual" name="limit" value="<?php echo $diamond_type->amount_limit ?>" data-validate-func="required" data-validate-hint="Limit harus diisi">
-		                    <span class="button">%</span>
-		                </div>
-		                
-            		</div>
-            	</div>
-            	<div class="row cells2">
-            		<div class="cell">
-            			<label>Kadar Emas</label>
-		                <div class="input-control text full-size" data-role="input">
-		                    <input type="text" placeholder="Masukkan kadar emas" name="original" value="<?php echo $diamond_type->original ?>" data-validate-func="required" data-validate-hint="Kadar emas harus diisi">
-		                    <span class="button">%</span>
-		                </div>
-            		</div>
-            		<div class="cell">
-            			<label>Kadar Emas (Markup)</label>
-		                <div class="input-control text full-size" data-role="input">
-		                    <input type="text" placeholder="Masukkan markup kadar emas" name="marked_up" value="<?php echo $diamond_type->marked_up ?>" data-validate-func="required" data-validate-hint="Markup harus diisi">
-		                    <span class="button">%</span>
-		                </div>
-            		</div>
-            	</div>
+                    <div class="cell">
+                        <label>Kode Berlian</label>
+                        <div class="input-control text full-size" data-role="input">
+                            <input type="text" placeholder="Masukkan Kode Berlian (cth: Rd)" value="<?php echo $diamond_type->code ?>" name="type" data-validate-func="required" data-validate-hint="Limit harus diisi">
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <label>Nama Berlian</label>
+                        <div class="input-control text full-size" data-role="input">
+                            <input type="text" placeholder="Masukkan Nama Berlian" name="name" value="<?php echo $diamond_type->name ?>" data-validate-func="required" data-validate-hint="Limit harus diisi">
+                        </div>
+                        
+                    </div>
+                </div>
             	<div class="row">
             		<div class="cell text-center">
             			<input type="Submit" name="submit" id="submit" class="button bg-primary btn-teal" value="Submit"> 

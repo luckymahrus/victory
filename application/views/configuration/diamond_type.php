@@ -100,8 +100,8 @@
 	
 
     $(document).ready(function(){
-        <?php if($this->session->flashdata('gold')): ?>
-            <?php echo $this->session->flashdata('gold') ?>
+        <?php if($this->session->flashdata('diamond')): ?>
+            <?php echo $this->session->flashdata('diamond') ?>
         <?php endif; ?>
         $('#table_tray').footable();
     });

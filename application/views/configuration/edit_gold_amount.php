@@ -5,7 +5,7 @@
 	<div class="grid">
 		<div class="row">
 	        <div class="cell">
-	            <h3 style="display: inline-block;"><small><a href="<?php echo base_url('configuration/gold_amount/') ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke Kadar Emas</a></small></h3>
+	            <h3 style="display: inline-block;"><small><a href="<?php echo base_url('configuration/diamond_type/') ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke Tipe Berlian</a></small></h3>
 	        </div>
 	    </div>
 	</div>

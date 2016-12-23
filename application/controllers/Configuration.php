@@ -29,6 +29,7 @@
 			}
 		}
 
+		/****Currency start****/
 		public function currency(){
 			$data['title'] = 'Kurs';
 			$data['currencies'] = $this->crud_model->get_data('currency')->result();
@@ -111,6 +112,7 @@
 				redirect('configuration/currency');
 			}
 		}
+		/****Currency END****/
 
 		/****Gold Amount (KADAR)****/
 		public function gold_amount(){
@@ -172,6 +174,7 @@
 		}
 
 		public function delete_gold_amount($id = ''){
+			$this->db->delete('amount_limit',array('amount_id' => $id));
 			if($this->db->delete('gold_amount',array('id'=>$id))){
 				$this->session->set_flashdata('gold',"$.Notify({
 					caption: 'Berhasil',
@@ -243,7 +246,7 @@
 			}else{
 				$data['title'] = 'Edit Tipe Berlian';
 				$data['diamond_type'] = $this->db->get_where('diamond_type', array('id' => $id))->row();
-				$this->template->load($this->default,'configuration/edit_gold_amount',$data);	
+				$this->template->load($this->default,'configuration/edit_diamond_type',$data);	
 			}
 		}
 
@@ -267,6 +270,42 @@
 		}
 		/****Diamond stone type END****/
 
+		/****outlet configuration****/
+		public function outlet_config(){
+			if($this->input->post()){
+
+			}else{
+				$this->load->model('amount_model');
+				$data['title'] = 'Konfigurasi Outlet';
+				$data['outlets'] = $this->db->get('outlets')->result();
+				$data['amount_limit'] = $this->amount_model->get_outlet_amount(1);
+				$this->template->load($this->default,'configuration/outlet_config',$data);
+			
+			}
+		}
+
+		public function get_limit_by_outlet($outlet_id = ''){
+			$this->load->model('amount_model');
+			$data = $this->amount_model->get_outlet_amount($outlet_id);
+			if($data == NULL){
+				echo 'not found';
+			}else{
+				$data = (Object) $data;
+				echo json_encode($data);	
+			}
+			
+
+		}
+
+		public function change_limit($value = '', $limit_id = ''){
+			if($this->db->update('amount_limit',array('amount_limit' => $value), array('id' => $limit_id))){
+				echo 'success';
+			}else{
+				echo 'failed';
+			}
+		}
+
+		/****outlet configuration end****/
 
 	}
 

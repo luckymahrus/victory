@@ -448,9 +448,9 @@
                             <div class="tile-group">
                               <div class="tile-group-title">Konfigurasi</div>
                               <div class="tile-container left-margin"><!--Tile container start-->
-                                <div class="tile tile-large bg-darkBrown fg-white" data-role="tile">
-                                    <div class="tile-content iconic"><span class="icon mif-shop  mif-ani-float"></span><span class="tile-label">Toko</span></div>
-                                </div>
+                                <a href="<?php echo base_url('configuration/outlet_config') ?>" class="tile tile-large bg-darkBrown fg-white" data-role="tile">
+                                    <div class="tile-content iconic"><span class="icon mif-shop  mif-ani-float"></span><span class="tile-label">Limit Jual Toko</span></div>
+                                </a>
                                 <a class="tile-wide bg-darkTeal fg-white" data-role="tile" href="<?php echo base_url('configuration/currency')?>">
                                   <div class="tile-content iconic"><span class="icon mif-dollar2"></span><span class="tile-label">Kurs</span></div>
                                 </a>
@@ -506,6 +506,7 @@
           <thead id="currency_head">
             <tr>
               <?php foreach ($currencies as $currency):?>
+
                   <td style="color: #fff;text-transform:uppercase;"><?php echo $currency->name; ?></td>
               <?php endforeach; ?>
             </tr>  
