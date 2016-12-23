@@ -18,6 +18,9 @@
 		}
 
 		public function add_supplier(){
+			if($this->session_role!='admin'){
+				redirect('home');
+			}
 			if($this->input->post('submit')){
 				$data= array(
 						'name' => $this->input->post('supplier_name'),
@@ -40,6 +43,9 @@
 		}
 		
 		public function edit_supplier($supp_id = ''){
+			if($this->session_role!='admin'){
+				redirect('home');
+			}
 			if($this->input->post()){
 	            $data_supplier = array(
 
@@ -75,7 +81,9 @@
 		}
 
 		public function delete_supplier($supp_id = ''){
-		
+			if($this->session_role!='admin'){
+				redirect('home');
+			}
 			if($this->crud_model->delete_data('suppliers',array('id' => $supp_id))){
 				$this->session->set_flashdata('supplier', "$.Notify({caption: 'Berhasil !', content: 'Supplier berhasil dihapus', type: 'info'});");
 			}else{

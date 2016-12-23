@@ -21,6 +21,9 @@
 		}
 
 		public function add_tray(){
+			if($this->session_role!='manager'){
+				redirect('home');
+			}
 			if($this->input->post('submit')){
 				$data= array(
 						'code' => $this->input->post('tray_code'),
@@ -41,6 +44,9 @@
 		}
 
 		public function delete_tray($id){
+			if($this->session_role!='manager'){
+				redirect('home');
+			}
 			if($this->crud_model->delete_data('tray',array('id'=>$id))){
 				$this->session->set_flashdata('tray',"$.Notify({
 					caption: 'Berhasil',
