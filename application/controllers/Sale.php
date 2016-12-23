@@ -20,7 +20,7 @@
 				$data['sale'] = $this->sale_model->get_sale_by_outlet($this->session_outlet);	
 			}
 			
-			$this->template->load($this->default,'sale/sale_list',$data);
+			$this->template->load($this->default,'sale/list_sale',$data);
 		}
 		/****list Penjualan END****/
 
@@ -145,8 +145,19 @@
 
 		/**** SELLING ENDS ****/
 		
+		public function get_sale_by_outlet($outlet_id = ''){
+			$sale = $this->sale_model->get_sale_by_outlet($outlet_id);
+			if($sale == NULL){
+				echo 'not found';
+			}else{
+				$sale = (Object) $sale;
+				echo json_encode($sale);	
+			}
+			
+		}
+
 		
 
 	}
 
- ?>
+ 

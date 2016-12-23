@@ -1,4 +1,3 @@
-
 <?php 
 	
 class Sale_model extends CI_Model{
@@ -10,7 +9,9 @@ class Sale_model extends CI_Model{
 		$this->db->join('accounts as c1','sale.cashier_id = c1.id');
 		$this->db->join('customers as c2','sale.customer_code = c2.code');
 		$this->db->join('outlets as o1','sale.outlet_id = o1.id');
-		$this->db->where('sale.outlet_id',$outlet_id);
+		if($outlet_id != ''){
+			$this->db->where('sale.outlet_id',$outlet_id);	
+		}
 		$this->db->order_by('sale.date','desc');
 		return $this->db->get()->result();
 	}
@@ -32,5 +33,3 @@ class Sale_model extends CI_Model{
 	}
 
 }
-
-?>

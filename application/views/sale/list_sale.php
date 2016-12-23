@@ -16,18 +16,21 @@
 	    <?php if($outlets): ?>
 	    <div class="row">
 	    	<div class="cell">
-
-	    		<?php foreach ($outlets as $outlet):?>
-	    			<!-- Small Checkbox -->
-					<label class="input-control checkbox small-check">
-					    <input type="checkbox" name="<?php echo $outlet->code ?>">
+				<label class="input-control radio small-check">
+				    <input type="radio" name="radio_outlet" value="" onclick="get_sale_by_outlet(this)">
+				    <span class="check"></span>
+				    <span class="caption">Semua Toko</span>
+				</label>
+   				<?php foreach($outlets as $outlet): ?>
+                	<label class="input-control radio small-check">
+					    <input type="radio" value="<?php echo $outlet->id ?>" name="radio_outlet" onclick="get_sale_by_outlet(this)">
 					    <span class="check"></span>
 					    <span class="caption"><?php echo $outlet->name ?></span>
 					</label>
-	    		<?php endforeach; ?>
+            	<?php endforeach; ?>
 	    	</div>
 	    </div>
-	<?php endif; ?>
+		<?php endif; ?>
 	    <div class="row">
 	    	<div class="cell">
 	    		<div class="input-control text full-size">
@@ -52,7 +55,7 @@
 							
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="table_body">
 						<?php if($sale !=NULL): ?>
 							<?php $i = 1; ?>
 							<?php foreach($sale as $row): ?>
@@ -103,6 +106,49 @@
 	    $('a.photobox').fancybox();
 
 	});
+
+
+	function get_sale_by_outlet(el){
+		var monthNames = [
+		  "Jan", "Feb", "Mar",
+		  "Apr", "May", "Jun", "Jul",
+		  "Aug", "Sep", "Oct",
+		  "Nov", "Dec"
+		];
+
+		
+		var no=1;
+		$.ajax({
+              url: "<?php echo base_url('sale/get_sale_by_outlet')?>" + "/" + $(el).val(),
+              type: 'GET',
+              cache : false,
+              success: function(result){
+               	if(result == 'not found'){
+      		        $.Notify({
+			            caption: 'Error',
+			            content: 'Barang Tidak Ditemukan',
+			            type: 'alert'
+			        });
+              	}else{
+              		var data = JSON.parse(result);
+              		$('#table_body').empty();
+              		$.each(data, function( index, value ) {
+              			var date = new Date(value.date);
+						var day = date.getDate();
+						var monthIndex = date.getMonth();
+						var year = date.getFullYear();
+						var hour = date.getHours();
+						var min  = date.getMinutes();
+					  $('#table_body').append("<tr><td>"+no+"</td><td><a href='<?php echo base_url() ?>sale/detail/"+value.sale_code+"'>"+value.sale_code+"</a></td><td>"+value.qty+"</td><td>"+value.sales_name+"</td><td>"+value.cashier+"</td><td>"+value.customer+"</td><td>"+value.total_price+"</td><td>"+value.outlet_name+"</td><td>"+day + '-' + monthNames[monthIndex] + '-' + year + " "+hour+ ":"+min+"</td></tr>");
+
+					  no++;
+					});
+					$('#table_sale').trigger('footable_initialize');
+              	}
+
+              }
+            });
+	}
 
 	
 </script>
