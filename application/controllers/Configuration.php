@@ -14,7 +14,9 @@
 		}
 
 		public function color(){
-
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
 			$data['title'] = 'Ubah Warna';
 			$data['configuration'] = $this->crud_model->get_data('configuration')->row();
 			$this->template->load($this->default,'configuration/color',$data);
@@ -31,6 +33,9 @@
 
 		/****Currency start****/
 		public function currency(){
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
 			$this->load->model('currency_model');
 			$data['title'] = 'Kurs';
 			$data['currencies'] = $this->crud_model->get_data('currency')->result();
@@ -39,6 +44,9 @@
 		}
 
 		public function currency_add(){
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
 			//process the insertion
 			if($this->input->post('submit')){
 				$data=array(
@@ -68,6 +76,9 @@
 		}
 
 		public function update_currency($id){
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
 			if($this->input->post('submit')){
 				$data=array(
 					'name'=>$this->input->post('update_currency_name'),
@@ -97,6 +108,9 @@
 		}
 
 		public function delete_currency($id){
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
 			if($this->crud_model->delete_data('currency',array('id'=>$id))){
 				$this->session->set_flashdata('currency',"$.Notify({
 					caption: 'Berhasil',
@@ -117,6 +131,9 @@
 
 		/****Gold Amount (KADAR)****/
 		public function gold_amount(){
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
 			if($this->input->post()){
 				$data_amount = array(
 						'type'			=> $this->input->post('type'),
@@ -146,6 +163,9 @@
 			
 		}
 		public function edit_gold_amount($id = ''){
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
 			if($this->input->post()){
 				$data_amount = array(
 						'type'			=> $this->input->post('type'),
@@ -175,6 +195,9 @@
 		}
 
 		public function delete_gold_amount($id = ''){
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
 			$this->db->delete('amount_limit',array('amount_id' => $id));
 			if($this->db->delete('gold_amount',array('id'=>$id))){
 				$this->session->set_flashdata('gold',"$.Notify({
@@ -198,6 +221,9 @@
 
 		/****Diamond stone type****/
 		public function diamond_type(){
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
 			if($this->input->post()){
 				$data_diamond = array(
 						'code'			=> $this->input->post('type'),
@@ -225,6 +251,9 @@
 			
 		}
 		public function edit_diamond_type($id = ''){
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
 			if($this->input->post()){
 				$data_diamond = array(
 						'code'			=> $this->input->post('type'),
@@ -252,6 +281,9 @@
 		}
 
 		public function delete_diamond_type($id = ''){
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
 			if($this->db->delete('diamond_type',array('id'=>$id))){
 				$this->session->set_flashdata('diamond',"$.Notify({
 					caption: 'Berhasil',
@@ -273,6 +305,9 @@
 
 		/****outlet configuration****/
 		public function outlet_config(){
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
 			if($this->input->post()){
 
 			}else{

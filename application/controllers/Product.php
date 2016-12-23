@@ -192,6 +192,9 @@
 
 		/****SEND ITEM START****/
 		public function send_item(){
+			if($this->session_role == 'sales'){
+				redirect('home');	
+			}
 			if ($this->input->post()) {
 
 				$data_mutation = array(
@@ -276,6 +279,9 @@
 
 		/****SENT ITEM START****/
 		public function sent_item(){
+			if($this->session_role == 'sales'){
+				redirect('home');	
+			}
 			$this->load->model('mutation_model');
 			$data['title'] = "Pengiriman Barang";
 			$data['sent_items'] = $this->mutation_model->get_sent_items($this->session_outlet);
@@ -286,6 +292,9 @@
 
 		/****RECEIVE ITEM START****/
 		public function receive_item($mutation_code = ''){
+			if($this->session_role == 'sales'){
+				redirect('home');	
+			}
 			if($mutation_code == ''){
 				$this->load->model('mutation_model');
 				$data['title'] = "Penerimaan Barang";
@@ -322,6 +331,9 @@
 		}
 
 		public function received(){
+			if($this->session_role == 'sales'){
+				redirect('home');	
+			}
 			if ($this->input->post()) {
 				for($i = 0; $i < count($this->input->post('checked_code')); $i++){
 					$data_update = array(

@@ -20,7 +20,9 @@
 		}
 
 		public function index(){
-
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
 			$data['title'] = 'Category';
 			$data['category_diamond'] = $this->crud_model->get_by_condition('category',array('type_id' => 2))->result();
 			$data['category_gold'] = $this->crud_model->get_by_condition('category',array('type_id' => 1))->result();
@@ -30,6 +32,9 @@
 		}
 
 		public function add_category(){
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
 			if($this->input->post('submit')){
 				$data= array(
 						'name'	=> $this->input->post('category_name'),
