@@ -20,6 +20,12 @@
 		
 		}
 
+		public function detail($code = ''){
+			$data['title'] = 'Detail Penjualan';
+			$data['details'] = $this->tray_model->get_tray_detail($this->session_outlet,$code);
+			$this->template->load($this->default,'tray/tray_detail',$data);
+		}
+
 		public function add_tray(){
 			if($this->session_role!='manager'){
 				redirect('home');

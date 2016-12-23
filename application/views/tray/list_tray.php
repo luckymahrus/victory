@@ -74,7 +74,7 @@
 							<?php foreach($trays as $tray): ?>
 							<tr>
 								<td><?php echo $i ?></td>
-								<td><?php echo $tray->code ?></td>
+								<td><a href="<?php echo base_url('tray/detail/'.$tray->code) ?>"><?php echo $tray->code ?></a></td>
 								<td><?php echo $tray->name ?></td>
 								<td><?php echo $tray->category ?></td>
 								<td><?php echo $tray->type ?></td>
