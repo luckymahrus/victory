@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2016 at 04:07 AM
+-- Generation Time: Dec 23, 2016 at 10:03 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -51,6 +51,31 @@ INSERT INTO `accounts` (`id`, `code`, `name`, `username`, `password`, `role`, `a
 (7, NULL, 'Reyner', 'gethassee', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'manager', NULL, '', '', NULL, 4),
 (8, 'JOS', 'Josua Reynaldo', 'jos', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'sales', 'GGL', '', '08132148129', 'uploads/photo/sales/jos//sales-Jos.jpg', 4),
 (9, 'JOH', 'John Doe', 'john', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'sales', '', '', '08123910232', 'uploads/photo/sales/john//sales-Joh.jpg', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `amount_limit`
+--
+
+CREATE TABLE `amount_limit` (
+  `id` int(11) NOT NULL,
+  `outlet_id` int(11) NOT NULL,
+  `amount_id` int(11) NOT NULL,
+  `amount_limit` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `amount_limit`
+--
+
+INSERT INTO `amount_limit` (`id`, `outlet_id`, `amount_id`, `amount_limit`) VALUES
+(1, 1, 1, 75),
+(2, 1, 2, 80),
+(3, 2, 1, 78),
+(4, 2, 2, 85),
+(5, 1, 4, 20),
+(6, 2, 4, 45);
 
 -- --------------------------------------------------------
 
@@ -136,7 +161,12 @@ CREATE TABLE `currency` (
 --
 
 INSERT INTO `currency` (`id`, `name`, `value`, `last_update`) VALUES
-(1, 'Dollar', 13000, '2016-11-29 02:36:03');
+(1, 'US Dollar', 13000, '2016-11-29 02:36:03'),
+(2, 'Emas Cukim', 533500, '2016-12-23 11:25:33'),
+(5, 'Euro', 15000, '2016-12-23 11:27:40'),
+(6, 'Pounds', 17000, '2016-12-23 11:27:53'),
+(7, 'MYR', 3300, '2016-12-23 11:28:03'),
+(8, 'SGD', 9300, '2016-12-23 11:28:10');
 
 -- --------------------------------------------------------
 
@@ -156,7 +186,15 @@ CREATE TABLE `currency_history` (
 --
 
 INSERT INTO `currency_history` (`id`, `currency_id`, `value`, `date`) VALUES
-(1, 1, 13000, '2016-11-29 02:36:03');
+(1, 1, 13000, '2016-11-29 02:36:03'),
+(2, 2, 533500, '2016-12-23 11:25:33'),
+(3, 4, 300, '2016-12-23 11:27:17'),
+(4, 5, 15000, '2016-12-23 11:27:40'),
+(5, 6, 17000, '2016-12-23 11:27:53'),
+(6, 7, 3300, '2016-12-23 11:28:03'),
+(7, 8, 9300, '2016-12-23 11:28:10'),
+(8, 9, 2200, '2016-12-23 11:28:42'),
+(9, 10, 400, '2016-12-23 11:28:51');
 
 -- --------------------------------------------------------
 
@@ -188,6 +226,25 @@ INSERT INTO `customers` (`id`, `code`, `name`, `phone`, `email`, `address`, `typ
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `diamond_type`
+--
+
+CREATE TABLE `diamond_type` (
+  `id` int(11) NOT NULL,
+  `code` varchar(5) NOT NULL,
+  `name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `diamond_type`
+--
+
+INSERT INTO `diamond_type` (`id`, `code`, `name`) VALUES
+(1, 'Rd', 'Round Diamond');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `gold_amount`
 --
 
@@ -196,16 +253,17 @@ CREATE TABLE `gold_amount` (
   `type` enum('K','P') NOT NULL,
   `original` double NOT NULL,
   `marked_up` double NOT NULL,
-  `price` int(11) NOT NULL
+  `amount_limit` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `gold_amount`
 --
 
-INSERT INTO `gold_amount` (`id`, `type`, `original`, `marked_up`, `price`) VALUES
-(1, 'K', 70, 80, 384000),
-(2, 'P', 75, 75, 432000);
+INSERT INTO `gold_amount` (`id`, `type`, `original`, `marked_up`, `amount_limit`) VALUES
+(1, 'K', 70, 80, 75),
+(2, 'P', 75, 90, 85),
+(4, 'K', 420, 55, 50);
 
 -- --------------------------------------------------------
 
@@ -374,6 +432,20 @@ INSERT INTO `sale_detail` (`id`, `product_code`, `sale_code`, `selling_price`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `specification`
+--
+
+CREATE TABLE `specification` (
+  `id` int(11) NOT NULL,
+  `product_code` varchar(20) NOT NULL,
+  `stone_type` varchar(5) NOT NULL,
+  `stone_amount` int(11) NOT NULL,
+  `stone_ct` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `suppliers`
 --
 
@@ -442,6 +514,12 @@ ALTER TABLE `accounts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `amount_limit`
+--
+ALTER TABLE `amount_limit`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -477,6 +555,12 @@ ALTER TABLE `currency_history`
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `code` (`code`);
+
+--
+-- Indexes for table `diamond_type`
+--
+ALTER TABLE `diamond_type`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `gold_amount`
@@ -521,6 +605,12 @@ ALTER TABLE `sale_detail`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `specification`
+--
+ALTER TABLE `specification`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `suppliers`
 --
 ALTER TABLE `suppliers`
@@ -548,6 +638,11 @@ ALTER TABLE `type`
 ALTER TABLE `accounts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
+-- AUTO_INCREMENT for table `amount_limit`
+--
+ALTER TABLE `amount_limit`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
@@ -566,22 +661,27 @@ ALTER TABLE `configuration`
 -- AUTO_INCREMENT for table `currency`
 --
 ALTER TABLE `currency`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `currency_history`
 --
 ALTER TABLE `currency_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
+-- AUTO_INCREMENT for table `diamond_type`
+--
+ALTER TABLE `diamond_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `gold_amount`
 --
 ALTER TABLE `gold_amount`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `mutation`
 --
@@ -612,6 +712,11 @@ ALTER TABLE `sale`
 --
 ALTER TABLE `sale_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `specification`
+--
+ALTER TABLE `specification`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
