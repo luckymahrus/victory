@@ -70,7 +70,7 @@
 								'discount' => $this->input->post('discount')[$i],
 								'sale_code' => $this->input->post('sale_code'),
 								'selling_price' => $this->input->post('product_price')[$i],
-								'total_price' => $this->input->post('product_price')[$i] - $this->input->post('discount')[$i],
+								'total_price' => $this->input->post('discount')[$i],
 							);
 						/**update barang kejual**/
 						$this->db->update('products', array('status' => 'terjual'), array('product_code' => $this->input->post('product_code')[$i]));

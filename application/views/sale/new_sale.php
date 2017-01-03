@@ -108,7 +108,7 @@
 							<th data-hide="phone">Subtotal</th>
 						</tr>
 					</thead>
-					<tbody id="table_body">
+					<tbody id="table_body" style="font-size:12px">
 						
 					</tbody>
 				</table>
@@ -118,7 +118,7 @@
 	        <div class="cell">
 	        	<input type="hidden" name="total_price" id="hidden_total">
 	            <hr class="bg-primary">
-				<p class="place-right"><strong>Total : </strong><span id="total_price">0</span></p>
+				<p class="place-right"><strong>Total : </strong>Rp. <span id="total_price">0</span></p>
 	        </div>
 	    </div>
 		<div class="row">
@@ -126,6 +126,7 @@
         	   <input type="submit" name="submit" class="button bg-primary" id="submit_btn" disabled="disabled" value="Submit" >
             </div>
 		</div>
+		<div class="row" id="kk"></div>
 	</div>
 </div>
 <?php echo form_close(); ?>
@@ -259,23 +260,25 @@
               		$('#submit_btn').removeAttr('disabled');
               		var data = JSON.parse(result);
 				
-					if(product_code.indexOf(data.product_code) > -1){
+					if(product_code.indexOf(data.id) > -1){
 						$.Notify({
 				            caption: 'Error',
 				            content: 'Barang Sudah Terdaftar',
 				            type: 'alert'
 				        });
 					}else{
-						$('#table_body').append("<tr><td>"+no+"</td><td><a class='photobox' href='<?php echo base_url() ?>"+data.photo+"'><img width='20' src='<?php echo base_url() ?>"+data.photo+"' alt=''/></a></td><td>"+data.product_code+"</td><td>"+data.name+"</td><td>"+data.rounded_weight+"</td><td id='price_"+data.id+"'>"+data.selling_price+"</td><td id='limit_"+data.id+"'>"+data.limit+"</td><td><input type='text' name='discount[]' value='0' id='discount_"+data.id+"' onblur='calc_price("+data.id+")'></td><td id='total_"+data.id+"'>"+data.selling_price+"</td><input type='hidden' name='product_code[]' value='"+data.product_code+"'><input type='hidden' name='product_price[]' value='"+data.selling_price+"'></tr>");
+						$('#table_body').append("<tr id='row_"+data.id+"'><td><a onclick='remove_row("+data.id+")' style='cursor:pointer'>&times;</a>"+no+"</td><td><a class='photobox' href='<?php echo base_url() ?>"+data.photo+"'><img width='20' src='<?php echo base_url() ?>"+data.photo+"' alt=''/></a></td><td>"+data.product_code+"</td><td>"+data.name+"</td><td>"+data.rounded_weight+"</td><td>Rp. <span id='price_"+data.id+"'>"+data.selling_price+"</span></td><td>Rp. <span id='limit_"+data.id+"'>"+data.limit+"</span></td><td><input type='text' name='discount[]' value='' id='discount_"+data.id+"' onblur='calc_price("+data.id+")'></td><td>Rp. <span id='total_"+data.id+"'>"+data.selling_price+"</span></td><input type='hidden' name='product_code[]' value='"+data.product_code+"'><input type='hidden' name='product_price[]' value='"+data.selling_price+"'></tr>");
 
 							var total = $('#total_price').html();
-							total = +total + +data.selling_price;
+							var price = data.selling_price;
+							price = price.replace(/\./g,'');
+							total = total.replace('.','');
+							total = +total + +price;
 							$('#total_price').empty();
 							$('#total_price').html(total);
 							$('#hidden_total').val(total);
-							product_code.push(data.product_code);
+							product_code.push(data.id);
 							no++;
-						
 					}
 						
               	}
@@ -291,20 +294,22 @@
 	}
 	
 	function calc_price(id){
-		var price = $('#price_'+id).html();
-		price = +price - $('#discount_'+id).val();
+		var price = $('#price_'+id).html();		
 		var subtotal = $('#total_'+id).html();
 		var total = $('#total_price').html();
 		var limit = $('#limit_'+id).html();
+		var discount = $('#discount_'+id).val();
+		limit = limit.replace(/\./g, '');
+		total = total.replace(/\./g, '');
+		subtotal = subtotal.replace(/\./g, '');
 
+		price = +price - +discount;
 		total = +total - +subtotal;
-		if($('#discount_'+id).val() > limit){
-
-		
-			if(price >= 0){
-				total = +total + +price;
+		if(discount >= Number(limit)){
+			if(discount >= 0){
+				total = +total + +discount;
 				$('#total_'+id).empty();
-				$('#total_'+id).html(price);
+				$('#total_'+id).html(discount);
 				$('#total_price').empty();
 				$('#total_price').html(total);
 				$('#hidden_total').val(total);
@@ -318,6 +323,28 @@
 
 	}
 
+	function remove_row(id){
+		alertify.confirm("Apakah anda yakin ingin menghapus barang ini ? ",
+			  function(){
+			    var index = product_code.indexOf(id.toString());
+				if(index > -1){
+					product_code.splice(index,1);
+				}
+				var subtotal = $('#total_'+id).html();
+				var total = $('#total_price').html();
+				total = total.replace(/\./g, '');
+				subtotal = subtotal.replace(/\./g, '');
+				total = +total - +subtotal;
+				$('#total_price').html(total);
+				$('#hidden_total').val(total);
+				$('#row_'+id).remove();
+			  },
+			  function(){
+			    $.Notify({caption: 'Gagal !', content: 'Sales gagal dihapus', type: 'alert'});
+			  });		
+		
+	}
+
 	function notifyOnErrorInput(input){
         var message = input.data('validateHint');
         $.Notify({
@@ -326,4 +353,6 @@
             type: 'alert'
         });
     }
+
+
 </script>

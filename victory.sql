@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2016 at 10:03 AM
+-- Generation Time: Dec 23, 2016 at 12:11 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -161,7 +161,7 @@ CREATE TABLE `currency` (
 --
 
 INSERT INTO `currency` (`id`, `name`, `value`, `last_update`) VALUES
-(1, 'US Dollar', 13000, '2016-11-29 02:36:03'),
+(1, 'US Dollar', 13300, '2016-12-23 16:05:03'),
 (2, 'Emas Cukim', 533500, '2016-12-23 11:25:33'),
 (5, 'Euro', 15000, '2016-12-23 11:27:40'),
 (6, 'Pounds', 17000, '2016-12-23 11:27:53'),
@@ -194,7 +194,8 @@ INSERT INTO `currency_history` (`id`, `currency_id`, `value`, `date`) VALUES
 (6, 7, 3300, '2016-12-23 11:28:03'),
 (7, 8, 9300, '2016-12-23 11:28:10'),
 (8, 9, 2200, '2016-12-23 11:28:42'),
-(9, 10, 400, '2016-12-23 11:28:51');
+(9, 10, 400, '2016-12-23 11:28:51'),
+(10, 1, 13300, '2016-12-23 16:05:03');
 
 -- --------------------------------------------------------
 
@@ -379,7 +380,7 @@ INSERT INTO `products` (`id`, `product_code`, `name`, `type`, `category`, `real_
 (5, 'KMC100001', 'Cincin Emas Hello Kitty', 'Emas', 'Cincin', 2.33, 2.35, 0, 721920, 0, 1, 4, 'uploads/photo/product/2/KMC100001.jpg', 2, 'available'),
 (6, 'KMC100002', 'Cincin Hello Kitty', 'Emas', 'Cincin', 2.33, 2.35, 0, 721920, 0, 1, 2, 'uploads/photo/product/2/KMC100002.jpg', 1, 'pending'),
 (7, 'KMK200001', 'Kalung Elora', 'Berlian', 'Kalung', 5.21, 5.25, 0, 1701000, 0, 2, 5, 'uploads/photo/product/3/KMK200001.jpg', 2, 'available'),
-(8, 'ASC100001', 'Cincin Kawin', 'Emas', 'Cincin', 1.36, 1.4, 0, 430080, 0, 1, 2, 'uploads/photo/product/4/ASC100001.jpg', 1, 'available');
+(8, 'ASC100001', 'Cincin Kawin', 'Emas', 'Cincin', 1.36, 1.4, 0, 598080, 0, 1, 2, 'uploads/photo/product/4/ASC100001.jpg', 1, 'available');
 
 -- --------------------------------------------------------
 
@@ -661,12 +662,12 @@ ALTER TABLE `configuration`
 -- AUTO_INCREMENT for table `currency`
 --
 ALTER TABLE `currency`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `currency_history`
 --
 ALTER TABLE `currency_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `customers`
 --
@@ -676,7 +677,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `diamond_type`
 --
 ALTER TABLE `diamond_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `gold_amount`
 --
