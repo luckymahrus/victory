@@ -35,6 +35,7 @@
 							'user_role'		=> $user->role,
 							'user_outlet'	=> $user->outlet_id,
 							'user_name'		=> $user->name,
+							'user_photo'	=> $user->photo,
 							'is_logged'		=> true,
 						);
 
