@@ -5,6 +5,7 @@
 		function __construct(){
 			parent::__construct();
 			$this->load->model('product_model');
+
 		}
 
 		public function index(){
@@ -290,6 +291,16 @@
 			
 		}
 
+		public function get_product_detail($product_code = ''){
+			$product = $this->product_model->get_product_detail($product_code);
+			
+			if($product == NULL){
+				echo 'not found';
+			}else{
+				echo json_encode($product);	
+			}
+		}
+
 		public function get_product_by_outlet($outlet_id = ''){
 			$product = $this->product_model->get_product_outlet($outlet_id);
 			if($product == NULL){
@@ -386,15 +397,10 @@
 		/****RECEIVE ITEM END****/
 
 		public function mutation_item_detail($code = ''){
+			$this->load->model('mutation_model');
 			$data['title'] = 'Detail Penerimaan';
-			$data['details'] = $this->product_model->get_mutation_detail($this->session_outlet,$code);
+			$data['details'] = $this->mutation_model->get_mutation_detail($this->session_outlet,$code);
 			$this->template->load($this->default,'product/mutation_detail',$data);
-		}
-
-		public function product_detail($product_code = ''){
-			$data['title'] = 'Detil Produk';
-			$data['details'] = $this->product_model->get_product_by_code($product_code,$this->session_outlet);
-			$this->template->load($this->default,'product/product_detail',$data);
 		}
 		
 	}
