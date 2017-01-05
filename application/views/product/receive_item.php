@@ -42,7 +42,7 @@
 								<tr>
 									<td><?php echo $i ?></td>
 									<td><a href="<?php echo base_url('product/mutation_item_detail/'.$receive->mutation_code) ?>"><?php echo $receive->mutation_code ?></a></td>
-									<td><?php echo date('d-M-Y H:i',strtotime($receive->date)) ?></td>
+									<td><?php echo date('d M Y H:i',strtotime($receive->date)) ?></td>
 									<td><?php echo $receive->product_qty ?></td>
 									<td><?php echo $receive->from_outlet ?></td>
 									<td><?php echo $receive->to_outlet ?></td>
@@ -87,6 +87,8 @@
 	    $('a.photobox').fancybox();
 
 	});
+
+	
 
 	
 </script>

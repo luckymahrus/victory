@@ -113,7 +113,7 @@
 	function get_product_from_outlet(el){
 		var no=1;
 		$.ajax({
-              url: "<?php echo base_url('product/get_product_by_outlet/')?>" + $(el).val(),
+              url: "<?php echo base_url('product/get_product_detail/')?>" + $(el).val(),
               type: 'GET',
               cache : false,
               success: function(result){
@@ -138,37 +138,37 @@
 	}
 
 	function showDialog(code){
-  	$.ajax({
-            url: "<?php echo base_url('product/get_product_by_code/')?>" + code,
-            type: 'GET',
-            cache : false,
-            success: function(result){
-            	if(result == 'not found'){
-    		        $.Notify({
-		            caption: 'Error',
-		            content: 'Barang Tidak Ditemukan',
-		            type: 'alert'
-		        });
-            	}else{
-            		var data = JSON.parse(result);
-            		metroDialog.create({
-		            title: "Detil Barang",
-		            content: "<div class='grid'><div class='row cells3 bg-grayLighter' style='padding: 20px;'><div class='cell'><div class='grid'><div class='row'><div class='cell'><img src='<?php echo base_url()?>"+data.photo+"' alt=''></div></div></div></div><div class='cell colspan2'><div class='grid'><div class='row'><div class='cell'><h3 style='margin-top:0'>"+data.name+" - "+data.product_code+"</h3></div></div><div class='row cells4'><div class='cell'><h4>Tipe</h4><h4>Kategori</h4><h4>Berat</h4><h4>Harga Beli</h4><h4>Harga Jual</h4><h4>Buyback</h4><h4>Jumlah Emas</h4><h4>Baki</h4><h4>Status</h4><h4>Outlet</h4></div><div class='cell colspan3'><h4>: "+data.type+"</h4><h4>: "+data.category+"</h4><h4>: "+data.real_weight+" ~ "+data.rounded_weight+"</h4><h4>: "+data.purchase_price+"</h4><h4>: "+data.selling_price+"</h4><h4>: "+data.buyback+"</h4><h4>: "+data.gold_amount+"</h4><h4>: "+data.tray+"</h4><h4>: "+data.status+"</h4><h4>: "+data.outlet+"</h4></div></div></div></div></div></div>",
-		            actions: [
-		                {
-		                    title: "Ok",
-		                    onclick: function(el){
-		                        //console.log(el);
-		                        $(el).data('dialog').close();
-		                    }
-		                },
-		            ],
-		            options: {
-		            }
-		        });
-            	}
-      }
-  	});
- 	  }
+	  	$.ajax({
+	            url: "<?php echo base_url('product/get_product_by_code/')?>" + code,
+	            type: 'GET',
+	            cache : false,
+	            success: function(result){
+	            	if(result == 'not found'){
+	    		        $.Notify({
+			            caption: 'Error',
+			            content: 'Barang Tidak Ditemukan',
+			            type: 'alert'
+			        });
+	            	}else{
+	            		var data = JSON.parse(result);
+	            		metroDialog.create({
+			            title: "Detil Barang",
+			            content: "<div class='grid'><div class='row cells3 bg-grayLighter' style='padding: 20px;'><div class='cell'><div class='grid'><div class='row'><div class='cell'><img src='<?php echo base_url()?>"+data.photo+"' alt=''></div></div></div></div><div class='cell colspan2'><div class='grid'><div class='row'><div class='cell'><h3 style='margin-top:0'>"+data.name+" - "+data.product_code+"</h3></div></div><div class='row cells4'><div class='cell'><h4>Tipe</h4><h4>Kategori</h4><h4>Berat</h4><h4>Harga Beli</h4><h4>Harga Jual</h4><h4>Buyback</h4><h4>Jumlah Emas</h4><h4>Baki</h4><h4>Status</h4><h4>Outlet</h4></div><div class='cell colspan3'><h4>: "+data.type+"</h4><h4>: "+data.category+"</h4><h4>: "+data.real_weight+" ~ "+data.rounded_weight+"</h4><h4>: "+data.purchase_price+"</h4><h4>: "+data.selling_price+"</h4><h4>: "+data.buyback+"</h4><h4>: "+data.gold_amount+"</h4><h4>: "+data.tray+"</h4><h4>: "+data.status+"</h4><h4>: "+data.outlet+"</h4></div></div></div></div></div></div>",
+			            actions: [
+			                {
+			                    title: "OK",
+			                    onclick: function(el){
+			                        //console.log(el);
+			                        $(el).data('dialog').close();
+			                    }
+			                },
+			            ],
+			            options: {
+			            }
+			        });
+	            	}
+	        }
+	  	});
+	}
 
 </script>
