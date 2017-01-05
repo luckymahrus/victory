@@ -219,13 +219,13 @@
                             <div class="tile-group triple">
                               <span class="tile-group-title">Penjualan</span>
                                 <div class="tile-container"><!--Container Penjualan begins-->
-                                    <a href="<?php echo base_url('sale') ?>" class="tile-large fg-white" data-role="tile" style="background-color: #734ACC">
+                                    <a href="<?php echo base_url('sale') ?>" accesskey="1" class="tile-large fg-white" data-role="tile" style="background-color: #734ACC">
                                       <div class="tile-content iconic">
                                         <span class="icon mif-coins mif-ani-slow mif-ani-bounce"></span>
                                         <span class="tile-label">Daftar Penjualan</span>
                                       </div>
                                     </a>
-                                    <a href="<?php echo base_url('sale/new_sale') ?>" class="tile fg-white" data-role="tile" style="background-color: #905CFF">
+                                    <a href="<?php echo base_url('sale/new_sale') ?>" accesskey="2" class="tile fg-white" data-role="tile" style="background-color: #905CFF">
                                       <div class="tile-content iconic">
                                         <span class="icon mif-plus"></span>
                                         <span class="tile-label">Penjualan Baru</span>
