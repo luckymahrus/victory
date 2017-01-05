@@ -1,19 +1,3 @@
-<div data-role="dialog" id="dialog">
-    <h1>Simple dialog</h1>
-    <p>
-        Dialog :: Metro UI CSS - The front-end framework
-        for developing projects on the web in Windows Metro Style.
-    </p>
-</div>
-Manual from js
-<button onclick="showdialog()">Show dialog</button>
-
-<script>
-	function showdialog(){
-		metroDialog.open('#dialog');
-	}
-</script>
-
 <div class="container-fluid">
 	<div class="grid">
 		<div class="row">
