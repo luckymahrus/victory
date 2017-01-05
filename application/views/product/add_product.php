@@ -1,4 +1,4 @@
-<?php echo form_open_multipart('product/add_product') ?>
+<?php echo form_open_multipart('product/add_product',array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false')) ?>
 <div class="container">
 	<div class="grid">
 		<div class="row">
@@ -46,7 +46,7 @@
 			</div>
 		</div>
 
-		<div class="row cells2">
+		<div class="row cells2" id="row_type">
 			<div class="cell">
 				<!-- Category -->
 				<label for="">Kategori</label>
@@ -142,7 +142,41 @@
                 
             </div>    
         <?php endif ?>
-        
+        <div class="row cells2" style="border-bottom: 1px solid black; padding-bottom: 10px;">
+        	<div class="cell">
+        		<h4 style="margin: 0">Spesifikasi</h4>
+        	</div>
+        	<div class="cell">
+        		<a class="place-right" style="cursor: pointer" onclick="add_spec()">Tambah</a>
+        	</div>
+        </div>
+        <div id="specification">
+	        <div class="row cells3">
+	        	<div class='cell'>
+	        		<label for=''>Jenis Batu</label>
+	        		<div class='input-control select full-size'>
+	        			<select name='stone_type[]' data-validate-func='required' data-validate-hint='Jenis batu harus dipilih'>
+	        				<option value=''>--Pilih Batu--</option>
+	        				<?php foreach ($stone_type as $row): ?>
+	        					<option value="<?php echo $row->id ?>"><?php echo $row->code ?></option>
+	        				<?php endforeach ?>
+	        			</select>
+	        		</div>
+	        	</div>
+	        	<div class='cell'>
+	        		<label for=''>Jumlah Batu</label>
+	        		<div class='input-control text full-size'>
+	        			<input type='text' placeholder='Jumlah Batu' name='stone_amount[]'>
+	        		</div>
+	        	</div>
+	        	<div class='cell'>
+	        		<label for=''>Jumlah Karat</label>
+	        			<div class='input-control text full-size'>
+	        			<input type='text' placeholder='Jumlah Karat' name='stone_ct[]'>
+	        		</div>
+	        	</div>
+	        </div>
+        </div>
 		<div class="row">
             <div class="cell text-center">
         	   <input type="submit" name="submit" class="button bg-primary" value="Submit">
@@ -151,6 +185,7 @@
 
 	</div>
 </div>
+
 <?php echo form_close() ?>
 <script src="<?php echo base_url() ?>js/webcam.min.js"></script>
 
@@ -176,11 +211,18 @@
 				$('#code').val(data.product_code);    
 				$('#hidden_code').val(data.hidden_code);
 				$('#hidden_count').val(data.hidden_count);           	
-                
               }
+
+
             
             });
+
+
 		}
+	}
+
+	function add_spec(){
+		$('#specification').append("<div class='row cells4'><div class='cell'><label for=''>Jenis Batu</label><div class='input-control select full-size'><select name='stone_type[]' data-validate-func='required' data-validate-hint='Jenis batu harus dipilih'><option value=''>--Pilih Batu--</option><?php foreach ($stone_type as $row): ?><option value='<?php echo $row->id ?>'><?php echo $row->code ?></option><?php endforeach ?></select></div></div><div class='cell'><label for=''>Jenis Batu</label><div class='input-control text full-size'><input type='text' placeholder='Jenis Batu' name='stone_amount[]'></div></div><div class='cell'><label for=''>Jenis Batu</label><div class='input-control text full-size'><input type='text' placeholder='Jenis Batu' name='stone_ct[]'></div></div></div>");
 	}
 
 	function count_gold_amount(){

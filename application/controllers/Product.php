@@ -70,6 +70,9 @@
 				redirect('home');
 			}
 			if($this->input->post()){
+				echo '<pre>';
+				print_r($this->input->post());
+				echo '</pre>';
 				$this->load->library('image_moo');
 
 				$config['allowed_types']        = 'jpg|png|jpeg';
@@ -129,6 +132,20 @@
 
 	            $this->db->update('code',array('count' => $this->input->post('count')+1),array('code' => $this->input->post('code')));
 
+	            if($this->input->post('product_type') == 'Berlian'){
+	            	for($i = 0; $i < count($this->input->post('stone_type')); $i++){
+	            		$data_spec = array(
+	            			'product_code' => $this->input->post('product_code'),
+	            			'stone_type' => $this->input->post('stone_type')[$i],
+	            			'stone_amount' => $this->input->post('stone_amount')[$i],
+	            			'stone_ct' => $this->input->post('stone_ct')[$i]
+
+	            		);
+
+	            		$this->db->insert('specification',$data_spec);
+	            	}
+	            }
+
 	            if($this->crud_model->insert_data('products',$data_product)){
 	            	$this->session->set_flashdata('product',"$.Notify({
 					    caption: 'Berhasil',
@@ -147,6 +164,7 @@
 
 			}else{
 				$data['title'] = 'Product';
+				$data['stone_type'] = $this->db->get('diamond_type')->result();
 				$data['is_mobile'] = $this->is_mobile;
 				$data['trays'] = $this->db->get_where('tray', array('outlet_id' => $this->session_outlet))->result();
 				$data['gold_amount'] = $this->db->get('gold_amount')->result();
@@ -155,6 +173,7 @@
 		}
 
 		/*ajax for insert product*/
+	
 		public function get_data_new_product($tray_id = ''){
 			$this->load->model('tray_model');
 			$outlet_code = $this->db->get_where('outlets',array('id' => $this->session_outlet))->row('code');
