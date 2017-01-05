@@ -63,7 +63,7 @@
 									<td><?php echo $i ?></td>
 									<td><a class="photobox" href="<?php echo base_url().$product->photo ?>"><img width="20" src="<?php echo base_url().$product->photo ?>" alt=""/></a></td>
 									<td><?php echo $product->product_code ?></td>
-									<td><?php echo $product->name ?></td>
+									<td><a href="<?php echo base_url('product/product_detail/').$product->product_code ?>"><?php echo $product->name ?></a></td>
 									<td><?php echo $product->tray ?></td>
 									<td><?php echo $product->type ?></td>
 									<td><?php echo $product->category ?></td>

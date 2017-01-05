@@ -390,6 +390,12 @@
 			$data['details'] = $this->product_model->get_mutation_detail($this->session_outlet,$code);
 			$this->template->load($this->default,'product/mutation_detail',$data);
 		}
+
+		public function product_detail($product_code = ''){
+			$data['title'] = 'Detil Produk';
+			$data['details'] = $this->product_model->get_product_by_code($product_code,$this->session_outlet);
+			$this->template->load($this->default,'product/product_detail',$data);
+		}
 		
 	}
 
