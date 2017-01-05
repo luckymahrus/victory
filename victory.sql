@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2016 at 12:11 PM
+-- Generation Time: Jan 05, 2017 at 08:37 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -117,8 +117,8 @@ CREATE TABLE `code` (
 
 INSERT INTO `code` (`id`, `code`, `count`) VALUES
 (1, 'KMK1', 4),
-(2, 'KMC1', 3),
-(3, 'KMK2', 2),
+(2, 'KMC1', 4),
+(3, 'KMK2', 4),
 (4, 'KMMUT', 6),
 (5, 'ASC1', 2),
 (6, 'ASMUT', 5),
@@ -141,7 +141,7 @@ CREATE TABLE `configuration` (
 --
 
 INSERT INTO `configuration` (`id`, `primary_color`) VALUES
-(1, '#000a54');
+(1, '#2c3e50');
 
 -- --------------------------------------------------------
 
@@ -241,7 +241,8 @@ CREATE TABLE `diamond_type` (
 --
 
 INSERT INTO `diamond_type` (`id`, `code`, `name`) VALUES
-(1, 'Rd', 'Round Diamond');
+(1, 'Rd', 'Round Diamond'),
+(2, 'Sd', 'Square Diamond');
 
 -- --------------------------------------------------------
 
@@ -380,7 +381,9 @@ INSERT INTO `products` (`id`, `product_code`, `name`, `type`, `category`, `real_
 (5, 'KMC100001', 'Cincin Emas Hello Kitty', 'Emas', 'Cincin', 2.33, 2.35, 0, 721920, 0, 1, 4, 'uploads/photo/product/2/KMC100001.jpg', 2, 'available'),
 (6, 'KMC100002', 'Cincin Hello Kitty', 'Emas', 'Cincin', 2.33, 2.35, 0, 721920, 0, 1, 2, 'uploads/photo/product/2/KMC100002.jpg', 1, 'pending'),
 (7, 'KMK200001', 'Kalung Elora', 'Berlian', 'Kalung', 5.21, 5.25, 0, 1701000, 0, 2, 5, 'uploads/photo/product/3/KMK200001.jpg', 2, 'available'),
-(8, 'ASC100001', 'Cincin Kawin', 'Emas', 'Cincin', 1.36, 1.4, 0, 598080, 0, 1, 2, 'uploads/photo/product/4/ASC100001.jpg', 1, 'available');
+(8, 'ASC100001', 'Cincin Kawin', 'Emas', 'Cincin', 1.36, 1.4, 0, 598080, 0, 1, 2, 'uploads/photo/product/4/ASC100001.jpg', 1, 'available'),
+(9, 'KMC100003', 'Cincin', 'Emas', 'Cincin', 2.34, 2.35, 0, 1002980, 0, 1, 2, 'uploads/photo/product/2/KMC100003.jpg', 1, 'available'),
+(11, 'KMK200003', 'Kalung Elora 2', 'Berlian', 'Kalung', 6.78, 6.8, 0, 3265020, 0, 2, 3, '', 1, 'available');
 
 -- --------------------------------------------------------
 
@@ -443,6 +446,14 @@ CREATE TABLE `specification` (
   `stone_amount` int(11) NOT NULL,
   `stone_ct` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `specification`
+--
+
+INSERT INTO `specification` (`id`, `product_code`, `stone_type`, `stone_amount`, `stone_ct`) VALUES
+(1, 'KMK200003', '1', 2, 0.2),
+(2, 'KMK200003', '1', 12, 0.11);
 
 -- --------------------------------------------------------
 
@@ -677,7 +688,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `diamond_type`
 --
 ALTER TABLE `diamond_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `gold_amount`
 --
@@ -702,7 +713,7 @@ ALTER TABLE `outlets`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `sale`
 --
@@ -717,7 +728,7 @@ ALTER TABLE `sale_detail`
 -- AUTO_INCREMENT for table `specification`
 --
 ALTER TABLE `specification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
