@@ -14,13 +14,8 @@
 	    <div class="grid">
 	      <div class="row">
 	        <div class="cell">
-	         	<div data-role="dialog" id="dialog" class="padding20" data-close-button="true">
-		            <h1>Simple dialog</h1>
-		            <p>
-		                Dialog :: Metro UI CSS - The front-end framework for developing projects on the web in Windows Metro Style
-		            </p>
-		        </div>
-			<button onclick="showDialog('dialog')">Show dialog</button>
+	         	
+			<button onclick="showDialog('ASC100001')">Show dialog</button>
 
             </div><!--Container ends-->
           </div>
@@ -28,13 +23,39 @@
     </div>
 <script type="text/javascript">
 
-    function showDialog(id){
-        var dialog = $("#"+id).data('dialog');
-        if (!dialog.element.data('opened')) {
-            dialog.open();
-        } else {
-            dialog.close();
+    function showDialog(code){
+    	$.ajax({
+              url: "<?php echo base_url('product/get_product_by_code/')?>" + code,
+              type: 'GET',
+              cache : false,
+              success: function(result){
+              	if(result == 'not found'){
+      		        $.Notify({
+			            caption: 'Error',
+			            content: 'Barang Tidak Ditemukan',
+			            type: 'alert'
+			        });
+              	}else{
+              		var data = JSON.parse(result);
+
+              		metroDialog.create({
+			            title: "Dialog title",
+			            content: "<h4></p></b><div class='grid'><div class='row cells2'><div class='cell'>"+data.product_code+"</div><div class='cell'>2</div></div></div>",
+			            actions: [
+			                {
+			                    title: "Ok",
+			                    onclick: function(el){
+			                        //console.log(el);
+			                        $(el).data('dialog').close();
+			                    }
+			                },
+			            ],
+			            options: {
+			            }
+			        });
+              	}
         }
+    	});
  	}
 
 // $(document).ready(function(){
