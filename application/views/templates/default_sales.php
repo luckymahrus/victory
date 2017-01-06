@@ -16,6 +16,7 @@
     <link href="<?php echo base_url() ?>css/metro-schemes.css" rel="stylesheet">
     
     <link href="<?php echo base_url() ?>css/docs.css" rel="stylesheet">
+    <link rel="icon" href="<?php echo base_url() ?>assets/logo-k.png">
 
     
     

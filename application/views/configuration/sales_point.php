@@ -12,22 +12,22 @@
 	</div>
 	<div class="grid condensed">
 		<!--Form Add Tray-->
-		<?php echo form_open('Tray/add_tray')?>
+		<?php echo form_open('configuration/sales_point')?>
 		<div class="row closed-add" id="append_tray" style="display: none">
 			<h3 style="margin-bottom: 20px;">Tambah target Baru</h3>
             <hr class="bg-primary">	
     		<div class="cell">
                 <label>Nama Target</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Masukkan nama untuk target baru" name="tray_name" data-validate-func="required" data-validate-hint="Kode tray harus diisi">
+                    <input type="text" placeholder="Masukkan nama untuk target baru" name="name" data-validate-func="required" data-validate-hint="Kode tray harus diisi">
                 </div>
                 <label>Nilai Target</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Kode baki baru" id="code" name="tray_code" readonly="readonly">
+                    <input type="text" placeholder="Kode baki baru" name="target" readonly="readonly">
                 </div>
                 <label>Poin</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Kode baki baru" id="code" name="tray_code" readonly="readonly">
+                    <input type="text" placeholder="Kode baki baru" name="point" readonly="readonly">
                 </div>
     		</div>
             <div class="cell text-center">
@@ -48,7 +48,7 @@
 		<div class="row">
 			<div class="cell">
 				<div class="table-responsive toggle-circle-filled">
-				<table class="table hovered border bordered table-condensed" id="table_tray" data-page-size="10" data-filter="#filter">
+				<table class="table hovered border bordered table-condensed" id="table_point" data-page-size="10" data-filter="#filter">
 					<thead>
 						<tr>
 							<th data-type="numeric">No</th>
@@ -75,7 +75,7 @@
 							<?php endforeach; ?>
 						<?php else: ?>
 							<tr>
-								<td colspan="6" class="text-center"><h3>Tidak ada Baki</h3></td>
+								<td colspan="6" class="text-center"><h3>Tidak ada Data</h3></td>
 							</tr>
 						<?php endif; ?>
 
@@ -125,7 +125,7 @@
         <?php if($this->session->flashdata('tray')): ?>
             <?php echo $this->session->flashdata('tray') ?>
         <?php endif; ?>
-        $('#table_tray').footable();
+        $('#table_point').footable();
     });
 
     $('#add_link').click(function(){

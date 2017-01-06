@@ -113,7 +113,7 @@
 	function get_product_from_outlet(el){
 		var no=1;
 		$.ajax({
-              url: "<?php echo base_url('product/get_product_detail/')?>" + $(el).val(),
+              url: "<?php echo base_url('product/get_product_by_outlet/')?>" + $(el).val(),
               type: 'GET',
               cache : false,
               success: function(result){
@@ -139,7 +139,7 @@
 
 	function showDialog(code){
 	  	$.ajax({
-	            url: "<?php echo base_url('product/get_product_by_code/')?>" + code,
+	            url: "<?php echo base_url('product/get_product_detail/')?>" + code,
 	            type: 'GET',
 	            cache : false,
 	            success: function(result){

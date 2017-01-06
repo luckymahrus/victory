@@ -15,6 +15,7 @@
     <link href="<?php echo base_url() ?>css/metro-icons.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-responsive.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-schemes.css" rel="stylesheet">
+    <link rel="icon" href="<?php echo base_url() ?>assets/logo-k.png">
 
     <script src="<?php echo base_url() ?>js/jquery-1.12.4.min.js"></script>
     <script src="<?php echo base_url() ?>js/metro.js"></script>

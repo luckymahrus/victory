@@ -15,7 +15,7 @@
     <link href="<?php echo base_url() ?>css/metro-responsive.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-schemes.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/custom.css" rel="stylesheet">
-
+    <link rel="icon" href="<?php echo base_url() ?>assets/logo-k.png">
 
     <link href="<?php echo base_url() ?>css/docs.css" rel="stylesheet">
 
@@ -222,7 +222,25 @@
     .footable>tbody{
       border: 1px solid #999 !important;
     }
+  
 
+    #kurstoggle {
+      z-index: 2;
+      -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      -webkit-transition-duration: 400ms;
+      transition-duration: 400ms;
+      -webkit-transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+      transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+      cursor: pointer;
+      box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
+      border:none;
+    }
+
+    #kurstoggle:hover {
+      -webkit-transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+      transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+    }
     </style>
 
   </head>
@@ -496,9 +514,9 @@
       </nav>
   </header>
   
-
-  <?php echo $body ?>
-  
+  <section style="min-height: 545px;">
+    <?php echo $body ?>
+  </section>
   <button onclick="toggleMetroCharm('#charm_currency')" id="kurstoggle" class="button bg-primary"><span class="icon mif-dollar2 mif-2x" style="margin-bottom: 4px;"></span>Kurs</button>
   <?php $currencies = $this->crud_model->get_data('currency')->result();?>
   <div data-role="charm" data-position="bottom" id="charm_currency">
@@ -521,7 +539,9 @@
       </table>
   </div>
 
-  <footer style="height: 50px"></footer>
+  <footer style="height: 50px; background-color: <?php echo $configuration->primary_color ?>">
+    
+  </footer>
 
     <script>
       function openNav(el){

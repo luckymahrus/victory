@@ -345,13 +345,28 @@
 
 		/****outlet configuration end****/
 
+		/****Sales point start ****/
 		public function sales_point(){
-			$data['title'] = 'Poin';
-			$data['trays'] = $this->tray_model->get_tray($this->session_outlet);
-			$data['category'] = $this->category_model->get_category('category');
-			$this->template->load($this->default, 'configuration/sales_point', $data);
+
+			if ($this->input->post()) {
+				$data_insert = array(
+
+					'name'	=> $this->input->post('name'),
+					'target'	=> $this->input->post('target'),
+					'point'	=> $this->input->post('point')
+
+				);
+
+			}else{
+				$data['title'] = 'Poin';
+				$data['trays'] = $this->tray_model->get_tray($this->session_outlet);
+				$data['category'] = $this->category_model->get_category('category');
+				$this->template->load($this->default, 'configuration/sales_point', $data);	
+			}
+			
 		}
 
+		/****Sales point end ****/
 	}
 
  ?>
