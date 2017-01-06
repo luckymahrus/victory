@@ -154,7 +154,7 @@
 	        <div class="row cells3">
 	        	<div class='cell'>
 	        		<label for=''>Jenis Batu</label>
-	        		<div class='input-control select full-size'>
+	        		<div class='input-control select full-size'  style="width:90%">
 	        			<select name='stone_type[]' data-validate-func='required' data-validate-hint='Jenis batu harus dipilih'>
 	        				<option value=''>--Pilih Batu--</option>
 	        				<?php foreach ($stone_type as $row): ?>
@@ -222,7 +222,7 @@
 	}
 
 	function add_spec(){
-		$('#specification').append("<div class='row cells3'><div class='cell'><label for=''>Jenis Batu</label><div class='input-control select full-size'><select name='stone_type[]' data-validate-func='required' data-validate-hint='Jenis batu harus dipilih'><option value=''>--Pilih Batu--</option><?php foreach ($stone_type as $row): ?><option value='<?php echo $row->id ?>'><?php echo $row->code ?></option><?php endforeach ?></select></div></div><div class='cell'><label for=''>Jumlah Batu</label><div class='input-control text full-size'><input type='text' placeholder='Jumlah Batu' name='stone_amount[]'></div></div><div class='cell'><label for=''>Jumlah Karat</label><div class='input-control text full-size'><input type='text' placeholder='Jumlah Karat' name='stone_ct[]'></div></div></div>");
+		$('#specification').append("<div class='row cells3'><div class='cell'><label for=''>Jenis Batu</label><div style='width:95%' class='input-control select full-size'><select name='stone_type[]' required='required' data-validate-func='required' data-validate-hint='Jenis batu harus dipilih'><option value=''>--Pilih Batu--</option><?php foreach ($stone_type as $row): ?><option value='<?php echo $row->id ?>'><?php echo $row->code ?></option><?php endforeach ?></select></div></div><div class='cell'><label for=''>Jumlah Batu</label><div class='input-control text full-size'><input type='text' placeholder='Jumlah Batu' name='stone_amount[]'></div></div><div class='cell'><label for=''>Jumlah Karat</label><div class='input-control text full-size'><input type='text' placeholder='Jumlah Karat' name='stone_ct[]'></div></div></div>");
 	}
 
 	function count_gold_amount(){

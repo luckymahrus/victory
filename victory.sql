@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2017 at 08:37 AM
+-- Generation Time: Jan 06, 2017 at 04:53 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -37,20 +37,21 @@ CREATE TABLE `accounts` (
   `email` varchar(200) DEFAULT NULL,
   `phone` varchar(200) NOT NULL,
   `photo` varchar(200) DEFAULT NULL,
-  `outlet_id` int(11) NOT NULL
+  `outlet_id` int(11) NOT NULL,
+  `sales_point` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`id`, `code`, `name`, `username`, `password`, `role`, `address`, `email`, `phone`, `photo`, `outlet_id`) VALUES
-(1, NULL, 'admin', 'admin', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'admin', NULL, 'admin@k-signature.xyz', '081316878995', '', 0),
-(2, NULL, 'Vano', 'kemenangan', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'manager', NULL, '', '', '', 1),
-(3, NULL, 'Felita', 'asia', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'manager', NULL, '', '', '', 2),
-(7, NULL, 'Reyner', 'gethassee', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'manager', NULL, '', '', NULL, 4),
-(8, 'JOS', 'Josua Reynaldo', 'jos', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'sales', 'GGL', '', '08132148129', 'uploads/photo/sales/jos//sales-Jos.jpg', 4),
-(9, 'JOH', 'John Doe', 'john', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'sales', '', '', '08123910232', 'uploads/photo/sales/john//sales-Joh.jpg', 1);
+INSERT INTO `accounts` (`id`, `code`, `name`, `username`, `password`, `role`, `address`, `email`, `phone`, `photo`, `outlet_id`, `sales_point`) VALUES
+(1, NULL, 'admin', 'admin', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'admin', NULL, 'admin@k-signature.xyz', '081316878995', '', 0, 0),
+(2, NULL, 'Vano', 'kemenangan', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'manager', NULL, '', '', 'uploads/photo/sales/jos//sales-Jos.jpg', 1, 0),
+(3, NULL, 'Felita', 'asia', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'manager', NULL, '', '', '', 2, 0),
+(7, NULL, 'Reyner', 'gethassee', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'manager', NULL, '', '', NULL, 4, 0),
+(8, 'JOS', 'Josua Reynaldo', 'jos', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'sales', 'GGL', '', '08132148129', 'uploads/photo/sales/jos//sales-Jos.jpg', 4, 0),
+(9, 'JOH', 'John Doe', 'john', '909d0a3efbb2c0d7c5bd869a1c4089cc81105ddbf9fb9cda08d0dda36ee376954edc71e822f187b68205805473f6974dea64a46fc106376221de5e5a77c49d0a', 'sales', '', '', '08123910232', 'uploads/photo/sales/john//sales-Joh.jpg', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -211,18 +212,20 @@ CREATE TABLE `customers` (
   `email` varchar(30) DEFAULT NULL,
   `address` varchar(50) NOT NULL,
   `type` enum('Member','Regular') NOT NULL,
-  `outlet_id` int(11) NOT NULL
+  `outlet_id` int(11) NOT NULL,
+  `member_point` int(11) DEFAULT '0',
+  `birthday` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `code`, `name`, `phone`, `email`, `address`, `type`, `outlet_id`) VALUES
-(3, 'MKM0000001', 'Setyawan', '081316361519', 'setyawansusanto99@outlook.com', 'Apartemen Puri ParkView\r\n', 'Regular', 0),
-(4, 'MKM0000002', 'Felita', '081316361514', 'felita_31895@gmail.com', 'Gading Kirana', 'Member', 0),
-(5, 'MKM0000003', 'Sally', '08127312', '', '', 'Member', 0),
-(6, 'MKM0000004', 'Gabriella', '019830123', '', 'Gandaria', 'Regular', 0);
+INSERT INTO `customers` (`id`, `code`, `name`, `phone`, `email`, `address`, `type`, `outlet_id`, `member_point`, `birthday`) VALUES
+(3, 'MKM0000001', 'Setyawan', '081316361519', 'setyawansusanto99@outlook.com', 'Apartemen Puri ParkView\r\n', 'Regular', 0, 0, '0000-00-00'),
+(4, 'MKM0000002', 'Felita', '081316361514', 'felita_31895@gmail.com', 'Gading Kirana', 'Member', 0, 0, '0000-00-00'),
+(5, 'MKM0000003', 'Sally', '08127312', '', '', 'Member', 0, 0, '0000-00-00'),
+(6, 'MKM0000004', 'Gabriella', '019830123', '', 'Gandaria', 'Regular', 0, 0, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -388,6 +391,19 @@ INSERT INTO `products` (`id`, `product_code`, `name`, `type`, `category`, `real_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `promo`
+--
+
+CREATE TABLE `promo` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `photo` varchar(200) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sale`
 --
 
@@ -409,6 +425,19 @@ CREATE TABLE `sale` (
 
 INSERT INTO `sale` (`id`, `sale_code`, `date`, `outlet_id`, `sales_id`, `cashier_id`, `customer_code`, `qty`, `total_price`) VALUES
 (2, 'KMJU00002', '2016-12-20 07:42:00', 1, 9, 2, 'MKM0000003', 2, 1600000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sales_point`
+--
+
+CREATE TABLE `sales_point` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `target` int(11) NOT NULL,
+  `point` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -605,9 +634,21 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `promo`
+--
+ALTER TABLE `promo`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sale`
 --
 ALTER TABLE `sale`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sales_point`
+--
+ALTER TABLE `sales_point`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -715,10 +756,20 @@ ALTER TABLE `outlets`
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
+-- AUTO_INCREMENT for table `promo`
+--
+ALTER TABLE `promo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `sale`
 --
 ALTER TABLE `sale`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `sales_point`
+--
+ALTER TABLE `sales_point`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `sale_detail`
 --
