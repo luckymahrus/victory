@@ -17,8 +17,6 @@
     
     <link href="<?php echo base_url() ?>css/docs.css" rel="stylesheet">
     <link rel="icon" href="<?php echo base_url() ?>assets/logo-k.png">
-    
-    
 
     <script src="<?php echo base_url() ?>js/jquery-1.12.4.min.js"></script>
     <script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>

@@ -64,6 +64,7 @@
 	                        <option value="Regular" disabled="disabled">Customer Biasa</option>
 	                        <option value="Member" disabled="disabled">Member</option>
 	                    </select>
+						<input type="hidden" name="customer_type_hidden" id="customer_type_hidden">
 	                </div>         
 	            </div>
 	        </div>
@@ -192,6 +193,7 @@
 			$('#customer_phone').val('');
 			$('#customer_email').val('');
 			$('#customer_type').val('');
+			$('#customer_type_hidden').val('');
 			$('#customer_address').val('');
 			$('#customer_type option').attr('disabled','disabled');
 			$('#customer_name').attr('readonly','readonly');
@@ -221,6 +223,7 @@
 					$('#customer_phone').val('');
 					$('#customer_email').val('');
 					$('#customer_type').val('');
+					$('#customer_type_hidden').val('');
 					$('#customer_address').val('');
               	}else{
               		var data = JSON.parse(result);
@@ -230,6 +233,7 @@
 					$('#customer_phone').val(data.phone);
 					$('#customer_email').val(data.email);
 					$('#customer_type').val(data.type);
+					$('#customer_type_hidden').val(data.type);
 					$('#customer_address').val(data.address);	
 
               	}	

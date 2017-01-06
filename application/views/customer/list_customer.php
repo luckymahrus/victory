@@ -35,6 +35,7 @@
 							<th data-hide="phone">Telephone</th>
 							<th data-hide="phone">Email</th>
 							<th data-hide="phone">Alamat</th>
+							<th data-hide="phone">Poin</th>
 							<th data-hide="phone">Outlet</th>
 							<th data-hide="phone">Action</th>
 						</tr>
@@ -56,6 +57,7 @@
 										echo $outlet;
 									?>
 								</td>
+								<td><?php echo $customer->member_point ?></td>
 								<td><a href="<?php echo base_url('customer/edit_customer/'.$customer->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_customer('<?php echo $customer->id ?>','<?php echo $customer->name ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
 							</tr>
 							<?php $i++; ?>

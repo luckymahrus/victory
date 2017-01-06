@@ -357,16 +357,66 @@
 
 				);
 
+				if($this->db->insert('sales_point',$data_insert)){
+					$this->session->set_flashdata('point',"$.Notify({
+						caption: 'Berhasil',
+						content : 'Target berhasil ditambahkan',
+						type: 'success'
+					});");
+				}else{
+					$this->session->set_flashdata('point',"$.Notify({
+						caption: 'Gagal',
+						content : 'Target gagal ditambahkan',
+						type: 'alert'
+					});");
+				}
+
+				redirect('configuration/sales_point');
 			}else{
 				$data['title'] = 'Poin';
-				$data['trays'] = $this->tray_model->get_tray($this->session_outlet);
-				$data['category'] = $this->category_model->get_category('category');
+				$data['sales_point'] = $this->db->get('sales_point')->result();
 				$this->template->load($this->default, 'configuration/sales_point', $data);	
 			}
 			
 		}
 
 		/****Sales point end ****/
+
+		/****Member point start ****/
+		public function member_point(){
+
+			if ($this->input->post()) {
+				$data_insert = array(
+
+					'name'	=> $this->input->post('name'),
+					'target'	=> $this->input->post('target'),
+					'point'	=> $this->input->post('point')
+
+				);
+				if($this->db->insert('member_point',$data_insert)){
+					$this->session->set_flashdata('point',"$.Notify({
+						caption: 'Berhasil',
+						content : 'Target berhasil ditambahkan',
+						type: 'success'
+					});");
+				}else{
+					$this->session->set_flashdata('point',"$.Notify({
+						caption: 'Gagal',
+						content : 'Target gagal ditambahkan',
+						type: 'alert'
+					});");
+				}
+
+				redirect('configuration/member_point');
+			}else{
+				$data['title'] = 'Poin Member';
+				$data['member_point'] = $this->db->get('member_point')->result();
+				$this->template->load($this->default, 'configuration/member_point', $data);	
+			}
+			
+		}
+
+		/****Member point end ****/
 	}
 
  ?>

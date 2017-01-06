@@ -12,7 +12,7 @@
 	</div>
 	<div class="grid condensed">
 		<!--Form Add Tray-->
-		<?php echo form_open('configuration/sales_point')?>
+		<?php echo form_open('configuration/member_point')?>
 		<div class="row closed-add" id="append_tray" style="display: none">
 			<h3 style="margin-bottom: 20px;">Tambah target Baru</h3>
             <hr class="bg-primary">	
@@ -59,9 +59,9 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php if($sales_point!=NULL): ?>
+						<?php if($member_point!=NULL): ?>
 							<?php $i=1; ?>
-							<?php foreach($sales_point as $row): ?>
+							<?php foreach($member_point as $row): ?>
 							<tr>
 								<td><?php echo $i ?></td>
 								<td><?php echo $row->name ?></td>

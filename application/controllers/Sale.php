@@ -40,6 +40,7 @@
 			}
 			if($this->input->post()){
 				/**kalo ada customer baru di insert**/
+				
 				if($this->input->post('new_customer') == 'on'){
 					$data_customer = array(
 							'code'		=> $this->input->post('customer_code'),
@@ -54,6 +55,18 @@
 					$this->db->update('code',array('count' => $this->input->post('hidden_customer_count') + 1 ),array('code' => $this->input->post('hidden_customer_code')));
 				}
 
+				if($this->input->post('customer_type') == 'Member' || $this->input->post('customer_type_hidden') == 'Member' ){
+					
+					$member_point = $this->db->get_where('member_point',array('active' => 1))->row();
+
+					if($this->input->post('total_price') >= $member_point->target){
+						$add_point = floor($this->input->post('total_price') / $member_point->target);
+						$curr_point = $this->db->get_where('customers',array('code' => $this->input->post('customer_code')))->row('member_point');
+
+						$this->db->update('customers',array('member_point' => $curr_point+$add_point),array('code' => $this->input->post('customer_code')));
+					}
+				}
+
 				$data_sale = array(
 						'sale_code' => $this->input->post('sale_code'),
 						'date' => date('Y-m-d'),
@@ -63,6 +76,8 @@
 						'qty' => count($this->input->post('product_code')),
 						'total_price' => $this->input->post('total_price')
 					);
+
+
 				if($this->db->insert('sale',$data_sale)){
 					for($i = 0; $i < count($this->input->post('product_code')); $i++){
 						$data_detail = array(

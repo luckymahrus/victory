@@ -84,16 +84,7 @@
         box-shadow: 0 7px 10px 0 #9E9E9E;
         transition: 0.2s ease-in;
       }
-      #kurstoggle{
-        background-color: <?php echo $configuration->primary_color ?> !important;
-        height: 70px;
-        width: 70px;
-        border-radius: 50%;
-        position: fixed; 
-        right: 20px; 
-        z-index: 1; 
-        top: 560px;
-      }
+      
       #charm_currency{
           height: 100px;        
           background-color: <?php echo $configuration->primary_color ?> !important;
@@ -235,12 +226,22 @@
       cursor: pointer;
       box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
       border:none;
+      background-color: #FFF !important;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+      margin: 5px;
+      font-size: 14px;
+      color: black;
+      padding: 12px;
     }
 
     #kurstoggle:hover {
       -webkit-transform: scale(1.2, 1.2) translate3d(0, 0, 0);
       transform: scale(1.2, 1.2) translate3d(0, 0, 0);
     }
+
+  
     </style>
 
   </head>
@@ -487,9 +488,9 @@
                                 <a href="<?php echo base_url('configuration/sales_point') ?>" class="tile tile-big-x bg-mauve fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Sales</span></div>
                                 </a>
-                                <div class="tile tile-big-x bg-olive fg-white" data-role="tile">
+                                <a href="<?php echo base_url('configuration/member_point') ?>" class="tile tile-big-x bg-olive fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-organization"></span><span class="tile-label">Member</span></div>
-                                  </div>  
+                                  </a>  
                               </div><!--Tile Container ends-->
                           </div>    
                           </div>
@@ -517,7 +518,7 @@
   <section style="min-height: 545px;">
     <?php echo $body ?>
   </section>
-  <button onclick="toggleMetroCharm('#charm_currency')" id="kurstoggle" class="button bg-primary"><span class="icon mif-dollar2 mif-2x" style="margin-bottom: 4px;"></span>Kurs</button>
+  
   <?php $currencies = $this->crud_model->get_data('currency')->result();?>
   <div data-role="charm" data-position="bottom" id="charm_currency">
       <table class="table" style="margin-top: 0px;">
@@ -540,10 +541,12 @@
   </div>
 
   <footer style="height: 50px; background-color: <?php echo $configuration->primary_color ?>">
-    
+    <button onclick="toggleMetroCharm('#charm_currency');" id="kurstoggle" class="open-kurs button"><span class="icon mif-dollar2" style="margin-bottom: 4px;"></span></button>
   </footer>
 
     <script>
+
+
       function openNav(el){
         if($(el).parent('li').hasClass('buka')){
           $(el).parent('li').find('.overlay').css('height', 0);

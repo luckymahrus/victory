@@ -155,7 +155,7 @@
 	        	<div class='cell'>
 	        		<label for=''>Jenis Batu</label>
 	        		<div class='input-control select full-size'  style="width:90%">
-	        			<select name='stone_type[]' data-validate-func='required' data-validate-hint='Jenis batu harus dipilih'>
+	        			<select name='stone_type[]' data-validate-hint='Jenis batu harus dipilih'>
 	        				<option value=''>--Pilih Batu--</option>
 	        				<?php foreach ($stone_type as $row): ?>
 	        					<option value="<?php echo $row->id ?>"><?php echo $row->code ?></option>
