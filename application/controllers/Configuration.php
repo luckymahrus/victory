@@ -346,8 +346,10 @@
 		/****outlet configuration end****/
 
 		public function sales_point(){
+			$data['title'] = 'Poin';
 			$data['trays'] = $this->tray_model->get_tray($this->session_outlet);
 			$data['category'] = $this->category_model->get_category('category');
+			$this->template->load($this->default, 'configuration/sales_point', $data);
 		}
 
 	}

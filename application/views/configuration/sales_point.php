@@ -38,6 +38,7 @@
     	<!--End Form-->
 	    <div class="row">
 	    	<div class="cell">
+	    		<h3 style="margin-bottom: 20px;">Poin</h3>
 				<hr class="bg-primary">	
 	    		<div class="input-control text full-size">
                     <input type="text" placeholder="Cari..." id="filter" >
@@ -51,6 +52,9 @@
 					<thead>
 						<tr>
 							<th data-type="numeric">No</th>
+							<th data-type="numeric">Nama Target</th>
+							<th>Nilai Target</th>
+							<th>Poin</th>
 							<th>Jenis</th>
 							<th data-hide="phone">Action</th>
 						</tr>
