@@ -32,9 +32,9 @@
 				</div>
 	    	</div>
 	    </div>
-	    <div class="row">
+	    <div class="row" id="wait" style="display: none;">
 	    	<div class="cell">
-	    		<div id="wait">Please Wait</div>
+	    		<div>Please Wait</div>
 	    	</div>
 	    </div>
 		<div class="row">
