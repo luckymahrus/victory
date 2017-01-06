@@ -6,7 +6,7 @@
 		<div class="row">
 	        <div class="cell">
 	            <h3 style="display: inline-block;"><small><a href="<?php echo base_url() ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke Home</a></small></h3>
-	            <h3 style="display:inline-block;float:right;"><small><a id="add_link" style="cursor: pointer;">Tambah baki baru <span class="fa fa-plus-circle"></span></a></small></h3>
+	            <h3 style="display:inline-block;float:right;"><small><a id="add_link" style="cursor: pointer;">Tambah target baru <span class="fa fa-plus-circle"></span></a></small></h3>
 	        </div>
 	    </div>
 	</div>
@@ -14,27 +14,18 @@
 		<!--Form Add Tray-->
 		<?php echo form_open('Tray/add_tray')?>
 		<div class="row closed-add" id="append_tray" style="display: none">
-			<h3 style="margin-bottom: 20px;">Tambah Baki Baru</h3>
+			<h3 style="margin-bottom: 20px;">Tambah target Baru</h3>
             <hr class="bg-primary">	
     		<div class="cell">
-    			<label for="">Kategori</label>
-    			<div class="input-control select full-size">
-					<select name="tray_category" id="category" data-validate-func="required" onchange="generate_code()" data-validate-hint="Baki harus dipilih">
-						<option value="">--Pilih Kategori--</option>
-						<?php foreach($category as $row): ?>
-    					<option value="<?php echo $row->id ?>"><?php echo $row->name.' - ('.$row->type.') '; ?></option>
-    				<?php endforeach; ?>
-					</select>
-				</div>
-    			<label>Nomor Baki</label>
+                <label>Nama Target</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Masukkan nomor untuk baki baru" id="number" onblur="generate_code()" name="tray_number" data-validate-func="required" data-validate-hint="Kode tray harus diisi">
+                    <input type="text" placeholder="Masukkan nama untuk target baru" name="tray_name" data-validate-func="required" data-validate-hint="Kode tray harus diisi">
                 </div>
-                <label>Nama Baki</label>
+                <label>Nilai Target</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Masukkan nama untuk baki baru" name="tray_name" data-validate-func="required" data-validate-hint="Kode tray harus diisi">
+                    <input type="text" placeholder="Kode baki baru" id="code" name="tray_code" readonly="readonly">
                 </div>
-                <label>Kode Baki</label>
+                <label>Poin</label>
                 <div class="input-control text full-size">
                     <input type="text" placeholder="Kode baki baru" id="code" name="tray_code" readonly="readonly">
                 </div>
@@ -47,7 +38,6 @@
     	<!--End Form-->
 	    <div class="row">
 	    	<div class="cell">
-	    		<h3 style="margin-bottom: 20px;">Daftar Baki</h3>
 				<hr class="bg-primary">	
 	    		<div class="input-control text full-size">
                     <input type="text" placeholder="Cari..." id="filter" >
@@ -61,9 +51,6 @@
 					<thead>
 						<tr>
 							<th data-type="numeric">No</th>
-							<th data-type="numeric">Kode Baki</th>
-							<th>Nama Baki</th>
-							<th>Kategori</th>
 							<th>Jenis</th>
 							<th data-hide="phone">Action</th>
 						</tr>

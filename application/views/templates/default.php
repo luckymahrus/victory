@@ -466,9 +466,9 @@
                                 <a href="<?php echo base_url('configuration/color') ?>" class="tile bg-darkCrimson fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-palette mif-ani-bounce"></span><span class="tile-label">Tampilan</span></div>
                                 </a>
-                                <div class="tile tile-big-x bg-mauve fg-white" data-role="tile">
+                                <a href="<?php echo base_url('configuration/sales_point') ?>" class="tile tile-big-x bg-mauve fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-users"></span><span class="tile-label">Sales</span></div>
-                                </div>
+                                </a>
                                 <div class="tile tile-big-x bg-olive fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-organization"></span><span class="tile-label">Member</span></div>
                                   </div>  

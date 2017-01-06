@@ -11,6 +11,8 @@
 			if($this->session_role != 'admin'){
 				redirect('home');
 			}
+			$this->load->model('category_model');
+			$this->load->model('tray_model');
 		}
 
 		public function color(){
@@ -342,6 +344,11 @@
 		}
 
 		/****outlet configuration end****/
+
+		public function sales_point(){
+			$data['trays'] = $this->tray_model->get_tray($this->session_outlet);
+			$data['category'] = $this->category_model->get_category('category');
+		}
 
 	}
 
