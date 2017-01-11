@@ -64,15 +64,24 @@
 						'code' => ucfirst($this->input->post('category_code')),
 						'type_id'=> $this->input->post('category_type')
 				);
+				if($this->db->update('category',$data, array('id' => $id))){
+					$this->session->set_flashdata('category',"$.Notify({
 						caption: 'Berhasil',
+						content : 'Kategori telah diedit',
 						type: 'success'
 					});");
 				}else{
+					$this->session->set_flashdata('category',"$.Notify({
 						caption: 'Berhasil',
+						content : 'Kategory gagal diedit',
 						type: 'alert'
 					});");
 				}
+				redirect('category');
 			}else{
+				$data['title'] = 'Edit Category';
+				$data['category'] = $this->db->get_where('category', array('id' => $id))->row();
+				$this->template->load($this->default,'category/edit_category',$data);	
 			}
 		}
 
@@ -80,11 +89,17 @@
 			if($this->session_role!='admin'){
 				redirect('home');
 			}
+			if($this->crud_model->delete_data('category',array('id'=>$id))){
+				$this->session->set_flashdata('category',"$.Notify({
 					caption: 'Berhasil',
+					content : 'Kategori telah dihapus',
 					type: 'success'
 				});");
+				redirect('category');
 			}else{
+				$this->session->set_flashdata('category',"$.Notify({
 					caption: 'Gagal',
+					content : 'Kategori gagal dihapus',
 					type : 'alert'
 				});");
 			}
