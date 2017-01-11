@@ -13,29 +13,66 @@
 				<hr class="bg-primary">
 			</div>
 		</div>
-
-		<div class="row cells2">
-			<div class="cell">
-				<label for="">Baki</label>
-				<div class="input-control select full-size">
-					<select name="product_tray" id="tray" onchange="get_data_new_product()" data-validate-func="required" data-validate-hint="Baki harus dipilih">
-						<option value="">--Pilih Tipe--</option>
-						<?php foreach($trays as $tray): ?>
-							<option value="<?php echo $tray->id ?>"><?php echo $tray->code.' - '.$tray->name ?></option>
-						<?php endforeach; ?>
-					</select>
+		
+		<?php if($role == 'admin'): ?>
+			<div class="row" id="row_outlet">
+				<div class="cell">
+					<label for="">Toko</label>
+					<div class="input-control select full-size">
+						<select name="outlet" id="outlet" onchange="get_tray(this)" data-validate-func="required" data-validate-hint="Baki harus dipilih">
+							<option value="">--Pilih Toko--</option>
+							<?php foreach($outlets as $outlet): ?>
+								<option value="<?php echo $outlet->id ?>"><?php echo $outlet->code.' - '.$outlet->name ?></option>
+							<?php endforeach; ?>
+						</select>
+					</div>
 				</div>
 			</div>
+			<div class="row cells2">
+				<div class="cell">
+					<label for="">Baki</label>
+					<div class="input-control select full-size">
+						<select name="product_tray" id="tray" onchange="get_data_new_product()" data-validate-func="required" data-validate-hint="Baki harus dipilih">
+							<option value="">--Pilih Baki--</option>
+						</select>
+					</div>
+				</div>
 
-			<div class="cell">
-				<label for="">Kode Produk</label>
-				<div class="input-control text full-size">
-					<input type="text" placeholder="Kode Produk" id="code" name="product_code" readonly="readonly">
-					<input type="hidden" name="code" id="hidden_code">
-					<input type="hidden" name="count" id="hidden_count">
+				<div class="cell">
+					<label for="">Kode Produk</label>
+					<div class="input-control text full-size">
+						<input type="text" placeholder="Kode Produk" id="code" name="product_code" readonly="readonly">
+						<input type="hidden" name="code" id="hidden_code">
+						<input type="hidden" name="count" id="hidden_count">
+					</div>
 				</div>
 			</div>
-		</div>
+		<?php else: ?>
+			<div class="row cells2">
+				<div class="cell">
+					<label for="">Baki</label>
+					<div class="input-control select full-size">
+						<select name="product_tray" id="tray" onchange="get_data_new_product()" data-validate-func="required" data-validate-hint="Baki harus dipilih">
+							<option value="">--Pilih Baki--</option>
+							<?php foreach($trays as $tray): ?>
+								<option value="<?php echo $tray->id ?>"><?php echo $tray->code.' - '.$tray->name ?></option>
+							<?php endforeach; ?>
+						</select>
+					</div>
+				</div>
+
+				<div class="cell">
+					<label for="">Kode Produk</label>
+					<div class="input-control text full-size">
+						<input type="text" placeholder="Kode Produk" id="code" name="product_code" readonly="readonly">
+						<input type="hidden" name="code" id="hidden_code">
+						<input type="hidden" name="count" id="hidden_count">
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
+
+		
 
 		<div class="row">
 			<div class="cell">
@@ -190,6 +227,26 @@
 <script src="<?php echo base_url() ?>js/webcam.min.js"></script>
 
 <script>
+	function get_tray(el){
+		if($(el).val() != ''){
+			$.ajax({
+              url: "<?php echo base_url('product/get_tray_data/')?>" + $(el).val(),
+              type: 'GET',
+              cache : false,
+              success: function(result){
+              	if (result != 'Toko ini belum punya baki') {
+              		$('#tray').empty();
+              		$('#tray').append("<option value=''>--Pilih Baki--</option>");
+              		$('#tray').append(result);
+              		$('#code').val('');
+              		$('#hidden_code').val('');
+              		$('#hidden_count').val('');
+              	}
+              }
+			});
+		}
+	}
+
 	function count_selling_price(){
 		if($('#gold_price').val() != '' && $('#marked_up').val() != '' && $('#rounded').val()){
 			var price = Number($('#gold_price').val()) * Number($('#rounded').val());
@@ -198,9 +255,13 @@
 	}
 
 	function get_data_new_product(){
+		var outlet = '';
 		if($('#tray').val() != ''){
+			if ($('#outlet').val() != '') {
+				outlet = $('#outlet').val();
+			}
 			$.ajax({
-              url: "<?php echo base_url('product/get_data_new_product/')?>" + $('#tray').val(),
+              url: "<?php echo base_url('product/get_data_new_product/')?>" + $('#tray').val() +  "/" + outlet,
               type: 'GET',
               cache : false,
               success: function(result){

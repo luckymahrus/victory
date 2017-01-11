@@ -40,7 +40,7 @@
                 <h3 style="margin-bottom: 20px;">Daftar Nilai Kurs</h3>
                 <hr class="bg-primary"> 
                 <div class="table-responsive toggle-circle-filled">
-                    <table class="table bordered table-condensed" data-page-size="10" id="table_kurs">
+                    <table class="table bordered border table-condensed" data-page-size="10" id="table_kurs">
                         <thead>
                             <tr>
                                 <th>Nama Kurs</th>

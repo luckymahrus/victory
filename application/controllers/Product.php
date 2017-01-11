@@ -67,13 +67,11 @@
 		}
 
 		public function add_product(){
-			if($this->session_role != 'manager'){
+			if($this->session_role == 'sales'){
 				redirect('home');
 			}
 			if($this->input->post()){
-				echo '<pre>';
-				print_r($this->input->post());
-				echo '</pre>';
+				
 				$this->load->library('image_moo');
 
 				$config['allowed_types']        = 'jpg|png|jpeg';
@@ -127,9 +125,14 @@
 	            		'gold_amount'	=> $this->input->post('gold_amount'),
 	            		'tray_id'		=> $this->input->post('product_tray'),
 	            		'photo'			=> $photo,
-	            		'outlet_id'		=> $this->session_outlet,
 
 	            	);
+
+	            if($this->session_role == 'admin'){
+	            	$data_product['outlet_id'] = $this->input->post('outlet');
+	            }elseif ($this->session_role == 'manager') {
+	            	$data_product['outlet_id'] = $this->session_outlet;
+	            }
 
 	            $this->db->update('code',array('count' => $this->input->post('count')+1),array('code' => $this->input->post('code')));
 
@@ -164,6 +167,10 @@
 	            redirect('product/add_product');
 
 			}else{
+				$data['role'] = $this->session_role;
+				if ($this->session_role == 'admin') {
+					$data['outlets'] = $this->db->get('outlets')->result();
+				}
 				$data['title'] = 'Product';
 				$data['stone_type'] = $this->db->get('diamond_type')->result();
 				$data['is_mobile'] = $this->is_mobile;
@@ -174,10 +181,27 @@
 		}
 
 		/*ajax for insert product*/
-	
-		public function get_data_new_product($tray_id = ''){
+
+		public function get_tray_data($outlet_id = ''){
 			$this->load->model('tray_model');
-			$outlet_code = $this->db->get_where('outlets',array('id' => $this->session_outlet))->row('code');
+			$tray = $this->tray_model->get_tray($outlet_id);
+			$output = '';
+			if($tray){
+				foreach($tray as $row){
+					$output .= "<option value='".$row->id."'>".$row->code." - ".$row->name."</option>";
+				}
+				echo $output;
+			}else{
+				echo 'Toko ini belum punya baki';
+			}
+		}
+	
+		public function get_data_new_product($tray_id = '', $outlet_id = ''){
+			$this->load->model('tray_model');
+			if($outlet_id == ''){
+				$outlet_id = $this->session_outlet;
+			}
+			$outlet_code = $this->db->get_where('outlets',array('id' => $outlet_id))->row('code');
 			$tray = $this->tray_model->get_specific_tray($tray_id);
 			$code = $this->db->get_where('code',array('code' => $outlet_code.$tray->code))->row();
 			if($code){

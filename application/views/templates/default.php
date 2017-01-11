@@ -61,7 +61,7 @@
      
       .navbar{
         background-color: <?php echo $configuration->primary_color ?>;
-        height: 50px;
+        height: 40px;
         border:none;
         border-radius: 0px;
       }
@@ -194,10 +194,7 @@
         border: 1px solid <?php echo $configuration->primary_color ?> !important;
         font-weight: bold
       }
-      .form-title{
-        padding-bottom: 10px;
-        padding-top: 5px;
-      }
+      
       .footable>thead>tr>th, .footable>thead>tr>td {       
         background-color : #ecf0f1 !important;
         border : 1px solid #999 !important;
@@ -267,37 +264,6 @@
                     <div class="overlay-content" >
                       <div class="grid">
                         <div class="row cells2">
-                          <div class="cell">
-                            <div class="tile-group triple">
-                              <span class="tile-group-title">Penjualan</span>
-                                <div class="tile-container"><!--Container Penjualan begins-->
-                                    <a href="<?php echo base_url('sale') ?>" class="tile-large fg-white" data-role="tile" style="background-color: #734ACC">
-                                      <div class="tile-content iconic">
-                                        <span class="icon mif-coins mif-ani-slow mif-ani-bounce"></span>
-                                        <span class="tile-label">Daftar Penjualan</span>
-                                      </div>
-                                    </a>
-                                    <div class="tile fg-white" data-role="tile" style="background-color: #905CFF">
-                                      <div class="tile-content iconic">
-                                        <span class="icon mif-plus"></span>
-                                        <span class="tile-label">Penjualan Baru</span>
-                                      </div>
-                                    </div>    
-                                    <div class="tile fg-white" data-role="tile" style="background-color:  #4383E8">
-                                      <div class="tile-content iconic">
-                                        <span class="icon mif-checkmark"></span>
-                                        <span class="tile-label">Booking Baru</span>
-                                      </div>
-                                    </div>    
-                                    <div class="tile-wide tile-big-x fg-white" data-role="tile" style="background-color: #3466B5">
-                                      <div class="tile-content iconic">
-                                        <span class="icon mif-clipboard mif-ani-slow mif-ani-heartbeat"></span>
-                                        <span class="tile-label">Daftar Booking</span>
-                                      </div>
-                                    </div>
-                                </div><!--Container ends-->
-                            </div>    
-                          </div>
                           
                           <div class="cell">
                             <div class="tile-group triple" >
@@ -317,6 +283,8 @@
                                     </div>
                                 </div><!--Container ends-->
                             </div>
+                            </div>
+                            <div class="cell">
                             <div class="tile-group triple" >
                                 <span class="tile-group-title">Pembelian</span>
                                 <div class="tile-container"><!--Container Pembelian begins-->
@@ -356,21 +324,11 @@
                                 <a class="tile-large bg-orange fg-white" data-role="tile" href="<?php echo base_url('product/add_product') ?>">
                                   <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Input Barang</span></div>
                                 </a>
-                                <div class="tile tile-wide-y bg-red fg-white" data-role="tile">
-                                  <div class="tile-content iconic"><span class="icon mif-truck mif-ani-pass"></span><span class="tile-label">Kirim</span></div>
-                                </div>
-                                <div class="tile tile-wide-y bg-lightRed fg-white" data-role="tile">
-                                  <div class="tile-content iconic"><span class="icon fa fa-check-square-o"></span><span class="tile-label">Terima</span></div>
-                                </div>
+                                
                                 <a class="tile tile-wide-x bg-cyan fg-white" data-role="tile" href="<?php echo base_url('category')?>">
                                   <div class="tile-content iconic"><span class="icon mif-file-text"></span><span class="tile-label">Kategori</span></div>
                                 </a>
-                                <a class="tile bg-green fg-white" data-role="tile" href="<?php echo base_url('tray')?>">
-                                  <div class="tile-content iconic"><span class="icon mif-shopping-basket mif-ani-bounce mif-ani-fast"></span><span class="tile-label">Daftar Baki</span></div>
-                                </a>
-                                <a class="tile bg-lime fg-white" data-role="tile" href="<?php echo base_url('tray')?>">
-                                  <div class="tile-content iconic"><span class="icon mif-search"></span><span class="tile-label">Stok Opnam</span></div>
-                                </a>
+                           
                                 <div class="tile tile-wide-x bg-magenta fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-versions mif-ani-horizontal"></span><span class="tile-label">Daftar Transaksi Barang</span></div>
                                 </div>
@@ -393,7 +351,7 @@
                             <div class="tile-group">
                               <div class="tile-group-title">Outlet</div>
                                 <div class="tile-container left-margin"><!--Container begin-->
-                                  <a href="<?php echo base_url('outlets') ?>" class="tile-large tile-big-y bg-lime fg-white" data-role="tile">
+                                  <a href="<?php echo base_url('outlets') ?>" class="tile-large tile-wide-y bg-lime fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-shop mif-ani-shake"></span><span class="tile-label">Daftar Outlet</span></div>
                                   </a>
                                   <a href="<?php echo base_url('sales/add_sales') ?>" class="tile tile-wide-x bg-green fg-white" data-role="tile">
@@ -402,7 +360,7 @@
                                   <a href="<?php echo base_url('outlets/add_outlet') ?>" class="tile tile-wide-x bg-emerald fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Tambah Outlet Baru</span></div>
                                   </a>
-                                  <a href="<?php echo base_url('sales') ?>" class="tile tile-super-x tile-wide-y bg-darkEmerald fg-white" data-role="tile">
+                                  <a href="<?php echo base_url('sales') ?>" class="tile tile-super-x bg-darkEmerald fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-users  mif-ani-float"></span><span class="tile-label">Daftar Sales</span></div>
                                   </a>
                                 </div><!--Container ends-->
@@ -424,13 +382,13 @@
                             <div class="tile-group">
                               <span class="tile-group-title">DAFTAR KONTAK</span>
                               <div class="tile-container left-margin"> <!--Tile container begins-->
-                                <a href="<?php echo base_url('customer') ?>" class="tile-large tile-big-y bg-darkCobalt fg-white" data-role="tile">
+                                <a href="<?php echo base_url('customer') ?>" class="tile-large tile-wide-y bg-darkCobalt fg-white" data-role="tile">
                                   <div class="tile-content iconic">
                                     <span class="icon mif-users mif-ani-bounce"></span>
                                     <span class="tile-label">Daftar Customer</span>
                                   </div>
                                 </a>
-                                <a class="tile tile-super-x tile-wide-y bg-cobalt fg-white" data-role="tile" href="<?php echo base_url('supplier') ?>">
+                                <a class="tile tile-super-x bg-cobalt fg-white" data-role="tile" href="<?php echo base_url('supplier') ?>">
                                   <div class="tile-content iconic">
                                     <span class="icon mif-file-text  mif-ani-heartbeat"></span>
                                     <span class="tile-label ">Daftar Supplier</span>
@@ -501,11 +459,11 @@
               <!--Konfigurasi ends-->
               <li><a href="<?php echo base_url('accounts/logout') ?>" class="menu-a"><i class="fa fa-power-off"></i> <span class="menu-text">Logout</span></a></li>
             </ul>
-            <!-- <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs">
+            <ul class="nav navbar-nav navbar-right" style="hidden-sm">
               <li class="dropdown">
                   <a class="menu-a" style="cursor: pointer;" href="#"><span class="icon mif-user" style="margin-bottom: 4px;"></span> <span class="menu-text">Welcome, <?php echo $this->session->user_name?></span></a>
               </li>
-            </ul> -->
+            </ul>
               
             
            <!--Main menu ul ends-->
@@ -515,7 +473,7 @@
       </nav>
   </header>
   
-  <section style="min-height: 545px;">
+  <section style="min-height: 556px;">
     <?php echo $body ?>
   </section>
   

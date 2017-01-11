@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap.css">
     <link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/custom.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-icons.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-responsive.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/metro-schemes.css" rel="stylesheet">
@@ -57,7 +58,7 @@
      
       .navbar{
         background-color: <?php echo $configuration->primary_color ?>;
-        height: 50px;
+        height: 40px;
         border:none;
         border-radius: 0px;
       }
@@ -182,10 +183,6 @@
         color: <?php echo $configuration->primary_color ?> !important;
         border: 1px solid <?php echo $configuration->primary_color ?> !important;
         font-weight: bold
-      }
-      .form-title{
-        padding-bottom: 10px;
-        padding-top: 5px;
       }
 
     </style>

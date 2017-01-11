@@ -15,7 +15,7 @@
 	    </div>
 		<div class="row">
 				<div class="cell table-responsive toggle-circle-filled">
-				<table class="table table-condensed" id="table_sales" data-filter="#filter" data-page-size="10">
+				<table class="table table-condensed border bordered" id="table_sales" data-filter="#filter" data-page-size="10">
 					<thead>
 						<tr>
 							<th data-type="numeric">No.</th>
