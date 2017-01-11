@@ -67,7 +67,7 @@
 								<td><?php echo $row->name ?></td>
 								<td><?php echo $row->target ?></td>
 								<td><?php echo $row->point ?></td>
-								<td><a href="<?php echo base_url('row/edit_row/'.$row->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_row('<?php echo $row->id ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
+								<td><a href="<?php echo base_url('configuration/edit_sales_point/'.$row->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_row('<?php echo $row->id ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
 							</tr>
 							<?php $i++; ?>
 							<?php endforeach; ?>

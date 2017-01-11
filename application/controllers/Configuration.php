@@ -347,7 +347,9 @@
 
 		/****Sales point start ****/
 		public function sales_point(){
-
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
 			if ($this->input->post()) {
 				$data_insert = array(
 
@@ -379,8 +381,40 @@
 			}
 			
 		}
-
 		/****Sales point end ****/
+
+		public function edit_sales_point($id){
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
+			if($this->input->post()){
+				$data_insert = array(
+
+					'name'	=> $this->input->post('name'),
+					'target'	=> $this->input->post('target'),
+					'point'	=> $this->input->post('point')
+
+				);
+				if($this->db->update('sales_point',$data_insert, array('id' => $id))){
+					$this->session->set_flashdata('point',"$.Notify({
+						caption: 'Berhasil',
+						content : 'Target telah diedit',
+						type: 'success'
+					});");
+				}else{
+					$this->session->set_flashdata('point',"$.Notify({
+						caption: 'Berhasil',
+						content : 'Target gagal diedit',
+						type: 'alert'
+					});");
+				}
+				redirect('configuration/sales_point');
+			}else{
+				$data['title'] = 'Edit Poin';
+				$data['sales_point'] = $this->db->get_where('sales_point', array('id' => $id))->row();
+				$this->template->load($this->default,'configuration/edit_sales_point',$data);	
+			}
+		}
 
 		/****Member point start ****/
 		public function member_point(){
