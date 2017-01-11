@@ -375,13 +375,12 @@
 
 				redirect('configuration/sales_point');
 			}else{
-				$data['title'] = 'Poin';
+				$data['title'] = 'Poin Sales';
 				$data['sales_point'] = $this->db->get('sales_point')->result();
 				$this->template->load($this->default, 'configuration/sales_point', $data);	
 			}
 			
 		}
-		/****Sales point end ****/
 
 		public function edit_sales_point($id){
 			if($this->session_role != 'admin'){
@@ -416,6 +415,27 @@
 			}
 		}
 
+		public function delete_sales_point($id){
+			if($this->session_role!='admin'){
+				redirect('home');
+			}
+			if($this->crud_model->delete_data('sales_point',array('id'=>$id))){
+				$this->session->set_flashdata('point',"$.Notify({
+					caption: 'Berhasil',
+					content : 'Target telah dihapus',
+					type: 'success'
+				});");
+				redirect('configuration/sales_point');
+			}else{
+				$this->session->set_flashdata('point',"$.Notify({
+					caption: 'Gagal',
+					content : 'Target gagal dihapus',
+					type : 'alert'
+				});");
+			}
+		}
+		/****Sales point end ****/
+
 		/****Member point start ****/
 		public function member_point(){
 
@@ -448,6 +468,59 @@
 				$this->template->load($this->default, 'configuration/member_point', $data);	
 			}
 			
+		}
+
+		public function edit_member_point($id){
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
+			if($this->input->post()){
+				$data_insert = array(
+
+					'name'	=> $this->input->post('name'),
+					'target'	=> $this->input->post('target'),
+					'point'	=> $this->input->post('point')
+
+				);
+				if($this->db->update('member_point',$data_insert, array('id' => $id))){
+					$this->session->set_flashdata('point',"$.Notify({
+						caption: 'Berhasil',
+						content : 'Target telah diedit',
+						type: 'success'
+					});");
+				}else{
+					$this->session->set_flashdata('point',"$.Notify({
+						caption: 'Berhasil',
+						content : 'Target gagal diedit',
+						type: 'alert'
+					});");
+				}
+				redirect('configuration/member_point');
+			}else{
+				$data['title'] = 'Edit Poin';
+				$data['member_point'] = $this->db->get_where('member_point', array('id' => $id))->row();
+				$this->template->load($this->default,'configuration/edit_member_point',$data);	
+			}
+		}
+
+		public function delete_member_point($id){
+			if($this->session_role!='admin'){
+				redirect('home');
+			}
+			if($this->crud_model->delete_data('member_point',array('id'=>$id))){
+				$this->session->set_flashdata('point',"$.Notify({
+					caption: 'Berhasil',
+					content : 'Target telah dihapus',
+					type: 'success'
+				});");
+				redirect('configuration/member_point');
+			}else{
+				$this->session->set_flashdata('point',"$.Notify({
+					caption: 'Gagal',
+					content : 'Target gagal dihapus',
+					type : 'alert'
+				});");
+			}
 		}
 
 		/****Member point end ****/

@@ -2,24 +2,24 @@
     <div class="grid">
         <div class="row">
             <div class="cell">
-                <h3 style="display:inline-block"><small><a href="<?php echo base_url('configuration/sales_point') ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke daftar poin</a></small></h3>
+                <h3 style="display:inline-block"><small><a href="<?php echo base_url('configuration/member_point') ?>"><span class="fa fa-arrow-circle-o-left"></span> Kembali ke daftar poin</a></small></h3>
             </div>
         </div>
 
         <div class="row form-title" style="margin-bottom: 0">     
             <div class="cell">
-                <h1 style="margin-bottom: 20px;">Edit Poin <?php echo ucfirst($sales_point->name) ?></h1>
+                <h1 style="margin-bottom: 20px;">Edit Poin <?php echo ucfirst($member_point->name) ?></h1>
                 <hr class="bg-primary"> 
             </div>
         </div>
 
-        <?php echo form_open('configuration/edit_sales_point/'.$sales_point->id,array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false')) ?>
+        <?php echo form_open('configuration/edit_member_point/'.$member_point->id,array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false')) ?>
 
         <div class="row">
             <div class="cell">
             	<label>Nama Target</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Masukkan nama untuk target baru" name="name" value="<?php echo $sales_point->name ?>" data-validate-func="required" data-validate-hint="Kode tray harus diisi">
+                    <input type="text" placeholder="Masukkan nama untuk target baru" name="name" value="<?php echo $member_point->name ?>" data-validate-func="required" data-validate-hint="Kode tray harus diisi">
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
             </div>
@@ -28,7 +28,7 @@
             <div class="cell">
                 <label>Nilai Target</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Target" name="target" value="<?php echo $sales_point->target ?>" >
+                    <input type="text" placeholder="Target" name="target" value="<?php echo $member_point->target ?>" >
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>      
             </div>
@@ -38,7 +38,7 @@
             <div class="cell">
                 <label>Poin</label>
                 <div class="input-control text full-size">
-                    <input type="text" placeholder="Point yang didapat" name="point" value="<?php echo $sales_point->point ?>" >
+                    <input type="text" placeholder="Point yang didapat" name="point" value="<?php echo $member_point->point ?>" >
                     <button class="button helper-button clear"><span class="mif-cross"></span></button>
                 </div>
             </div>

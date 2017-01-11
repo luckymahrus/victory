@@ -155,7 +155,7 @@
 		    window.location.assign("<?php echo base_url() ?>Tray/delete_tray/"+id);
 		  },
 		  function(){
-		    $.Notify({caption: 'Gagal !', content: 'Customer gagal dihapus', type: 'alert'});
+		    $.Notify({caption: 'Gagal !', content: 'Baki gagal dihapus', type: 'alert'});
 		  });
 	}
 </script>

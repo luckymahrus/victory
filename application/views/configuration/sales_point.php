@@ -13,7 +13,7 @@
 	<div class="grid condensed">
 		<!--Form Add Tray-->
 		<?php echo form_open('configuration/sales_point')?>
-		<div class="row closed-add" id="append_tray" style="display: none">
+		<div class="row closed-add" id="append_target" style="display: none">
 			<h3 style="margin-bottom: 20px;">Tambah target Baru</h3>
             <hr class="bg-primary">	
     		<div class="cell">
@@ -67,7 +67,7 @@
 								<td><?php echo $row->name ?></td>
 								<td><?php echo $row->target ?></td>
 								<td><?php echo $row->point ?></td>
-								<td><a href="<?php echo base_url('configuration/edit_sales_point/'.$row->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_row('<?php echo $row->id ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
+								<td><a href="<?php echo base_url('configuration/edit_sales_point/'.$row->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_target('<?php echo $row->id ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
 							</tr>
 							<?php $i++; ?>
 							<?php endforeach; ?>
@@ -101,24 +101,24 @@
     });
 
     $('#add_link').click(function(){
-    	if($('#append_tray').hasClass('closed-add')){
-    		$('#append_tray').show();	
-			$('#append_tray').removeClass('closed-add');
+    	if($('#append_target').hasClass('closed-add')){
+    		$('#append_target').show();	
+			$('#append_target').removeClass('closed-add');
     	}
     	else{
-    		$('#append_tray').hide();	
-			$('#append_tray').addClass('closed-add');	
+    		$('#append_target').hide();	
+			$('#append_target').addClass('closed-add');	
     	}
     	
     });
     
-	function delete_tray(id,code){
-		alertify.confirm("Apakah anda yakin ingin menghapus Baki "+code+"?",
+	function delete_target(id){
+		alertify.confirm("Apakah anda yakin ingin menghapus target ?",
 		  function(){
-		    window.location.assign("<?php echo base_url() ?>Tray/delete_tray/"+id);
+		    window.location.assign("<?php echo base_url() ?>Configuration/delete_sales_point/"+id);
 		  },
 		  function(){
-		    $.Notify({caption: 'Gagal !', content: 'Customer gagal dihapus', type: 'alert'});
+		    $.Notify({caption: 'Gagal !', content: 'Target gagal dihapus', type: 'alert'});
 		  });
 	}
 </script>
