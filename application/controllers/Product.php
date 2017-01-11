@@ -321,6 +321,9 @@
 			if($product == NULL){
 				echo 'not found';
 			}else{
+				$product = (array) $product;
+				$product['selling_price'] = rupiah($product['selling_price']);
+				$product = (Object) $product;
 				echo json_encode($product);	
 			}
 		}

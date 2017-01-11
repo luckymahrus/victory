@@ -293,16 +293,16 @@
                             <div class="tile-group">
                               <span class="tile-group-title">Inventory</span>
                               <div class="tile-container"><!--Container begins-->
-                                <a accesskey="b" href="<?php echo base_url('product') ?>" class="tile-large tile-big-y bg-amber fg-white" data-role="tile">
+                                <a accesskey="b" href="<?php echo base_url('product') ?>" class="tile-large tile-wide-y bg-amber fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-list  mif-ani-float"></span><span class="tile-label">Daftar Barang</span></div>
                                 </a>
-                                <a accesskey="i" href="<?php echo base_url('product/add_product') ?>" class="tile-large bg-orange fg-white" data-role="tile">
+                                <a accesskey="i" href="<?php echo base_url('product/add_product') ?>" class="tile tile-wide-x bg-orange fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-plus"></span><span class="tile-label">Input Barang</span></div>
                                 </a>
-                                <a href="<?php echo base_url('product/sent_item') ?>" class="tile tile-wide-y bg-red fg-white" data-role="tile">
+                                <a href="<?php echo base_url('product/sent_item') ?>" class="tile bg-red fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon mif-truck mif-ani-pass"></span><span class="tile-label">Kirim</span></div>
                                 </a>
-                                <a href="<?php echo base_url('product/receive_item') ?>" class="tile tile-wide-y bg-lightRed fg-white" data-role="tile">
+                                <a href="<?php echo base_url('product/receive_item') ?>" class="tile bg-lightRed fg-white" data-role="tile">
                                   <div class="tile-content iconic"><span class="icon fa fa-check-square-o"></span><span class="tile-label">Terima</span></div>
                                 </a>
 
@@ -334,13 +334,13 @@
                             <div class="tile-group">
                               <div class="tile-group-title">Outlet</div>
                                 <div class="tile-container"><!--Container begin-->
-                                  <a href="<?php echo base_url('outlets') ?>" class="tile-large tile-big-y bg-lime fg-white" data-role="tile">
+                                  <a href="<?php echo base_url('outlets') ?>" class="tile-large tile-wide-y bg-lime fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-shop mif-ani-shake"></span><span class="tile-label">Daftar Outlet</span></div>
                                   </a>
                                   <a href="<?php echo base_url('sales/add_sales') ?>" class="tile tile-super-x bg-green fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-user-plus"></span><span class="tile-label">Tambah Sales Baru</span></div>
                                   </a>
-                                  <a href="<?php echo base_url('sales') ?>" class="tile tile-super-x tile-wide-y bg-darkEmerald fg-white" data-role="tile">
+                                  <a href="<?php echo base_url('sales') ?>" class="tile tile-super-x bg-darkEmerald fg-white" data-role="tile">
                                     <div class="tile-content iconic"><span class="icon mif-users  mif-ani-float"></span><span class="tile-label">Daftar Sales</span></div>
                                   </a>
                                 </div><!--Container ends-->
@@ -362,13 +362,13 @@
                             <div class="tile-group">
                               <span class="tile-group-title">DAFTAR KONTAK</span>
                               <div class="tile-container"> <!--Tile container begins-->
-                                <a href="<?php echo base_url('customer') ?>" class="tile-large tile-big-y bg-darkCobalt fg-white" data-role="tile">
+                                <a href="<?php echo base_url('customer') ?>" class="tile-large tile-wide-y bg-darkCobalt fg-white" data-role="tile">
                                   <div class="tile-content iconic">
                                     <span class="icon mif-users mif-ani-bounce"></span>
                                     <span class="tile-label">Daftar Customer</span>
                                   </div>
                                 </a>
-                                <a class="tile tile-super-x tile-wide-y bg-cobalt fg-white" data-role="tile" href="<?php echo base_url('supplier') ?>">
+                                <a class="tile tile-super-x bg-cobalt fg-white" data-role="tile" href="<?php echo base_url('supplier') ?>">
                                   <div class="tile-content iconic">
                                     <span class="icon mif-file-text  mif-ani-heartbeat"></span>
                                     <span class="tile-label ">Daftar Supplier</span>

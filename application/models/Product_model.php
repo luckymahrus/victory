@@ -8,7 +8,6 @@ class Product_model extends CI_Model{
 		$this->db->join('outlets','outlets.id = products.outlet_id');
 		$this->db->join('tray','tray.id = products.tray_id');
 		$this->db->join('gold_amount','gold_amount.id = products.gold_amount');
-		$this->db->where('products.status','available');
 		$this->db->order_by('products.product_code','asc');
 		return $this->db->get()->result();
 	}
@@ -22,8 +21,7 @@ class Product_model extends CI_Model{
 		if($outlet_id != ''){
 			$this->db->where('products.outlet_id',$outlet_id);	
 		}
-		$this->db->where('products.status','available');
-		$this->db->order_by('products.product_code','asc');
+		$this->db->order_by('products.status','asc');
 		return $this->db->get()->result();
 	}
 
@@ -36,7 +34,7 @@ class Product_model extends CI_Model{
 		$this->db->where('products.product_code',$product_code);
 		$this->db->where('products.outlet_id',$outlet_id);
 		$this->db->where('products.status','available');
-		$this->db->order_by('products.product_code','asc');
+		$this->db->order_by('products.status','asc');
 		return $this->db->get()->row();
 	}
 

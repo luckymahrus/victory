@@ -69,9 +69,10 @@
 
 				$data_sale = array(
 						'sale_code' => $this->input->post('sale_code'),
-						'date' => date('Y-m-d'),
+						'date' => date('Y-m-d H:i'),
 						'outlet_id' => $this->session_outlet,
 						'sales_id' => $this->input->post('sales_id'),
+						'cashier_id' => $this->session_id,
 						'customer_code' => $this->input->post('customer_code'),
 						'qty' => count($this->input->post('product_code')),
 						'total_price' => $this->input->post('total_price')
@@ -88,7 +89,7 @@
 								'total_price' => $this->input->post('discount')[$i],
 							);
 						/**update barang kejual**/
-						$this->db->update('products', array('status' => 'terjual'), array('product_code' => $this->input->post('product_code')[$i]));
+						$this->db->update('products', array('status' => 'terjual','selling_price' => $this->input->post('discount')[$i]), array('product_code' => $this->input->post('product_code')[$i]));
 						$this->db->insert('sale_detail',$data_detail);
 					}
 					/**update count code**/

@@ -50,7 +50,7 @@
 							<th data-hide="phone">Kategori</th>
 							<th data-hide="phone">Berat Real</th>
 							<th data-hide="phone">Penyesuaian</th>
-							<th data-hide="phone">Harga Jual</th>
+							<th data-hide="phone">Status</th>
 							<th data-hide="phone">Kadar</th>
 							<th data-hide="phone">Lokasi</th>
 						</tr>
@@ -69,7 +69,7 @@
 									<td><?php echo $product->category ?></td>
 									<td><?php echo $product->real_weight ?></td>
 									<td><?php echo $product->rounded_weight ?></td>
-									<td><?php echo $product->selling_price ?></td>
+									<td><?php echo $product->status ?></td>
 									<td><?php echo $product->amount_type.$product->original.' -> '.$product->marked_up ?></td>
 									<td><?php echo $product->outlet ?></td>
 								</tr>		
@@ -127,7 +127,7 @@
               		var data = JSON.parse(result);
               		$('#table_body').empty();
               		$.each(data, function( index, value ) {
-					  $('#table_body').append("<tr><td>"+no+"</td><td><a class=photobox href='<?php echo base_url() ?>"+value.photo+"'><img width='20' src='<?php echo base_url()?>"+value.photo+"' alt=''/></a></td><td>"+value.product_code+"</td><td>"+value.name+"</td><td>"+value.tray+"</td><td>"+value.type+"</td><td>"+value.category+"</td><td>"+value.real_weight+"</td><td>"+value.rounded_weight+"</td><td>"+value.selling_price+"</td><td>"+value.amount_type+" "+value.original+"->"+value.marked_up+"</td><td>"+value.outlet+"</td></tr>");	
+					  $('#table_body').append("<tr><td>"+no+"</td><td><a class=photobox href='<?php echo base_url() ?>"+value.photo+"'><img width='20' src='<?php echo base_url()?>"+value.photo+"' alt=''/></a></td><td>"+value.product_code+"</td><td><a href='#' onclick='showDialog(\"<?php echo $product->product_code ?>\")'>"+value.name+"</a></td><td>"+value.tray+"</td><td>"+value.type+"</td><td>"+value.category+"</td><td>"+value.real_weight+"</td><td>"+value.rounded_weight+"</td><td>"+value.status+"</td><td>"+value.amount_type+" "+value.original+"->"+value.marked_up+"</td><td>"+value.outlet+"</td></tr>");	
 					  no++;
 					});
 					$('#table_product').trigger('footable_initialize');
@@ -153,7 +153,7 @@
 	            		var data = JSON.parse(result);
 	            		metroDialog.create({
 			            title: "Detil Barang",
-			            content: "<div class='grid'><div class='row cells3 bg-grayLighter' style='padding: 20px;'><div class='cell'><div class='grid'><div class='row'><div class='cell'><img src='<?php echo base_url()?>"+data.photo+"' style='margin:auto;display:block' width='200' alt=''></div></div></div></div><div class='cell colspan2'><div class='grid' id='dialogfont'><div class='row'><div class='cell'><table><tr><th colspan='2'>"+data.name+" - "+data.product_code+"<td><b></tr><tr><td><b>Tipe</td><td>:</td><td>"+data.type+"</td></tr><tr><td><b>Kategori</td><td>:</td><td>"+data.category+"</td></tr><tr><td><b>Berat</td><td>:</td><td>"+data.real_weight+"g ~ "+data.rounded_weight+"g</td></tr></tr><tr><td><b>Kadar Emas</td><td>:</td><td>"+data.gold_amount+"</td></tr></tr><tr><td><b>Baki</td><td>:</td><td>"+data.tray+"</td></tr></tr><tr><td><b>Outlet</td><td>:</td><td>"+data.outlet+"</td></tr></tr><tr><td><b>Status</td><td>:</td><td>"+data.status+"</td></tr></table></div></div></div></div></div></div>",
+			            content: "<div class='grid'><div class='row cells3 bg-grayLighter' style='padding: 20px;'><div class='cell'><div class='grid'><div class='row'><div class='cell'><img src='<?php echo base_url()?>"+data.photo+"' style='margin:auto;display:block' width='200' alt=''></div></div></div></div><div class='cell colspan2'><div class='grid' id='dialogfont'><div class='row'><div class='cell'><table><tr><th colspan='2'>"+data.name+" - "+data.product_code+"<td><b></tr><tr><td><b>Tipe</td><td>:</td><td>"+data.type+"</td></tr><tr><td><b>Kategori</td><td>:</td><td>"+data.category+"</td></tr><tr><td><b>Berat</td><td>:</td><td>"+data.real_weight+"g ~ "+data.rounded_weight+"g</td></tr></tr><tr><td><b>Kadar Emas</td><td>:</td><td>"+data.gold_amount+"</td></tr></tr><tr><td><b>Baki</td><td>:</td><td>"+data.tray+"</td></tr></tr><tr><td><b>Outlet</td><td>:</td><td>"+data.outlet+"</td></tr></tr><tr><td><b>Status</td><td>:</td><td>"+data.status+"</td></tr>"+(data.status == 'terjual' ? "<tr><td><b>Harga Jual</b></td><td>:</td><td>"+data.selling_price+"</td></tr>":"")+"</table></div></div></div></div></div></div>",
 			            actions: [
 			                {
 			                    title: "OK",

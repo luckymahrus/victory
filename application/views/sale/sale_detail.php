@@ -32,8 +32,6 @@
 							<th data-hide="phone">Berat Real</th>
 							<th data-hide="phone">Penyesuaian</th>
 							<th data-hide="phone">Harga Jual</th>
-							<th data-hide="phone">Discount</th>
-							<th data-hide="phone">Total Harga</th>
 							
 						</tr>
 					</thead>
@@ -46,11 +44,9 @@
 									<td><a class="photobox" href="<?php echo base_url().$row->photo ?>"><img width="20" src="<?php echo base_url().$row->photo ?>" alt=""/></a></td>
 									<td><?php echo $row->name ?></td>
 									<td><a href="#" onclick="showDialog('<?php echo $row->product_code ?>')"><?php echo $row->product_code ?></a></td>
-									<td><?php echo $row->real_weight ?></td>
-									<td><?php echo $row->rounded_weight ?></td>
-									<td><?php echo $row->selling_price ?></td>
-									<td><?php echo $row->discount ?></td>
-									<td><?php echo $row->total_price ?></td>
+									<td><?php echo $row->real_weight ?>g</td>
+									<td><?php echo $row->rounded_weight ?>g</td>
+									<td><?php echo rupiah($row->discount) ?></td>
 								</tr>		
 								<?php $i++; ?>
 							<?php endforeach; ?>

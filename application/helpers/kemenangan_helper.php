@@ -19,8 +19,14 @@ function verification_code(){
 }
 
 
-function NZD($number){
+function dollar($number){
 
 		return '$ '.number_format($number,2);
+
+}
+
+function rupiah($number){
+
+		return 'Rp '.number_format($number,2,',','.');
 
 }

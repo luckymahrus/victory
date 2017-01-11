@@ -66,7 +66,7 @@
 									<td><?php echo $row->sales_name ?></td>
 									<td><?php echo $row->cashier ?></td>
 									<td><?php echo $row->customer ?></td>
-									<td><?php echo $row->total_price ?></td>
+									<td><?php echo rupiah($row->total_price) ?></td>
 									<td><?php echo $row->outlet_name ?></td>
 									<td><?php echo date('d-M-Y H:i',strtotime($row->date)); ?></td>
 								</tr>		
