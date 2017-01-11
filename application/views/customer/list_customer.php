@@ -52,12 +52,12 @@
 								<td><a href="tel:<?php echo $customer->phone ?>"><?php echo $customer->phone ?></a></td>
 								<td><?php echo $customer->email ?></td>
 								<td><?php echo $customer->address ?></td>
+								<td><?php echo $customer->member_point ?></td>
 								<td>
 									<?php $outlet = $this->crud_model->get_by_condition('outlets', array('id'=>$customer->outlet_id))->row('name');
 										echo $outlet;
 									?>
 								</td>
-								<td><?php echo $customer->member_point ?></td>
 								<td><a href="<?php echo base_url('customer/edit_customer/'.$customer->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_customer('<?php echo $customer->id ?>','<?php echo $customer->name ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
 							</tr>
 							<?php $i++; ?>
