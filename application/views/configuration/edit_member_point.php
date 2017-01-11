@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="row"></div>
+        <div class="row">
             <div class="cell">
                 <label>Nilai Target</label>
                 <div class="input-control text full-size">

@@ -54,6 +54,42 @@
 			}
 		}
 
+		public function edit_category($id){
+			if($this->session_role != 'admin'){
+				redirect('home');	
+			}
+			if($this->input->post()){
+				$data= array(
+						'name'	=> $this->input->post('category_name'),
+						'code' => ucfirst($this->input->post('category_code')),
+						'type_id'=> $this->input->post('category_type')
+				);
+						caption: 'Berhasil',
+						type: 'success'
+					});");
+				}else{
+						caption: 'Berhasil',
+						type: 'alert'
+					});");
+				}
+			}else{
+			}
+		}
+
+		public function delete_category($id){
+			if($this->session_role!='admin'){
+				redirect('home');
+			}
+					caption: 'Berhasil',
+					type: 'success'
+				});");
+			}else{
+					caption: 'Gagal',
+					type : 'alert'
+				});");
+			}
+		}
+
 	}
 
  ?>

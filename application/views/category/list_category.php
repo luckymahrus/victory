@@ -69,7 +69,7 @@
 								<td><?php echo $i ?></td>
 								<td><?php echo $row->name ?></td>
 								<td><?php echo $row->code ?></td>
-								<td><a href="#"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" ><span class="mif mif-bin"></span> Hapus</a></td>
+								<td><a href="<?php echo base_url('category/edit_category/'.$row->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_category('<?php echo $row->id ?>','<?php echo $row->name ?>')" ><span class="mif mif-bin"></span> Hapus</a></td>
 							</tr>
 							<?php $i++; ?>
 							<?php endforeach; ?>
@@ -108,7 +108,7 @@
 								<td><?php echo $i ?></td>
 								<td><?php echo $row->name ?></td>
 								<td><?php echo $row->code ?></td>
-								<td><a href="<?php echo base_url('category/edit_category/'.$row->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_category('<?php echo $row->id ?>','<?php echo $row->code ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
+								<td><a href="<?php echo base_url('category/edit_category/'.$row->id) ?>"><span class="mif mif-pencil"></span> Edit</a> - <a href="#" onclick="delete_category('<?php echo $row->id ?>','<?php echo $row->name ?>')"><span class="mif mif-bin"></span> Hapus</a></td>
 							</tr>
 							<?php $i++; ?>
 							<?php endforeach; ?>
@@ -149,13 +149,13 @@
     	
     });
     
-	function delete_category(id,code){
-		alertify.confirm("Apakah anda yakin ingin menghapus Customer "+name,
+	function delete_category(id,name){
+		alertify.confirm("Apakah anda yakin ingin menghapus Kategori "+name,
 		  function(){
-		    window.location.assign("<?php echo base_url() ?>customer/delete_customer/"+id);
+		    window.location.assign("<?php echo base_url() ?>category/delete_category/"+id);
 		  },
 		  function(){
-		    $.Notify({caption: 'Gagal !', content: 'Customer gagal dihapus', type: 'alert'});
+		    $.Notify({caption: 'Gagal !', content: 'Kategori gagal dihapus', type: 'alert'});
 		  });
 	}
 
