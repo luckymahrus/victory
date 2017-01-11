@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2017 at 04:53 AM
+-- Generation Time: Jan 11, 2017 at 03:55 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -75,7 +75,7 @@ INSERT INTO `amount_limit` (`id`, `outlet_id`, `amount_id`, `amount_limit`) VALU
 (2, 1, 2, 80),
 (3, 2, 1, 78),
 (4, 2, 2, 85),
-(5, 1, 4, 20),
+(5, 1, 4, 45),
 (6, 2, 4, 45);
 
 -- --------------------------------------------------------
@@ -117,14 +117,17 @@ CREATE TABLE `code` (
 --
 
 INSERT INTO `code` (`id`, `code`, `count`) VALUES
-(1, 'KMK1', 4),
+(1, 'KMK1', 6),
 (2, 'KMC1', 4),
-(3, 'KMK2', 4),
+(3, 'KMK2', 6),
 (4, 'KMMUT', 6),
 (5, 'ASC1', 2),
 (6, 'ASMUT', 5),
 (7, 'MKM', 4),
-(11, 'KMJU', 3);
+(11, 'KMJU', 8),
+(12, 'C1', 1),
+(13, 'K1', 1),
+(14, 'HAK1', 1);
 
 -- --------------------------------------------------------
 
@@ -142,7 +145,7 @@ CREATE TABLE `configuration` (
 --
 
 INSERT INTO `configuration` (`id`, `primary_color`) VALUES
-(1, '#2c3e50');
+(1, '#2e2e2e');
 
 -- --------------------------------------------------------
 
@@ -222,10 +225,10 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `code`, `name`, `phone`, `email`, `address`, `type`, `outlet_id`, `member_point`, `birthday`) VALUES
-(3, 'MKM0000001', 'Setyawan', '081316361519', 'setyawansusanto99@outlook.com', 'Apartemen Puri ParkView\r\n', 'Regular', 0, 0, '0000-00-00'),
-(4, 'MKM0000002', 'Felita', '081316361514', 'felita_31895@gmail.com', 'Gading Kirana', 'Member', 0, 0, '0000-00-00'),
-(5, 'MKM0000003', 'Sally', '08127312', '', '', 'Member', 0, 0, '0000-00-00'),
-(6, 'MKM0000004', 'Gabriella', '019830123', '', 'Gandaria', 'Regular', 0, 0, '0000-00-00');
+(3, 'MKM0000001', 'Setyawan', '081316361519', 'setyawansusanto99@outlook.com', 'Apartemen Puri ParkView\r\n', 'Regular', 1, 0, '0000-00-00'),
+(4, 'MKM0000002', 'Felita', '081316361514', 'felita_31895@gmail.com', 'Gading Kirana', 'Member', 2, 0, '0000-00-00'),
+(5, 'MKM0000003', 'Sally', '08127312', '', '', 'Member', 1, 8, '0000-00-00'),
+(6, 'MKM0000004', 'Gabriella', '019830123', '', 'Gandaria', 'Regular', 1, 0, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -269,6 +272,27 @@ INSERT INTO `gold_amount` (`id`, `type`, `original`, `marked_up`, `amount_limit`
 (1, 'K', 70, 80, 75),
 (2, 'P', 75, 90, 85),
 (4, 'K', 420, 55, 50);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member_point`
+--
+
+CREATE TABLE `member_point` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `target` int(11) NOT NULL,
+  `point` int(11) NOT NULL,
+  `active` int(11) NOT NULL DEFAULT '0' COMMENT '1 = active, 0 = inactive'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `member_point`
+--
+
+INSERT INTO `member_point` (`id`, `name`, `target`, `point`, `active`) VALUES
+(1, 'Normal', 550000, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -384,9 +408,13 @@ INSERT INTO `products` (`id`, `product_code`, `name`, `type`, `category`, `real_
 (5, 'KMC100001', 'Cincin Emas Hello Kitty', 'Emas', 'Cincin', 2.33, 2.35, 0, 721920, 0, 1, 4, 'uploads/photo/product/2/KMC100001.jpg', 2, 'available'),
 (6, 'KMC100002', 'Cincin Hello Kitty', 'Emas', 'Cincin', 2.33, 2.35, 0, 721920, 0, 1, 2, 'uploads/photo/product/2/KMC100002.jpg', 1, 'pending'),
 (7, 'KMK200001', 'Kalung Elora', 'Berlian', 'Kalung', 5.21, 5.25, 0, 1701000, 0, 2, 5, 'uploads/photo/product/3/KMK200001.jpg', 2, 'available'),
-(8, 'ASC100001', 'Cincin Kawin', 'Emas', 'Cincin', 1.36, 1.4, 0, 598080, 0, 1, 2, 'uploads/photo/product/4/ASC100001.jpg', 1, 'available'),
-(9, 'KMC100003', 'Cincin', 'Emas', 'Cincin', 2.34, 2.35, 0, 1002980, 0, 1, 2, 'uploads/photo/product/2/KMC100003.jpg', 1, 'available'),
-(11, 'KMK200003', 'Kalung Elora 2', 'Berlian', 'Kalung', 6.78, 6.8, 0, 3265020, 0, 2, 3, '', 1, 'available');
+(8, 'ASC100001', 'Cincin Kawin', 'Emas', 'Cincin', 1.36, 1.4, 0, 598080, 0, 1, 2, 'uploads/photo/product/4/ASC100001.jpg', 1, 'terjual'),
+(9, 'KMC100003', 'Cincin', 'Emas', 'Cincin', 2.34, 2.35, 0, 1002980, 0, 1, 2, 'uploads/photo/product/2/KMC100003.jpg', 1, 'terjual'),
+(11, 'KMK200003', 'Kalung Elora 2', 'Berlian', 'Kalung', 6.78, 6.8, 0, 3265020, 0, 2, 3, '', 1, 'terjual'),
+(12, 'KMK200004', 'Kalung Delta', 'Berlian', 'Kalung', 7.87, 7.9, 0, 3793185, 0, 2, 3, 'uploads/photo/product/3/KMK200004.jpg', 1, 'terjual'),
+(13, 'KMK100004', 'Kalung MK 333', 'Emas', 'Kalung MK', 9.56, 9.6, 0, 4097280, 0, 1, 1, 'uploads/photo/product/1/KMK100004.jpg', 1, 'terjual'),
+(14, 'KMK100005', 'Kalung MK doraemon', 'Emas', 'Kalung MK', 4.77, 4.8, 0, 2048640, 0, 1, 1, 'uploads/photo/product/1/KMK100005.jpg', 1, 'available'),
+(15, 'KMK200005', 'Kalung Berlian Elora', 'Berlian', 'Kalung', 6.87, 6.9, 0, 3313035, 0, 2, 3, 'uploads/photo/product/3/KMK200005.jpg', 1, 'available');
 
 -- --------------------------------------------------------
 
@@ -424,7 +452,12 @@ CREATE TABLE `sale` (
 --
 
 INSERT INTO `sale` (`id`, `sale_code`, `date`, `outlet_id`, `sales_id`, `cashier_id`, `customer_code`, `qty`, `total_price`) VALUES
-(2, 'KMJU00002', '2016-12-20 07:42:00', 1, 9, 2, 'MKM0000003', 2, 1600000);
+(2, 'KMJU00002', '2016-12-20 07:42:00', 1, 9, 2, 'MKM0000003', 2, 1600000),
+(3, 'KMJU00003', '2017-01-06 00:00:00', 1, 0, 0, 'MKM0000001', 1, 570000),
+(4, 'KMJU00004', '2017-01-06 00:00:00', 1, 9, 0, 'MKM0000003', 1, 980000),
+(5, 'KMJU00005', '2017-01-06 00:00:00', 1, 9, 0, 'MKM0000003', 1, 3000000),
+(6, 'KMJU00006', '2017-01-06 00:00:00', 1, 9, 0, 'MKM0000003', 1, 3700000),
+(7, 'KMJU00007', '2017-01-06 00:00:00', 1, 9, 0, 'MKM0000003', 1, 3900000);
 
 -- --------------------------------------------------------
 
@@ -438,6 +471,13 @@ CREATE TABLE `sales_point` (
   `target` int(11) NOT NULL,
   `point` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sales_point`
+--
+
+INSERT INTO `sales_point` (`id`, `name`, `target`, `point`) VALUES
+(1, 'Target 1', 500000, 2);
 
 -- --------------------------------------------------------
 
@@ -460,7 +500,12 @@ CREATE TABLE `sale_detail` (
 
 INSERT INTO `sale_detail` (`id`, `product_code`, `sale_code`, `selling_price`, `discount`, `total_price`) VALUES
 (3, 'KMK100001', 'KMJU00002', 829440, 29440, 800000),
-(4, 'KMK100002', 'KMJU00002', 890880, 90880, 800000);
+(4, 'KMK100002', 'KMJU00002', 890880, 90880, 800000),
+(5, 'ASC100001', 'KMJU00003', 598.08, 570000, 570000),
+(6, 'KMC100003', 'KMJU00004', 1.002, 980000, 980000),
+(7, 'KMK200003', 'KMJU00005', 3.265, 3000000, 3000000),
+(8, 'KMK200004', 'KMJU00006', 3.793, 3700000, 3700000),
+(9, 'KMK100004', 'KMJU00007', 4.097, 3900000, 3900000);
 
 -- --------------------------------------------------------
 
@@ -482,7 +527,9 @@ CREATE TABLE `specification` (
 
 INSERT INTO `specification` (`id`, `product_code`, `stone_type`, `stone_amount`, `stone_ct`) VALUES
 (1, 'KMK200003', '1', 2, 0.2),
-(2, 'KMK200003', '1', 12, 0.11);
+(2, 'KMK200003', '1', 12, 0.11),
+(3, 'KMK200004', '1', 3, 2.3),
+(4, 'KMK200005', '1', 2, 0.3);
 
 -- --------------------------------------------------------
 
@@ -610,6 +657,12 @@ ALTER TABLE `gold_amount`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `member_point`
+--
+ALTER TABLE `member_point`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `mutation`
 --
 ALTER TABLE `mutation`
@@ -704,7 +757,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `code`
 --
 ALTER TABLE `code`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `configuration`
 --
@@ -736,6 +789,11 @@ ALTER TABLE `diamond_type`
 ALTER TABLE `gold_amount`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
+-- AUTO_INCREMENT for table `member_point`
+--
+ALTER TABLE `member_point`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `mutation`
 --
 ALTER TABLE `mutation`
@@ -754,7 +812,7 @@ ALTER TABLE `outlets`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `promo`
 --
@@ -764,22 +822,22 @@ ALTER TABLE `promo`
 -- AUTO_INCREMENT for table `sale`
 --
 ALTER TABLE `sale`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `sales_point`
 --
 ALTER TABLE `sales_point`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `sale_detail`
 --
 ALTER TABLE `sale_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `specification`
 --
 ALTER TABLE `specification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
