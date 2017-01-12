@@ -13,7 +13,7 @@
 		<!--Form Add Tray-->
 		<?php echo form_open('configuration/edit_diamond_type/'.$diamond_type->id,array('data-role' =>  'validator','data-on-error-input' => 'notifyOnErrorInput','data-show-error-hint' => 'false'))?>
 		<div class="row">
-			<h3 style="margin-bottom: 20px;">Tambah Kadar Baru</h3>
+			<h3 style="margin-bottom: 20px;"><?php echo $title?></h3>
             <hr class="bg-primary">	
         	<div class="grid">
             	<div class="row cells2">
