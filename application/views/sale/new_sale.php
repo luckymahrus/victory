@@ -118,6 +118,7 @@
 		<div class="row form-title">
 	        <div class="cell">
 	        	<input type="hidden" name="total_price" id="hidden_total">
+	        	<input type="hidden" name="type" id="type">
 	            <hr class="bg-primary">
 				<p class="place-right"><strong>Total : </strong>Rp. <span id="total_price">0</span></p>
 	        </div>
@@ -127,7 +128,6 @@
         	   <input type="submit" name="submit" class="button bg-primary" id="submit_btn" disabled="disabled" value="Submit" >
             </div>
 		</div>
-		<div class="row" id="kk"></div>
 	</div>
 </div>
 <?php echo form_close(); ?>
@@ -143,6 +143,7 @@
 <script>
 	var no = 1;
 	var product_code = [];
+	var type = '';
 	var snd = new Audio('<?php echo base_url() ?>assets/barcode.wav');
 
 	$(document).ready(function(){
@@ -271,7 +272,21 @@
 				            type: 'alert'
 				        });
 					}else{
-						$('#table_body').append("<tr id='row_"+data.id+"'><td><a onclick='remove_row("+data.id+")' style='cursor:pointer'>&times;</a>"+no+"</td><td><a class='photobox' href='<?php echo base_url() ?>"+data.photo+"'><img width='20' src='<?php echo base_url() ?>"+data.photo+"' alt=''/></a></td><td>"+data.product_code+"</td><td>"+data.name+"</td><td>"+data.rounded_weight+"</td><td>Rp. <span id='price_"+data.id+"'>"+data.selling_price+"</span></td><td>Rp. <span id='limit_"+data.id+"'>"+data.limit+"</span></td><td><input type='text' name='discount[]' value='' id='discount_"+data.id+"' onblur='calc_price("+data.id+")'></td><td>Rp. <span id='total_"+data.id+"'>"+data.selling_price+"</span></td><input type='hidden' name='product_code[]' value='"+data.product_code+"'><input type='hidden' name='product_price[]' value='"+data.selling_price+"'></tr>");
+						if(type == ''){
+							type = data.type;
+							$('#type').val(data.type);
+						}
+
+						if(type != data.type){
+							$.Notify({
+					            caption: 'Error',
+					            content: 'Barang tidak dapat didaftarkan',
+					            type: 'alert'
+					        });
+						}else{
+							$('#table_body').append("<tr id='row_"+data.id+"'><td><a onclick='remove_row("+data.id+")' style='cursor:pointer'>&times;</a>"+no+"</td><td><a class='photobox' href='<?php echo base_url() ?>"+data.photo+"'><img width='20' src='<?php echo base_url() ?>"+data.photo+"' alt=''/></a></td><td>"+data.product_code+"</td><td>"+data.name+"</td><td>"+data.rounded_weight+"</td><td>Rp. <span id='price_"+data.id+"'>"+data.selling_price+"</span></td><td>Rp. <span id='limit_"+data.id+"'>"+data.limit+"</span></td><td><input type='text' name='discount[]' value='' id='discount_"+data.id+"' onblur='calc_price("+data.id+")'></td><td>Rp. <span id='total_"+data.id+"'>"+data.selling_price+"</span></td><input type='hidden' name='product_code[]' value='"+data.product_code+"'><input type='hidden' name='product_price[]' value='"+data.selling_price+"'></tr>");
+
+							
 
 							var total = $('#total_price').html();
 							var price = data.selling_price;
@@ -283,6 +298,8 @@
 							$('#hidden_total').val(total);
 							product_code.push(data.id);
 							no++;
+						}
+
 					}
 						
               	}
