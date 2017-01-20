@@ -35,10 +35,10 @@
 
 		/**** SELLING START ****/
 		public function new_sale(){
-			if($this->session_role=='admin'){
-				redirect('home');
-			}
+			
 			if($this->input->post()){
+				print_r($this->input->post());
+				exit;
 				/**kalo ada customer baru di insert**/
 				
 				if($this->input->post('new_customer') == 'on'){
@@ -54,6 +54,8 @@
 					$this->db->insert('customers', $data_customer);
 					$this->db->update('code',array('count' => $this->input->post('hidden_customer_count') + 1 ),array('code' => $this->input->post('hidden_customer_code')));
 				}
+
+				
 
 				if($this->input->post('customer_type') == 'Member' || $this->input->post('customer_type_hidden') == 'Member' ){
 					
@@ -126,6 +128,7 @@
 					$data['hidden_count'] = 1;	
 				}
 				$this->load->model('sales_model');
+
 				$data['sales'] = $this->sales_model->get_outlet_sales($this->session_outlet);
 				$data['title'] = 'Penjualan';
 				$this->template->load($this->default,'sale/new_sale',$data);	

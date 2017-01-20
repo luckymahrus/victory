@@ -328,8 +328,8 @@
 			}
 		}
 
-		public function get_product_by_outlet($outlet_id = ''){
-			$product = $this->product_model->get_product_outlet($outlet_id);
+		public function get_product_by_outlet($outlet_id = '',$status = ''){
+			$product = $this->product_model->get_product_outlet($outlet_id,$status);
 			if($product == NULL){
 				echo 'not found';
 			}else{

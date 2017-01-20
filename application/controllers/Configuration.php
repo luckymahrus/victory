@@ -11,8 +11,6 @@
 			if($this->session_role != 'admin'){
 				redirect('home');
 			}
-			$this->load->model('category_model');
-			$this->load->model('tray_model');
 		}
 
 		public function color(){

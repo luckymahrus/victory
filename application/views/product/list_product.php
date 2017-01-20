@@ -16,17 +16,36 @@
 	    <div class="row">
 	    	<div class="cell">
 	    			<label class="input-control radio small-check">
-						    <input type="radio" name="radio_outlet" value="" onclick="get_product_from_outlet(this)">
+						    <input type="radio" name="radio_outlet" value="0" checked="checked" id="radio_outlet" onclick="get_product_from_outlet()">
 						    <span class="check"></span>
 						    <span class="caption">Semua Toko</span>
 					</label>
 	   				<?php foreach($outlets as $outlet): ?>
                     	<label class="input-control radio small-check">
-						    <input type="radio" value="<?php echo $outlet->id ?>" name="radio_outlet" onclick="get_product_from_outlet(this)">
+						    <input type="radio" value="<?php echo $outlet->id ?>" name="radio_outlet" id="radio_outlet" onclick="get_product_from_outlet()">
 						    <span class="check"></span>
 						    <span class="caption"><?php echo $outlet->name ?></span>
 						</label>
                 	<?php endforeach; ?>
+	    	</div>
+	    </div>
+	    <div class="row">
+	    	<div class="cell">
+	    			<label class="input-control radio small-check">
+						    <input type="radio" name="item_status" checked="checked" value="available" id="item_status" onclick="get_product_from_outlet()">
+						    <span class="check"></span>
+						    <span class="caption">Available</span>
+					</label>
+	   				<label class="input-control radio small-check">
+						    <input type="radio" name="item_status" value="terjual" id="item_status" onclick="get_product_from_outlet()">
+						    <span class="check"></span>
+						    <span class="caption">Terjual</span>
+					</label>
+					<label class="input-control radio small-check">
+						    <input type="radio" name="item_status" value="pending" id="item_status" onclick="get_product_from_outlet()">
+						    <span class="check"></span>
+						    <span class="caption">Sedang Dikirim</span>
+					</label>
 	    	</div>
 	    </div>
 	    <div class="row">
@@ -81,6 +100,11 @@
 							</tr>
 						<?php endif; ?>
 					</tbody>
+					<tfoot class="hide-if-no-paging">
+						<td colspan="12">
+							<div class="pagination"></div>
+						</td>						
+					</tfoot>
 				</table>
 			</div>
 		</div>
@@ -110,10 +134,10 @@
 
 	});
 
-	function get_product_from_outlet(el){
+	function get_product_from_outlet(){
 		var no=1;
 		$.ajax({
-              url: "<?php echo base_url('product/get_product_by_outlet/')?>" + $(el).val(),
+              url: "<?php echo base_url('product/get_product_by_outlet/')?>" + $('input[name=radio_outlet]:checked').val() + "/" + $('input[name=item_status]:checked').val(),
               type: 'GET',
               cache : false,
               success: function(result){
@@ -127,7 +151,7 @@
               		var data = JSON.parse(result);
               		$('#table_body').empty();
               		$.each(data, function( index, value ) {
-					  $('#table_body').append("<tr><td>"+no+"</td><td><a class=photobox href='<?php echo base_url() ?>"+value.photo+"'><img width='20' src='<?php echo base_url()?>"+value.photo+"' alt=''/></a></td><td>"+value.product_code+"</td><td><a href='#' onclick='showDialog(\"<?php echo $product->product_code ?>\")'>"+value.name+"</a></td><td>"+value.tray+"</td><td>"+value.type+"</td><td>"+value.category+"</td><td>"+value.real_weight+"</td><td>"+value.rounded_weight+"</td><td>"+value.status+"</td><td>"+value.amount_type+" "+value.original+"->"+value.marked_up+"</td><td>"+value.outlet+"</td></tr>");	
+					  $('#table_body').append("<tr><td>"+no+"</td><td><a class=photobox href='<?php echo base_url() ?>"+value.photo+"'><img width='20' src='<?php echo base_url()?>"+value.photo+"' alt=''/></a></td><td>"+value.product_code+"</td><td><a href='#' onclick='showDialog(\""+value.product_code+"\")'>"+value.name+"</a></td><td>"+value.tray+"</td><td>"+value.type+"</td><td>"+value.category+"</td><td>"+value.real_weight+"</td><td>"+value.rounded_weight+"</td><td>"+value.status+"</td><td>"+value.amount_type+" "+value.original+"->"+value.marked_up+"</td><td>"+value.outlet+"</td></tr>");	
 					  no++;
 					});
 					$('#table_product').trigger('footable_initialize');

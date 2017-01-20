@@ -264,6 +264,37 @@
                     <div class="overlay-content" >
                       <div class="grid">
                         <div class="row cells2">
+                          <div class="cell">
+                            <div class="tile-group triple">
+                              <span class="tile-group-title">Penjualan</span>
+                                <div class="tile-container"><!--Container Penjualan begins-->
+                                    <a href="<?php echo base_url('sale') ?>" accesskey="1" class="tile-large fg-white" data-role="tile" style="background-color: #734ACC">
+                                      <div class="tile-content iconic">
+                                        <span class="icon mif-coins mif-ani-slow mif-ani-bounce"></span>
+                                        <span class="tile-label">Daftar Penjualan</span>
+                                      </div>
+                                    </a>
+                                    <a href="<?php echo base_url('sale/new_sale') ?>" accesskey="2" class="tile fg-white" data-role="tile" style="background-color: #905CFF">
+                                      <div class="tile-content iconic">
+                                        <span class="icon mif-plus"></span>
+                                        <span class="tile-label">Penjualan Baru</span>
+                                      </div>
+                                    </a>    
+                                    <div class="tile fg-white" data-role="tile" style="background-color:  #4383E8">
+                                      <div class="tile-content iconic">
+                                        <span class="icon mif-checkmark"></span>
+                                        <span class="tile-label">Booking Baru</span>
+                                      </div>
+                                    </div>    
+                                    <div class="tile-wide tile-big-x fg-white" data-role="tile" style="background-color: #3466B5">
+                                      <div class="tile-content iconic">
+                                        <span class="icon mif-clipboard mif-ani-slow mif-ani-heartbeat"></span>
+                                        <span class="tile-label">Daftar Booking</span>
+                                      </div>
+                                    </div>
+                                </div><!--Container ends-->
+                            </div>    
+                          </div>
                           
                           <div class="cell">
                             <div class="tile-group triple" >
@@ -283,8 +314,6 @@
                                     </div>
                                 </div><!--Container ends-->
                             </div>
-                            </div>
-                            <div class="cell">
                             <div class="tile-group triple" >
                                 <span class="tile-group-title">Pembelian</span>
                                 <div class="tile-container"><!--Container Pembelian begins-->

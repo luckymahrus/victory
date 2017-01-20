@@ -14,11 +14,6 @@ function wordlimiter($string, $limit = 1){
 }
 
 
-function verification_code(){
-	return bin2hex(openssl_random_pseudo_bytes(32));
-}
-
-
 function dollar($number){
 
 		return '$ '.number_format($number,2);

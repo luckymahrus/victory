@@ -15,7 +15,10 @@ class Sales_model extends CI_Model{
 		$this->db->from('accounts');
 		$this->db->join('outlets','outlets.id = accounts.outlet_id');
 		$this->db->where('accounts.role','sales');
-		$this->db->where('accounts.outlet_id',$outlet_id);
+		if($outlet_id != 0){
+			$this->db->where('accounts.outlet_id',$outlet_id);	
+		}
+		
 		return $this->db->get()->result();
 	}
 
