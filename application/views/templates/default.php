@@ -306,12 +306,12 @@
                                         <span class="tile-label">Daftar Buyback</span>
                                       </div>
                                     </div>
-                                    <div class="tile fg-white" data-role="tile" style="background-color: #E0A194">
+                                    <a href="<?php echo base_url('buyback/new_buyback') ?>" class="tile fg-white" data-role="tile" style="background-color: #E0A194">
                                       <div class="tile-content iconic">
                                         <span class="icon mif-plus"></span>
                                         <span class="tile-label">Buyback Baru</span>
                                       </div>
-                                    </div>
+                                    </a>
                                 </div><!--Container ends-->
                             </div>
                             <div class="tile-group triple" >
